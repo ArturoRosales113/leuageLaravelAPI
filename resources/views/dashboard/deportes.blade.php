@@ -8,8 +8,6 @@
     ])   
 
     <div class="container-fluid mt--7">
-        
-        
         @include('layouts.footers.auth')
     </div>
 @endsection
