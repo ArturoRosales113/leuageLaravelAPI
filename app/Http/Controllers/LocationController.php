@@ -83,6 +83,6 @@ class LocationController extends Controller
     public function destroy(Location $location)
     {
         $location->delete();
-        $return response()->json(null, 204;
+        return response()->json(null, 204);
     }
 }

@@ -1,4 +1,4 @@
-@extends('layouts.app', ['title' => __('Estadios')])
+@extends('layouts.app', ['title' => __('User Profile')])
 
 @section('content')
     @include('users.partials.header', [
@@ -8,8 +8,7 @@
     ])   
 
     <div class="container-fluid mt--7">
-        
-        
+      
         @include('layouts.footers.auth')
     </div>
 @endsection

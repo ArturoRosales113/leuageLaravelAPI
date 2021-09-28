@@ -52,8 +52,25 @@ class CreateTeamsTable extends Migration
             $table->timestamps();
         });
 
+
+
+        Schema::create('leagues', function (Blueprint $table) {
+            $table->id();
+            $table->unsignedBigInteger('user_id');
+            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
+            $table->unsignedBigInteger('sport_id');
+            $table->foreign('sport_id')->references('id')->on('sports')->onDelete('cascade');
+            $table->string('icon_path')->nullable();
+            $table->string('img_path')->nullable();
+            $table->json('schedule')->nullable();
+            $table->timestamps();
+        });
+
+
         Schema::create('locations', function (Blueprint $table) {
             $table->id();
+            $table->unsignedBigInteger('league_id');
+            $table->foreign('league_id')->references('id')->on('leagues')->onDelete('cascade');            
             $table->string('name');
             $table->string('display_name');
             $table->string('description');
@@ -95,17 +112,6 @@ class CreateTeamsTable extends Migration
             $table->string('height')->nullable();
             $table->timestamps();
             $table->softDeletes();
-        });
-
-        Schema::create('leagues', function (Blueprint $table) {
-            $table->id();
-            $table->unsignedBigInteger('user_id');
-            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
-            $table->unsignedBigInteger('sport_id');
-            $table->foreign('sport_id')->references('id')->on('sports')->onDelete('cascade');
-            $table->string('icon_path')->nullable();
-            $table->string('img_path')->nullable();
-            $table->timestamps();
         });
 
         Schema::create('teams', function (Blueprint $table) {
@@ -187,18 +193,23 @@ class CreateTeamsTable extends Migration
             $table->timestamps();
         });
 
-        
-
         Schema::create('game_referee', function (Blueprint $table) {
             $table->id();
-
             $table->unsignedBigInteger('game_id');
             $table->foreign('game_id')->references('id')->on('games')->onDelete('cascade');
-
             $table->unsignedBigInteger('referee_id');
             $table->foreign('referee_id')->references('id')->on('referees')->onDelete('cascade');
+            $table->timestamps();
+        });
 
-
+        Schema::create('scores', function (Blueprint $table) {
+            $table->id();
+            $table->unsignedBigInteger('game_id');
+            $table->foreign('game_id')->references('id')->on('games')->onDelete('cascade');
+            $table->unsignedBigInteger('player_id');
+            $table->foreign('player_id')->references('id')->on('players')->onDelete('cascade');
+            $table->integer('value');
+            $table->time('eventTime', $precision = 0);
             $table->timestamps();
         });
 
@@ -224,6 +235,7 @@ class CreateTeamsTable extends Migration
     public function down()
     {
         Schema::dropIfExists('actions');
+        Schema::dropIfExists('scores');
         Schema::dropIfExists('game_referee');
         Schema::dropIfExists('team_game');
         Schema::dropIfExists('games');
@@ -231,10 +243,10 @@ class CreateTeamsTable extends Migration
         Schema::dropIfExists('events');
         Schema::dropIfExists('players');
         Schema::dropIfExists('teams');
-        Schema::dropIfExists('leagues');
         Schema::dropIfExists('fields');
         Schema::dropIfExists('materials');
         Schema::dropIfExists('locations');
+        Schema::dropIfExists('leagues');
         Schema::dropIfExists('referees');
         Schema::dropIfExists('refereeTypes');
         Schema::dropIfExists('sports');

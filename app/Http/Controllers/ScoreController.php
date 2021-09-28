@@ -2,13 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\RefereeType;
+use App\Models\Score;
 use Illuminate\Http\Request;
 
-use App\Http\Requests\RefereeTypeCreateRequest;
-use App\Http\Requests\RefereeTypeStoreRequest;
-
-class RefereeTypeController extends Controller
+class ScoreController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -17,7 +14,7 @@ class RefereeTypeController extends Controller
      */
     public function index()
     {
-        return response()->json(RefereeType::all());
+        //
     }
 
     /**
@@ -36,31 +33,29 @@ class RefereeTypeController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(RefereeTypeCreateRequest $request)
+    public function store(Request $request)
     {
-        $refereeType = RefereeType::create($request->all());
-        
-        return response()->json($refereeType, 201);
+        //
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\RefereeType  $refereeType
+     * @param  \App\Models\Score  $score
      * @return \Illuminate\Http\Response
      */
-    public function show(RefereeType $refereeType)
+    public function show(Score $score)
     {
-        return $refereeType;
+        //
     }
 
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\RefereeType  $refereeType
+     * @param  \App\Models\Score  $score
      * @return \Illuminate\Http\Response
      */
-    public function edit(RefereeType $refereeType)
+    public function edit(Score $score)
     {
         //
     }
@@ -69,25 +64,22 @@ class RefereeTypeController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\RefereeType  $refereeType
+     * @param  \App\Models\Score  $score
      * @return \Illuminate\Http\Response
      */
-    public function update(RefereeTypeStoreRequest $request, RefereeType $refereeType)
+    public function update(Request $request, Score $score)
     {
-        $refereeType->update($request->all());
-
-        return response()->json($refereeType, 200);
+        //
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\RefereeType  $refereeType
+     * @param  \App\Models\Score  $score
      * @return \Illuminate\Http\Response
      */
-    public function destroy(RefereeType $refereeType)
+    public function destroy(Score $score)
     {
-        $refereeType->delete();
-        return response()->json(null, 204);
+        //
     }
 }
