@@ -11,13 +11,13 @@
                 <a href="https://www.creative-tim.com" class="nav-link" target="_blank">Playmaker</a>
             </li>
             <li class="nav-item">
-                <a href="http://artisans.mx" class="nav-link" target="_blank">Artisans</a>
+                <a href="http://artisans.mx" class="nav-link" target="_blank">Ayuda</a>
             </li>
             <li class="nav-item">
-                <a href="#!" class="nav-link" target="_blank">Sobre Nosotros</a>
+                <a href="#!" class="nav-link" target="_blank">Inicio</a>
             </li>
             <li class="nav-item">
-                <a href="#!" class="nav-link" target="_blank">Blog</a>
+                <a href="#!" class="nav-link" target="_blank">Ir a Sitio</a>
             </li>
 
         </ul>

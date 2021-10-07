@@ -19594,11 +19594,9 @@ textarea[resize='horizontal']
     .navbar-vertical.navbar-expand-md .navbar-brand
     {
         display: block;
-
         padding-top: 1rem;
-        padding-bottom: 1rem; 
-
-        text-align: center;
+        padding-bottom: 0rem; 
+        text-align: left;
     }
     .navbar-vertical.navbar-expand-md .navbar-brand-img
     {
@@ -21864,6 +21862,34 @@ html:not([dir='rtl']) .noUi-horizontal .noUi-handle
 .scrollbar-inner .scroll-element.scroll-x
 {
     bottom: 0; 
-
     height: 3px;
+}
+
+.image-user{
+    position: relative;
+}
+.border-b {
+    border: 5px solid #fff
+}
+.profile-img {
+    font-size: 1rem;
+    display: inline-flex;
+    width: 200px;
+    height: 200px;
+    color: #fff;
+    border-radius: 50%;
+    overflow: hidden;
+}
+.panel-icons {
+    padding: 1.25rem 1.5rem;
+    width: 100%;
+    text-align: center;
+}
+.name-user {
+    color: #fff;
+}
+.panel-cont {
+    background: linear-gradient(37deg, #6ce19a 0, #825ee4 100%);
+    color: #fff;
+    border-radius: 11px;
 }

@@ -119,7 +119,7 @@ Route::group(['middleware' => 'auth'], function () {
 	Route::get('roles/$id',[DashboardShowController::class, 'roles'])->name('roles.show');
 	Route::get('scores/$id',[DashboardShowController::class, 'scores'])->name('scores.show');
 	Route::get('sports/$id',[DashboardShowController::class, 'sports'])->name('sports.show');
-	Route::get('teams/$id',[DashboardShowController::class, 'teams'])->name('teams.show');
+	Route::get('teams/{id}',[DashboardShowController::class, 'teams'])->name('teams.show');
 	Route::get('users/$id',[DashboardShowController::class, 'users'])->name('users.show');
 
 	// Formulario editar
@@ -181,7 +181,6 @@ Route::group(['middleware' => 'auth'], function () {
 	Route::delete('sports/$id',[DashboardDeleteController::class, 'sports'])->name('sports.delete');
 	Route::delete('teams/$id',[DashboardDeleteController::class, 'teams'])->name('teams.delete');
 	Route::delete('users/$id',[DashboardDeleteController::class, 'users'])->name('users.delete');
-
 });
 
     
