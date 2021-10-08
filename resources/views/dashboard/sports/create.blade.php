@@ -16,48 +16,61 @@
                         <div class="row align-items-center">
                             <div class="col">
                                 <h3 class="mb-0">Deportes</h3>
+                                
+                                @if ($errors->any())
+                                <div class="alert alert-danger">
+                                    <ul>
+                                        @foreach ($errors->all() as $error)
+                                            <li>{{ $error }}</li>
+                                        @endforeach
+                                    </ul>
+                                </div>
+                                @endif
                             </div>
                         </div>
                     </div>
-
-                    <form class="pl-5 pr-5">
+                <div class="card-body">
+                    
+                    <form method="POST" enctype="multipart/form-data" action="{{ route('sports.store') }}" class="pl-5 pr-5">
+                        @csrf
                         <div class="form-group row">
                             <label for="Email" class="col-sm-3 col-form-label">Nombre del Deporte</label>
                             <div class="col-sm-9">
-                                <input type="text" class="form-control" id="Email" placeholder="ej. Basketball" >
+                                <input type="text" class="form-control" name="name" value="{{ old('name') }}" placeholder="ej. Basketball" >
                             </div>
                         </div>
                         <div class="form-group row">
                             <label for="Email" class="col-sm-3 col-form-label">Descripción</label>
                             <div class="col-sm-9">
-                                <textarea name="textarea" rows="5" cols="79" placeholder="Escribe la descripción del deporte"></textarea>
+                                <textarea name="description" rows="5" cols="79" placeholder="Escribe la descripción del deporte">{{ old('description') }}</textarea>
                             </div>
                         </div>
                         <div class="form-group row">
                             <label for="Email" class="col-sm-3 col-form-label">Cargar foto de deporte</label>
                             <div class="col-sm-8 ml-3">
-                                <input type="file" class="custom-file-input" id="customFile">
-                                <label class="custom-file-label" for="customFile">Cargar foto de deporte</label>
+                                <input type="file" class="custom-file-input" id="customFile" name="img_path">
+                                <label class="custom-file-label" for="customFile">Cargar Imagen</label>
                             </div>
                         </div>
                         <div class="form-group row">
-                            <label for="Email" class="col-sm-3 col-form-label">Cargar reglamento</label>
+                            <label for="Email" class="col-sm-3 col-form-label">Cargar Icono</label>
                             <div class="col-sm-8 ml-3">
-                                <input type="file" class="custom-file-input" id="customFile">
-                                <label class="custom-file-label" for="customFile">Subir documento</label>
+                                <input type="file" class="custom-file-input" id="customFile" name="icon_path">
+                                <label class="custom-file-label" for="customFile">Subir icono</label>
                             </div>
                         </div>
-                        <div class="form-group row">
+                        {{-- <div class="form-group row">
                             <label for="Email" class="col-sm-3 col-form-label">Cargar portada</label>
                             <div class="col-sm-8 ml-3">
                                 <input type="file" class="custom-file-input" id="customFile">
                                 <label class="custom-file-label" for="customFile">Seleccionar imagen</label>
                             </div>
-                        </div>
+                        </div> --}}
                         <button class="btn btn-primary" type="submit">Guardar</button>                        
                     </form>
 
 
+                </div>
 
                 </div>
             </div>

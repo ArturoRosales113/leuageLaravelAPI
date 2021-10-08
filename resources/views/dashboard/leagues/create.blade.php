@@ -20,7 +20,7 @@
                         </div>
                     </div>
 
-                    <form class="pl-5 pr-5">
+                    <form method="POST" enctype="multipart/form-data" action="{{ 'liga.create' }}" class="pl-5 pr-5">
                         <div class="form-group row">
                             <label for="league" class="col-sm-3 col-form-label">Nombre de la liga</label>
                             <div class="col-sm-9">
