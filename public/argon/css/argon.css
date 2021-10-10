@@ -21841,14 +21841,13 @@ html:not([dir='rtl']) .noUi-horizontal .noUi-handle
 .scrollbar-inner .scroll-element
 {
     margin-right: 2px; 
-
     transition: opacity 300ms;
 }
 .scrollbar-inner .scroll-element .scroll-bar,
 .scrollbar-inner .scroll-element .scroll-element_track
-{
-    transition: background-color 300ms;
-}
+    {
+        transition: background-color 300ms;
+    }
 .scrollbar-inner .scroll-element .scroll-element_track
 {
     background-color: transparent;
@@ -21909,3 +21908,68 @@ textarea {
     background-clip: padding-box;
     box-shadow: none;
 }
+.bg-playmaker {
+    background: #171e28;
+}
+.navbar-playmaker {
+    z-index: 1;
+    box-shadow: 1px 0px 8px 1px #0008!important;
+}
+.navbar-playmaker .navbar-nav .nav-link {
+    color: rgba(250, 250, 250, 1);
+}
+.body-playmaker {
+    background-color: #25292e;
+}
+.navbar-playmaker .navbar-nav .nav-link i {
+    color: #f4ce66;
+}
+.footer-playmaker {
+    background: transparent;
+    padding: 2.5rem 0;
+}
+.text-muted {
+    font-size: .9rem;
+}
+.version {
+    font-size: .8rem;
+}
+
+li.nav-item .collapse {
+    background: #123;
+    -webkit-transition: all 300ms ease;
+    -moz-transition: all 300ms ease;
+    -ms-transition: all 300ms ease;
+    -o-transition: all 300ms ease;
+    transition: all 300ms ease;
+}
+/*Scroll*/
+.scrollbar-light-blue::-webkit-scrollbar-track {
+    -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.1);
+    background-color: #F5F5F5;
+    border-radius: 10px; }
+
+    .scrollbar-light-blue::-webkit-scrollbar {
+    width: 12px;
+    background-color: #F5F5F5; }
+
+    .scrollbar-light-blue::-webkit-scrollbar-thumb {
+    border-radius: 10px;
+    -webkit-box-shadow: inset 0 0 6px rgb(0 0 0 / 10%);
+    background-image: -webkit-linear-gradient(330deg, #f6d365 0%, #fda085 100%);
+    background-image: linear-gradient(120deg, #f6d365 0%, #fda085 100%);
+    }
+    .scrollbar-light-blue {
+    scrollbar-color: #82B1FF #F5F5F5;
+    }
+
+    .square::-webkit-scrollbar-track {
+    border-radius: 0 !important; }
+
+    .square::-webkit-scrollbar-thumb {
+    border-radius: 0 !important; }
+
+    .thin::-webkit-scrollbar {
+    width: 6px; }
+
+/*Scrol Fin*/
