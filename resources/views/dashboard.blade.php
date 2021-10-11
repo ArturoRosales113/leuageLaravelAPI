@@ -5,14 +5,14 @@
     
     {{-- @include('layouts.headers.cards') --}}
 
-    <div class="header bg-gradient-primary image-user pt-5 pl-5 pt-md-8 pb-md-8">
+    <div class="header bg-gradient-default image-user pt-5 pl-5 pt-md-8 pb-md-8">
         &nbsp;
     </div>
 
     <div class="container-fluid">
     @include('layouts.headers.userhead')
     @include('users.partials.access')
-    
+
         {{-- <div class="row">
             <div class="col-xl-8 mb-5 mb-xl-0">
                 <div class="card bg-gradient-default shadow">

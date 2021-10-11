@@ -15,6 +15,18 @@
 * The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
 
 */
+@font-face {
+    font-family: 'sk-modernistregular';
+    src: url('/../playmaker/public/argon/fonts/modernist/sk-modernist-regular-webfont.woff2') format('woff2'),
+         url('/../playmaker/public/argon/fonts/modernist/sk-modernist-regular-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+.fuente {
+    font-family: 'sk-modernistregular';
+}
+
 :root
 {
     --blue: #5e72e4;
@@ -62,7 +74,7 @@
 
 html
 {
-    font-family: sans-serif;
+    font-family: 'sk-modernistregular';
     line-height: 1.15;
 
     -webkit-text-size-adjust: 100%;
@@ -92,7 +104,7 @@ section
 
 body
 {
-    font-family: Open Sans, sans-serif;
+    font-family: 'sk-modernistregular';
     font-size: 1rem;
     font-weight: 400;
     line-height: 1.5;
@@ -21617,9 +21629,7 @@ html:not([dir='rtl']) .noUi-horizontal .noUi-handle
     height: 15px;
 }
 
-/* Vertical layout;
- *
- */
+/* Vertical layout  */
 .noUi-pips-vertical
 {
     top: 0;
@@ -21898,7 +21908,6 @@ textarea {
     line-height: 1.5;
     display: block;
     width: 100%;
-
     padding: .625rem .75rem;
     transition: all .2s cubic-bezier(.68, -.55, .265, 1.55);
     color: #8898aa;
@@ -21908,9 +21917,14 @@ textarea {
     background-clip: padding-box;
     box-shadow: none;
 }
+
+
+
 .bg-playmaker {
     background: #171e28;
 }
+
+/* Nav lateral */
 .navbar-playmaker {
     z-index: 1;
     box-shadow: 1px 0px 8px 1px #0008!important;
@@ -21918,12 +21932,22 @@ textarea {
 .navbar-playmaker .navbar-nav .nav-link {
     color: rgba(250, 250, 250, 1);
 }
-.body-playmaker {
-    background-color: #25292e;
-}
 .navbar-playmaker .navbar-nav .nav-link i {
     color: #f4ce66;
 }
+.navbar-side-brand {
+    width: 142px;
+    max-height: 50px!important;
+}
+
+/* Fin Nav lateral */
+.body-playmaker {
+    background-color: #25292e;
+}
+.body-playmaker-white {
+    background-color: #dee9e2;
+}
+
 .footer-playmaker {
     background: transparent;
     padding: 2.5rem 0;
@@ -21973,3 +21997,65 @@ li.nav-item .collapse {
     width: 6px; }
 
 /*Scrol Fin*/
+
+
+/*Login */
+
+.registro {
+    height: 100vh;
+    width: 100%;
+    display: flex;
+}
+.registro .sectionLog {
+    width: 50%;
+    order: 1;
+}
+.row-r{
+    width: 100%;
+    max-width: 360px;
+}
+.registro .imagePml {
+    width: 50%;
+    order: 2;
+    background: #ff5;
+    background-size: cover;
+    background-position: center;
+    position: relative;
+    background-image: url(./../../images/bg/bg-login.jpg);
+}
+.registro .imagePml footer {
+    position: absolute;
+    width: 100%;
+    bottom: 0px;
+    padding-bottom: 1rem!important;
+}
+.imagePml .copyright {
+    font-size: 12px!important;
+    color: #00cccc!important;
+}
+.pdr{padding: 35px 20px 10px;}
+
+.ph {padding: 100px 0 30px;}
+
+.boxshadow{
+    box-shadow: 0px 0px 10px 2px rgb(7 74 74 / 65%);
+    -webkit-transition: all 400ms ease;
+    -moz-transition: all 400ms ease;
+    -ms-transition: all 400ms ease;
+    -o-transition: all 400ms ease;
+    transition: all 400ms ease;
+}
+.boxshadow:hover, .boxshadow:active, .boxshadow:focus {
+    box-shadow: 0px 0px 10px 5px rgb(11 207 207 / 63%);
+}
+/* Login fin */
+/* Gradient Header */
+
+.bg-gradient-header {
+    background: rgb(0,204,204);
+background: -moz-linear-gradient(127deg, rgba(0,204,204,1) 0%, rgba(1,155,168,1) 34%, rgba(1,107,134,1) 63%, rgba(2,1,58,1) 100%);
+background: -webkit-linear-gradient(127deg, rgba(0,204,204,1) 0%, rgba(1,155,168,1) 34%, rgba(1,107,134,1) 63%, rgba(2,1,58,1) 100%);
+background: linear-gradient(127deg, rgba(0,204,204,1) 0%, rgba(1,155,168,1) 34%, rgba(1,107,134,1) 63%, rgba(2,1,58,1) 100%);
+filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#00cccc",endColorstr="#02013a",GradientType=1);
+}
+/* Fin Gradient Header */

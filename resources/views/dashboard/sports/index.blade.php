@@ -1,13 +1,13 @@
 @extends('layouts.app', ['title' => __('User Profile')])
 
 @section('content')
+    @include('users.partials.header', [
+        'title' => __('Hello') . ' '. auth()->user()->name,
+        'description' => __('This is your profile page. You can see the progress you\'ve made with your work and manage your projects or assigned tasks'),
+        'class' => 'col-lg-7'
+    ])   
 
-    <div class="header bg-gradient-primary image-user pt-5 pl-5 pt-md-8 pb-md-8">
-        &nbsp;
-    </div>
-
-    <div class="container-fluid">
-        @include('layouts.headers.userhead')
+    <div class="container-fluid mt--7">
         
         <div class="card shadow mt-4">
             <div class="card-header border-0">
