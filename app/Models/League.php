@@ -11,9 +11,13 @@ class League extends Model
 
     protected $fillable = [        
         'user_id',
+        'league_name',
         'sport_id',
         'icon_path',
         'img_path'
+        'numero_equipos',
+        'description',
+        'reglamento_path'
     ];
 
     public function user()
@@ -26,4 +30,6 @@ class League extends Model
         return $this->belkongsTo('App\Models\Sport');
     }
 }
+
+
 

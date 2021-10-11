@@ -20,36 +20,36 @@
                         </div>
                     </div>
 
-                    <form method="POST" enctype="multipart/form-data" action="{{ 'liga.create' }}" class="pl-5 pr-5">
+                    <form method="POST" enctype="multipart/form-data" action="{{ 'liga.store' }}" class="pl-5 pr-5">
                         <div class="form-group row">
                             <label for="league" class="col-sm-3 col-form-label">Nombre de la liga</label>
                             <div class="col-sm-9">
-                                <input type="text" class="form-control" id="league" placeholder="ej. Basketball" >
+                                <input type="text" class="form-control" name="league_name" value="{{ old('league_name') }}" id="league" placeholder="ej. Basketball" >
                             </div>
                         </div>
                         <div class="form-group row">
                             <label for="email" class="col-sm-3 col-form-label">Email del presidente</label>
                             <div class="col-sm-9">
-                                <input type="text" class="form-control" id="Email" placeholder="usuario@email.com" >
+                                <input type="text" class="form-control" id="Email" name="email" value="{{ old('email') }}" placeholder="usuario@email.com" >
                             </div>
                         </div>
                         <div class="form-group row">
                             <label for="description" class="col-sm-3 col-form-label">Descripción</label>
                             <div class="col-sm-9">
-                                <textarea name="textarea" rows="5" cols="79" placeholder="Escribe la descripción de la liga"></textarea>
+                                <textarea name="description" rows="5" cols="79" placeholder="Escribe la descripción de la liga">{{ old('description') }}</textarea>
                             </div>
                         </div>
                         <div class="form-group row">
                             <label for="logo" class="col-sm-3 col-form-label">Logo de la liga</label>
                             <div class="col-sm-8 ml-3">
-                                <input type="file" class="custom-file-input" id="customFile">
+                                <input type="file" class="custom-file-input" name="icon_path" id="customFile">
                                 <label class="custom-file-label" for="customFile">Cargar imagen</label>
                             </div>
                         </div>
                         <div class="form-group row">
                           <label for="n-teams" class="col-sm-3 col-form-label">No. de quipos</label>
                               <div class="col-sm-9">
-                                <select class="custom-select">
+                                <select class="custom-select" name="numero_equipos">
                                   <option selected>Selecciona una opción</option>
                                   <option value="1">1</option>
                                   <option value="2">2</option>
@@ -87,13 +87,11 @@
                         <div class="form-group row">
                           <label for="sport" class="col-sm-3 col-form-label">Elige un deporte</label>
                               <div class="col-sm-9">
-                                <select class="custom-select">
+                                <select class="custom-select" name="sport_id">
                                   <option selected>Selecciona una opción</option>
-                                  <option value="1">Futbol</option>
-                                  <option value="2">Basquetbol</option>
-                                  <option value="3">Tenis</option>
-                                  <option value="4">Fut 7</option>
-                                  <option value="5">Futbol rápido</option>
+                                  @foreach ($sports as $s)
+                                  <option value="{{ $ }}">{{ $s->display_name }}</option>`
+                                  @endforeach
                                 </select>
                               </div>
                         </div>

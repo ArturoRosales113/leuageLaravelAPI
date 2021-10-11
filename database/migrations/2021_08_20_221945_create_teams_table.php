@@ -60,8 +60,12 @@ class CreateTeamsTable extends Migration
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
             $table->unsignedBigInteger('sport_id');
             $table->foreign('sport_id')->references('id')->on('sports')->onDelete('cascade');
+            $table->string('league_name')->nullable();
             $table->string('icon_path')->nullable();
             $table->string('img_path')->nullable();
+            $table->integer('numero_equipos')->nullable();
+            $table->integer('description')->nullable();
+            $table->integer('reglamento_path')->nullable();
             $table->json('schedule')->nullable();
             $table->timestamps();
         });
