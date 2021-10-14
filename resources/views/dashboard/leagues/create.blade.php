@@ -15,7 +15,7 @@
                     <div class="card-header border-0">
                         <div class="row align-items-center">
                             <div class="col">
-                                <h3 class="mb-0">Ligas</h3>
+                                <h3 class="mb-0">Crear Ligas</h3>
                             </div>
                         </div>
                     </div>

@@ -15,42 +15,16 @@
                     <div class="card-header border-0">
                         <div class="row align-items-center">
                             <div class="col">
-                                <h3 class="mb-0">Juegos</h3>
+                                <h3 class="mb-0">Crear Juegos</h3>
                             </div>
                         </div>
                     </div>
 
-                    <form method="POST" enctype="multipart/form-data" action="{{ 'liga.store' }}" class="pl-5 pr-5">
+                    <form method="POST" enctype="multipart/form-data" action="" class="pl-5 pr-5">
                         <div class="form-group row">
                             <label for="modality_id" class="col-sm-3 col-form-label">Modality</label>
                             <div class="col-sm-9">
-                                <input type="text" class="form-control" name="modality_id" value="{{ old('league_name') }}" id="league" placeholder="ej. Basketball" >
-                            </div>
-                        </div>
-                        <div class="form-group row">
-                            <label for="email" class="col-sm-3 col-form-label">Email del presidente</label>
-                            <div class="col-sm-9">
-                                <input type="text" class="form-control" id="Email" name="email" value="{{ old('email') }}" placeholder="usuario@email.com" >
-                            </div>
-                        </div>
-                        <div class="form-group row">
-                            <label for="description" class="col-sm-3 col-form-label">Descripción</label>
-                            <div class="col-sm-9">
-                                <textarea name="description" rows="5" cols="79" placeholder="Escribe la descripción de la liga">{{ old('description') }}</textarea>
-                            </div>
-                        </div>
-                        <div class="form-group row">
-                            <label for="logo" class="col-sm-3 col-form-label">Logo de la liga</label>
-                            <div class="col-sm-8 ml-3">
-                                <input type="file" class="custom-file-input" name="icon_path" id="customFile">
-                                <label class="custom-file-label" for="customFile">Cargar imagen</label>
-                            </div>
-                        </div>
-                        <div class="form-group row">
-                            <label for="img_path" class="col-sm-3 col-form-label">Portada de liga</label>
-                            <div class="col-sm-8 ml-3">
-                                <input type="file" class="custom-file-input" name="img_path" id="customFile">
-                                <label class="custom-file-label" for="customFile">Cargar imagen</label>
+                                <input type="text" class="form-control" name="modality_id" value="{{ old('modality_id') }}" id="modality_id" placeholder="ej. Basketball" >
                             </div>
                         </div>
                         <div class="form-group row">
@@ -76,36 +50,13 @@
                               </div>
                         </div>
                         <div class="form-group row">
-                          <label for="sport" class="col-sm-3 col-form-label">Hora de inicio</label>
-                              <div class="col-sm-9">
-                                <select class="custom-select" name="sport_id">
-                                  <option selected>Selecciona una opción</option>
-                                  @foreach ($sports as $s)
-                                  <option value="{{ $ }}">{{ $s->display_name }}</option>`
-                                  @endforeach
-                                </select>
-                              </div>
-                        </div>
-                        
-                        <div class="form-group row">
-                            <label for="Email" class="col-sm-3 col-form-label">Cargar reglamento</label>
-                            <div class="col-sm-8 ml-3">
-                                <input type="file" class="custom-file-input" id="customFile">
-                                <label class="custom-file-label" for="customFile">Subir documento</label>
+                                <label for="result" class="col-sm-3 col-form-label">Resultado</label>
+                                <div class="col-sm-9">
+                                    <input type="text" class="form-control" name="result" value="" placeholder="Resultado del encuentro" >
+                                </div>
                             </div>
-                        </div>
-                        <div class="form-group row">
-                            <label for="cover" class="col-sm-3 col-form-label">Cargar portada</label>
-                            <div class="col-sm-8 ml-3">
-                                <input type="file" class="custom-file-input" id="customFile">
-                                <label class="custom-file-label" for="customFile">Seleccionar imagen</label>
-                            </div>
-                        </div>
                         <button class="btn btn-primary" type="submit">Guardar</button>                        
                     </form>
-
-
-
                 </div>
             </div>
         </div>

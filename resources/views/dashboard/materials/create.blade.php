@@ -30,7 +30,7 @@
                         </div>
                     </div>
                     <div class="card-body">
-                        <form method="POST" enctype="multipart/form-data" action="{{ route('sports.store') }}" class="pl-5 pr-5">
+                        <form method="POST" enctype="multipart/form-data" action="{{ route('') }}" class="pl-5 pr-5">
                             @csrf
                             <div class="form-group row">
                                 <label for="Name" class="col-sm-3 col-form-label">Nombre del Material</label>
