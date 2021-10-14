@@ -47,6 +47,13 @@
                             </div>
                         </div>
                         <div class="form-group row">
+                            <label for="img_path" class="col-sm-3 col-form-label">Portada de liga</label>
+                            <div class="col-sm-8 ml-3">
+                                <input type="file" class="custom-file-input" name="img_path" id="customFile">
+                                <label class="custom-file-label" for="customFile">Cargar imagen</label>
+                            </div>
+                        </div>
+                        <div class="form-group row">
                           <label for="n-teams" class="col-sm-3 col-form-label">No. de quipos</label>
                               <div class="col-sm-9">
                                 <select class="custom-select" name="numero_equipos">
