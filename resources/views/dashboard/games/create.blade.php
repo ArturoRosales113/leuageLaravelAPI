@@ -22,7 +22,7 @@
 
                     <form method="POST" enctype="multipart/form-data" action="" class="pl-5 pr-5">
                         <div class="form-group row">
-                            <label for="modality_id" class="col-sm-3 col-form-label">Modality</label>
+                            <label for="modality_id" class="col-sm-3 col-form-label">Modalidad</label>
                             <div class="col-sm-9">
                                 <input type="text" class="form-control" name="modality_id" value="{{ old('modality_id') }}" id="modality_id" placeholder="ej. Basketball" >
                             </div>
@@ -38,23 +38,56 @@
                                 </select>
                               </div>
                         </div>
-                        <div class="form-group row">
-                          <label for="field_id" class="col-sm-3 col-form-label">Selecciona una Campo</label>
-                              <div class="col-sm-9">
-                                <select class="custom-select" name="field_id">
-                                  <option selected>Selecciona una opción</option>
-                                  <option></option>
-                                  <option></option>
-                                  <option></option>
-                                </select>
-                              </div>
-                        </div>
-                        <div class="form-group row">
-                                <label for="result" class="col-sm-3 col-form-label">Resultado</label>
+                            <div class="form-group row">
+                                <label for="field_id" class="col-sm-3 col-form-label">Selecciona una Campo</label>
+                                    <div class="col-sm-9">
+                                        <select class="custom-select" name="field_id">
+                                        <option selected>Selecciona una opción</option>
+                                        <option></option>
+                                        <option></option>
+                                        <option></option>
+                                        </select>
+                                    </div>
+                            </div>
+                            <div class="form-group row">
+                                <label for="referee_id" class="col-sm-3 col-form-label">Selecciona un arbitro</label>
                                 <div class="col-sm-9">
-                                    <input type="text" class="form-control" name="result" value="" placeholder="Resultado del encuentro" >
+                                    <select class="custom-select" name="referee_id">
+                                    <option selected>Selecciona una opción</option>
+                                    <option></option>
+                                    <option></option>
+                                    <option></option>
+                                    </select>
                                 </div>
                             </div>
+                            <div class="form-group row">
+                                <label for="referee_id" class="col-sm-3 col-form-label">Asignar arbitros</label>
+                                <div class="col-sm-9">
+                                  <input class="form-check-input" type="checkbox" name="referee_id[]" value="" id="defaultCheck1">
+                                    <label class="form-check-label" for="defaultCheck1">
+                                        Default checkbox
+                                    </label>
+                                    <input class="form-check-input" type="checkbox" name="referee_id[]" value="" id="defaultCheck1">
+                                    <label class="form-check-label" for="defaultCheck1">
+                                        Default checkbox
+                                    </label>
+                                    <input class="form-check-input" type="checkbox" name="referee_id[]" value="" id="defaultCheck1">
+                                    <label class="form-check-label" for="defaultCheck1">
+                                        Default checkbox
+                                    </label>
+                                    <input class="form-check-input" type="checkbox" name="referee_id[]" value="" id="defaultCheck1">
+                                    <label class="form-check-label" for="defaultCheck1">
+                                        Default checkbox
+                                    </label>
+                                    <input class="form-check-input" type="checkbox" name="referee_id[]" value="" id="defaultCheck1">
+                                    <label class="form-check-label" for="defaultCheck1">
+                                        Default checkbox
+                                    </label>
+                                </div>
+                            </div>
+
+
+
                         <button class="btn btn-primary" type="submit">Guardar</button>                        
                     </form>
                 </div>
