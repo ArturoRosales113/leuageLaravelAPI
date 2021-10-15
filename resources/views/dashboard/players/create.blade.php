@@ -20,7 +20,7 @@
                         </div>
                     </div>
 
-                    <form method="POST" enctype="multipart/form-data" action="{{ '' }}" class="pl-5 pr-5">
+                    <form method="POST" enctype="multipart/form-data" action="" class="pl-5 pr-5">
                         <div class="form-group row">
                             <label for="user_id" class="col-sm-3 col-form-label">Nombre del Jugador</label>
                             <div class="col-sm-9">

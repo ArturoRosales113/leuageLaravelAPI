@@ -29,7 +29,7 @@
                         </div>
                     </div>
                     <div class="card-body">
-                        <form method="POST" enctype="multipart/form-data" action="{{ route('sports.store') }}" class="pl-5 pr-5">
+                        <form method="POST" enctype="multipart/form-data" action="" class="pl-5 pr-5">
                             @csrf
                             <div class="form-group row">
                                 <label for="event_id" class="col-sm-3 col-form-label">Nombre de la acción</label>
@@ -38,7 +38,7 @@
                                 </div>
                             </div>
                             <div class="form-group row">
-                                <label for="game_id" class="col-sm-3 col-form-label">Selecciona un juego</label>
+                                <label for="game_id" class="col-sm-3 col-form-label">Acciones</label>
                                 <div class="col-sm-9">
 									<select class="form-control" name="game_id" placeholder="Selecciona un juego">
                                         <option> </option>
