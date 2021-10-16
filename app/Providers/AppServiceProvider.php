@@ -5,6 +5,9 @@ namespace App\Providers;
 use Illuminate\Support\ServiceProvider;
 use Illuminate\Support\Facades\Schema;
 use App\Models\Sport;
+use App\Models\League;
+use App\Models\Location;
+use App\Models\Material;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -29,6 +32,26 @@ class AppServiceProvider extends ServiceProvider
 
         view()->composer('dashboard.leagues.create', function ($view) {
             $view->with('sports' , Sport::all());
+        });
+
+        view()->composer('dashboard.teams.create', function ($view) {
+            $view->with('leagues' , League::all());
+        });
+
+        view()->composer('dashboard.events.create', function ($view) {
+            $view->with('sports' , Sport::all());
+        });
+
+        view()->composer('dashboard.locations.create', function ($view) {
+            $view->with('leagues' , League::all());
+        });
+
+        view()->composer('dashboard.fields.create', function ($view) {
+            $view->with('locations' , Location::all());
+        });
+
+        view()->composer('dashboard.fields.create', function ($view) {
+            $view->with('materials' , Material::all());
         });
 
     }

@@ -17,7 +17,7 @@ class CreateTeamsTable extends Migration
             $table->id();
             $table->string('name');
             $table->string('display_name');
-            $table->string('description');
+            $table->longText('description')->nullable();
             $table->string('icon_path')->nullable();
             $table->string('img_path')->nullable();
             $table->timestamps();
@@ -28,7 +28,7 @@ class CreateTeamsTable extends Migration
             $table->id();
             $table->string('name');
             $table->string('display_name');
-            $table->string('description');
+            $table->longText('description')->nullable();
             $table->string('icon_path')->nullable();
             $table->string('img_path')->nullable();
             $table->unsignedBigInteger('sport_id');
@@ -60,12 +60,12 @@ class CreateTeamsTable extends Migration
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
             $table->unsignedBigInteger('sport_id');
             $table->foreign('sport_id')->references('id')->on('sports')->onDelete('cascade');
-            $table->string('league_name')->nullable();
+            $table->string('name')->nullable();
             $table->string('icon_path')->nullable();
             $table->string('img_path')->nullable();
             $table->integer('numero_equipos')->nullable();
-            $table->integer('description')->nullable();
-            $table->integer('reglamento_path')->nullable();
+            $table->longText('description')->nullable();
+            $table->string('reglamento_path')->nullable();
             $table->json('schedule')->nullable();
             $table->timestamps();
         });
@@ -77,7 +77,7 @@ class CreateTeamsTable extends Migration
             $table->foreign('league_id')->references('id')->on('leagues')->onDelete('cascade');            
             $table->string('name');
             $table->string('display_name');
-            $table->string('description');
+            $table->longText('description')->nullable();
             $table->string('icon_path')->nullable();
             $table->string('img_path')->nullable();
             $table->string('address')->nullable();
@@ -94,7 +94,7 @@ class CreateTeamsTable extends Migration
             $table->id();
             $table->string('name');
             $table->string('display_name');
-            $table->string('description');
+            $table->longText('description')->nullable();
             $table->string('icon_path')->nullable();
             $table->string('img_path')->nullable();
             $table->timestamps();
@@ -105,7 +105,7 @@ class CreateTeamsTable extends Migration
             $table->id();
             $table->string('name');
             $table->string('display_name');
-            $table->string('description');
+            $table->longText('description')->nullable();
             $table->string('icon_path')->nullable();
             $table->string('img_path')->nullable();
             $table->unsignedBigInteger('location_id');
@@ -120,6 +120,8 @@ class CreateTeamsTable extends Migration
 
         Schema::create('teams', function (Blueprint $table) {
             $table->id();
+            $table->string('name')->nullable();
+            $table->longText('description')->nullable();
             $table->unsignedBigInteger('league_id');
             $table->foreign('league_id')->references('id')->on('leagues')->onDelete('cascade');
             $table->string('icon_path')->nullable();
@@ -147,6 +149,7 @@ class CreateTeamsTable extends Migration
             $table->id();
             $table->string('name');
             $table->string('display_name');
+            $table->longText('description')->nullable();
             $table->unsignedBigInteger('sport_id');
             $table->foreign('sport_id')->references('id')->on('sports')->onDelete('cascade');
             $table->string('icon_path')->nullable();
@@ -159,7 +162,7 @@ class CreateTeamsTable extends Migration
             $table->id();
             $table->string('name');
             $table->string('display_name');
-            $table->string('description');
+            $table->longText('description')->nullable();
             $table->string('icon_path')->nullable();
             $table->string('img_path')->nullable();
             $table->timestamps();

@@ -30,7 +30,7 @@
                         </div>
                     </div>
                     <div class="card-body">
-                        <form method="POST" enctype="multipart/form-data" action="" class="pl-5 pr-5">
+                        <form method="POST" enctype="multipart/form-data" action="{{ route('fields.store') }}" class="pl-5 pr-5">
                             @csrf
                             <div class="form-group row">
                                 <label for="Name" class="col-sm-3 col-form-label">Nombre campo</label>
@@ -62,21 +62,38 @@
                             </div>
 
                             <div class="form-group row">
+                                <label for="Material" class="col-sm-3 col-form-label">Pertence al estadio</label>
+                                <div class="col-sm-9">
+                                    <select class="custom-select" name="location_id">
+                                        <option value="0" selected>Selecciona una opción</option>
+                                        @foreach ($locations as $l)
+                                        <option {{ old('location_id') == $l->id ? 'selected' : ''}} value="{{ $l->id }}">{{ $l->display_name }}</option>`
+                                        @endforeach
+                                      </select>
+                                </div>
+                            </div>
+
+                            <div class="form-group row">
                                 <label for="Material" class="col-sm-3 col-form-label">Material</label>
                                 <div class="col-sm-9">
-                                    <input type="text" class="form-control" name="material_id" value="" placeholder="Dirección completa" >
+                                    <select class="custom-select" name="material_id">
+                                        <option value="0" selected>Selecciona una opción</option>
+                                        @foreach ($materials as $m)
+                                        <option {{ old('material_id') == $m->id ? 'selected' : ''}} value="{{ $m->id }}">{{ $m->display_name }}</option>`
+                                        @endforeach
+                                      </select>
                                 </div>
                             </div>
                             <div class="form-group row">
-                                <label for="whidth" class="col-sm-3 col-form-label">Ciudad</label>
+                                <label for="whidth" class="col-sm-3 col-form-label">Ancho</label>
                                 <div class="col-sm-9">
-                                    <input type="text" class="form-control" name="whidth" value="" placeholder="Ciudad" >
+                                    <input type="text" class="form-control" name="width" value="{{ old('width') }}" placeholder="Ancho" >
                                 </div>
                             </div>
                             <div class="form-group row">
-                                <label for="height" class="col-sm-3 col-form-label">Ciudad</label>
+                                <label for="height" class="col-sm-3 col-form-label">Largo</label>
                                 <div class="col-sm-9">
-                                    <input type="text" class="form-control" name="height" value="" placeholder="Ciudad" >
+                                    <input type="text" class="form-control" name="height" value="{{ old('height') }}" placeholder="Largo" >
                                 </div>
                             </div>
 

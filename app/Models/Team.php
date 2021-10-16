@@ -10,6 +10,8 @@ class Team extends Model
     use HasFactory;
 
     protected $fillable = [
+        'name',
+        'description',
         'league_id',
         'icon_path',
         'img_path'
@@ -20,6 +22,5 @@ class Team extends Model
         return $this->belongsTo('App/Models/League');
     }
 }
-
 
 

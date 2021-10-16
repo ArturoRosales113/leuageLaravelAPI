@@ -11,6 +11,7 @@ class Location extends Model
 
     protected $fillable = [        
         'name',
+        'league_id',
         'display_name',
         'description',
         'icon_path',

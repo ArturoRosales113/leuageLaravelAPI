@@ -10,7 +10,15 @@ class Field extends Model
     use HasFactory;
 
     protected $fillable = [
-        'name','display_name','description','icon_path','img_path','location_id','material_id','width','height'
+        'name',
+        'display_name',
+        'description',
+        'icon_path',
+        'img_path',
+        'location_id',
+        'material_id',
+        'width',
+        'height'
     ];
 
     public function location()

@@ -29,7 +29,7 @@
                         </div>
                     </div>
                     <div class="card-body">
-                        <form method="POST" enctype="multipart/form-data" action="" class="pl-5 pr-5">
+                        <form method="POST" enctype="multipart/form-data" action="{{ route('events.store') }}" class="pl-5 pr-5">
                             @csrf
                             <div class="form-group row">
                                 <label for="Name" class="col-sm-3 col-form-label">Nombre del evento</label>
@@ -41,9 +41,10 @@
                                 <label for="sport_id" class="col-sm-3 col-form-label">Selecciona un deporte</label>
                                 <div class="col-sm-9">
 									<select class="form-control" name="sport_id" placeholder="Selecciona un deporte">
-                                        <option> </option>
-                                        <option> </option>
-                                        <option> </option>
+                                        <option selected>Selecciona una opción</option>
+                                        @foreach ($sports as $s)
+                                        <option {{ old('sport_id') == $s->id ? 'selected' : ''}} value="{{ $s->id }}">{{ $s->display_name }}</option>`
+                                        @endforeach
                                     </select>
                                 </div>
                             </div>
@@ -51,6 +52,20 @@
                                 <label for="Description" class="col-sm-3 col-form-label">Descripción</label>
                                 <div class="col-sm-9">
                                     <textarea name="description" rows="5" cols="79" placeholder="Escribe la descripción del equipo">{{ old('description') }}</textarea>
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label for="Img_path" class="col-sm-3 col-form-label">Cargar foto del Evento</label>
+                                <div class="col-sm-8 ml-3">
+                                    <input type="file" class="custom-file-input" id="customFile" name="img_path">
+                                    <label class="custom-file-label" for="customFile">Cargar Imagen</label>
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label for="Icon_path" class="col-sm-3 col-form-label">Cargar Icono</label>
+                                <div class="col-sm-8 ml-3">
+                                    <input type="file" class="custom-file-input" id="customFile" name="icon_path">
+                                    <label class="custom-file-label" for="customFile">Subir icono</label>
                                 </div>
                             </div>
                             <button class="btn btn-primary" type="submit">Guardar</button>                        

@@ -29,7 +29,7 @@
                         </div>
                     </div>
                     <div class="card-body">
-                        <form method="POST" enctype="multipart/form-data" action="{{ route('sports.store') }}" class="pl-5 pr-5">
+                        <form method="POST" enctype="multipart/form-data" action="{{ route('teams.store') }}" class="pl-5 pr-5">
                             @csrf
                             <div class="form-group row">
                                 <label for="Name" class="col-sm-3 col-form-label">Nombre del equipo</label>
@@ -40,10 +40,11 @@
                             <div class="form-group row">
                                 <label for="Liga" class="col-sm-3 col-form-label">Selecciona una liga</label>
                                 <div class="col-sm-9">
-									<select class="form-control" name="league_name" placeholder="Selecciona una liga">
-                                        <option> </option>
-                                        <option> </option>
-                                        <option> </option>
+									<select class="form-control" name="league_id" placeholder="Selecciona una liga">
+                                        <option selected value="0">Selecciona una opción</option>
+                                        @foreach ($leagues as $l)
+                                            <option  {{ old('league_id') == $l->id ? 'selected' : '' }} value="{{ $l->id }}">{{ $l->name }}</option>t
+                                        @endforeach
                                     </select>
                                 </div>
                             </div>

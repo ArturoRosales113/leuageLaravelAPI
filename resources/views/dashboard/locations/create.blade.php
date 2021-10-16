@@ -30,7 +30,7 @@
                         </div>
                     </div>
                     <div class="card-body">
-                        <form method="POST" enctype="multipart/form-data" action="" class="pl-5 pr-5">
+                        <form method="POST" enctype="multipart/form-data" action="{{ route('locations.store') }}" class="pl-5 pr-5">
                             @csrf
                             <div class="form-group row">
                                 <label for="Name" class="col-sm-3 col-form-label">Nombre Locación</label>
@@ -41,19 +41,18 @@
                             <div class="form-group row">
                                 <label for="Liga" class="col-sm-3 col-form-label">Selecciona una liga</label>
                                 <div class="col-sm-9">
-                                    <select class="form-control" name="league_name" placeholder="Selecciona una liga dueña del estadio">
-                                        <option> </option>
-                                        <option> </option>
-                                        <option> </option>
+                                    <select class="form-control" name="league_id" placeholder="Selecciona una liga">
+                                        <option selected value="0">Selecciona una opción</option>
+                                        @foreach ($leagues as $l)
+                                            <option  {{ old('league_id') == $l->id ? 'selected' : '' }} value="{{ $l->id }}">{{ $l->name }}</option>t
+                                        @endforeach
                                     </select>
                                 </div>
                             </div>
                             <div class="form-group row">
                             	<label for="Description" class="col-sm-3 col-form-label">Descripción</label>
                                 <div class="col-sm-9">
-                                    <textarea name="description" rows="5" cols="79" placeholder="Escribe la descripción de la locación">
-                                    	{{ old('description') }}
-                                    	</textarea>
+                                    <textarea name="description" rows="5" cols="79" placeholder="Escribe la descripción de la locación">{{ old('description') }}</textarea>
                                 </div>
                             </div>
                             <div class="form-group row">
@@ -74,13 +73,13 @@
                             <div class="form-group row">
                                 <label for="Address" class="col-sm-3 col-form-label">Dirección</label>
                                 <div class="col-sm-9">
-                                    <input type="text" class="form-control" name="address" value="" placeholder="Dirección completa" >
+                                    <input type="text" class="form-control" name="address" value="{{ old('address') }}" placeholder="Dirección completa" >
                                 </div>
                             </div>
                             <div class="form-group row">
                                 <label for="City" class="col-sm-3 col-form-label">Ciudad</label>
                                 <div class="col-sm-9">
-                                    <input type="text" class="form-control" name="city" value="" placeholder="Ciudad" >
+                                    <input type="text" class="form-control" name="city" value="{{ old('city') }}" placeholder="Ciudad" >
                                 </div>
                             </div>
 
@@ -88,38 +87,38 @@
                                 <label for="State" class="col-sm-3 col-form-label">¿Cuál es tu estado?</label>
                                 <div class="col-sm-9">
                                     <select class="form-control" name="state" placeholder="Selecciona tu estado">
-                                        <option>Aguascalientes</option>
-                                        <option>Baja California</option>
-                                        <option>Baja California Sur</option>
-                                        <option>Campeche</option>
-                                        <option>Coahuila de Zaragoza</option>
-                                        <option>Colima</option>
-                                        <option>Chiapas</option>
-                                        <option>Chihuahua</option>
-                                        <option>Distrito Federal</option>
-                                        <option>Durango</option>
-                                        <option>Guanajuato</option>
-                                        <option>Guerrero</option>
-                                        <option>Hidalgo</option>
-                                        <option>Jalisco</option>
-                                        <option>México</option>
-                                        <option>Michoacán de Ocampo</option>
-                                        <option>Morelos</option>
-                                        <option>Nayarit</option>
-                                        <option>Nuevo León</option>
-                                        <option>Oaxaca</option>
-                                        <option>Puebla</option>
-                                        <option>Querétaro</option>
-                                        <option>Quintana Roo</option>
-                                        <option>San Luis Potosí</option>
-                                        <option>Sinaloa</option>
-                                        <option>Sonora</option>
-                                        <option>Tabasco</option>
-                                        <option>Tamaulipas</option>
-                                        <option>Tlaxcala</option>
-                                        <option>Veracruz de Ignacio de la Llave</option>
-                                        <option>Yucatán</option>
-                                        <option>Zacatecas</option>
+                                        <option value="Aguascalientes">Aguascalientes</option>
+                                        <option value="Baja California">Baja California</option>
+                                        <option value="Baja California Sur">Baja California Sur</option>
+                                        <option value="Campeche">Campeche</option>
+                                        <option value="Coahuila de Zaragoza">Coahuila de Zaragoza</option>
+                                        <option value="Colima">Colima</option>
+                                        <option value="Chiapas">Chiapas</option>
+                                        <option value="Chihuahua">Chihuahua</option>
+                                        <option value="Distrito Federal">Distrito Federal</option>
+                                        <option value="Durango">Durango</option>
+                                        <option value="Guanajuato">Guanajuato</option>
+                                        <option value="Guerrero">Guerrero</option>
+                                        <option value="Hidalgo">Hidalgo</option>
+                                        <option value="Jalisco">Jalisco</option>
+                                        <option value="México">México</option>
+                                        <option value="Michoacán de Ocampo">Michoacán de Ocampo</option>
+                                        <option value="Morelos">Morelos</option>
+                                        <option value="Nayarit">Nayarit</option>
+                                        <option value="Nuevo León">Nuevo León</option>
+                                        <option value="Oaxaca">Oaxaca</option>
+                                        <option value="Puebla">Puebla</option>
+                                        <option value="Querétaro">Querétaro</option>
+                                        <option value="Quintana Roo">Quintana Roo</option>
+                                        <option value="San Luis Potosí">San Luis Potosí</option>
+                                        <option value="Sinaloa">Sinaloa</option>
+                                        <option value="Sonora">Sonora</option>
+                                        <option value="Tabasco">Tabasco</option>
+                                        <option value="Tamaulipas">Tamaulipas</option>
+                                        <option value="Tlaxcala">Tlaxcala</option>
+                                        <option value="Veracruz de Ignacio de la Llave">Veracruz de Ignacio de la Llave</option>
+                                        <option value="Yucatán">Yucatán</option>
+                                        <option value="Zacatecas">Zacatecas</option>
                                     </select>
                                 </div>
                             </div>

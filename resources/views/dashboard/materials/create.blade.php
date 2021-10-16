@@ -30,7 +30,7 @@
                         </div>
                     </div>
                     <div class="card-body">
-                        <form method="POST" enctype="multipart/form-data" action="" class="pl-5 pr-5">
+                        <form method="POST" enctype="multipart/form-data" action="{{ route('materials.store') }}" class="pl-5 pr-5">
                             @csrf
                             <div class="form-group row">
                                 <label for="Name" class="col-sm-3 col-form-label">Nombre del Material</label>
@@ -47,13 +47,19 @@
                                 </div>
                             </div>
                             <div class="form-group row">
-                                <label for="icon_path" class="col-sm-3 col-form-label">Cargar foto de material</label>
+                                <label for="Img_path" class="col-sm-3 col-form-label">Cargar foto de material</label>
+                                <div class="col-sm-8 ml-3">
+                                    <input type="file" class="custom-file-input" id="customFile" name="img_path">
+                                    <label class="custom-file-label" for="customFile">Cargar Imagen</label>
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label for="Icon_path" class="col-sm-3 col-form-label">Cargar Icono</label>
                                 <div class="col-sm-8 ml-3">
                                     <input type="file" class="custom-file-input" id="customFile" name="icon_path">
                                     <label class="custom-file-label" for="customFile">Subir icono</label>
                                 </div>
                             </div>
-
                             <button class="btn btn-primary" type="submit">Guardar</button>                        
                         </form>
                     </div>
