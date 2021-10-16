@@ -1,13 +1,13 @@
-@extends('layouts.app', ['title' => __('User Profile')])
+@extends('layouts.app')
 
 @section('content')
-    @include('users.partials.header', [
-        'title' => __('Hello') . ' '. auth()->user()->name,
-        'description' => __('This is your profile page. You can see the progress you\'ve made with your work and manage your projects or assigned tasks'),
-        'class' => 'col-lg-7'
-    ])   
 
-    <div class="container-fluid mt--7">
+    <div class="header bg-gradient-default image-user pt-5 pl-5 pt-md-8 pb-md-8">
+        &nbsp;
+    </div>
+
+    <div class="container-fluid">
+    @include('layouts.headers.userhead')
         
         <div class="card shadow mt-4">
             <div class="card-header border-0">
@@ -28,10 +28,12 @@
                             <th scope="col">
                                 &nbsp;
                             </th>
-                            <th scope="col">Deporte</th>
+                            <th scope="col" data="name">Deporte</th>
+                            <th scope="col">Campos</th>
                             <th scope="col">Ligas</th>
+                            <th scope="col">Equipos</th>
                             <th scope="col">Jugadores</th>
-                            <th scope="col">Usuarios</th>
+                            <th scope="col">Acción</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -45,89 +47,24 @@
                                 Basquetbol
                             </td>
                             <td>
-                                2
+                                8
+                            </td>
+                            <td>
+                                4
                             </td>
                             <td>
                                 111
                             </td>
                             <td>
-                                5
-                            </td>
-                        </tr>
-                        <tr>
-                            <th>
-                                <span class="rounded-circle border-b avatar">
-                                    <img alt="Image placeholder" src="{{ asset('argon') }}/img/theme/team-4-800x800.jpg">
-                                </span>
-                            </th>
-                            <td scope="row">
-                                Basquetbol
+                                350
                             </td>
                             <td>
-                                2
-                            </td>
-                            <td>
-                                111
-                            </td>
-                            <td>
-                                5
-                            </td>
-                        </tr>
-                        <tr>
-                            <th>
-                                <span class="rounded-circle border-b avatar">
-                                    <img alt="Image placeholder" src="{{ asset('argon') }}/img/theme/team-4-800x800.jpg">
-                                </span>
-                            </th>
-                            <td scope="row">
-                                Basquetbol
-                            </td>
-                            <td>
-                                2
-                            </td>
-                            <td>
-                                111
-                            </td>
-                            <td>
-                                5
-                            </td>
-                        </tr>
-                        <tr>
-                            <th>
-                                <span class="rounded-circle border-b avatar">
-                                    <img alt="Image placeholder" src="{{ asset('argon') }}/img/theme/team-4-800x800.jpg">
-                                </span>
-                            </th>
-                            <td scope="row">
-                                Basquetbol
-                            </td>
-                            <td>
-                                2
-                            </td>
-                            <td>
-                                111
-                            </td>
-                            <td>
-                                5
-                            </td>
-                        </tr>
-                        <tr>
-                            <th>
-                                <span class="rounded-circle border-b avatar">
-                                    <img alt="Image placeholder" src="{{ asset('argon') }}/img/theme/team-4-800x800.jpg">
-                                </span>
-                            </th>
-                            <td scope="row">
-                                Basquetbol
-                            </td>
-                            <td>
-                                2
-                            </td>
-                            <td>
-                                111
-                            </td>
-                            <td>
-                                5
+                                <button class="btn btn-icon btn-2 btn-primary" type="button">
+                                    <span class="btn-inner--icon"><i class="fas fa-trash"></i></span>
+                                </button>
+                                <button class="btn btn-icon btn-2 btn-primary" type="button">
+                                    <span class="btn-inner--icon"><i class="far fa-edit"></i></span>
+                                </button>
                             </td>
                         </tr>
                     </tbody>

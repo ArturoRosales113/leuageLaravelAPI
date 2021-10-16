@@ -1,8 +1,8 @@
-@extends('layouts.app', ['title' => __('User Profile')])
+@extends('layouts.app')
 
 @section('content')
 
-    <div class="header bg-gradient-primary image-user pt-5 pl-5 pt-md-8 pb-md-8">
+    <div class="header bg-gradient-default image-user pt-5 pl-5 pt-md-8 pb-md-8">
         &nbsp;
     </div>
 

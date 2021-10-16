@@ -152,16 +152,7 @@
                                 <input type="text" name="peso" class="form-control" placeholder="88.10 kg" />
                             </div>
                         </div>
-                        <div class="form-group row">
-                            <label for="peso" class="col-sm-3 col-form-label">Estado del jugador</label>
-                            <label class="custom-toggle">
-                                <input type="checkbox">
-                                <span class="custom-toggle-slider rounded-circle"></span>
-                            </label>
-                        </div>
-                        
-
-                        <button class="btn btn-primary" type="submit">Guardar</button>                        
+                         <button class="btn btn-primary" type="submit">Guardar</button>                        
                     </form>
 
 
