@@ -17,8 +17,8 @@
 */
 @font-face {
     font-family: 'sk-modernistregular';
-    src: url('/../playmaker/public/argon/fonts/modernist/sk-modernist-regular-webfont.woff2') format('woff2'),
-         url('/../playmaker/public/argon/fonts/modernist/sk-modernist-regular-webfont.woff') format('woff');
+    src: url('../fonts/modernist/sk-modernist-regular-webfont.woff2') format('woff2'),
+         url('../fonts/modernist/sk-modernist-regular-webfont.woff') format('woff');
     font-weight: normal;
     font-style: normal;
 }
