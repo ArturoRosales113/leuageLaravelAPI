@@ -1,19 +1,19 @@
-@extends('layouts.app', ['title' => __('User Profile')])
+@extends('layouts.app')
 
 @section('content')
-    @include('users.partials.header', [
-        'title' => __('Hello') . ' '. auth()->user()->name,
-        'description' => __('This is your profile page. You can see the progress you\'ve made with your work and manage your projects or assigned tasks'),
-        'class' => 'col-lg-7'
-    ])   
 
-    <div class="container-fluid mt--7">
-      
-    <div class="card shadow mt-4">
+    <div class="header bg-gradient-default image-user pt-5 pl-5 pt-md-8 pb-md-8">
+        &nbsp;
+    </div>
+
+    <div class="container-fluid">
+    @include('layouts.headers.userhead')
+        
+        <div class="card shadow mt-4">
             <div class="card-header border-0">
                 <div class="row align-items-center">
                     <div class="col">
-                        <h3 class="mb-0">Mis Ligas</h3>
+                        <h3 class="mb-0">Mis Ligas Playmaker</h3>
                     </div>
                     <div class="col text-right">
                         <a href="#!" class="btn btn-sm btn-primary">Ver todos</a>
@@ -25,14 +25,14 @@
                 <table class="table align-items-center table-flush">
                     <thead class="thead-light">
                         <tr>
-                            <th scope="col">
+                            <th scope="col" data="icon_path">
                                 &nbsp;
                             </th>
-                            <th scope="col">Liga</th>
-                            <th scope="col">No de equios</th>
-                            <th scope="col">Ganados</th>
-                            <th scope="col">Perdidos</th>
-                            <th scope="col">Posición</th>
+                            <th scope="col" data="league_name">Liga</th>
+                            <th scope="col" data="name">Deporte</th>
+                            <th scope="col">Equipos</th>
+                            <th scope="col">Status</th>
+                            <th scope="col">Favorito</th>
                             <th scope="col">Acción</th>
                         </tr>
                     </thead>
@@ -43,117 +43,158 @@
                                     <img alt="Image placeholder" src="{{ asset('argon') }}/img/theme/team-4-800x800.jpg">
                                 </span>
                             </th>
-                            <td scope="row">
-                                Lakers
+                            <td>
+                                Liga del Valle de México
                             </td>
                             <td>
-                                11
+                                Basketbol
                             </td>
                             <td>
-                                11
+                                35
                             </td>
                             <td>
-                                2
+                                Activa
                             </td>
                             <td>
-                                <i class="fas fa-arrow-up text-success mr-3"></i> 46,53%
+                                <i class="fas fa-star"></i>
                             </td>
                             <td>
-                                
-                            </td>
-                        </tr>
-                        <tr>
-                            <th>
-                                <span class="rounded-circle border-b avatar">
-                                    <img alt="Image placeholder" src="{{ asset('argon') }}/img/theme/team-4-800x800.jpg">
-                                </span>
-                            </th>
-                            <td scope="row">
-                                Power Rangers
-                            </td>
-                            <td>
-                                3,985
-                            </td>
-                            <td>
-                                319
-                            </td>
-                            <td>
-                                2
-                            </td>
-                            <td>
-                                <i class="fas fa-arrow-up text-success mr-3"></i> 46,53%
-                            </td>
-                        </tr>
-                        <tr>
-                            <th>
-                                <span class="rounded-circle border-b avatar">
-                                    <img alt="Image placeholder" src="{{ asset('argon') }}/img/theme/team-4-800x800.jpg">
-                                </span>
-                            </th>
-                            <td scope="row">
-                                Black Storm
-                            </td>
-                            <td>
-                                3,513
-                            </td>
-                            <td>
-                                294
-                            </td>
-                            <td>
-                                2
-                            </td>
-                            <td>
-                                <i class="fas fa-arrow-up text-success mr-3"></i> 46,53%
-                            </td>
-                        </tr>
-                        <tr>
-                            <th>
-                                <span class="rounded-circle border-b avatar">
-                                    <img alt="Image placeholder" src="{{ asset('argon') }}/img/theme/team-4-800x800.jpg">
-                                </span>
-                            </th>
-                            <td scope="row">
-                                Powe Rangeres
-                            </td>
-                            <td>
-                                2,050
-                            </td>
-                            <td>
-                                147
-                            </td>
-                            <td>
-                                2
-                            </td>
-                            <td>
-                                <i class="fas fa-arrow-up text-success mr-3"></i> 46,53%
-                            </td>
-                        </tr>
-                        <tr>
-                            <th>
-                                <span class="rounded-circle border-b avatar">
-                                    <img alt="Image placeholder" src="{{ asset('argon') }}/img/theme/team-4-800x800.jpg">
-                                </span>
-                            </th>
-                            <th scope="row">
-                                Achiutla
-                            </th>
-                            <td>
-                                1,795
-                            </td>
-                            <td>
-                                190
-                            </td>
-                            <td>
-                                15
-                            </td>
-                            <td>
-                                <i class="fas fa-arrow-down text-danger mr-3"></i> 46,53%
+                                <button class="btn btn-icon btn-2 btn-primary" type="button">
+                                    <span class="btn-inner--icon"><i class="fas fa-trash"></i></span>
+                                </button>
+                                <button class="btn btn-icon btn-2 btn-primary" type="button">
+                                    <span class="btn-inner--icon"><i class="far fa-edit"></i></span>
+                                </button>
                             </td>
                         </tr>
                     </tbody>
                 </table>
             </div>
         </div>
+
+        <div class="row mt-5">
+        <div class="col-xl-4 mb-4">
+                <div class="card shadow">
+                    <div class="card-header border-0">
+                        <div class="row align-items-center">
+                            <div class="col">
+                                <h3 class="mb-0">Mis ligas favoritas</h3>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="table-responsive">
+                        <!-- Projects table -->
+                        <table class="table align-items-center table-flush">
+                            <thead class="thead-light">
+                                <tr>
+                                    <th scope="col" data="icon_path">
+                                        &nbsp;
+                                    </th>
+                                    <th scope="col" data="league_name">Liga</th>
+                                    <th scope="col">Favorito</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <th scope="row">
+                                       
+                                    </th>
+                                    <td>
+                                        <a href="">Liga del Bajío</a>
+                                    </td>
+                                    <td>
+                                        <i class="fas fa-star"></i>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-xl-4 mb-4">
+                <div class="card shadow">
+                    <div class="card-header border-0">
+                        <div class="row align-items-center">
+                            <div class="col">
+                                <h3 class="mb-0">Mis equipos favoritos</h3>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="table-responsive">
+                        <!-- Projects table -->
+                        <table class="table align-items-center table-flush">
+                            <thead class="thead-light">
+                                <tr>
+                                    <th scope="col" data="icon_path">
+                                        &nbsp;
+                                    </th>
+                                    <th scope="col">Equipo</th>
+                                    <th scope="col">Posición</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <th scope="row">
+                                       
+                                    </th>
+                                    <td>
+                                        <a href="">Power Rangers</a>
+                                    </td>
+                                    <td>
+                                        Posición
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-xl-4 mb-4">
+                <div class="card shadow">
+                    <div class="card-header border-0">
+                        <div class="row align-items-center">
+                            <div class="col">
+                                <h3 class="mb-0">Mis jugadores top</h3>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="table-responsive">
+                        <!-- Projects table -->
+                        <table class="table align-items-center table-flush">
+                            <thead class="thead-light">
+                                <tr>
+                                    <th scope="col" data="icon_path">
+                                        &nbsp;
+                                    </th>
+                                    <th scope="col" data="league_name">Nombre</th>
+                                    <th scope="col">Anotaciones</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <th scope="row">
+                                       
+                                    </th>
+                                    <td>
+                                        <a href="">Julio</a>
+                                    </td>
+                                    <td>
+                                        115
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+            
+        </div>
+
+
+
+
         @include('layouts.footers.auth')
     </div>
 @endsection

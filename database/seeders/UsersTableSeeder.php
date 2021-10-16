@@ -104,7 +104,19 @@ class UsersTableSeeder extends Seeder
             'created_at' => now(),
             'updated_at' => now()
         ]);
+        
 
+        //Admin Dos
+
+        DB::table('users')->insert([
+            'name' => 'Abel',
+            'email' => 'abel.landa@hotmail.com',
+            'email_verified_at' => now(),
+            'password' => Hash::make('12345678'),
+            'created_at' => now(),
+            'updated_at' => now()
+        ]);
+        
         
         //Jugadores
 

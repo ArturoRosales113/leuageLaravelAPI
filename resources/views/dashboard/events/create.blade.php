@@ -51,7 +51,7 @@
                             <div class="form-group row">
                                 <label for="Description" class="col-sm-3 col-form-label">Descripción</label>
                                 <div class="col-sm-9">
-                                    <textarea name="description" rows="5" cols="79" placeholder="Escribe la descripción del equipo">{{ old('description') }}</textarea>
+                                    <textarea name="description" rows="5" cols="79" placeholder="Escribe una descripción">{{ old('description') }}</textarea>
                                 </div>
                             </div>
                             <div class="form-group row">

@@ -38,6 +38,18 @@
                                 </div>
                             </div>
                             <div class="form-group row">
+                                <label for="user_id" class="col-sm-3 col-form-label">Nombre del Jugador</label>
+                                <div class="col-sm-9">
+                                    <input type="text" class="form-control" name="user_id" value="{{ old('user_id') }}" id="player" placeholder="" >
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label for="email" class="col-sm-3 col-form-label">Email del jugador</label>
+                                <div class="col-sm-9">
+                                    <input type="text" class="form-control" id="Email" name="email" value="{{ old('email') }}" placeholder="usuario@email.com" >
+                                </div>
+                            </div>
+                            <div class="form-group row">
                                 <label for="Liga" class="col-sm-3 col-form-label">Selecciona una liga</label>
                                 <div class="col-sm-9">
 									<select class="form-control" name="league_id" placeholder="Selecciona una liga">
