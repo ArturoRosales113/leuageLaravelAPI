@@ -2,11 +2,8 @@
 
 @section('content')
 
-    <div class="header bg-gradient-primary image-user pt-5 pl-5 pt-md-8 pb-md-8">
-        &nbsp;
-    </div>
-
-
+    @include('users.partials.head')
+    
     <div class="container-fluid">
         @include('layouts.headers.userhead')
         
