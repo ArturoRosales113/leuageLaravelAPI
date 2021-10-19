@@ -36,6 +36,7 @@
                         </tr>
                     </thead>
                     <tbody>
+                        @foreach ($fields as $f)
                         <tr>
                             <th>
                                 <span class="rounded-circle border-b avatar">
@@ -43,16 +44,16 @@
                                 </span>
                             </th>
                             <td>
-                                Campo Benito Juarez
+                               {{ $f->display_name }}
                             </td>
                             <td>
-                                Liga del Valle de Mexico
+                                {{  $f->address }}
                             </td>
                             <td>
-                                N/A
+                                {{ $f->sport->display_name }}
                             </td>
                             <td>
-                                Duela
+                                {{ $f->material->display_name }}
                             </td>
                             <td>
                                 Duela
@@ -68,7 +69,8 @@
                                     <span class="btn-inner--icon"><i class="far fa-edit"></i></span>
                                 </button>
                             </td>
-                        </tr>
+                        </tr>                            
+                        @endforeach
                     </tbody>
                 </table>
             </div>

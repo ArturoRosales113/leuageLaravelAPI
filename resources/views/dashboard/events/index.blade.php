@@ -14,6 +14,7 @@
                         <h3 class="mb-0">Mis Ligas Playmaker</h3>
                     </div>
                     <div class="col text-right">
+                        <a href="{{ route('events.create') }}" class="btn btn-sm btn-primary">Crear nuevo</a>
                         <a href="#!" class="btn btn-sm btn-primary">Ver todos</a>
                     </div>
                 </div>
@@ -32,6 +33,7 @@
                         </tr>
                     </thead>
                     <tbody>
+                        @foreach ($events as $ev)
                         <tr>
                             <th>
                                 <span class="rounded-circle border-b avatar">
@@ -39,20 +41,21 @@
                                 </span>
                             </th>
                             <td>
-                                
+                                {{ $ev->display_name }}
                             </td>
                             <td>
-                                Basketbol
+                                {{ $ev->sport->display_name }}
                             </td>
                             <td>
+                                <a href="{{ route('events.edit', $ev->id) }}" class="btn btn-icon btn-2 btn-primary" type="button">
+                                    <span class="btn-inner--icon"><i class="far fa-edit"></i></span>
+                                </a>
                                 <button class="btn btn-icon btn-2 btn-primary" type="button">
                                     <span class="btn-inner--icon"><i class="fas fa-trash"></i></span>
                                 </button>
-                                <button class="btn btn-icon btn-2 btn-primary" type="button">
-                                    <span class="btn-inner--icon"><i class="far fa-edit"></i></span>
-                                </button>
                             </td>
                         </tr>
+                        @endforeach
                     </tbody>
                 </table>
             </div>

@@ -23,12 +23,12 @@ class Field extends Model
 
     public function location()
     {
-        return $this->belongsTo('App\Models\Location');
+        return $this->belongsTo(Location::class);
     }
 
     public function material()
     {
-        return $this->belongsTo('App\Models\Material');
+        return $this->belongsTo(Material::class);
     }
 }
 

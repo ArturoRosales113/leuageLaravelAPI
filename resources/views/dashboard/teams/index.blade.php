@@ -34,6 +34,7 @@
                         </tr>
                     </thead>
                     <tbody>
+                        @foreach ($teams as $t)
                         <tr>
                             <th>
                                 <span class="rounded-circle border-b avatar">
@@ -41,13 +42,13 @@
                                 </span>
                             </th>
                             <td scope="row">
-                                Power Rangers
+                                {{ $t -> name }}
                             </td>
                             <td>
-                                Valle de México
+                               {{ $t->league->name }}
                             </td>
                             <td>
-                                22
+                                {{ $t->players->count() }}
                             </td>
                             <td>
                                 Jonathan
@@ -61,6 +62,7 @@
                                 </button>
                             </td>
                         </tr>
+                        @endforeach
                     </tbody>
                 </table>
             </div>

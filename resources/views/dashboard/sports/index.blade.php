@@ -35,6 +35,7 @@
                         </tr>
                     </thead>
                     <tbody>
+                    @foreach ($sports as $sp)
                         <tr>
                             <th>
                                 <span class="rounded-circle border-b avatar">
@@ -42,19 +43,19 @@
                                 </span>
                             </th>
                             <td scope="row">
-                                Basquetbol
+                                {{ $sp->display_name }}
                             </td>
                             <td>
-                                8
+                                {{-- {{ $sp->fields }} --}}
                             </td>
                             <td>
-                                4
+                                {{-- {{ $sp->leagues }} --}}
                             </td>
                             <td>
-                                111
+                                {{-- {{ $sp->teams }} --}}
                             </td>
                             <td>
-                                350
+                                {{-- {{ $sp->players }} --}}
                             </td>
                             <td>
                                 <button class="btn btn-icon btn-2 btn-primary" type="button">
@@ -65,6 +66,7 @@
                                 </button>
                             </td>
                         </tr>
+                    @endforeach
                     </tbody>
                 </table>
             </div>

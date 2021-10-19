@@ -22,12 +22,17 @@ class League extends Model
 
     public function user()
     {
-        return $this->belkongsTo('App\Models\User');
+        return $this->belongsTo(User::class);
     }
 
     public function sport()
     {
-        return $this->belkongsTo('App\Models\Sport');
+        return $this->belongsTo(Sport::class);
+    }
+
+    public function teams()
+    {
+        return $this->hasMany(Team::class);
     }
 }
 

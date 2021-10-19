@@ -35,6 +35,7 @@
                         </tr>
                     </thead>
                     <tbody>
+                        @foreach ($leagues as $lg)
                         <tr>
                             <th>
                                 <span class="rounded-circle border-b avatar">
@@ -42,13 +43,13 @@
                                 </span>
                             </th>
                             <td>
-                                Liga del Valle de México
+                                {{ $lg->name }}
                             </td>
                             <td>
-                                Basketbol
+                                {{ $lg->sport->display_name }}
                             </td>
                             <td>
-                                35
+                                {{ $lg->teams->count() }}
                             </td>
                             <td>
                                 Activa
@@ -65,6 +66,7 @@
                                 </button>
                             </td>
                         </tr>
+                        @endforeach
                     </tbody>
                 </table>
             </div>

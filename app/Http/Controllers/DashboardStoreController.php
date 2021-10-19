@@ -19,6 +19,8 @@ use App\Http\Traits\ImageManagerTrait;
 use Illuminate\Support\Str;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
+use RealRashid\SweetAlert\Facades\Alert;
+
 
 
 class DashboardStoreController extends Controller
@@ -61,7 +63,8 @@ class DashboardStoreController extends Controller
             }
 
             $sport->save();
-
+        
+        Alert::success('Éxito', 'Deporte creado');
         return redirect()->route('sports.index');
        }
     }
@@ -115,7 +118,7 @@ class DashboardStoreController extends Controller
             }
 
             $league->save();
-
+            Alert::success('Éxito', 'Liga creada');
             return redirect()->route('leagues.index');
         }
     }
@@ -156,7 +159,7 @@ class DashboardStoreController extends Controller
             }
 
             $team->save();
-
+            Alert::success('Éxito', 'Equipo creado');
             return redirect()->route('teams.index');
         }
     }
@@ -198,7 +201,7 @@ class DashboardStoreController extends Controller
             }
 
             $event->save();
-
+            Alert::success('Éxito', 'Evento creado');
             return redirect()->route('events.index');
         }
     }
@@ -240,6 +243,7 @@ class DashboardStoreController extends Controller
 
             $material->save();
 
+            Alert::success('Éxito', 'Material creado');
             return redirect()->route('materials.index');
         }
     }
@@ -281,6 +285,7 @@ class DashboardStoreController extends Controller
 
             $modalitie->save();
 
+            Alert::success('Éxito', 'Modalidad creado');
             return redirect()->route('materials.index');
         }
     }
@@ -336,6 +341,7 @@ class DashboardStoreController extends Controller
 
             $location->save();
 
+            Alert::success('Éxito', 'Estadio creado');
             return redirect()->route('teams.index');
         }
     }
@@ -385,6 +391,7 @@ class DashboardStoreController extends Controller
 
             $location->save();
 
+            Alert::success('Éxito', 'Campo creado');
             return redirect()->route('teams.index');
         }
     }
