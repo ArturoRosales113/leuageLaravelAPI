@@ -18,10 +18,10 @@
         <link type="text/css" href="{{ asset('argon') }}/css/argon.css?v=1.0.0" rel="stylesheet">
     </head>
 
-    <body class="scrollbar-light-blue body-playmaker">
+    <body class="scrollbar-light-blue bg-playm">
 
         <div class="registro">
-            <div class="sectionLog">
+            <div class="">
                 @auth()
                     <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
                         @csrf
@@ -34,12 +34,9 @@
                     @yield('content')
                 </div>
             </div>
-
-            <div class="imagePml">
-                @guest()
-                    @include('layouts.footers.guest')
-                @endguest
-            </div>
+            @guest()
+                @include('layouts.footers.guest')
+            @endguest
         </div>
 
         <script src="{{ asset('argon') }}/vendor/jquery/dist/jquery.min.js"></script>

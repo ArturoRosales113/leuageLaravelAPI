@@ -4,9 +4,9 @@
     @include('layouts.headers.guest')
 
     <div class="container pb-5">
-        <div class="row justify-content-center">
+        <div class="row justify-content-end">
             <div class="row-r">
-                <div class="card boxshadow border-0">
+                <div class="box-login">
                     {{-- <div class="card-header bg-transparent pb-1">
                         <div class="text-muted text-center mt-2 mb-3"><small>{{ __('Sign in with') }}</small></div>
                         <div class="btn-wrapper text-center">
@@ -20,10 +20,10 @@
                             </a>
                         </div>
                     </div> --}}
-                    <div class="card-body pdr">
-                        <div class="text-center text-muted mb-4">
+                    <div class="pdr">
+                        <div class="text-center text-white mb-4">
                             <small>
-                                    Bienvenido
+                                    BIENVENIDO
                                     {{-- <br> --}}
                                     {{-- Username <strong>admin@argon.com</strong> Password: <strong>secret</strong> --}}
                             </small>
@@ -32,11 +32,8 @@
                             @csrf
 
                             <div class="form-group{{ $errors->has('email') ? ' has-danger' : '' }} mb-3">
-                                <div class="input-group input-group-alternative">
-                                    <div class="input-group-prepend">
-                                        <span class="input-group-text"><i class="ni ni-email-83"></i></span>
-                                    </div>
-                                    <input class="form-control{{ $errors->has('email') ? ' is-invalid' : '' }}" placeholder="{{ __('Email') }}" type="email" name="email" value="{{ old('email') }}" value="admin@argon.com" required autofocus>
+                                <div class="input-group input-alternative">
+                                    <input class="f-control{{ $errors->has('email') ? ' is-invalid' : '' }}" placeholder="{{ __('Email') }}" type="email" name="email" value="{{ old('email') }}" value="admin@argon.com" required autofocus>
                                 </div>
                                 @if ($errors->has('email'))
                                     <span class="invalid-feedback" style="display: block;" role="alert">
@@ -45,11 +42,8 @@
                                 @endif
                             </div>
                             <div class="form-group{{ $errors->has('password') ? ' has-danger' : '' }}">
-                                <div class="input-group input-group-alternative">
-                                    <div class="input-group-prepend">
-                                        <span class="input-group-text"><i class="ni ni-lock-circle-open"></i></span>
-                                    </div>
-                                    <input class="form-control{{ $errors->has('password') ? ' is-invalid' : '' }}" name="password" placeholder="{{ __('Password') }}" type="password" value="secret" required>
+                                <div class="input-group input-alternative">
+                                    <input class="f-control{{ $errors->has('password') ? ' is-invalid' : '' }}" name="password" placeholder="{{ __('Password') }}" type="password" value="secret" required>
                                 </div>
                                 @if ($errors->has('password'))
                                     <span class="invalid-feedback" style="display: block;" role="alert">
@@ -60,24 +54,25 @@
                             <div class="custom-control custom-control-alternative custom-checkbox">
                                 <input class="custom-control-input" name="remember" id="customCheckLogin" type="checkbox" {{ old('remember') ? 'checked' : '' }}>
                                 <label class="custom-control-label" for="customCheckLogin">
-                                    <span class="text-muted">{{ __('Recordar datos') }}</span>
+                                    <span class="text-white">{{ __('Recordar datos') }}</span>
                                 </label>
                             </div>
-                            <div class="text-center">
-                                <button type="submit" class="btn btn-primary my-4">{{ __('Iniciar Sesión') }}</button>
+
+                            <div class="buttons-login">
+                                <div class="buttons-items">
+                                    <button type="submit" class="btn-white my-4">{{ __('Iniciar Sesión') }}</button>
+                                </div>
+
+                                <div class="buttons-items">
+                                    @if (Route::has('password.request'))
+                                        <a href="{{ route('password.request') }}" class="text-light">
+                                            <small>{{ __('Recuperar mi contraseña') }}</small>
+                                        </a>
+                                    @endif
+                                </div>
                             </div>
                         </form>
                     </div>
-                </div>
-                <div class="row mt-3">
-                    <div class="col-12">
-                        @if (Route::has('password.request'))
-                            <a href="{{ route('password.request') }}" class="text-light">
-                                <small>{{ __('Recuperar mi contraseña') }}</small>
-                            </a>
-                        @endif
-                    </div>
-
                 </div>
             </div>
         </div>
