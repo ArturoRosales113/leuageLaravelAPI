@@ -61,7 +61,7 @@
                                 <i class="fas fa-star"></i>
                             </td>
                               <td>
-                            <a href="{{ route('fields.edit', $f->id ) }}" class="btn btn-icon btn-2 btn-primary">
+                            <a href="" class="btn btn-icon btn-2 btn-primary">
                                     <span class="btn-inner--icon"><i class="far fa-edit"></i></span>
                                 </a>
                                 <button class="btn btn-icon btn-2 btn-danger" type="button">
