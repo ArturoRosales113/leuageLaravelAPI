@@ -14,7 +14,7 @@
                         <h3 class="mb-0">Mis Ligas Playmaker</h3>
                     </div>
                     <div class="col text-right">
-                        <a href="#!" class="btn btn-sm btn-primary">Ver todos</a>
+                         <a href="{{ route('leagues.create') }}" class="btn btn-sm btn-default"><i class="fas fa-plus"></i>&nbsp;Crear liga</a>
                     </div>
                 </div>
             </div>    
@@ -43,7 +43,9 @@
                                 </span>
                             </th>
                             <td>
+                               <a href="{{ route('leagues.show', $lg->id) }}" class="text-default text-underline">
                                 {{ $lg->name }}
+                               </a>
                             </td>
                             <td>
                                 {{ $lg->sport->display_name }}
@@ -58,12 +60,21 @@
                                 <i class="fas fa-star"></i>
                             </td>
                             <td>
-                                <button class="btn btn-icon btn-2 btn-primary" type="button">
-                                    <span class="btn-inner--icon"><i class="fas fa-trash"></i></span>
-                                </button>
-                                <button class="btn btn-icon btn-2 btn-primary" type="button">
+                                <a href="{{ route('leagues.edit', $lg->id) }}" class="btn btn-icon btn-2 btn-primary">
                                     <span class="btn-inner--icon"><i class="far fa-edit"></i></span>
-                                </button>
+                                </a>
+    
+                                <form method="POST" class="d-inline-block" action="{{ route('leagues.delete', $lg->id) }}">
+                                    {{ csrf_field() }}
+                                    {{ method_field('DELETE') }}
+                            
+                                    <div class="form-group">
+                                        <button class="btn btn-icon btn-2 btn-danger" type="submit">
+                                            <span class="btn-inner--icon"><i class="fas fa-trash"></i></span>
+                                        </button>
+                                    </div>
+                                </form>
+   
                             </td>
                         </tr>
                         @endforeach

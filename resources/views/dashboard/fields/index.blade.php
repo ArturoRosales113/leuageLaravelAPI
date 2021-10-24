@@ -13,8 +13,10 @@
                     <div class="col">
                         <h3 class="mb-0">Mi Campos</h3>
                     </div>
+
+  
                     <div class="col text-right">
-                        <a href="#!" class="btn btn-sm btn-primary">Ver todos</a>
+                        <a href="{{ route('fields.create') }}" class="btn btn-sm btn-default"><i class="fas fa-plus"></i>&nbsp;Crear campo</a>
                     </div>
                 </div>
             </div>    
@@ -27,9 +29,7 @@
                                 &nbsp;
                             </th>
                             <th scope="col" data="">Nombre</th>
-                            <th scope="col" data="league_name">Liga</th>
-                            <th scope="col" data="name">Deporte</th>
-                            <th scope="col" data="name">Equipo</th>
+                            <th scope="col" data="league_name">Estadio</th>
                             <th scope="col" data="material">Material</th>
                             <th scope="col">Ubicación</th>
                             <th scope="col">Acción</th>
@@ -44,35 +44,42 @@
                                 </span>
                             </th>
                             <td>
-                               {{ $f->display_name }}
+                               {{ $f->name }}
                             </td>
                             <td>
-                                {{  $f->address }}
-                            </td>
-                            <td>
-                                {{ $f->sport->display_name }}
+                                {{  $f->location->display_name }}
                             </td>
                             <td>
                                 {{ $f->material->display_name }}
                             </td>
                             <td>
-                                Duela
-                            </td>
-                            <td>
+                                @if ($f->lat != null && $f->long !=null)
                                 <a href="">Ver mapa</a>
+                                @endif
                             </td>
                             <td>
-                                <button class="btn btn-icon btn-2 btn-primary" type="button">
+                            <a href="{{ route('fields.edit', $f->id ) }}" class="btn btn-icon btn-2 btn-primary">
+                                    <span class="btn-inner--icon"><i class="far fa-edit"></i></span>
+                                </a>
+                                <button class="btn btn-icon btn-2 btn-danger" type="button">
                                     <span class="btn-inner--icon"><i class="fas fa-trash"></i></span>
                                 </button>
-                                <button class="btn btn-icon btn-2 btn-primary" type="button">
-                                    <span class="btn-inner--icon"><i class="far fa-edit"></i></span>
-                                </button>
+
                             </td>
                         </tr>                            
                         @endforeach
                     </tbody>
                 </table>
+            </div>
+        </div>
+
+        <div class="card col-6 mt-4">
+            <div class="card-body">
+                <div class="col">
+                    <h5>Materiales</h5>
+                    <a href="{{ route('materials.create') }}" class="btn btn-sm btn-primary"><i class="fas fa-plus"></i>&nbsp;Crear Material</a>
+                    <a href="{{ route('materials.index') }}" class="btn btn-sm btn-info"><i class="fas fa-list-ol"></i>&nbsp;Listar todos los materiales</a>
+                </div>
             </div>
         </div>
 

@@ -14,7 +14,8 @@
                         <h3 class="mb-0">Mis estadios</h3>
                     </div>
                     <div class="col text-right">
-                        <a href="#!" class="btn btn-sm btn-primary">Ver todos</a>
+                                                <a href="{{ route('locations.create') }}" class="btn btn-sm btn-default"><i class="fas fa-plus"></i>&nbsp;Crear estadio</a>
+
                     </div>
                 </div>
             </div>    
@@ -27,6 +28,7 @@
                                 &nbsp;
                             </th>
                             <th scope="col" data="name">Nombre</th>
+                            <th scope="col" data="name">Canchas</th>
                             <th scope="col" data="league_name">Liga</th>
                             <th scope="col" data="name">Deporte</th>
                             <th scope="col" data="state">Estado</th>
@@ -36,6 +38,7 @@
                         </tr>
                     </thead>
                     <tbody>
+                        @foreach ($locations as $lo)
                         <tr>
                             <th>
                                 <span class="rounded-circle border-b avatar">
@@ -43,32 +46,46 @@
                                 </span>
                             </th>
                             <td>
-                                Estadio Jalisco
+                                {{ $lo->display_name }}
                             </td>
                             <td>
-                                Futbol
+                                {{ $lo->fields->count() }}
                             </td>
                             <td>
-                                Nacional Mexicana
+                                {{ $lo->league->name }}
                             </td>
                             <td>
-                                Jalisco
+                                {{ $lo->league->sport->display_name }}
                             </td>
                             <td>
-                                Guadalajara
+                                {{ $lo->state }}
                             </td>
                             <td>
-                                <a hrer="">Ver mapa</a>
+                                {{ $lo->city }}
                             </td>
                             <td>
-                                <button class="btn btn-icon btn-2 btn-primary" type="button">
-                                    <span class="btn-inner--icon"><i class="fas fa-trash"></i></span>
-                                </button>
-                                <button class="btn btn-icon btn-2 btn-primary" type="button">
+                                @if ($lo->lat != null && $lo->long !=null)
+                                <a href="">Ver mapa</a>
+                                @endif
+                            </td>
+                              <td>
+                                <a href="{{ route('locations.edit', $lo->id) }}" class="btn btn-icon btn-2 btn-primary">
                                     <span class="btn-inner--icon"><i class="far fa-edit"></i></span>
-                                </button>
+                                </a>
+    
+                                <form method="POST" class="d-inline-block" action="{{ route('locations.delete', $lo->id) }}">
+                                    {{ csrf_field() }}
+                                    {{ method_field('DELETE') }}
+                            
+                                    <div class="form-group">
+                                        <button class="btn btn-icon btn-2 btn-danger" type="submit">
+                                            <span class="btn-inner--icon"><i class="fas fa-trash"></i></span>
+                                        </button>
+                                    </div>
+                                </form>
                             </td>
                         </tr>
+                        @endforeach
                     </tbody>
                 </table>
             </div>

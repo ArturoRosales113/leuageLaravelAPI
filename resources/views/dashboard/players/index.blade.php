@@ -14,7 +14,8 @@
                         <h3 class="mb-0">Mis jugadores</h3>
                     </div>
                     <div class="col text-right">
-                        <a href="#!" class="btn btn-sm btn-primary">Ver todos</a>
+                                                <a href="{{ route('fields.create') }}" class="btn btn-sm btn-default"><i class="fas fa-plus"></i>&nbsp;Crear campo</a>
+
                     </div>
                 </div>
             </div>    
@@ -68,13 +69,14 @@
                             <td>
                                 Power Rangers
                             </td>
-                            <td>
-                                <button class="btn btn-icon btn-2 btn-primary" type="button">
+                              <td>
+                            <a href="{{ route('fields.edit', $f->id ) }}" class="btn btn-icon btn-2 btn-primary">
+                                    <span class="btn-inner--icon"><i class="far fa-edit"></i></span>
+                                </a>
+                                <button class="btn btn-icon btn-2 btn-danger" type="button">
                                     <span class="btn-inner--icon"><i class="fas fa-trash"></i></span>
                                 </button>
-                                <button class="btn btn-icon btn-2 btn-primary" type="button">
-                                    <span class="btn-inner--icon"><i class="far fa-edit"></i></span>
-                                </button>
+
                             </td>
                         </tr>
                     </tbody>

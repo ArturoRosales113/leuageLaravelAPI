@@ -3,25 +3,23 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\ImageManagement;
-use App\Models\Sport;
-use App\Models\User;
-use App\Models\League;
-use App\Models\Team;
-use App\Models\Event;
-use App\Models\Material;
-use App\Models\Location;
-use App\Models\Modalitie;
-
-use App\Http\Traits\ImageManagerTrait;
-
-
 use Illuminate\Support\Str;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
 use RealRashid\SweetAlert\Facades\Alert;
 
+//Modelos
+use App\Models\Event;
+use App\Models\Field;
+use App\Models\Material;
+use App\Models\Modalitie;
+use App\Models\League;
+use App\Models\Location;
+use App\Models\Sport;
+use App\Models\Team;
+use App\Models\User;
 
+use App\Http\Traits\ImageManagerTrait;
 
 class DashboardStoreController extends Controller
 {
@@ -370,7 +368,7 @@ class DashboardStoreController extends Controller
            ->withInput();
         } else {
 
-            $location = Location::create([
+            $field = Field::create([
                 'name' => Str::slug($input['name'], '-'),
                 'display_name' => $input['name'],
                 'description'=> $input['description'],
@@ -382,17 +380,17 @@ class DashboardStoreController extends Controller
 
             if (array_key_exists('icon_path', $input) && $input['icon_path'] != null) {
                 $iconFile = $request->file('icon_path');
-                $location->icon_path = $this->createIcon($iconFile);
+                $field->icon_path = $this->createIcon($iconFile);
             }
             if (array_key_exists('img_path', $input) && $input['img_path'] != null) {
                 $imageFile = $request->file('img_path');
-                $location->img_path = $this->createImage($imageFile);
+                $field->img_path = $this->createImage($imageFile);
             }
 
-            $location->save();
+            $field->save();
 
             Alert::success('Éxito', 'Campo creado');
-            return redirect()->route('teams.index');
+            return redirect()->route('fields.index');
         }
     }
 

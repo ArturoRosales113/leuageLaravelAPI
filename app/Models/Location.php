@@ -23,5 +23,16 @@ class Location extends Model
         'lat',
         'long'
     ];
+
+    public function league()
+    {
+        return $this->belongsTo(League::class);
+    }
+
+    public function fields()
+    {
+        return $this->hasMany(Field::class);
+    }
+
 }
 

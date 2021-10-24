@@ -70,7 +70,6 @@ class CreateTeamsTable extends Migration
             $table->timestamps();
         });
 
-
         Schema::create('locations', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('league_id');

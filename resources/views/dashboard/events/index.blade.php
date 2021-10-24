@@ -11,11 +11,12 @@
             <div class="card-header border-0">
                 <div class="row align-items-center">
                     <div class="col">
-                        <h3 class="mb-0">Mis Ligas Playmaker</h3>
+                        <h3 class="mb-0">Eventos dentro de juegos</h3>
                     </div>
                     <div class="col text-right">
                         <a href="{{ route('events.create') }}" class="btn btn-sm btn-primary">Crear nuevo</a>
-                        <a href="#!" class="btn btn-sm btn-primary">Ver todos</a>
+                                                <a href="{{ route('fields.create') }}" class="btn btn-sm btn-default"><i class="fas fa-plus"></i>&nbsp;Crear campo</a>
+
                     </div>
                 </div>
             </div>    
@@ -50,7 +51,7 @@
                                 <a href="{{ route('events.edit', $ev->id) }}" class="btn btn-icon btn-2 btn-primary" type="button">
                                     <span class="btn-inner--icon"><i class="far fa-edit"></i></span>
                                 </a>
-                                <button class="btn btn-icon btn-2 btn-primary" type="button">
+                                <button class="btn btn-icon btn-2 btn-danger" type="button">
                                     <span class="btn-inner--icon"><i class="fas fa-trash"></i></span>
                                 </button>
                             </td>

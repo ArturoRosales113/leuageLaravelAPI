@@ -14,22 +14,18 @@ class Sport extends Model
     ];
 
     public function fields(){
-        return $this->hasMany('App\Models\Field');
+        return $this->hasMany(Field::class);
     }
 
     public function leagues()
     {
-        return $this->hasMany('App\Models\League');
+        return $this->hasMany(League::class);
     }
 
     public function teams()
     {
-        return $this->hasMany('App\Models\Team');
+        return $this->hasMany(Team::class);
     }
 
-    public function players()
-    {
-        return $this->hasMany('App\Models\Player');
-    }
     
 }
