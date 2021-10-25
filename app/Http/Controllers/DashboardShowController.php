@@ -23,22 +23,27 @@ class DashboardShowController extends Controller
 
 	public function events($id)
     {
-        return view('dashboard.events.show');
+        $event = Event::findOrFail($id);
+        return view('dashboard.events.show', ['event' => $event]);
     }
 	public function fields($id)
     {
-        return view('dashboard.fields.show');
+        $field = Field::findOrFail($id);
+        return view('dashboard.fields.show', ['field' => $field]);
     }
 	public function games($id)
     {
-        return view('dashboard.games.show');
+        $game = Game::findOrFail($id);
+        return view('dashboard.games.show',['game' => $game]);
     }
 	public function leagues($id)
     {
-        return view('dashboard.leagues.show');
+        $league = League::findOrFail($id);
+        return view('dashboard.leagues.show', ['league' => $league]);
     }
 	public function locations($id)
     {
+        
         return view('dashboard.locations.show');
     }
 	public function materials($id)

@@ -24,7 +24,7 @@ class CreateTeamsTable extends Migration
             $table->softDeletes();
         });
 
-        Schema::create('refereeTypes', function (Blueprint $table) {
+        Schema::create('referee_types', function (Blueprint $table) {
             $table->id();
             $table->string('name');
             $table->string('display_name');
@@ -46,7 +46,7 @@ class CreateTeamsTable extends Migration
             $table->float('peso');
             $table->integer('is_active');
             $table->unsignedBigInteger('refereeType_id');
-            $table->foreign('refereeType_id')->references('id')->on('refereeTypes')->onDelete('cascade');
+            $table->foreign('refereeType_id')->references('id')->on('referee_types')->onDelete('cascade');
             $table->string('icon_path')->nullable();
             $table->string('img_path')->nullable();
             $table->timestamps();

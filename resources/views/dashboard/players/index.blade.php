@@ -14,7 +14,7 @@
                         <h3 class="mb-0">Mis jugadores</h3>
                     </div>
                     <div class="col text-right">
-                                                <a href="{{ route('fields.create') }}" class="btn btn-sm btn-default"><i class="fas fa-plus"></i>&nbsp;Crear campo</a>
+                        <a href="{{ route('players.create') }}" class="btn btn-sm btn-default"><i class="fas fa-plus"></i>&nbsp;Crear jugador</a>
 
                     </div>
                 </div>
@@ -39,6 +39,7 @@
                         </tr>
                     </thead>
                     <tbody>
+                        @foreach ($players as $pl)
                         <tr>
                             <th>
                                 <span class="rounded-circle border-b avatar">
@@ -70,7 +71,7 @@
                                 Power Rangers
                             </td>
                               <td>
-                            <a href="{{ route('fields.edit', $f->id ) }}" class="btn btn-icon btn-2 btn-primary">
+                            <a href="{{ route('fields.edit', $pl->id ) }}" class="btn btn-icon btn-2 btn-primary">
                                     <span class="btn-inner--icon"><i class="far fa-edit"></i></span>
                                 </a>
                                 <button class="btn btn-icon btn-2 btn-danger" type="button">
@@ -78,7 +79,8 @@
                                 </button>
 
                             </td>
-                        </tr>
+                        </tr>    
+                        @endforeach
                     </tbody>
                 </table>
             </div>

@@ -8,6 +8,8 @@ use App\Models\Sport;
 use App\Models\League;
 use App\Models\Location;
 use App\Models\Material;
+use App\Models\Team;
+use App\Models\RefereeType;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -52,6 +54,14 @@ class AppServiceProvider extends ServiceProvider
 
         view()->composer('dashboard.fields.create', function ($view) {
             $view->with('materials' , Material::all());
+        });
+
+        view()->composer('dashboard.players.create', function ($view) {
+            $view->with('teams' , Team::all());
+        });
+
+        view()->composer('dashboard.referees.create', function ($view) {
+            $view->with('refereeTypes' , RefereeType::all());
         });
 
     }

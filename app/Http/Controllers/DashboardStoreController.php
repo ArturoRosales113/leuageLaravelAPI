@@ -16,6 +16,7 @@ use App\Models\Modalitie;
 use App\Models\League;
 use App\Models\Location;
 use App\Models\Sport;
+use App\Models\Player;
 use App\Models\Team;
 use App\Models\User;
 
@@ -394,7 +395,59 @@ class DashboardStoreController extends Controller
         }
     }
 
-    
+    public function players(Request $request)
+    {
+        $input = $request->all();
+        //dd($input);
+        $rules = [
+         'name' => 'required',
+         'email' => 'required|email|unique:users',
+         'team_id' => 'required|not_in:0',
+         'icon_path' => 'max:3000|mimes:jpg,bmp,png',
+         'img_path' => 'max:3000|mimes:jpg,bmp,png',
+         'edad' => 'required',
+         'estatura' => 'required',
+         'peso' => 'required'
+        ];
+ 
+        $validator = Validator::make($input, $rules);
+        if ($validator->fails()) {
+            //dd($validator);
+            return redirect()->back()
+           ->withErrors($validator)
+           ->withInput();
+        } else {
+
+            $user = User::create([
+                'name' => $input['name'],
+                'email' =>  $input['email'],
+                'password' => Hash::make(Str::random(10))
+            ]);
+
+            $player = Player::create([
+                'user_id' => $user->id,
+                'name' => $input['name'],
+                'team_id' => $input['team_id'],
+                'edad' => $input['edad'],
+                'estatura' => $input['estatura'],
+                'peso' => $input['peso']                
+                'is_active' => $input['true']                
+            ]);
+
+            if (array_key_exists('icon_path', $input) && $input['icon_path'] != null) {
+                $iconFile = $request->file('icon_path');
+                $player->icon_path = $this->createIcon($iconFile);
+            }
+            if (array_key_exists('img_path', $input) && $input['img_path'] != null) {
+                $imageFile = $request->file('img_path');
+                $player->img_path = $this->createImage($imageFile);
+            }
+
+            $player->save();
+            Alert::success('Éxito', 'Jugador creado');
+            return redirect()->route('players.index');
+        }
+    }
 
 
 }

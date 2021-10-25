@@ -20,9 +20,9 @@
 
                     <form method="POST" enctype="multipart/form-data" action="" class="pl-5 pr-5">
                         <div class="form-group row">
-                            <label for="user_id" class="col-sm-3 col-form-label">Nombre del Jugador</label>
+                            <label for="name" class="col-sm-3 col-form-label">Nombre del Jugador</label>
                             <div class="col-sm-9">
-                                <input type="text" class="form-control" name="user_id" value="{{ old('user_id') }}" id="player" placeholder="" >
+                                <input type="text" class="form-control" name="name" value="{{ old('name') }}" id="player" placeholder="" >
                             </div>
                         </div>
                         <div class="form-group row">
@@ -31,6 +31,21 @@
                                 <input type="text" class="form-control" id="Email" name="email" value="{{ old('email') }}" placeholder="usuario@email.com" >
                             </div>
                         </div>
+
+                        
+                        
+                        <div class="form-group row">
+                            <label for="Numero" class="col-sm-3 col-form-label">Pertenece al equipo</label>
+                            <div class="col-sm-9">
+                                <select class="custom-select" name="numero">
+                                <option selected>Selecciona una opción</option>
+                                @foreach ($teams as $t)
+                                <option value="{{ $t->id }}">{{ $t->name }}</option>
+                                @endforeach
+                                </select>
+                            </div>
+                        </div>
+
                         <div class="form-group row">
                             <label for="perfil" class="col-sm-3 col-form-label">Foto de Perfil</label>
                             <div class="col-sm-8 ml-3">
@@ -45,6 +60,7 @@
                                 <label class="custom-file-label" for="customFile">Cargar imagen</label>
                             </div>
                         </div>
+
 
                         <div class="form-group row">
                           <label for="Numero" class="col-sm-3 col-form-label">No. de quipos</label>
