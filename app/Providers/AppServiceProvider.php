@@ -64,5 +64,9 @@ class AppServiceProvider extends ServiceProvider
             $view->with('refereeTypes' , RefereeType::all());
         });
 
+        view()->composer('dashboard.refereeTypes.create', function ($view) {
+            $view->with('sports' , Sport::all());
+        });
+
     }
 }

@@ -14,8 +14,7 @@
                         <h3 class="mb-0">Mis equipos</h3>
                     </div>
                     <div class="col text-right">
-                                                <a href="{{ route('fields.create') }}" class="btn btn-sm btn-default"><i class="fas fa-plus"></i>&nbsp;Crear campo</a>
-
+                        <a href="{{ route('teams.create') }}" class="btn btn-sm btn-default"><i class="fas fa-plus"></i>&nbsp;Crear equipo</a>
                     </div>
                 </div>
             </div>    

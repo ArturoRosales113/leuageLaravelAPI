@@ -38,13 +38,13 @@
                                 </div>
                             </div>
                             <div class="form-group row">
-                                <label for="user_id" class="col-sm-3 col-form-label">Nombre del Jugador</label>
+                                <label for="user_id" class="col-sm-3 col-form-label">Nombre del Capitán</label>
                                 <div class="col-sm-9">
-                                    <input type="text" class="form-control" name="user_id" value="{{ old('user_id') }}" id="player" placeholder="" >
+                                    <input type="text" class="form-control" name="captain_name" value="{{ old('user_id') }}"  placeholder="" >
                                 </div>
                             </div>
                             <div class="form-group row">
-                                <label for="email" class="col-sm-3 col-form-label">Email del jugador</label>
+                                <label for="email" class="col-sm-3 col-form-label">Email del capitán</label>
                                 <div class="col-sm-9">
                                     <input type="text" class="form-control" id="Email" name="email" value="{{ old('email') }}" placeholder="usuario@email.com" >
                                 </div>

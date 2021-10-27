@@ -32,70 +32,104 @@ class DashboardIndexController extends Controller
     }
 	public function events()
     {
-        return view('dashboard.events.index', ['events' => Event::all()]);
+        return view('dashboard.events.index',
+         ['events' => Event::all()]
+        );
     }
 	public function fields()
     {
-        return view('dashboard.fields.index', ['fields' => Field::all()]);
+        return view('dashboard.fields.index',
+         ['fields' => Field::all()]
+        );
     }
 	public function games()
     {
-        return view('dashboard.games.index', ['games' => Game::all()]);
+        return view('dashboard.games.index',
+         ['games' => Game::all()]
+        );
     }
 	public function leagues()
     {
-        return view('dashboard.leagues.index', ['leagues' => League::all()]);
+        return view('dashboard.leagues.index',
+         ['leagues' => League::all()]
+        );
     }
 	public function locations()
     {
-        return view('dashboard.locations.index', ['locations' => Location::all()]);
+        return view('dashboard.locations.index',
+         ['locations' => Location::all()]
+        );
     }
 	public function materials()
     {
-        return view('dashboard.materials.index', ['materials' => Material::all()]);
+        return view('dashboard.materials.index',
+         ['materials' => Material::all()]
+        );
     }
 	public function modalities()
     {
-        return view('dashboard.modalities.index', ['modalitie' => Modalitie::all()]);
+        return view('dashboard.modalities.index',
+         ['modalitie' => Modalitie::all()]
+        );
     }
 	public function permissions()
     {
-        return view('dashboard.permissions.index', ['permissions' => Permission::all()]);
+        return view('dashboard.permissions.index',
+         ['permissions' => Permission::all()]
+        );
     }
 	public function players()
     {
-        return view('dashboard.players.index', ['players' => Player::all()]);
+        return view('dashboard.players.index',
+         ['players' => Player::all()]
+        );
     }
 	public function profiles()
     {
-        return view('dashboard.profiles.index', ['profiles' => Profile::all()]);
+        return view('dashboard.profiles.index',
+         ['profiles' => Profile::all()]
+        );
     }
 	public function referees()
     {
-        return view('dashboard.referees.index', ['referees' => Referee::all()]);
+        return view('dashboard.referees.index',
+         ['referees' => Referee::all()]
+        );
     }
 	public function refereeTypes()
     {
-        return view('dashboard.refereeTypes.index', ['refereeTypes' => RefereeType::all()]);
+        return view('dashboard.refereeTypes.index',
+         ['refereeTypes' => RefereeType::all()]
+        );
     }
 	public function roles()
     {
-        return view('dashboard.roles.index', ['roles' => Role::all()]);
+        return view('dashboard.roles.index',
+         ['roles' => Role::all()]
+        );
     }
 	public function scores()
     {
-        return view('dashboard.scores.index', ['scores' => Score::all()]);
+        return view('dashboard.scores.index',
+         ['scores' => Score::all()]
+        );
     }
 	public function sports()
     {
-        return view('dashboard.sports.index', ['sports' => Sport::all()]);
+        return view('dashboard.sports.index',
+         ['sports' => Sport::all()]
+        );
     }
 	public function teams()
     {
-        return view('dashboard.teams.index', ['teams' => Team::all()]);
+        return view('dashboard.teams.index',
+         ['teams' => Team::all()]
+        );
     }
 	public function users()
     {
-        return view('dashboard.users.index', ['users' => User::all()]);
+        return view('dashboard.users.index',
+         ['users' => User::all()]
+        );
     }
 }

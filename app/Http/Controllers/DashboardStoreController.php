@@ -17,6 +17,8 @@ use App\Models\League;
 use App\Models\Location;
 use App\Models\Sport;
 use App\Models\Player;
+use App\Models\Referee;
+use App\Models\RefereeType;
 use App\Models\Team;
 use App\Models\User;
 
@@ -128,6 +130,8 @@ class DashboardStoreController extends Controller
         //dd($input);
         $rules = [
             'name' => 'required',
+            'captain_name' => 'required',
+            'email' => 'required|email'
             'description' => 'max:1000',
             'league_id' => 'required|not_in:0', 
             'icon_path' => 'max:3000|mimes:jpg,bmp,png',
@@ -146,6 +150,12 @@ class DashboardStoreController extends Controller
                 'name'=> $input['name'],
                 'description'=> $input['description'],
                 'league_id' => $input['league_id']
+            ]);
+
+            $captain = User::create([
+                'name' => $input['captain_name'],
+                'email' =>  $input['email'],
+                'password' => Hash::make(Str::random(10))
             ]);
 
             if (array_key_exists('icon_path', $input) && $input['icon_path'] != null) {
@@ -205,7 +215,6 @@ class DashboardStoreController extends Controller
         }
     }
 
-
     public function materials(Request $request)
     {
         $input = $request->all();
@@ -247,7 +256,6 @@ class DashboardStoreController extends Controller
         }
     }
 
-
     public function modalities(Request $request)
     {
         $input = $request->all();
@@ -288,7 +296,6 @@ class DashboardStoreController extends Controller
             return redirect()->route('materials.index');
         }
     }
-
 
     public function locations(Request $request)
     {
@@ -344,7 +351,6 @@ class DashboardStoreController extends Controller
             return redirect()->route('teams.index');
         }
     }
-
 
     public function fields(Request $request)
     {
@@ -430,8 +436,8 @@ class DashboardStoreController extends Controller
                 'team_id' => $input['team_id'],
                 'edad' => $input['edad'],
                 'estatura' => $input['estatura'],
-                'peso' => $input['peso']                
-                'is_active' => $input['true']                
+                'peso' => $input['peso'],                
+                'is_active' => true                
             ]);
 
             if (array_key_exists('icon_path', $input) && $input['icon_path'] != null) {
@@ -446,6 +452,102 @@ class DashboardStoreController extends Controller
             $player->save();
             Alert::success('Éxito', 'Jugador creado');
             return redirect()->route('players.index');
+        }
+    }
+
+    public function referees(Request $request)
+    {
+        $input = $request->all();
+        //dd($input);
+        $rules = [
+         'name' => 'required',
+         'email' => 'required|email|unique:users',
+         'referee_type_id' => 'required|not_in:0',
+         'icon_path' => 'max:3000|mimes:jpg,bmp,png',
+         'img_path' => 'max:3000|mimes:jpg,bmp,png',
+         'edad' => 'required',
+         'estatura' => 'required',
+         'peso' => 'required'
+        ];
+ 
+        $validator = Validator::make($input, $rules);
+        if ($validator->fails()) {
+            //dd($validator);
+            return redirect()->back()
+           ->withErrors($validator)
+           ->withInput();
+        } else {
+
+            $user = User::create([
+                'name' => $input['name'],
+                'email' =>  $input['email'],
+                'password' => Hash::make(Str::random(10))
+            ]);
+
+            $referee = Referee::create([
+                'user_id' => $user->id,
+                'name' => $input['name'],
+                'referee_type_id' => $input['referee_type_id'],
+                'edad' => $input['edad'],
+                'estatura' => $input['estatura'],
+                'peso' => $input['peso'],                
+                'is_active' => true                
+            ]);
+
+            if (array_key_exists('icon_path', $input) && $input['icon_path'] != null) {
+                $iconFile = $request->file('icon_path');
+                $referee->icon_path = $this->createIcon($iconFile);
+            }
+            if (array_key_exists('img_path', $input) && $input['img_path'] != null) {
+                $imageFile = $request->file('img_path');
+                $referee->img_path = $this->createImage($imageFile);
+            }
+
+            $referee->save();
+            Alert::success('Éxito', 'Referee creado');
+            return redirect()->route('referees.index');
+        }
+    }
+
+    public function refereeTypes(Request $request)
+    {
+        $input = $request->all();
+        //dd($input);
+        $rules = [
+            'name' => 'required',
+            'description' => 'max:1000',
+            'sport_id' => 'required|not_in:0',
+            'icon_path' => 'max:3000|mimes:jpg,bmp,png',
+            'img_path' => 'max:3000|mimes:jpg,bmp,png'
+        ];
+ 
+        $validator = Validator::make($input, $rules);
+        if ($validator->fails()) {
+            //dd($validator);
+            return redirect()->back()
+           ->withErrors($validator)
+           ->withInput();
+        } else {
+
+            $rt = RefereeType::create([
+                'name'=>  Str::slug($input['name'], '-'),
+                'display_name'=> $input['name'],
+                'description'=> $input['description'],
+                'sport_id' => $input['sport_id']
+            ]);
+
+            if (array_key_exists('icon_path', $input) && $input['icon_path'] != null) {
+                $iconFile = $request->file('icon_path');
+                $rt->icon_path = $this->createIcon($iconFile);
+            }
+            if (array_key_exists('img_path', $input) && $input['img_path'] != null) {
+                $imageFile = $request->file('img_path');
+                $rt->img_path = $this->createImage($imageFile);
+            }
+
+            $rt->save();
+            Alert::success('Éxito', 'Tipo de referee creado');
+            return redirect()->route('refereetypes.index');
         }
     }
 

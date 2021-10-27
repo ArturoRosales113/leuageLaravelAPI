@@ -254,7 +254,7 @@ class CreateTeamsTable extends Migration
         Schema::dropIfExists('locations');
         Schema::dropIfExists('leagues');
         Schema::dropIfExists('referees');
-        Schema::dropIfExists('refereeTypes');
+        Schema::dropIfExists('referee_types');
         Schema::dropIfExists('sports');
     }
 }
