@@ -35,8 +35,14 @@ class AppServiceProvider extends ServiceProvider
         view()->composer('dashboard.leagues.create', function ($view) {
             $view->with('sports' , Sport::all());
         });
+        view()->composer('dashboard.leagues.edit', function ($view) {
+            $view->with('sports' , Sport::all());
+        });
 
         view()->composer('dashboard.teams.create', function ($view) {
+            $view->with('leagues' , League::all());
+        });
+        view()->composer('dashboard.teams.edit', function ($view) {
             $view->with('leagues' , League::all());
         });
 

@@ -15,6 +15,11 @@ class RefereeType extends Model
 
     public function sport()
     {
-        return $this->belongsTo('App\Models\Sport');
+        return $this->belongsTo(Sport::class);
+    }
+
+    public function referees()
+    {
+        return $this->hasMany(Referee::class);
     }
 }

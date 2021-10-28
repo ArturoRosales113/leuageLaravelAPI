@@ -42,7 +42,9 @@
                                 </span>
                             </th>
                             <td scope="row">
-                                {{ $t -> name }}
+                                <a href="{{ route('teams.show', $t->id) }}" class="text-default text-underline">
+                                    {{ $t -> name }}
+                                </a>
                             </td>
                             <td>
                                {{ $t->league->name }}

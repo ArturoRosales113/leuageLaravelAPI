@@ -47,36 +47,46 @@
                                 </span>
                             </th>
                             <td>
-                                Gustavo
-                            </td>
-                            <td>
-                                Bambino
-                            </td>
-                            <td>
-                                21
-                            </td>
-                            <td>
-                                Defensa
-                            </td>
-                            <td>
-                                22
-                            </td>
-                            <td>
-                                85.8 kg
-                            </td>
-                            <td>
-                                190 cm
-                            </td>
-                            <td>
-                                Power Rangers
-                            </td>
-                              <td>
-                            <a href="{{ route('fields.edit', $pl->id ) }}" class="btn btn-icon btn-2 btn-primary">
-                                    <span class="btn-inner--icon"><i class="far fa-edit"></i></span>
+                                <a href="{{ route('players.show', $pl->id) }}">
+                                    {{ $pl->user->name }}
                                 </a>
-                                <button class="btn btn-icon btn-2 btn-danger" type="button">
-                                    <span class="btn-inner--icon"><i class="fas fa-trash"></i></span>
-                                </button>
+                            </td>
+                            <td>
+                                {{ $pl->apodo }}
+                            </td>
+                            <td>
+                                {{ $pl->numero }}
+                            </td>
+                            <td>
+                                {{ $pl->posicion }}
+                            </td>
+                            <td>
+                                {{ $pl->edad }}
+                            </td>
+                            <td>
+                                {{ $pl->peso . ' kg' }}
+                            </td>
+                            <td>
+                                {{ $pl->altura . ' cm'}}
+                            </td>
+                            <td>
+                                <a href="{{ route('teams.show', $pl->team->id) }}">
+                                    {{ $pl->team->name }}
+                                </a>
+                                
+                            </td>
+                            
+                              <td>
+                                <form method="POST" class="d-inline-block" action="{{ route('players.delete', $pl->id) }}">
+                                    {{ csrf_field() }}
+                                    {{ method_field('DELETE') }}
+                            
+                                    <div class="form-group">
+                                        <button class="btn btn-icon btn-2 btn-danger" type="submit">
+                                            <span class="btn-inner--icon"><i class="fas fa-trash"></i></span>
+                                        </button>
+                                    </div>
+                                </form>
 
                             </td>
                         </tr>    

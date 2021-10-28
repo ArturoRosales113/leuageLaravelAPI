@@ -4,78 +4,110 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
+//Models
+use App\Models\Event;
+use App\Models\Field;
+use App\Models\Games;
+use App\Models\League;
+use App\Models\Location;
+use App\Models\Material;
+use App\Models\Modalitie;
+use App\Models\Permission;
+use App\Models\Player;
+use App\Models\Profile;
+use App\Models\Referee;
+use App\Models\RefereeType;
+use App\Models\Role;
+use App\Models\Score;
+use App\Models\Sport;
+use App\Models\Team;
+use App\Models\User;
+
 class DashboardEditController extends Controller
 {
-    public function actions()
+    public function events($id)
     {
-        return view('dashboard.actions.edit');
+        $event = Event::findOrFail($id);
+        return view('dashboard.events.edit', ['event' => $event]);
     }
-	public function events()
+	public function fields($id)
     {
-        return view('dashboard.events.edit');
+        $field = Field::findOrFail($id);
+        return view('dashboard.fields.edit', ['field' => $field]);
     }
-	public function fields()
+	public function games($id)
     {
-        return view('dashboard.fields.edit');
+        $game = Game::findOrFail($id);
+        return view('dashboard.games.edit',['game' => $game]);
     }
-	public function games()
+	public function leagues($id)
     {
-        return view('dashboard.games.edit');
+        $league = League::findOrFail($id);
+        return view('dashboard.leagues.edit', ['league' => $league]);
     }
-	public function leagues()
+	public function locations($id)
     {
-        return view('dashboard.leagues.edit');
+        $location = Location::findOrFail($id);
+        return view('dashboard.locations.edit',['location' => $location]);
     }
-	public function locations()
+	public function materials($id)
     {
-        return view('dashboard.locations.edit');
+        $material = Material::findOrFail($id);
+        return view('dashboard.materials.edit', ['material' => $material]);
     }
-	public function materials()
+	public function modalities($id)
     {
-        return view('dashboard.materials.edit');
+        $modalitie = Modalitie::findOrFail($id);
+        return view('dashboard.modalities.edit',['modalitie' => $modalitie]);
     }
-	public function modalities()
+	public function permissions($id)
     {
-        return view('dashboard.modalities.edit');
+        $permisission = Permission::findOrFail($id);
+        return view('dashboard.permissions.edit',['permission' => $permission]);
     }
-	public function permissions()
+	public function players($id)
     {
-        return view('dashboard.permissions.edit');
+        $player = Player::findOrFail($id);
+        return view('dashboard.players.edit', ['player' => $player]);
     }
-	public function players()
+	public function profiles($id)
     {
-        return view('dashboard.players.edit');
+        $profile = Profile::findOrFail($id);
+        return view('dashboard.profiles.edit', ['profile' => $profile]);
     }
-	public function profiles()
+	public function referees($id)
     {
-        return view('dashboard.profiles.edit');
+        $referee = Referee::findOrFail($id);
+        return view('dashboard.referees.edit', ['referee' => $referee]);
     }
-	public function referees()
+	public function refereeTypes($id)
     {
-        return view('dashboard.referees.edit');
+        $refereeType = RefereeType::findOrFail($id);
+        return view('dashboard.refereeTypes.edit', ['refereeType' => $refereeType]);
     }
-	public function refereeTypes()
+	public function roles($id)
     {
-        return view('dashboard.refereeTypes.edit');
+        $role = Role::findOrFail($id);
+        return view('dashboard.roles.edit', ['role' => $role]);
     }
-	public function roles()
+	public function scores($id)
     {
-        return view('dashboard.roles.edit');
+        $score = Score::findOrFail($id);
+        return view('dashboard.scores.edit',['score' => $score]);
     }
-	public function scores()
+	public function sports($id)
     {
-        return view('dashboard.scores.edit');
+        $sport = Sport::findOrFail($id);
+        return view('dashboard.sports.edit', ['sport' => $sport]);
     }
-	public function sports()
+	public function teams($id)
     {
-        return view('dashboard.sports.edit');
+        $team = Team::findOrFail($id);
+        return view('dashboard.teams.edit', ['team' => $team]);
     }
-	public function teams()
+	public function users($id)
     {
-        return view('dashboard.teams.edit');
-    }
-	public function users()
-    {
-        return view('dashboard.users.edit');
+        $user = User::findOrFail($id);
+        return view('dashboard.users.edit', ['user' => $user]);
     }
 }

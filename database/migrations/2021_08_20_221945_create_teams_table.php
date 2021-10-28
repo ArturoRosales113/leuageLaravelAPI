@@ -134,11 +134,14 @@ class CreateTeamsTable extends Migration
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
             $table->unsignedBigInteger('team_id');
             $table->foreign('team_id')->references('id')->on('teams')->onDelete('cascade');
-            $table->integer('numero');
-            $table->integer('edad');
-            $table->float('estatura');
-            $table->float('peso');
+            $table->integer('numero')->nullable();
+            $table->string('apodo')->nullable();
+            $table->string('posicion')->nullable();
+            $table->integer('edad')->nullable();
+            $table->float('estatura')->nullable();
+            $table->float('peso')->nullable();
             $table->integer('is_active');
+            $table->integer('is_captain');
             $table->string('icon_path')->nullable();
             $table->string('img_path')->nullable();
             $table->timestamps();

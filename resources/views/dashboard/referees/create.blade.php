@@ -14,11 +14,21 @@
                         <div class="row align-items-center">
                             <div class="col">
                                 <h3 class="mb-0">Registrar referee</h3>
+                                @if ($errors->any())
+                                <div class="alert alert-danger">
+                                    <ul>
+                                        @foreach ($errors->all() as $error)
+                                            <li>{{ $error }}</li>
+                                        @endforeach
+                                    </ul>
+                                </div>
+                                @endif
                             </div>
                         </div>
                     </div>
 
-                    <form method="POST" enctype="multipart/form-data" action="" class="pl-5 pr-5">
+                    <form method="POST" enctype="multipart/form-data" action="{{ route('referees.store') }}" class="pl-5 pr-5">
+                        @csrf
                         <div class="form-group row">
                             <label for="name" class="col-sm-3 col-form-label">Nombre del referee</label>
                             <div class="col-sm-9">
@@ -39,7 +49,7 @@
                                 <select class="custom-select" name="referee_type_id">
                                 <option selected>Selecciona una opción</option>
                                 @foreach ($refereeTypes as $rt)
-                                <option value="{{ $rt->id }}">{{ $rt->display_name }}</option>
+                                <option {{ old('referee_type_id') == $rt->id ? 'selected' : ''}} value="{{ $rt->id }}">{{ $rt->display_name }}</option>
                                 @endforeach
                                 </select>
                             </div>
@@ -64,7 +74,7 @@
                           <label for="edad" class="col-sm-3 col-form-label">Elige la edad</label>
                               <div class="col-sm-9">
                                 <select class="custom-select" name="edad">
-                                  <option selected>Selecciona una opción</option>
+                                  <option>Selecciona una opción</option>
                                   @for ($i = 6; $i < 61; $i++)
                                   <option {{ old('numero_equipo') == $i ? 'selected' : '' }} value="{{ $i }}">{{ $i }}</option>
                                   @endfor
@@ -74,13 +84,13 @@
                         <div class="form-group row">
                             <label for="estatura" class="col-sm-3 col-form-label">Estatura</label>
                             <div class="col-sm-9">
-                                <input type="text" name="estatura" class="form-control" placeholder="80.5 cm" />
+                                <input type="text" name="estatura" class="form-control" value="{{ old('estatura') }}" placeholder="80.5 cm" />
                             </div>
                         </div>
                         <div class="form-group row">
                             <label for="peso" class="col-sm-3 col-form-label">Peso</label>
                             <div class="col-sm-9">
-                                <input type="text" name="peso" class="form-control" placeholder="88.10 kg" />
+                                <input type="text" name="peso" class="form-control" value="{{ old('peso') }}" placeholder="88.10 kg" />
                             </div>
                         </div>
                          <button class="btn btn-primary" type="submit">Guardar</button>                        

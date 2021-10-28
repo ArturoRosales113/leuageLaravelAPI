@@ -140,24 +140,24 @@ Route::group(['middleware' => 'auth'], function () {
 	Route::get('users/edit/{id}',[DashboardEditController::class, 'users'])->name('users.edit');
 
 	// Recibir formulario editar
-	Route::put('actions/edit/{id}',[DashboardUpdateController::class, 'actions'])->name('actions.update'); //
-	Route::put('events/edit/{id}',[DashboardUpdateController::class, 'events'])->name('events.update');
-	Route::put('fields/edit/{id}',[DashboardUpdateController::class, 'fields'])->name('fields.update'); 
-	Route::put('games/edit/{id}',[DashboardUpdateController::class, 'games'])->name('games.update');
-	Route::put('leagues/edit/{id}',[DashboardUpdateController::class, 'leagues'])->name('leagues.update');
-	Route::put('locations/edit/{id}',[DashboardUpdateController::class, 'locations'])->name('locations.update');
-	Route::put('materials/edit/{id}',[DashboardUpdateController::class, 'materials'])->name('materials.update');
-	Route::put('modalities/edit/{id}',[DashboardUpdateController::class, 'modalities'])->name('modalities.update');
-	Route::put('permissions/edit/{id}',[DashboardUpdateController::class, 'permissions'])->name('permissions.update'); //
-	Route::put('players/edit/{id}',[DashboardUpdateController::class, 'players'])->name('players.update');
-	Route::put('profiles/edit/{id}',[DashboardUpdateController::class, 'profiles'])->name('profiles.update'); //
-	Route::put('referees/edit/{id}',[DashboardUpdateController::class, 'referees'])->name('referees.update');
-	Route::put('refereeTypes/edit/{id}',[DashboardUpdateController::class, 'refereeTypes'])->name('refereeTypes.update');
-	Route::put('roles/edit/{id}',[DashboardUpdateController::class, 'roles'])->name('roles.update'); //
-	Route::put('scores/edit/{id}',[DashboardUpdateController::class, 'scores'])->name('scores.update'); //
-	Route::put('sports/edit/{id}',[DashboardUpdateController::class, 'sports'])->name('sports.update'); 
-	Route::put('teams/edit/{id}',[DashboardUpdateController::class, 'teams'])->name('teams.update');
-	Route::put('users/edit/{id}',[DashboardUpdateController::class, 'users'])->name('users.update'); //
+	Route::put('actions/update/{id}',[DashboardUpdateController::class, 'actions'])->name('actions.update'); //
+	Route::put('events/update/{id}',[DashboardUpdateController::class, 'events'])->name('events.update');
+	Route::put('fields/update/{id}',[DashboardUpdateController::class, 'fields'])->name('fields.update'); 
+	Route::put('games/update/{id}',[DashboardUpdateController::class, 'games'])->name('games.update');
+	Route::put('leagues/update/{id}',[DashboardUpdateController::class, 'leagues'])->name('leagues.update');
+	Route::put('locations/update/{id}',[DashboardUpdateController::class, 'locations'])->name('locations.update');
+	Route::put('materials/update/{id}',[DashboardUpdateController::class, 'materials'])->name('materials.update');
+	Route::put('modalities/update/{id}',[DashboardUpdateController::class, 'modalities'])->name('modalities.update');
+	Route::put('permissions/update/{id}',[DashboardUpdateController::class, 'permissions'])->name('permissions.update'); //
+	Route::put('players/update/{id}',[DashboardUpdateController::class, 'players'])->name('players.update');
+	Route::put('profiles/update/{id}',[DashboardUpdateController::class, 'profiles'])->name('profiles.update'); //
+	Route::put('referees/update/{id}',[DashboardUpdateController::class, 'referees'])->name('referees.update');
+	Route::put('refereeTypes/update/{id}',[DashboardUpdateController::class, 'refereeTypes'])->name('refereeTypes.update');
+	Route::put('roles/update/{id}',[DashboardUpdateController::class, 'roles'])->name('roles.update'); //
+	Route::put('scores/update/{id}',[DashboardUpdateController::class, 'scores'])->name('scores.update'); //
+	Route::put('sports/update/{id}',[DashboardUpdateController::class, 'sports'])->name('sports.update'); 
+	Route::put('teams/update/{id}',[DashboardUpdateController::class, 'teams'])->name('teams.update');
+	Route::put('users/update /{id}',[DashboardUpdateController::class, 'users'])->name('users.update'); //
 
 	// Borrar
 	Route::delete('actions/{id}',[DashboardDeleteController::class, 'actions'])->name('actions.delete');

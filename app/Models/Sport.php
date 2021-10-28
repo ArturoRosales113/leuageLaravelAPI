@@ -24,8 +24,8 @@ class Sport extends Model
 
     public function teams()
     {
-        return $this->hasMany(Team::class);
+        return $this->hasManyThrough(Team::class, League::class);
     }
 
-    
+
 }

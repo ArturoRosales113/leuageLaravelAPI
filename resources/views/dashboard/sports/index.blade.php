@@ -14,8 +14,7 @@
                         <h3 class="mb-0">Mis deportes</h3>
                     </div>
                     <div class="col text-right">
-                                                <a href="{{ route('fields.create') }}" class="btn btn-sm btn-default"><i class="fas fa-plus"></i>&nbsp;Crear campo</a>
-
+                       <a href="{{ route('sports.create') }}" class="btn btn-sm btn-default"><i class="fas fa-plus"></i>&nbsp;Crear deportes</a>
                     </div>
                 </div>
             </div>    
@@ -28,10 +27,8 @@
                                 &nbsp;
                             </th>
                             <th scope="col" data="name">Deporte</th>
-                            <th scope="col">Campos</th>
                             <th scope="col">Ligas</th>
                             <th scope="col">Equipos</th>
-                            <th scope="col">Jugadores</th>
                             <th scope="col">Acción</th>
                         </tr>
                     </thead>
@@ -44,26 +41,23 @@
                                 </span>
                             </th>
                             <td scope="row">
-                                {{ $sp->display_name }}
-                            </td>
-                            <td>
-                                {{-- {{ $sp->fields }} --}}
+                                <a href="{{ route('sports.show', $sp->id) }}">
+                                    {{ $sp->display_name }}
+                                </a>
                             </td>
                             <td>
                                 {{ $sp->leagues->count() }}
                             </td>
                             <td>
-                                {{-- {{ $sp->teams }} --}}
+                                {{ $sp->teams->count() }}
                             </td>
+
                             <td>
-                                {{-- {{ $sp->players }} --}}
-                            </td>
-                            <td>
-                                <a href="{{ route('teams.edit', $sp->id) }}" class="btn btn-icon btn-2 btn-primary">
+                                <a href="{{ route('sports.edit', $sp->id) }}" class="btn btn-icon btn-2 btn-primary">
                                     <span class="btn-inner--icon"><i class="far fa-edit"></i></span>
                                 </a>
     
-                                <form method="POST" class="d-inline-block" action="{{ route('teams.delete', $sp->id) }}">
+                                <form method="POST" class="d-inline-block" action="{{ route('sports.delete', $sp->id) }}">
                                     {{ csrf_field() }}
                                     {{ method_field('DELETE') }}
                             

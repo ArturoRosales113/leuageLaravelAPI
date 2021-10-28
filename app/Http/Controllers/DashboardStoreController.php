@@ -102,6 +102,7 @@ class DashboardStoreController extends Controller
                 'user_id' => $user->id,
                 'name' => $input['name'],
                 'sport_id' => $input['sport_id'],
+                'numero_equipos' => $input['numero_equipos'],
                 'description' => $input['description']                
             ]);
 
@@ -127,12 +128,12 @@ class DashboardStoreController extends Controller
     public function teams(Request $request)
     {
         $input = $request->all();
-        //dd($input);
+        
         $rules = [
             'name' => 'required',
             'captain_name' => 'required',
-            'email' => 'required|email'
-            'description' => 'max:1000',
+            'email' => 'required|email',
+            'description' => 'required|max:1000',
             'league_id' => 'required|not_in:0', 
             'icon_path' => 'max:3000|mimes:jpg,bmp,png',
             'img_path' => 'max:3000|mimes:jpg,bmp,png'
@@ -149,13 +150,20 @@ class DashboardStoreController extends Controller
             $team = Team::create([
                 'name'=> $input['name'],
                 'description'=> $input['description'],
-                'league_id' => $input['league_id']
+                'league_id' => $input['league_id'],
+                'description' => $input['description']
             ]);
 
             $captain = User::create([
                 'name' => $input['captain_name'],
                 'email' =>  $input['email'],
                 'password' => Hash::make(Str::random(10))
+            ]);
+
+            $player = Player::create([
+                'user_id' => $captain->id,
+                'team_id' => $team->id,
+                'is_active' => true                
             ]);
 
             if (array_key_exists('icon_path', $input) && $input['icon_path'] != null) {
@@ -411,6 +419,7 @@ class DashboardStoreController extends Controller
          'team_id' => 'required|not_in:0',
          'icon_path' => 'max:3000|mimes:jpg,bmp,png',
          'img_path' => 'max:3000|mimes:jpg,bmp,png',
+         'numero' => 'required',
          'edad' => 'required',
          'estatura' => 'required',
          'peso' => 'required'
@@ -432,10 +441,12 @@ class DashboardStoreController extends Controller
 
             $player = Player::create([
                 'user_id' => $user->id,
-                'name' => $input['name'],
                 'team_id' => $input['team_id'],
                 'edad' => $input['edad'],
+                'apodo' => $input['apodo'],
+                'posicion' => $input['posicion'],
                 'estatura' => $input['estatura'],
+                'numero' => $input['numero'],
                 'peso' => $input['peso'],                
                 'is_active' => true                
             ]);
@@ -451,7 +462,7 @@ class DashboardStoreController extends Controller
 
             $player->save();
             Alert::success('Éxito', 'Jugador creado');
-            return redirect()->route('players.index');
+            return redirect()->back();
         }
     }
 
@@ -487,7 +498,7 @@ class DashboardStoreController extends Controller
             $referee = Referee::create([
                 'user_id' => $user->id,
                 'name' => $input['name'],
-                'referee_type_id' => $input['referee_type_id'],
+                'refereeType_id' => $input['referee_type_id'],
                 'edad' => $input['edad'],
                 'estatura' => $input['estatura'],
                 'peso' => $input['peso'],                
@@ -547,7 +558,7 @@ class DashboardStoreController extends Controller
 
             $rt->save();
             Alert::success('Éxito', 'Tipo de referee creado');
-            return redirect()->route('refereetypes.index');
+            return redirect()->route('refereeTypes.index');
         }
     }
 

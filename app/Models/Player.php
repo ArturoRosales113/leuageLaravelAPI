@@ -16,6 +16,8 @@ class Player extends Model
         'edad',
         'estatura',
         'peso',
+        'posicion',
+        'apodo',
         'is_active',
         'icon_path',
         'img_path'

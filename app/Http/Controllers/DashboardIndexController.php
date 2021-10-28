@@ -7,7 +7,7 @@ use Illuminate\Http\Request;
 //Models
 use App\Models\Event;
 use App\Models\Field;
-use App\Models\Games;
+use App\Models\Game;
 use App\Models\League;
 use App\Models\Location;
 use App\Models\Material;
@@ -30,12 +30,14 @@ class DashboardIndexController extends Controller
     {
         return view('dashboard.actions.index');
     }
+
 	public function events()
     {
         return view('dashboard.events.index',
          ['events' => Event::all()]
         );
     }
+
 	public function fields()
     {
         return view('dashboard.fields.index',

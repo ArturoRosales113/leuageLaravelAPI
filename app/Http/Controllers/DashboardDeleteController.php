@@ -5,13 +5,21 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use RealRashid\SweetAlert\Facades\Alert;
 
-//Modelos
+//Models
 use App\Models\Event;
 use App\Models\Field;
-use App\Models\Material;
-use App\Models\Modalitie;
+use App\Models\Games;
 use App\Models\League;
 use App\Models\Location;
+use App\Models\Material;
+use App\Models\Modalitie;
+use App\Models\Permission;
+use App\Models\Player;
+use App\Models\Profile;
+use App\Models\Referee;
+use App\Models\RefereeType;
+use App\Models\Role;
+use App\Models\Score;
 use App\Models\Sport;
 use App\Models\Team;
 use App\Models\User;
@@ -20,6 +28,8 @@ use App\Http\Traits\ImageManagerTrait;
 
 class DashboardDeleteController extends Controller
 {
+    //Manipulacion de assets
+    use ImageManagerTrait;
 
    
     public function events($id)
@@ -80,10 +90,18 @@ class DashboardDeleteController extends Controller
     }
     public function players($id)
     {
-        $league = League::findOrFail($id);
-        dd($league);
-        Alert::success('Éxito', 'Liga eliminada');
-        return view('dashboard.players.index');
+        $player = Player::findOrFail($id);
+        $user = User::findOrFail($player->user->id);
+        if($player->icon_path != null){
+            $this->deleteAsset($player->icon_path);
+         }
+         if($player->icon_path != null){
+            $this->deleteAsset($player->icon_path);
+         }
+        $player->delete();
+        $user->delete();
+        Alert::success('Éxito', 'Jugador eliminado');
+        return redirect()->back();
     }
     public function profiles($id)
     {
@@ -122,8 +140,8 @@ class DashboardDeleteController extends Controller
     }
     public function sports($id)
     {
-        $league = League::findOrFail($id);
-        dd($league);
+        $sport = Sport::findOrFail($id);
+        dd($sport);
         Alert::success('Éxito', 'Liga eliminada');
         return view('dashboard.sports.index');
     }

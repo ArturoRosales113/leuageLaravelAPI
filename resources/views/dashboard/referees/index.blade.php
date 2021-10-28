@@ -15,6 +15,7 @@
                     </div>
                     <div class="col text-right">
                         <a href="{{ route('referees.create') }}" class="btn btn-sm btn-default"><i class="fas fa-plus"></i>&nbsp;Crear referee</a>
+                        <a href="{{ route('refereeTypes.create') }}" class="btn btn-sm btn-default"><i class="fas fa-plus"></i>&nbsp;Crear tipo de referee</a>
 
                     </div>
                 </div>
@@ -28,13 +29,11 @@
                                 &nbsp;
                             </th>
                             <th scope="col" data="name">Nombre</th>
-                            <th scope="col">Apodo</th>
-                            <th scope="col" data="numero">No. de Dorso</th>
-                            <th scope="col">Posición</th>
+                            <th scope="col">Tipo</th>
                             <th scope="col" data="edad">Edad</th>
                             <th scope="col" data="peso">Peso</th>
                             <th scope="col" data="estatura">Estatura</th>
-                            <th scope="col">Equipo</th>
+                            <th scope="col">Deporte</th>
                             <th scope="col">Acción</th>
                         </tr>
                     </thead>
@@ -47,28 +46,23 @@
                                 </span>
                             </th>
                             <td>
-                                Gustavo
+                                {{ $rf->user->name }}
+                            </td>
+
+                            <td>
+                                
+
+                            <td>
+                                {{ $rf->edad }}
                             </td>
                             <td>
-                                Bambino
+                                {{ $rf->peso . ' kg' }}
                             </td>
                             <td>
-                                21
+                                {{ $rf->estatura . ' cm'}}
                             </td>
                             <td>
-                                Defensa
-                            </td>
-                            <td>
-                                22
-                            </td>
-                            <td>
-                                85.8 kg
-                            </td>
-                            <td>
-                                190 cm
-                            </td>
-                            <td>
-                                Power Rangers
+                                
                             </td>
                               <td>
                             <a href="{{ route('referees.edit', $rf->id ) }}" class="btn btn-icon btn-2 btn-primary">

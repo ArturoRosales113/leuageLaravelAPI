@@ -68,7 +68,7 @@
                                   <option selected value="0">Selecciona una opción</option>
 
                                   @for ($i = 1; $i < 41; $i++)
-                                  <option {{ old('numero_equipo') == $i ? 'selected' : '' }} value="{{ $i }}">{{ $i }}</option>
+                                  <option {{ old('numero_equipos') == $i ? 'selected' : '' }} value="{{ $i }}">{{ $i }}</option>
                                   @endfor
 
                                 </select>
