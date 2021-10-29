@@ -69,9 +69,9 @@
       <label for="Numero" class="col-sm-3 col-form-label">No. dentro del equipo</label>
           <div class="col-sm-9">
             <select class="custom-select" name="numero">
-              <option selected>Selecciona una opción</option>
+              <option selected value="0">Selecciona una opción</option>
               @for ($i = 1; $i < 100; $i++)
-              <option {{ old('numero_equipo') == $i ? 'selected' : '' }} value="{{ $i }}">{{ $i }}</option>
+              <option {{ old('numero') == $i ? 'selected' : '' }} value="{{ $i }}">{{ $i }}</option>
               @endfor
             </select>
           </div>
@@ -80,7 +80,7 @@
       <label for="edad" class="col-sm-3 col-form-label">Elige la edad</label>
           <div class="col-sm-9">
             <select class="custom-select" name="edad">
-              <option selected>Selecciona una opción</option>
+              <option selected value="0">Selecciona una opción</option>
               @for ($i = 6; $i < 51; $i++)
               <option {{ old('edad') == $i ? 'selected' : '' }} value="{{ $i }}">{{ $i }}</option>
               @endfor

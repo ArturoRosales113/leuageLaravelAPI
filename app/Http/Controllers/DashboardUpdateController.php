@@ -229,7 +229,7 @@ class DashboardUpdateController extends Controller
               return redirect()->route('events.index');
           }
       }
-  
+  //
       public function materials(Request $request, $id)
       {
           $input = $request->all();
@@ -248,12 +248,12 @@ class DashboardUpdateController extends Controller
              ->withErrors($validator)
              ->withInput();
           } else {
-  
-              $material = Material::create([
-                  'name'=>  Str::slug($input['name'], '-'),
-                  'display_name'=> $input['name'],
-                  'description'=> $input['description']
-              ]);
+            
+            
+              $material = Material::find($id);
+              $material->name =  Str::slug($input['name'], '-');
+              $material->display_name = $input['name'];
+              $material->description = $input['description'];
   
               if (array_key_exists('icon_path', $input) && $input['icon_path'] != null) {
                   $iconFile = $request->file('icon_path');
@@ -266,8 +266,8 @@ class DashboardUpdateController extends Controller
   
               $material->save();
   
-              Alert::success('Éxito', 'Material creado');
-              return redirect()->route('materials.index');
+              Alert::success('Éxito', 'Material editado');
+              return redirect()->route('locations.index');
           }
       }
   
@@ -311,7 +311,7 @@ class DashboardUpdateController extends Controller
               return redirect()->route('materials.index');
           }
       }
-  
+  //
       public function locations(Request $request, $id)
       {
           $input = $request->all();
@@ -371,7 +371,7 @@ class DashboardUpdateController extends Controller
               return redirect()->route('locations.index');
           }
       }
-  
+  //
       public function fields(Request $request, $id)
       {
           $input = $request->all();
@@ -395,43 +395,53 @@ class DashboardUpdateController extends Controller
              ->withInput();
           } else {
   
-              $field = Field::create([
-                  'name' => Str::slug($input['name'], '-'),
-                  'display_name' => $input['name'],
-                  'description'=> $input['description'],
-                  'width' => $input['width'],
-                  'height' => $input['height'],
-                  'location_id' => $input['location_id'], 
-                  'material_id' => $input['material_id'], 
-              ]);
+              $field = Field::find($id);
+              $field->name = Str::slug($input['name'], '-');
+              $field->display_name = $input['name'];
+              $field->description = $input['description'];
+              $field->width = $input['width'];
+              $field->height = $input['height'];
+              $field->location_id = $input['location_id']; 
+              $field->material_id = $input['material_id']; 
+        
   
               if (array_key_exists('icon_path', $input) && $input['icon_path'] != null) {
+                if($field->icon_path != null){
+                    $this->deleteAsset($field->icon_path);
+                 }
                   $iconFile = $request->file('icon_path');
                   $field->icon_path = $this->createIcon($iconFile);
               }
               if (array_key_exists('img_path', $input) && $input['img_path'] != null) {
+                if($field->img_path != null){
+                    $this->deleteAsset($field->img_path);
+                 }
                   $imageFile = $request->file('img_path');
                   $field->img_path = $this->createImage($imageFile);
               }
   
               $field->save();
   
-              Alert::success('Éxito', 'Campo creado');
-              return redirect()->route('fields.index');
+              Alert::success('Éxito', 'Campo editado');
+              return redirect()->route('locations.show', $input['location_id']);
           }
       }
-  
+  //
       public function players(Request $request, $id)
       {
+        $input = $request->all();
+        $player = Player::find($id);
+        $user = User::find($player->user->id);
           $input = $request->all();
           //dd($input);
           $rules = [
            'name' => 'required',
-           'email' => 'required|email|unique:users',
+           'email' => 'required|email|unique:users,email,'.$user->id,
            'team_id' => 'required|not_in:0',
            'icon_path' => 'max:3000|mimes:jpg,bmp,png',
            'img_path' => 'max:3000|mimes:jpg,bmp,png',
-           'edad' => 'required',
+           'numero' => 'required|not_in:0',
+           'edad' => 'required|not_in:0',
            'estatura' => 'required',
            'peso' => 'required'
           ];
@@ -444,33 +454,39 @@ class DashboardUpdateController extends Controller
              ->withInput();
           } else {
   
-              $user = User::create([
-                  'name' => $input['name'],
-                  'email' =>  $input['email'],
-                  'password' => Hash::make(Str::random(10))
-              ]);
+              
+            $user->name = $input['name'];
+            $user->email =  $input['email'];
+            $user->save();
   
-              $player = Player::create([
-                  'user_id' => $user->id,
-                  'name' => $input['name'],
-                  'team_id' => $input['team_id'],
-                  'edad' => $input['edad'],
-                  'estatura' => $input['estatura'],
-                  'peso' => $input['peso'],                
-                  'is_active' => true                
-              ]);
+              
+            $player->user_id = $user->id;
+            $player->team_id = $input['team_id'];
+            $player->edad = $input['edad'];
+            $player->apodo = $input['apodo'];
+            $player->posicion = $input['posicion'];
+            $player->estatura = $input['estatura'];
+            $player->numero = $input['numero'];
+            $player->peso = $input['peso'];
+              
   
-              if (array_key_exists('icon_path', $input) && $input['icon_path'] != null) {
+            if (array_key_exists('icon_path', $input) && $input['icon_path'] != null) {
+                if($player->icon_path != null){
+                    $this->deleteAsset($player->icon_path);
+                 }
                   $iconFile = $request->file('icon_path');
                   $player->icon_path = $this->createIcon($iconFile);
               }
               if (array_key_exists('img_path', $input) && $input['img_path'] != null) {
+                if($player->img_path != null){
+                    $this->deleteAsset($player->img_path);
+                 }
                   $imageFile = $request->file('img_path');
                   $player->img_path = $this->createImage($imageFile);
               }
   
               $player->save();
-              Alert::success('Éxito', 'Jugador creado');
+              Alert::success('Éxito', 'Jugador Editado');
               return redirect()->route('players.index');
           }
       }

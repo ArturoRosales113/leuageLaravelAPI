@@ -138,8 +138,8 @@ class CreateTeamsTable extends Migration
             $table->integer('edad')->nullable();
             $table->float('estatura')->nullable();
             $table->float('peso')->nullable();
-            $table->integer('is_active');
-            $table->integer('is_captain');
+            $table->boolean('is_active');
+            $table->boolean('is_captain');
             $table->string('icon_path')->nullable();
             $table->string('img_path')->nullable();
             $table->timestamps();
@@ -259,3 +259,4 @@ class CreateTeamsTable extends Migration
         Schema::dropIfExists('sports');
     }
 }
+

@@ -44,5 +44,21 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
 
+    public function player()
+    {
+        return $this->hasOne(Player::class);
+    }
+
+    public function referee()
+    {
+        return $this->hasOne(Referee::class);
+    }
+
+    public function league()
+    {
+        return $this->hasOne(League::class);
+    }
+
+    
 
 }

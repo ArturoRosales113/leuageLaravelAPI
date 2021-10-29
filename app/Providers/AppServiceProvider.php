@@ -64,11 +64,10 @@ class AppServiceProvider extends ServiceProvider
             $view->with('materials' , Material::all());
         });
 
-        view()->composer('dashboard.fields.create', function ($view) {
-            $view->with('locations' , Location::all());
+        view()->composer('dashboard.fields.createForm', function ($view) {
+            $view->with('materials' , Material::all());
         });
-
-        view()->composer('dashboard.fields.create', function ($view) {
+        view()->composer('dashboard.fields.edit', function ($view) {
             $view->with('materials' , Material::all());
         });
 

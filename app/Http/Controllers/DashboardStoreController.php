@@ -163,7 +163,8 @@ class DashboardStoreController extends Controller
             $player = Player::create([
                 'user_id' => $captain->id,
                 'team_id' => $team->id,
-                'is_active' => true                
+                'is_active' => true,
+                'is_captain' => true                
             ]);
 
             if (array_key_exists('icon_path', $input) && $input['icon_path'] != null) {
@@ -404,7 +405,7 @@ class DashboardStoreController extends Controller
             $field->save();
 
             Alert::success('Éxito', 'Campo creado');
-            return redirect()->route('fields.index');
+            return redirect()->back();
         }
     }
 
@@ -418,8 +419,8 @@ class DashboardStoreController extends Controller
          'team_id' => 'required|not_in:0',
          'icon_path' => 'max:3000|mimes:jpg,bmp,png',
          'img_path' => 'max:3000|mimes:jpg,bmp,png',
-         'numero' => 'required',
-         'edad' => 'required',
+         'numero' => 'required|not_in:0',
+         'edad' => 'required|not_in:0',
          'estatura' => 'required',
          'peso' => 'required'
         ];

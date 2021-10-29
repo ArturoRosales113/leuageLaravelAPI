@@ -41,10 +41,16 @@ class DashboardDeleteController extends Controller
     }
     public function fields($id)
     {
-        $league = League::findOrFail($id);
-        dd($league);
-        Alert::success('Éxito', 'Liga eliminada');
-        return view('dashboard.fields.index');
+        $field = Field::findOrFail($id);
+        if($field->icon_path != null){
+            $this->deleteAsset($player->icon_path);
+         }
+         if($field->icon_path != null){
+            $this->deleteAsset($player->icon_path);
+         }
+        $field->delete();
+        Alert::success('Éxito', 'Cancha eliminado');
+        return redirect()->back();
     }
     public function games($id)
     {

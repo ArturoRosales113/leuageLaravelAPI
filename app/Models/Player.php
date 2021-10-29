@@ -19,6 +19,7 @@ class Player extends Model
         'posicion',
         'apodo',
         'is_active',
+        'is_captain',
         'icon_path',
         'img_path'
     ];

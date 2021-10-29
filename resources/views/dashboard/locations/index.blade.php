@@ -48,7 +48,9 @@
                                     </span>
                                 </th>
                                 <td>
-                                    {{ $lo->display_name }}
+                                    <a href="{{ route('locations.show', $lo->id) }}">
+                                        {{ $lo->display_name }}
+                                    </a>
                                 </td>
                                 <td>
                                     {{ $lo->fields->count() }}

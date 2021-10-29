@@ -67,7 +67,7 @@
                                 {{ $pl->peso . ' kg' }}
                             </td>
                             <td>
-                                {{ $pl->altura . ' cm'}}
+                                {{ $pl->estatura . ' cm'}}
                             </td>
                             <td>
                                 <a href="{{ route('teams.show', $pl->team->id) }}">
@@ -77,6 +77,9 @@
                             </td>
                             
                               <td>
+                                <a href="{{ route('players.edit', $pl->id) }}" class="btn btn-icon btn-2 btn-primary">
+                                    <span class="btn-inner--icon"><i class="far fa-edit"></i></span>
+                                </a>
                                 <form method="POST" class="d-inline-block" action="{{ route('players.delete', $pl->id) }}">
                                     {{ csrf_field() }}
                                     {{ method_field('DELETE') }}
@@ -87,7 +90,6 @@
                                         </button>
                                     </div>
                                 </form>
-
                             </td>
                         </tr>    
                         @endforeach
