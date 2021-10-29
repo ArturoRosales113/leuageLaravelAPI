@@ -35,6 +35,7 @@ class AppServiceProvider extends ServiceProvider
         view()->composer('dashboard.leagues.create', function ($view) {
             $view->with('sports' , Sport::all());
         });
+        
         view()->composer('dashboard.leagues.edit', function ($view) {
             $view->with('sports' , Sport::all());
         });
@@ -42,6 +43,7 @@ class AppServiceProvider extends ServiceProvider
         view()->composer('dashboard.teams.create', function ($view) {
             $view->with('leagues' , League::all());
         });
+
         view()->composer('dashboard.teams.edit', function ($view) {
             $view->with('leagues' , League::all());
         });
@@ -52,6 +54,14 @@ class AppServiceProvider extends ServiceProvider
 
         view()->composer('dashboard.locations.create', function ($view) {
             $view->with('leagues' , League::all());
+        });
+
+        view()->composer('dashboard.locations.edit', function ($view) {
+            $view->with('leagues' , League::all());
+        });
+
+        view()->composer('dashboard.locations.index', function ($view) {
+            $view->with('materials' , Material::all());
         });
 
         view()->composer('dashboard.fields.create', function ($view) {
@@ -70,7 +80,19 @@ class AppServiceProvider extends ServiceProvider
             $view->with('refereeTypes' , RefereeType::all());
         });
 
+        view()->composer('dashboard.referees.index', function ($view) {
+            $view->with('refereeTypes' , RefereeType::all());
+        });
+
+        view()->composer('dashboard.referees.edit', function ($view) {
+            $view->with('refereeTypes' , RefereeType::all());
+        });
+
         view()->composer('dashboard.refereeTypes.create', function ($view) {
+            $view->with('sports' , Sport::all());
+        });
+
+        view()->composer('dashboard.refereeTypes.edit', function ($view) {
             $view->with('sports' , Sport::all());
         });
 

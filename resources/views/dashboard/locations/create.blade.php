@@ -121,23 +121,16 @@
                             </div>
 
                             <div class="form-group row">
-                                <label for="country" class="col-sm-3 col-form-label">Ciudad</label>
-                                <div class="col-sm-9">
-                                    <input type="text" class="form-control" name="country" value="" placeholder="Ciudad" >
-                                </div>
-                            </div>
-
-                            <div class="form-group row">
                                 <label for="lat" class="col-sm-3 col-form-label">Latitud</label>
                                 <div class="col-sm-9">
-                                    <input type="text" class="form-control" name="lat" value="" placeholder="Ciudad" >
+                                    <input type="text" class="form-control" name="lat" value="{{ old('lat') }}" placeholder="lat" >
                                 </div>
                             </div>
 
                             <div class="form-group row">
                                 <label for="long" class="col-sm-3 col-form-label">Longitud</label>
                                 <div class="col-sm-9">
-                                    <input type="text" class="form-control" name="long" value="" placeholder="Ciudad" >
+                                    <input type="text" class="form-control" name="long" value="{{ old('long') }}" placeholder="long" >
                                 </div>
                             </div>
 

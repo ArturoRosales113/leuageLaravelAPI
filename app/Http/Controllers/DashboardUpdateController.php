@@ -29,7 +29,7 @@ class DashboardUpdateController extends Controller
 {
       //Manipulacion de assets
       use ImageManagerTrait;
-
+//
       public function sports(Request $request, $id)
       {
         
@@ -75,7 +75,7 @@ class DashboardUpdateController extends Controller
           return redirect()->route('sports.index');
          }
       }
-  
+  //
       public function leagues(Request $request, $id)
       {
           $input = $request->all();
@@ -139,7 +139,7 @@ class DashboardUpdateController extends Controller
               return redirect()->route('leagues.index');
           }
       }
-  
+  //
       public function teams(Request $request, $id)
       {
           $input = $request->all();
@@ -338,32 +338,37 @@ class DashboardUpdateController extends Controller
              ->withInput();
           } else {
   
-              $location = Location::create([
-                  'name' => Str::slug($input['name'], '-'),
-                  'display_name' => $input['name'],
-                  'description'=> $input['description'],
-                  'address' => $input['address'],
-                  'city' => $input['city'],
-                  'state' => $input['state'],
-                  'country' => $input['country'],
-                  'lat' => $input['lat'],
-                  'long' => $input['long'],
-                  'league_id' => $input['league_id']
-              ]);
+              $location = Location::find($id);
+              $location->name = Str::slug($input['name'], '-');
+              $location->display_name = $input['name'];
+              $location->description = $input['description'];
+              $location->address = $input['address'];
+              $location->city = $input['city'];
+              $location->state = $input['state'];
+              $location->lat = $input['lat'];
+              $location->long = $input['long'];
+              $location->league_id = $input['league_id'];
+              
   
               if (array_key_exists('icon_path', $input) && $input['icon_path'] != null) {
+                if($location->icon_path != null){
+                    $this->deleteAsset($location->icon_path);
+                 }
                   $iconFile = $request->file('icon_path');
                   $location->icon_path = $this->createIcon($iconFile);
               }
               if (array_key_exists('img_path', $input) && $input['img_path'] != null) {
+                if($location->img_path != null){
+                    $this->deleteAsset($location->img_path);
+                 }
                   $imageFile = $request->file('img_path');
                   $location->img_path = $this->createImage($imageFile);
               }
   
               $location->save();
   
-              Alert::success('Éxito', 'Estadio creado');
-              return redirect()->route('teams.index');
+              Alert::success('Éxito', 'Estadio editado');
+              return redirect()->route('locations.index');
           }
       }
   
@@ -469,14 +474,17 @@ class DashboardUpdateController extends Controller
               return redirect()->route('players.index');
           }
       }
-  
+  //
       public function referees(Request $request, $id)
       {
           $input = $request->all();
+          $referee = Referee::find($id);
+          $user = User::find($referee->user->id);
+        
           //dd($input);
           $rules = [
            'name' => 'required',
-           'email' => 'required|email|unique:users',
+           'email' => 'required|email|unique:users,email,'.$user->id,
            'referee_type_id' => 'required|not_in:0',
            'icon_path' => 'max:3000|mimes:jpg,bmp,png',
            'img_path' => 'max:3000|mimes:jpg,bmp,png',
@@ -493,27 +501,29 @@ class DashboardUpdateController extends Controller
              ->withInput();
           } else {
   
-              $user = User::create([
-                  'name' => $input['name'],
-                  'email' =>  $input['email'],
-                  'password' => Hash::make(Str::random(10))
-              ]);
+              
+            $user->name = $input['name'];
+            $user->email =  $input['email'];
+            $user->save();
   
-              $referee = Referee::create([
-                  'user_id' => $user->id,
-                  'name' => $input['name'],
-                  'referee_type_id' => $input['referee_type_id'],
-                  'edad' => $input['edad'],
-                  'estatura' => $input['estatura'],
-                  'peso' => $input['peso'],                
-                  'is_active' => true                
-              ]);
-  
+              
+            $referee->user_id = $user->id;
+            $referee->refereeType_id = $input['referee_type_id'];
+            $referee->edad = $input['edad'];
+            $referee->estatura = $input['estatura'];
+            $referee->peso = $input['peso'];
+              
               if (array_key_exists('icon_path', $input) && $input['icon_path'] != null) {
+                if($referee->icon_path != null){
+                    $this->deleteAsset($referee->icon_path);
+                 }
                   $iconFile = $request->file('icon_path');
                   $referee->icon_path = $this->createIcon($iconFile);
               }
               if (array_key_exists('img_path', $input) && $input['img_path'] != null) {
+                if($referee->img_path != null){
+                    $this->deleteAsset($referee->img_path);
+                 }
                   $imageFile = $request->file('img_path');
                   $referee->img_path = $this->createImage($imageFile);
               }
@@ -523,7 +533,7 @@ class DashboardUpdateController extends Controller
               return redirect()->route('referees.index');
           }
       }
-  
+  //
       public function refereeTypes(Request $request, $id)
       {
           $input = $request->all();
@@ -543,26 +553,33 @@ class DashboardUpdateController extends Controller
              ->withErrors($validator)
              ->withInput();
           } else {
-  
-              $rt = RefereeType::create([
-                  'name'=>  Str::slug($input['name'], '-'),
-                  'display_name'=> $input['name'],
-                  'description'=> $input['description'],
-                  'sport_id' => $input['sport_id']
-              ]);
+            
+            $rt = RefereeType::find($id);
+              
+            $rt->name =  Str::slug($input['name'], '-');
+            $rt->display_name = $input['name'];
+            $rt->description = $input['description'];
+            $rt->sport_id = $input['sport_id'];
+              
   
               if (array_key_exists('icon_path', $input) && $input['icon_path'] != null) {
+                if($rt->icon_path != null){
+                    $this->deleteAsset($rt->icon_path);
+                 }
                   $iconFile = $request->file('icon_path');
                   $rt->icon_path = $this->createIcon($iconFile);
               }
               if (array_key_exists('img_path', $input) && $input['img_path'] != null) {
+                if($rt->img_path != null){
+                    $this->deleteAsset($rt->img_path);
+                 }
                   $imageFile = $request->file('img_path');
                   $rt->img_path = $this->createImage($imageFile);
               }
   
               $rt->save();
-              Alert::success('Éxito', 'Tipo de referee creado');
-              return redirect()->route('refereetypes.index');
+              Alert::success('Éxito', 'Tipo de referee Editado');
+              return redirect()->route('referees.index');
           }
       }
   

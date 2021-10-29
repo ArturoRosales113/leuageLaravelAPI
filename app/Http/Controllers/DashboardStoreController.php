@@ -260,7 +260,7 @@ class DashboardStoreController extends Controller
             $material->save();
 
             Alert::success('Éxito', 'Material creado');
-            return redirect()->route('materials.index');
+            return redirect()->route('locations.index');
         }
     }
 
@@ -338,7 +338,6 @@ class DashboardStoreController extends Controller
                 'address' => $input['address'],
                 'city' => $input['city'],
                 'state' => $input['state'],
-                'country' => $input['country'],
                 'lat' => $input['lat'],
                 'long' => $input['long'],
                 'league_id' => $input['league_id']
@@ -356,7 +355,7 @@ class DashboardStoreController extends Controller
             $location->save();
 
             Alert::success('Éxito', 'Estadio creado');
-            return redirect()->route('teams.index');
+            return redirect()->route('locations.index');
         }
     }
 

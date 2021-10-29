@@ -52,8 +52,6 @@ class CreateTeamsTable extends Migration
             $table->timestamps();
         });
 
-
-
         Schema::create('leagues', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('user_id');

@@ -56,7 +56,7 @@
                                 <a href="{{ route('sports.edit', $sp->id) }}" class="btn btn-icon btn-2 btn-primary">
                                     <span class="btn-inner--icon"><i class="far fa-edit"></i></span>
                                 </a>
-    
+                            
                                 <form method="POST" class="d-inline-block" action="{{ route('sports.delete', $sp->id) }}">
                                     {{ csrf_field() }}
                                     {{ method_field('DELETE') }}
@@ -65,6 +65,7 @@
                                         <button class="btn btn-icon btn-2 btn-danger" type="submit">
                                             <span class="btn-inner--icon"><i class="fas fa-trash"></i></span>
                                         </button>
+                                    
                                     </div>
                                 </form>
                             </td>
