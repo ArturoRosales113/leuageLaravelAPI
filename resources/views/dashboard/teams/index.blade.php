@@ -38,7 +38,7 @@
                         <tr>
                             <th>
                                 <span class="rounded-circle border-b avatar">
-                                    <img alt="Image placeholder" src="{{ $t->icon_path == null ? asset('argon/img/theme/team-4-800x800.jpg') :asset( $t->icon_path) }}">
+                                     <img alt="Image placeholder" src="{{ $t->icon_path == null ? asset('argon/img/theme/team-4-800x800.jpg') :asset( $t->icon_path) }}">
                                 </span>
                             </th>
                             <td scope="row">

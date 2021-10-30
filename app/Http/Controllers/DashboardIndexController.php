@@ -71,7 +71,7 @@ class DashboardIndexController extends Controller
 	public function modalities()
     {
         return view('dashboard.modalities.index',
-         ['modalitie' => Modalitie::all()]
+         ['modalities' => Modalitie::all()]
         );
     }
 	public function permissions()

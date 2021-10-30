@@ -11,39 +11,37 @@ class Game extends Model
 
     protected $fillable = [
         'modality_id',
-        'team1_id',
-        'team2_id',
         'league_id',
         'field_id',
         'start_time',
-        'result1',
+        'result',
         'icon_path',
         'img_path'
     ];
 
-    public function modality()
+    public function modalitie()
     {
-        return $this->belongsTo('App\Models\Modalitie');
+        return $this->belongsTo(Modalitie::class);
     }
 
-    public function teamOne()
+    public function teams()
     {
-        return $this->belongsTo('App\Models\Team');
+        return $this->belongsToMany(Team::class,'team_game');
     }
 
-    public function teamTwo()
+    public function referees()
     {
-        return $this->belongsTo('App\Models\Team');
+        return $this->belongsToMany(Referee::class,'game_referee');
     }
 
     public function league()
     {
-        return $this->belongsTo('App\Models\League');
+        return $this->belongsTo(League::class);
     }
 
     public function field()
     {
-        return $this->belongsTo('App\Models\Field');
+        return $this->belongsTo(Field::class);
     }
 }
 

@@ -30,6 +30,11 @@ class League extends Model
         return $this->belongsTo(Sport::class);
     }
 
+    public function games()
+    {
+        return $this->hasMany(Game::class);
+    }
+
     public function teams()
     {
         return $this->hasMany(Team::class);
@@ -38,6 +43,11 @@ class League extends Model
     public function players()
     {
         return $this->hasManyThrough(Player::class, Team::class);
+    }
+
+    public function fields()
+    {
+        return $this->hasManyThrough(Field::class, Location::class);
     }
 }
 

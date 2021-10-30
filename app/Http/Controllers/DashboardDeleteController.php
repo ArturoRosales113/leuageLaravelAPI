@@ -8,7 +8,7 @@ use RealRashid\SweetAlert\Facades\Alert;
 //Models
 use App\Models\Event;
 use App\Models\Field;
-use App\Models\Games;
+use App\Models\Game;
 use App\Models\League;
 use App\Models\Location;
 use App\Models\Material;
@@ -54,10 +54,10 @@ class DashboardDeleteController extends Controller
     }
     public function games($id)
     {
-        $league = League::findOrFail($id);
-        dd($league);
-        Alert::success('Éxito', 'Liga eliminada');
-        return view('dashboard.games.index');
+        $game = Game::findOrFail($id);
+        $game->delete();
+        Alert::success('Éxito', 'Juego eliminada');
+        return redirect()->back();
     }
     public function leagues($id)
     {

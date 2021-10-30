@@ -8,8 +8,12 @@ use App\Models\Sport;
 use App\Models\League;
 use App\Models\Location;
 use App\Models\Material;
+use App\Models\Modalitie;
 use App\Models\Team;
 use App\Models\RefereeType;
+use App\Models\Referee;
+use App\Models\Game;
+
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -67,6 +71,15 @@ class AppServiceProvider extends ServiceProvider
         view()->composer('dashboard.fields.createForm', function ($view) {
             $view->with('materials' , Material::all());
         });
+
+        view()->composer('dashboard.games.createForm', function ($view) {
+            $view->with('modalities' , Modalitie::all());
+        });
+
+        view()->composer('dashboard.games.createForm', function ($view) {
+            $view->with('referees' , Referee::all());
+        });
+
         view()->composer('dashboard.fields.edit', function ($view) {
             $view->with('materials' , Material::all());
         });

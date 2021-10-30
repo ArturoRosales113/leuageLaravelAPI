@@ -471,7 +471,7 @@
                 </li>
 
                 {{-- Users --}}
-                <li class="nav-item">
+                {{-- <li class="nav-item">
                     <a class="nav-link" href="#users-dropdown" data-toggle="collapse" role="button" aria-expanded="false" aria-controls="users-dropdown">
                         <i class="fas fa-table-tennis"></i>
                         <span class="nav-link-text" >{{ __('Usuarios') }}</span>
@@ -491,7 +491,7 @@
                             </li>
                         </ul>
                     </div>
-                </li>
+                </li> --}}
 
 
             </ul>

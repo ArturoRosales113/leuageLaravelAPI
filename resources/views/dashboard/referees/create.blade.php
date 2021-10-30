@@ -47,7 +47,7 @@
                             <label for="Numero" class="col-sm-3 col-form-label">Es del tipo:</label>
                             <div class="col-sm-9">
                                 <select class="custom-select" name="referee_type_id">
-                                <option selected>Selecciona una opción</option>
+                                <option selected value="0">Selecciona una opción</option>
                                 @foreach ($refereeTypes as $rt)
                                 <option {{ old('referee_type_id') == $rt->id ? 'selected' : ''}} value="{{ $rt->id }}">{{ $rt->display_name }}</option>
                                 @endforeach
@@ -74,7 +74,7 @@
                           <label for="edad" class="col-sm-3 col-form-label">Elige la edad</label>
                               <div class="col-sm-9">
                                 <select class="custom-select" name="edad">
-                                  <option>Selecciona una opción</option>
+                                  <option selected value="0">Selecciona una opción</option>
                                   @for ($i = 6; $i < 61; $i++)
                                   <option {{ old('numero_equipo') == $i ? 'selected' : '' }} value="{{ $i }}">{{ $i }}</option>
                                   @endfor

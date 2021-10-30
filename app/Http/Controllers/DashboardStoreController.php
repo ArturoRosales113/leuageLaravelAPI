@@ -21,6 +21,7 @@ use App\Models\Referee;
 use App\Models\RefereeType;
 use App\Models\Team;
 use App\Models\User;
+use App\Models\Game;
 
 use App\Http\Traits\ImageManagerTrait;
 
@@ -302,7 +303,7 @@ class DashboardStoreController extends Controller
             $modalitie->save();
 
             Alert::success('Éxito', 'Modalidad creado');
-            return redirect()->route('materials.index');
+            return redirect()->route('modalities.index');
         }
     }
 
@@ -448,7 +449,8 @@ class DashboardStoreController extends Controller
                 'estatura' => $input['estatura'],
                 'numero' => $input['numero'],
                 'peso' => $input['peso'],                
-                'is_active' => true                
+                'is_active' => true,
+                'is_captain' => false                     
             ]);
 
             if (array_key_exists('icon_path', $input) && $input['icon_path'] != null) {
@@ -476,7 +478,7 @@ class DashboardStoreController extends Controller
          'referee_type_id' => 'required|not_in:0',
          'icon_path' => 'max:3000|mimes:jpg,bmp,png',
          'img_path' => 'max:3000|mimes:jpg,bmp,png',
-         'edad' => 'required',
+         'edad' => 'required|not_in:0',
          'estatura' => 'required',
          'peso' => 'required'
         ];
@@ -558,9 +560,25 @@ class DashboardStoreController extends Controller
 
             $rt->save();
             Alert::success('Éxito', 'Tipo de referee creado');
-            return redirect()->route('refereeTypes.index');
+            return redirect()->route('referees.index');
         }
     }
 
+    public function games(Request $request)
+    {
+        //dd($request->all());
+        $input = $request->all();
+
+        $game = Game::create([
+            'modality_id' => $input['modality_id'],
+            'league_id' => $input['league_id'],
+            'field_id' => $input['field_id'],
+            'start_time' => $input['start_time'],
+        ]);
+        $game->teams()->attach($input['teams']);
+        $game->referees()->attach($input['referee_id']);
+        Alert::success('Éxito', 'Juego programado');
+        return redirect()->back();
+    } 
 
 }

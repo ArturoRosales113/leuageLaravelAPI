@@ -14,7 +14,7 @@
                         <h3 class="mb-0">Mis modalidades</h3>
                     </div>
                     <div class="col text-right">
-                                                <a href="{{ route('fields.create') }}" class="btn btn-sm btn-default"><i class="fas fa-plus"></i>&nbsp;Crear campo</a>
+                        <a href="{{ route('modalities.create') }}" class="btn btn-sm btn-default"><i class="fas fa-plus"></i>&nbsp;Crear modalidad de juego</a>
 
                     </div>
                 </div>
@@ -33,6 +33,7 @@
                         </tr>
                     </thead>
                     <tbody>
+                        @foreach ($modalities as $m)
                         <tr>
                             <th>
                                 <span class="rounded-circle border-b avatar">
@@ -40,13 +41,13 @@
                                 </span>
                             </th>
                             <td>
-                                
+                                {{ $m->display_name }}
                             </td>
                             <td>
-                                Lorem ipsum
+                                {{ $m->description }}
                             </td>
                               <td>
-                            <a href="{{ route('fields.edit', $f->id ) }}" class="btn btn-icon btn-2 btn-primary">
+                            <a href="{{ route('modalities.edit', $m->id ) }}" class="btn btn-icon btn-2 btn-primary">
                                     <span class="btn-inner--icon"><i class="far fa-edit"></i></span>
                                 </a>
                                 <button class="btn btn-icon btn-2 btn-danger" type="button">
@@ -55,6 +56,7 @@
 
                             </td>
                         </tr>
+                        @endforeach
                     </tbody>
                 </table>
             </div>
