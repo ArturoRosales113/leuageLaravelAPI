@@ -16,11 +16,14 @@
         <link href="{{ asset('argon') }}/vendor/@fortawesome/fontawesome-free/css/all.min.css" rel="stylesheet">
         <!-- Argon CSS -->
         <link type="text/css" href="{{ asset('argon') }}/css/argon.css?v=1.0.0" rel="stylesheet">
+        <link type="text/css" href="{{ asset('argon') }}/css/icons.css" rel="stylesheet">
     </head>
 
     <body class="scrollbar-light-blue bg-playm">
 
         <div class="registro">
+
+        
             <div class="">
                 @auth()
                     <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
@@ -38,6 +41,9 @@
                 @include('layouts.footers.guest')
             @endguest
         </div>
+
+
+         
 
         <script src="{{ asset('argon') }}/vendor/jquery/dist/jquery.min.js"></script>
         <script src="{{ asset('argon') }}/vendor/bootstrap/dist/js/bootstrap.bundle.min.js"></script>

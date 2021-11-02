@@ -15778,7 +15778,7 @@ textarea[resize="horizontal"] {
     text-transform: uppercase;
 }
 .navbar-horizontal .navbar-brand img {
-    height: 30px;
+    height: 40px;
 }
 
 .navbar-horizontal .navbar-dark .navbar-brand {
@@ -18214,9 +18214,11 @@ html:not([dir="rtl"]) .noUi-horizontal .noUi-handle {
     color: #fff;
 }
 .panel-cont {
-    background: linear-gradient(37deg, #6ce19a 0, #825ee4 100%);
-    color: #fff;
+    background: #fff;
+    color: #25292e;
     border-radius: 11px;
+    text-transform: uppercase;
+    font-weight: 700;
 }
 
 textarea {
