@@ -179,7 +179,7 @@ class DashboardUpdateController extends Controller
                     $this->deleteAsset($team->img_path);
                  }
                   $imageFile = $request->file('img_path');
-                  $league->img_path = $this->createImage($imageFile);
+                  $team->img_path = $this->createImage($imageFile);
               }
   
               $team->save();

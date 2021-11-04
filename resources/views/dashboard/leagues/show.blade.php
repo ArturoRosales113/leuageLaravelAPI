@@ -4,7 +4,8 @@
 @include('users.partials.header', [
 'title' => $league->name,
 'description' => $league->description,
-'class' => 'col-lg-12'
+'class' => 'col-lg-12',
+'portada' => $league->img_path
 ])   
 
 <div class="container-fluid mt--7">
@@ -174,7 +175,7 @@
                                    {{ $lg->field->location->name . '//' .  $lg->field->name }}
                                 </td>
                                 <td>
-                                    {{ $lg->start_time }}
+                                    {{ Carbon::parse($lg->start_time)->diffForHumans(); }}
                                 </td>
                                 <td>
                                     {{-- <a href="{{ route('teams.edit', $lgt->id) }}" class="btn btn-icon btn-2 btn-primary">

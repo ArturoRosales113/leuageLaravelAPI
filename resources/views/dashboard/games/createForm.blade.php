@@ -62,11 +62,12 @@
             </div>
         </div>
         <div class="form-group row">
-            <label for="start_time" class="col-sm-3 col-form-label">Selecciona un horario</label>
+            <label for="start_time" class="col-sm-3 col-form-label">Selecciona un horario </label>
             <div class="col-sm-9">
+                {{  Carbon::today()->addYear()->addDay()->locale('es_MX')->diffForHumans() }}
                 <input type="datetime-local" id="meeting-time"
-                name="start_time" value="2018-06-12T19:30"
-                min="2018-06-07T00:00" max="2018-06-14T00:00">
+                name="start_time" value="{{ Carbon::now()->toDateTimeLocalString() }}"
+                min="{{ Carbon::today()->toDateTimeLocalString() }}" max="{{ Carbon::today()->addYear()->addDay()->toDateTimeLocalString() }}">
             </div>
         </div>
         {{-- <div class="form-group row">

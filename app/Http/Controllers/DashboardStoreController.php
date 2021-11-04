@@ -82,7 +82,7 @@ class DashboardStoreController extends Controller
          'icon_path' => 'max:3000|mimes:jpg,bmp,png',
          'img_path' => 'max:3000|mimes:jpg,bmp,png',
          'sport_id' => 'required|not_in:0',
-         'reglamento_path' => 'required|mimes:pdf|max:5000',
+         'reglamento_path' => 'mimes:pdf|max:5000',
          'numero_equipos' => 'required|not_in:0'
         ];
  

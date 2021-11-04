@@ -4,13 +4,14 @@
 @include('users.partials.header', [
 'title' => $team->name,
 'description' => $team->description,
-'class' => 'col-lg-7'
+'class' => 'col-lg-12',
+'portada' => $team->img_path
 ])   
 
 <div class="container-fluid mt--7">
     <div class="row">
         <div class="col-4">
-            <div class="card shadow pb-5">
+            <div class="card shadow pb-5 mt-4">
                 <div class="card-header border-0">
                     <div class="row align-items-center">
                         <div class="col">
@@ -67,7 +68,7 @@
                             <tr>
                                 <th>
                                     <span class="rounded-circle border-b avatar">
-                                        <img alt="Image placeholder" src="{{ asset('argon') }}/img/theme/team-4-800x800.jpg">
+                                        <img alt="Image placeholder" src="{{ $pl->icon_path == null ? asset('argon/img/theme/team-4-800x800.jpg') :asset( $pl->icon_path) }}">
                                     </span>
                                 </th>
                                 <td>

@@ -30,7 +30,6 @@
                             <th scope="col" data="name">Deporte</th>
                             <th scope="col">Equipos</th>
                             <th scope="col">Status</th>
-                            <th scope="col">Favorito</th>
                             <th scope="col">Acción</th>
                         </tr>
                     </thead>
@@ -39,7 +38,7 @@
                         <tr>
                             <th>
                                 <span class="rounded-circle border-b avatar">
-                                    <img alt="Image placeholder" src="{{ asset('argon') }}/img/theme/team-4-800x800.jpg">
+                                    <img alt="Image placeholder" src="{{ $lg->icon_path == null ? asset('argon/img/theme/team-4-800x800.jpg') :asset( $lg->icon_path) }}">
                                 </span>
                             </th>
                             <td>
@@ -55,9 +54,6 @@
                             </td>
                             <td>
                                 Activa
-                            </td>
-                            <td>
-                                <i class="fas fa-star"></i>
                             </td>
                             <td>
                                 <a href="{{ route('leagues.edit', $lg->id) }}" class="btn btn-icon btn-2 btn-primary">

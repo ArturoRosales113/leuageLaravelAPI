@@ -190,6 +190,22 @@
                                     {{ __('Crear liga') }}
                                 </a>
                             </li>
+                            <li>
+                        </ul>
+                        <h5 class="navbar-heading text-white pl-4">Modalidades</h5>
+                        <ul class="nav nav-sm flex-column">
+                            
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="{{ route('modalities.index') }}">
+                                    {{ __('Listar todas las modalidades') }}
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="{{ route('modalities.create') }}">
+                                    {{ __('Crear modalidad') }}
+                                </a>
+                            </li>
                         </ul>
                     </div>
                 </li>
