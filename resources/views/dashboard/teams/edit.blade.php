@@ -43,7 +43,7 @@
                                 <select class="form-control" name="league_id" placeholder="Selecciona una liga">
                                     <option selected value="0">Selecciona una opción</option>
                                     @foreach ($leagues as $l)
-                                        <option  {{ old('league_id') == $l->id || $team->id == $l->id ? 'selected' : '' }} value="{{ $l->id }}">{{ $l->name }}</option>t
+                                        <option  {{ old('league_id') == $l->id || $team->id == $l->id ? 'selected' : '' }} value="{{ $l->id }}">{{ $l->name }}</option>
                                     @endforeach
                                 </select>
                             </div>
