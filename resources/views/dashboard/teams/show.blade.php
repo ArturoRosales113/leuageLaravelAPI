@@ -59,7 +59,7 @@
                                 <th scope="col">Posición</th>
                                 <th scope="col" data="edad">Edad</th>
                                 <th scope="col" data="peso">Peso</th>
-                                <th scope="col">Equipo</th>
+                                <th scope="col">Altura</th>
                                 <th scope="col">Acción</th>
                             </tr>
                         </thead>

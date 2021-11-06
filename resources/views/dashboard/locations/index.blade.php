@@ -16,8 +16,7 @@
                             <h3 class="mb-0">Mis estadios</h3>
                         </div>
                         <div class="col text-right">
-                                                    <a href="{{ route('locations.create') }}" class="btn btn-sm btn-default"><i class="fas fa-plus"></i>&nbsp;Crear estadio</a>
-    
+                            <a href="{{ route('locations.create') }}" class="btn btn-sm btn-default"><i class="fas fa-plus"></i>&nbsp;Crear estadio</a>
                         </div>
                     </div>
                 </div>    
@@ -43,7 +42,7 @@
                             @foreach ($locations as $lo)
                             <tr>
                                 <th>
-                                    <span class="rounded-circle border-b avatar">
+                                <span class="avatar-rectangle">
                                         <img alt="Image placeholder" src="{{ asset('argon') }}/img/theme/team-4-800x800.jpg">
                                     </span>
                                 </th>

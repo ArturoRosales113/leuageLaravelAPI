@@ -37,7 +37,7 @@
                         @foreach ($leagues as $lg)
                         <tr>
                             <th>
-                                <span class="rounded-circle border-b avatar">
+                                <span class="avatar-rectangle"> 
                                     <img alt="Image placeholder" src="{{ $lg->icon_path == null ? asset('argon/img/theme/team-4-800x800.jpg') :asset( $lg->icon_path) }}">
                                 </span>
                             </th>

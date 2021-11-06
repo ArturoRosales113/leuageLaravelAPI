@@ -32,7 +32,7 @@
                         <div class="form-group row">
                             <label for="league" class="col-sm-3 col-form-label">Nombre de la liga</label>
                             <div class="col-sm-9">
-                                <input type="text" class="form-control" name="name" value="{{ old('name') }}" id="league" placeholder="ej. Basketball" >
+                                <input type="text" class="form-control" name="name" value="{{ old('name') }}" id="league" placeholder="Liga Valle Verde" >
                             </div>
                         </div>
                         <div class="form-group row">
