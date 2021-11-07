@@ -58,8 +58,8 @@
                             </div>
 
                             <!-- Este es para crear el Usuario dueño del equipo -->
-
-                            <div class="center">
+<br>
+                           
                                 <button class="btn btn-primary" type="submit">Guardar</button>
-                            </div>                   
+                                          
                         </form>

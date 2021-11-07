@@ -2,9 +2,7 @@
 
 @section('content')
 
-    <div class="header bg-gradient-default image-user pt-5 pl-5 pt-md-8 pb-md-8">
-        &nbsp;
-    </div>
+        @include('users.partials.head')
 
     <div class="container-fluid">
     @include('layouts.headers.userhead')
@@ -17,8 +15,7 @@
                         <h3 class="mb-0">Mis Ligas Playmaker</h3>
                     </div>
                     <div class="col text-right">
-                                                <a href="{{ route('fields.create') }}" class="btn btn-sm btn-default"><i class="fas fa-plus"></i>&nbsp;Crear campo</a>
-
+                        <a href="{{ route('fields.create') }}" class="btn btn-sm btn-default"><i class="fas fa-plus"></i>&nbsp;Crear campo</a>
                     </div>
                 </div>
             </div>    
@@ -196,6 +193,9 @@
         </div>
 
 
+
+
+        
 
 
         @include('layouts.footers.auth')

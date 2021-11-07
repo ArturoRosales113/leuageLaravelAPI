@@ -2,10 +2,11 @@
 
 @section('content')
     @include('users.partials.header', [
-        'title' => __('Hello') . ' '. auth()->user()->name,
-        'description' => __('This is your profile page. You can see the progress you\'ve made with your work and manage your projects or assigned tasks'),
-        'class' => 'col-lg-7'
-    ])   
+    'title' => $sport->display_name,
+    'description' => $sport->description,
+    'class' => 'col-lg-12',
+    'portada' => $sport->img_path
+    ])     
 
     <div class="container-fluid mt--7">
       

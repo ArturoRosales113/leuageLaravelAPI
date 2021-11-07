@@ -1,12 +1,12 @@
 @extends('layouts.app', ['title' => __('User Profile')])
 
 @section('content')
-@include('users.partials.header', [
-'title' => $league->name,
-'description' => $league->description,
-'class' => 'col-lg-12',
-'portada' => $league->img_path
-])   
+    @include('users.partials.header', [
+    'title' => $league->name,
+    'description' => $league->description,
+    'class' => 'col-lg-12',
+    'portada' => $league->img_path
+    ])   
 
 <div class="container-fluid mt--7">
     <div class="row">
@@ -38,7 +38,7 @@
                 <div class="card-header border-0">
                     <div class="row align-items-center">
                         <div class="col">
-                            <h3 class="mb-0">Equipos</h3>
+                            <h3 class="mb-0">Mis Equipos</h3>
                         </div>
                         <div class="col text-right">
                             
@@ -150,7 +150,7 @@
                                     &nbsp;
                                 </th>
                                 <th scope="col">Equipos</th>
-                                <th scope="col">Estadio//Cancha</th>
+                                <th scope="col">Estadio/Cancha</th>
                                 <th scope="col">Horario</th>
                                 <th scope="col">Acción</th>
                             </tr>

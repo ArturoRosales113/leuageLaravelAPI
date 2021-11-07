@@ -1,8 +1,8 @@
-<form method="POST" enctype="multipart/form-data" action="{{ route('games.store') }}" class="pl-5 pr-5">
+<form method="POST" enctype="multipart/form-data" action="{{ route('games.store') }}" class="pl-3 pr-3">
     @csrf
-    <div class="form-group row">
-        <label for="modality_id" class="col-sm-3 col-form-label">Modalidad</label>
-        <div class="col-sm-9">
+    <div class=" row">
+        <label for="modality_id" class="col-md-12 col-form-label">Modalidad</label>
+        <div class="col-md-12">
             <select class="form-control" name="modality_id" placeholder="Selecciona una liga">
                 <option selected value="0">Selecciona una opción</option>
                 @foreach ($modalities as $mdl)
@@ -10,9 +10,9 @@
                 @endforeach
             </select>        </div>
     </div>
-    <div class="form-group row">
-      <label for="league_id" class="col-sm-3 col-form-label">Selecciona una liga</label>
-          <div class="col-sm-9">
+    <div class=" row">
+      <label for="league_id" class="col-md-12 col-form-label">Selecciona una liga</label>
+          <div class="col-md-12">
             @isset($leagues)
             <select class="form-control" name="league_id" placeholder="Selecciona una liga">
                 <option selected value="0">Selecciona una opción</option>
@@ -28,9 +28,9 @@
             @endisset
           </div>
     </div>
-        <div class="form-group row">
-            <label for="field_id" class="col-sm-3 col-form-label">Selecciona una Campo</label>
-                <div class="col-sm-9">
+        <div class=" row">
+            <label for="field_id" class="col-md-12 col-form-label">Selecciona una Campo</label>
+                <div class="col-md-12">
                     <select class="form-control" name="field_id" placeholder="Selecciona una liga">
                         <option selected value="0">Selecciona una opción</option>
                         @foreach ($fields as $fld)
@@ -39,9 +39,9 @@
                     </select>
                 </div>
         </div>
-        <div class="form-group row">
-            <label for="referee_id" class="col-sm-3 col-form-label">Selecciona un arbitro</label>
-            <div class="col-sm-9">
+        <div class=" row">
+            <label for="referee_id" class="col-md-12 col-form-label">Selecciona un arbitro</label>
+            <div class="col-md-12">
                 <select class="custom-select" name="referee_id">
                 <option selected>Selecciona una opción</option>
                 @foreach ($referees as $rfs)
@@ -50,9 +50,9 @@
                 </select>
             </div>
         </div>
-        <div class="form-group row">
-            <label for="teams[]" class="col-sm-3 col-form-label">Selecciona un arbitro</label>
-            <div class="col-sm-9">
+        <div class=" row">
+            <label for="teams[]" class="col-md-12 col-form-label">Selecciona un arbitro</label>
+            <div class="col-md-12">
                 <select class="custom-select" multiple="multiple" name="teams[]">
                 <option selected>Selecciona una opción</option>
                 @foreach ($league->teams as $lgtm)
@@ -61,18 +61,18 @@
                 </select>
             </div>
         </div>
-        <div class="form-group row">
-            <label for="start_time" class="col-sm-3 col-form-label">Selecciona un horario </label>
-            <div class="col-sm-9">
+        <div class=" row">
+            <label for="start_time" class="col-md-10 col-form-label">Selecciona un horario </label>
+            <div class="col-md-10">
                 {{  Carbon::today()->addYear()->addDay()->locale('es_MX')->diffForHumans() }}
                 <input type="datetime-local" id="meeting-time"
                 name="start_time" value="{{ Carbon::now()->toDateTimeLocalString() }}"
                 min="{{ Carbon::today()->toDateTimeLocalString() }}" max="{{ Carbon::today()->addYear()->addDay()->toDateTimeLocalString() }}">
             </div>
         </div>
-        {{-- <div class="form-group row">
-            <label for="referee_id" class="col-sm-3 col-form-label">Asignar arbitros</label>
-            <div class="col-sm-9">
+        {{-- <div class=" row">
+            <label for="referee_id" class="col-md-12 col-form-label">Asignar arbitros</label>
+            <div class="col-md-12">
               <input class="form-check-input" type="checkbox" name="referee_id[]" value="" id="defaultCheck1">
                 <label class="form-check-label" for="defaultCheck1">
                     Default checkbox
@@ -96,7 +96,7 @@
             </div>
         </div> --}}
 
-
+<br>
 
     <button class="btn btn-primary" type="submit">Guardar</button>                        
 </form>

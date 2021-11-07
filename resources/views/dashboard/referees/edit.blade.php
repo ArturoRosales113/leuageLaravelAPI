@@ -12,7 +12,7 @@
                 <div class="card-header border-0">
                     <div class="row align-items-center">
                         <div class="col">
-                            <h3 class="mb-0">Editar {{ $referee->user->name }}</h3>
+                            <h3 class="mb-0">{{ $referee->user->name }}</h3>
                             @if ($errors->any())
                             <div class="alert alert-danger">
                                 <ul>

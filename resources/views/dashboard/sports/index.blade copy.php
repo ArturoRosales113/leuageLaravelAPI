@@ -11,10 +11,10 @@
             <div class="card-header border-0">
                 <div class="row align-items-center">
                     <div class="col">
-                        <h3 class="mb-0">Mis equipos</h3>
+                        <h3 class="mb-0">Mis deportes</h3>
                     </div>
                     <div class="col text-right">
-                        <a href="{{ route('teams.create') }}" class="btn btn-sm btn-default"><i class="fas fa-plus"></i>&nbsp;Crear equipo</a>
+                       <a href="{{ route('sports.create') }}" class="btn btn-sm btn-default"><i class="fas fa-plus"></i>&nbsp;Crear deportes</a>
                     </div>
                 </div>
             </div>    
@@ -26,37 +26,38 @@
                             <th scope="col">
                                 &nbsp;
                             </th>
-                            <th scope="col">Nombre</th>
-                            <th scope="col">Liga</th>
-                            <th scope="col">Jugadores</th>
+                            <th scope="col" data="name">Deporte</th>
+                            <th scope="col">Ligas</th>
+                            <th scope="col">Equipos</th>
                             <th scope="col">Acción</th>
                         </tr>
                     </thead>
                     <tbody>
-                        @foreach ($teams as $t)
+                    @foreach ($sports as $sp)
                         <tr>
                             <th>
-                                <span class="avatar-rectangle">
-                                    <img alt="Image placeholder" src="{{ $t->icon_path == null ? asset('argon/img/theme/team-4-800x800.jpg') :asset( $t->icon_path) }}">
+                                <span class="rounded-circle border-b avatar">
+                                    <img alt="Image placeholder" src="{{ asset('argon') }}/img/theme/team-4-800x800.jpg">
                                 </span>
                             </th>
                             <td scope="row">
-                                <a href="{{ route('teams.show', $t->id) }}" class="text-default text-underline">
-                                    {{ $t -> name }}
+                                <a href="{{ route('sports.show', $sp->id) }}">
+                                    {{ $sp->display_name }}
                                 </a>
                             </td>
                             <td>
-                               {{ $t->league->name }}
+                                {{ $sp->leagues->count() }}
                             </td>
                             <td>
-                                {{ $t->players->count() }}
+                                {{ $sp->teams->count() }}
                             </td>
+
                             <td>
-                                <a href="{{ route('teams.edit', $t->id) }}" class="btn btn-icon btn-2 btn-primary">
+                                <a href="{{ route('sports.edit', $sp->id) }}" class="btn btn-icon btn-2 btn-primary">
                                     <span class="btn-inner--icon"><i class="far fa-edit"></i></span>
                                 </a>
-    
-                                <form method="POST" class="d-inline-block" action="{{ route('teams.delete', $t->id) }}">
+                            
+                                <form method="POST" class="d-inline-block" action="{{ route('sports.delete', $sp->id) }}">
                                     {{ csrf_field() }}
                                     {{ method_field('DELETE') }}
                             
@@ -64,11 +65,12 @@
                                         <button class="btn btn-icon btn-2 btn-danger" type="submit">
                                             <span class="btn-inner--icon"><i class="fas fa-trash"></i></span>
                                         </button>
+                                    
                                     </div>
                                 </form>
                             </td>
                         </tr>
-                        @endforeach
+                    @endforeach
                     </tbody>
                 </table>
             </div>

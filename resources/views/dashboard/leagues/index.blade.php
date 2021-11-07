@@ -5,7 +5,7 @@
     @include('users.partials.head')
 
     <div class="container-fluid">
-    @include('layouts.headers.userhead')
+    @include('layouts.headers.league')
         
         <div class="card shadow mt-4">
             <div class="card-header border-0">

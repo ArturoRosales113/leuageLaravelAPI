@@ -1,11 +1,14 @@
 @extends('layouts.app', ['title' => __('User Profile')])
 
 @section('content')
-@include('users.partials.header', [
-'title' => $location->name,
-'description' => $location->liga,
-'class' => 'col-lg-12'
-])   
+    @include('users.partials.header', [
+    'title' => $location->name,
+    'description' => $location->liga,
+    'class' => 'col-lg-12',
+    'portada' => $location->img_path
+    ])   
+
+   
 
 <div class="container-fluid mt--7">
     <div class="row">
