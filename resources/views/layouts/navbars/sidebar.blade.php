@@ -224,7 +224,7 @@
                         <ul class="nav nav-sm flex-column">
                             <li class="nav-item">
                                 <a class="nav-link" href="{{ route('locations.index') }}">
-                                    {{ __('Listar todas las estadios') }}
+                                    {{ __('Mis estadios') }}
                                 </a>
                             </li>
                             <li class="nav-item">
@@ -355,19 +355,19 @@
                 <li class="nav-item">
                     <a class="nav-link" href="#referees-dropdown" data-toggle="collapse" role="button" aria-expanded="false" aria-controls="referees-dropdown">
                         <i class="fas fa-ruler-vertical"></i>
-                        <span class="nav-link-text" >{{ __('Referees') }}</span>
+                        <span class="nav-link-text" >{{ __('Arbitros') }}</span>
                     </a>
 
                     <div class="collapse" id="referees-dropdown">
                         <ul class="nav nav-sm flex-column">
                             <li class="nav-item">
                                 <a class="nav-link" href="{{ route('referees.index') }}">
-                                    {{ __('Listar todas los referees') }}
+                                    {{ __('Listar arbitros') }}
                                 </a>
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link" href="{{ route('referees.create') }}">
-                                    {{ __('Crear referee') }}
+                                    {{ __('Crear arbitro') }}
                                 </a>
                             </li>
                         </ul>

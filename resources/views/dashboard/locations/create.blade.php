@@ -13,7 +13,7 @@
                     <div class="card-header border-0">
                         <div class="row align-items-center">
                             <div class="col">
-                                <h3 class="mb-0">Locación</h3>
+                                <h3 class="mb-0">Crear Estadio</h3>
                                 @if ($errors->any())
                                 <div class="alert alert-danger">
                                     <ul>
@@ -68,19 +68,6 @@
                             </div>
 
                             <div class="form-group row">
-                                <label for="Address" class="col-sm-3 col-form-label">Dirección</label>
-                                <div class="col-sm-9">
-                                    <input type="text" class="form-control" name="address" value="{{ old('address') }}" placeholder="Dirección completa" >
-                                </div>
-                            </div>
-                            <div class="form-group row">
-                                <label for="City" class="col-sm-3 col-form-label">Ciudad</label>
-                                <div class="col-sm-9">
-                                    <input type="text" class="form-control" name="city" value="{{ old('city') }}" placeholder="Ciudad" >
-                                </div>
-                            </div>
-
-                            <div class="form-group row">
                                 <label for="State" class="col-sm-3 col-form-label">¿Cuál es tu estado?</label>
                                 <div class="col-sm-9">
                                     <select class="form-control" name="state" placeholder="Selecciona tu estado">
@@ -117,6 +104,20 @@
                                         <option value="Yucatán">Yucatán</option>
                                         <option value="Zacatecas">Zacatecas</option>
                                     </select>
+                                </div>
+                            </div>
+
+                            <div class="form-group row">
+                                <label for="City" class="col-sm-3 col-form-label">Ciudad</label>
+                                <div class="col-sm-9">
+                                    <input type="text" class="form-control" name="city" value="{{ old('city') }}" placeholder="Ciudad" >
+                                </div>
+                            </div>
+
+                            <div class="form-group row">
+                                <label for="Address" class="col-sm-3 col-form-label">Dirección</label>
+                                <div class="col-sm-9">
+                                    <input type="text" class="form-control" name="address" value="{{ old('address') }}" placeholder="Dirección completa" >
                                 </div>
                             </div>
 

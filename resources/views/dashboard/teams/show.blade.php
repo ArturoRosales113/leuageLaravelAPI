@@ -10,28 +10,7 @@
 
 <div class="container-fluid mt--7">
     <div class="row">
-        <div class="col-4">
-            <div class="card shadow pb-5 mt-4">
-                <div class="card-header border-0">
-                    <div class="row align-items-center">
-                        <div class="col">
-                            <h3 class="mb-0">Registrar Jugador</h3>
-                            @if ($errors->any())
-                            <div class="alert alert-danger">
-                                <ul>
-                                    @foreach ($errors->all() as $error)
-                                        <li>{{ $error }}</li>
-                                    @endforeach
-                                </ul>
-                            </div>
-                            @endif
-                        </div>
-                    </div>
-                </div>
-
-                @include('dashboard.players.createForm', ['individualTeam' => $team])
-            </div>
-        </div>
+        
         <div class="col-8">
             <div class="card shadow mt-4">
                 <div class="card-header border-0">
@@ -40,7 +19,9 @@
                             <h3 class="mb-0">Miembros</h3>
                         </div>
                         <div class="col text-right">
-                            
+                            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modalEquipo">
+                           Crear Equipo
+                              </button>
                             
                         </div>
                     </div>
@@ -123,3 +104,45 @@
     @include('layouts.footers.auth')
 </div>
     @endsection
+
+
+
+    
+
+{{-- Modal equipo --}}
+<div class="modal fade" id="modalEquipo" tabindex="-1" aria-labelledby="modalEquipo" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Crear Equipo</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+            <div class="col-12">
+                <div class="card shadow pb-5 mt-4">
+                    <div class="card-header border-0">
+                        <div class="row align-items-center">
+                            <div class="col">
+                                <h3 class="mb-0">Registrar Jugador</h3>
+                                @if ($errors->any())
+                                <div class="alert alert-danger">
+                                    <ul>
+                                        @foreach ($errors->all() as $error)
+                                            <li>{{ $error }}</li>
+                                        @endforeach
+                                    </ul>
+                                </div>
+                                @endif
+                            </div>
+                        </div>
+                    </div>
+
+                    @include('dashboard.players.createForm', ['individualTeam' => $team])
+                </div>
+            </div>
+        </div>
+      </div>
+    </div>
+  </div>
