@@ -17,7 +17,7 @@
                 <a class="nav-link" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                     <div class="media align-items-center">
                         <span class="avatar avatar-sm rounded-circle">
-                        <img alt="Image placeholder" src="{{ asset('argon') }}/img/theme/team-1-800x800.jpg">
+                            <img src="{{ auth()->user()->icon_path == null ? asset('argon/img/theme/team-4-800x800.jpg') : asset( auth()->user()->icon_path) }}">                                        
                         </span>
                     </div>
                 </a>
@@ -29,10 +29,10 @@
                         <i class="ni ni-single-02"></i>
                         <span>{{ __('Mi perfil') }}</span>
                     </a>
-                    <a href="#" class="dropdown-item">
+                    {{-- <a href="#" class="dropdown-item">
                         <i class="ni ni-settings-gear-65"></i>
                         <span>{{ __('Configuración') }}</span>
-                    </a>
+                    </a> --}}
                     <div class="dropdown-divider"></div>
                     <a href="{{ route('logout') }}" class="dropdown-item" onclick="event.preventDefault();
                     document.getElementById('logout-form').submit();">
@@ -75,7 +75,7 @@
             <ul class="navbar-nav">
                 <li class="nav-item">
                     <a class="nav-link" href="{{ route('home') }}">
-                        <i class="ni ni-tv-2 text-primary"></i> Panel de control
+                        <i class="fas fa-tachometer-alt"></i> Panel de control
                     </a>
                 </li>
 
@@ -174,7 +174,8 @@
                 {{-- Ligas --}}
                 <li class="nav-item">
                     <a class="nav-link" href="#leagues-dropdown" data-toggle="collapse" role="button" aria-expanded="false" aria-controls="leagues-dropdown">
-                        <i class="fas fa-table-tennis"></i>
+                        
+                        <i class="fas fa-trophy"></i>
                         <span class="nav-link-text" >{{ __('Ligas') }}</span>
                     </a>
 
@@ -192,16 +193,18 @@
                             </li>
                             <li>
                         </ul>
-                        <h5 class="navbar-heading text-white pl-4">Modalidades</h5>
+                        <h5 class="navbar-heading text-white pl-4"><i class="fas fa-sitemap">&nbsp;</i>Modalidades</h5>
                         <ul class="nav nav-sm flex-column">
                             
                             </li>
                             <li class="nav-item">
+                                
                                 <a class="nav-link" href="{{ route('modalities.index') }}">
                                     {{ __('Listar todas las modalidades') }}
                                 </a>
                             </li>
                             <li class="nav-item">
+                                
                                 <a class="nav-link" href="{{ route('modalities.create') }}">
                                     {{ __('Crear modalidad') }}
                                 </a>
@@ -213,7 +216,7 @@
                 {{-- locations o estadios --}}
                 <li class="nav-item">
                     <a class="nav-link" href="#locations-dropdown" data-toggle="collapse" role="button" aria-expanded="false" aria-controls="locations-dropdown">
-                        <i class="fas fa-table-tennis"></i>
+                        <i class="fab fa-fort-awesome"></i>
                         <span class="nav-link-text" >{{ __('Estadios') }}</span>
                     </a>
 
@@ -305,7 +308,7 @@
                 {{-- Players --}}
                 <li class="nav-item">
                     <a class="nav-link" href="#players-dropdown" data-toggle="collapse" role="button" aria-expanded="false" aria-controls="players-dropdown">
-                        <i class="fas fa-table-tennis"></i>
+                        <i class="fas fa-user-friends"></i>
                         <span class="nav-link-text" >{{ __('Jugadores') }}</span>
                     </a>
 
@@ -351,7 +354,7 @@
                 {{-- Referees --}}
                 <li class="nav-item">
                     <a class="nav-link" href="#referees-dropdown" data-toggle="collapse" role="button" aria-expanded="false" aria-controls="referees-dropdown">
-                        <i class="fas fa-table-tennis"></i>
+                        <i class="fas fa-ruler-vertical"></i>
                         <span class="nav-link-text" >{{ __('Referees') }}</span>
                     </a>
 
@@ -466,7 +469,7 @@
                 {{-- Teams --}}
                 <li class="nav-item">
                     <a class="nav-link" href="#teams-dropdown" data-toggle="collapse" role="button" aria-expanded="false" aria-controls="teams-dropdown">
-                        <i class="fas fa-table-tennis"></i>
+                        <i class="fas fa-users"></i>
                         <span class="nav-link-text" >{{ __('Equipos') }}</span>
                     </a>
 

@@ -51,14 +51,14 @@
 
     <div class="row">
         <label for="perfil" class="col-md-12 col-form-label">Foto del jugador</label>
-        <div class="col-sm-10 ml-3">
+        <div class="col-sm-11 ml-3">
             <input type="file" class="custom-file-input" name="icon_path" id="customFile">
             <label class="custom-file-label" for="customFile">Cargar imagen</label>
         </div>
     </div>
     <div class="row">
         <label for="img_path" class="col-md-12 col-form-label">Foto de portada</label>
-        <div class="col-sm-10 ml-3">
+        <div class="col-sm-11 ml-3">
             <input type="file" class="custom-file-input" name="img_path" id="customFile">
             <label class="custom-file-label" for="customFile">Cargar imagen</label>
         </div>
@@ -99,7 +99,12 @@
             <input type="text" name="peso" value="{{ old('peso') }}" class="form-control" placeholder="88.10 kg" />
         </div>
     </div>
-     <button class="btn btn-primary" type="submit">Guardar</button>                        
+    <div class="form-group row pt-4 justify-content-center">
+        <button class="btn btn-primary" type="submit">Guardar</button>      
+    </div>
+
+
+                         
 </form>
 
 

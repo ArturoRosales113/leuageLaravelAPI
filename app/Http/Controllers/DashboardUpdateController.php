@@ -290,25 +290,30 @@ class DashboardUpdateController extends Controller
              ->withInput();
           } else {
   
-              $modalitie = Modalitie::create([
-                  'name'=>  Str::slug($input['name'], '-'),
-                  'display_name'=> $input['name'],
-                  'description'=> $input['description']
-              ]);
+              $modalitie = Modalitie::find($id);
+              $modalitie->name =  Str::slug($input['name'], '-');
+              $modalitie->display_name = $input['name'];
+              $modalitie->description = $input['description'];
   
               if (array_key_exists('icon_path', $input) && $input['icon_path'] != null) {
+                if($modalitie->icon_path != null){
+                    $this->deleteAsset($modalitie->icon_path);
+                 }
                   $iconFile = $request->file('icon_path');
                   $modalitie->icon_path = $this->createIcon($iconFile);
               }
               if (array_key_exists('img_path', $input) && $input['img_path'] != null) {
+                if($modalitie->img_path != null){
+                    $this->deleteAsset($modalitie->img_path);
+                 }
                   $imageFile = $request->file('img_path');
                   $modalitie->img_path = $this->createImage($imageFile);
               }
   
               $modalitie->save();
   
-              Alert::success('Éxito', 'Modalidad creado');
-              return redirect()->route('materials.index');
+              Alert::success('Éxito', 'Modalidad editada');
+              return redirect()->route('modalities.index');
           }
       }
   //
