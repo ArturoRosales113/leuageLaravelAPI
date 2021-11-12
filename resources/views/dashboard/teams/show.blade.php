@@ -19,8 +19,8 @@
                             <h3 class="mb-0">Miembros</h3>
                         </div>
                         <div class="col text-right">
-                            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modalEquipo">
-                           Crear Equipo
+                            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modalJugador">
+                           Crear Jugador
                               </button>
                             
                         </div>
@@ -110,11 +110,11 @@
     
 
 {{-- Modal equipo --}}
-<div class="modal fade" id="modalEquipo" tabindex="-1" aria-labelledby="modalEquipo" aria-hidden="true">
+<div class="modal fade" id="modalEquipo" tabindex="-1" aria-labelledby="modalJugador" aria-hidden="true">
     <div class="modal-dialog modal-lg">
       <div class="modal-content">
         <div class="modal-header">
-          <h5 class="modal-title" id="exampleModalLabel">Crear Equipo</h5>
+          <h5 class="modal-title" id="exampleModalLabel">Crear Jugador</h5>
           <button type="button" class="close" data-dismiss="modal" aria-label="Close">
             <span aria-hidden="true">&times;</span>
           </button>
