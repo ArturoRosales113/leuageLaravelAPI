@@ -8,7 +8,7 @@
     'portada' => $team->img_path
     ])   
 
-<div class="container-fluid mt-7">
+<div class="container-fluid mt-4">
     <div class="row">
         
         <div class="col-8">
