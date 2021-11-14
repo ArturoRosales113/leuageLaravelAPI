@@ -111,6 +111,7 @@
                                 </th>
                                 <th scope="col">Equipos</th>
                                 <th scope="col">Estadio/Cancha</th>
+                                <th scope="col">Arbitros</th>
                                 <th scope="col">Horario</th>
                                 <th scope="col">Acción</th>
                             </tr>
@@ -133,6 +134,11 @@
                                 </td>
                                 <td>
                                    {{ $lg->field->location->name . '//' .  $lg->field->name }}
+                                </td>
+                                <td>
+                                    @foreach ($lg->referees as $lgr)
+                                        {{ $lgr->user->name }}
+                                    @endforeach
                                 </td>
                                 <td>
                                     {{ Carbon::parse($lg->start_time)->diffForHumans(); }}
@@ -231,7 +237,11 @@
                         </div>
                     </div>
     
-                    @include('dashboard.teams.createForm', ['individualLeague' => $league])
+                    @include('dashboard.games.createForm', [
+                        'individualLeague' => $league,
+                        'fields' => $league->fields,
+                        'referees' => $league->referees 
+                        ])
                 </div>
             </div>
         </div>
@@ -239,41 +249,5 @@
     </div>
   </div>
 
-{{-- Modal equipo --}}
-<div class="modal fade" id="modalEquipo" tabindex="-1" aria-labelledby="modalEquipo" aria-hidden="true">
-    <div class="modal-dialog modal-lg">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title" id="exampleModalLabel">Crear Equipo</h5>
-          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-          </button>
-        </div>
-        <div class="modal-body">
-            <div class="col-12">
-                <div class="card shadow pb-5 mt-4">
-                    <div class="card-header border-0">
-                        <div class="row align-items-center">
-                            <div class="col">
-                                <h3 class="mb-0">Juego nuevo</h3>
-                                @if ($errors->any())
-                                <div class="alert alert-danger">
-                                    <ul>
-                                        @foreach ($errors->all() as $error)
-                                            <li>{{ $error }}</li>
-                                        @endforeach
-                                    </ul>
-                                </div>
-                                @endif
-                            </div>
-                        </div>
-                    </div>
-                    @include('dashboard.games.createForm', ['individualLeague' => $league, 'fields' => $league->fields])
-                </div>
-            </div>
-        </div>
-      </div>
-    </div>
-  </div>
 
     @endsection

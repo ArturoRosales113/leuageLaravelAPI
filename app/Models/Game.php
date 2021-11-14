@@ -43,6 +43,11 @@ class Game extends Model
     {
         return $this->belongsTo(Field::class);
     }
+
+    public function scores()
+    {
+        return $this->hasMay(Score::class);
+    }
 }
 
 

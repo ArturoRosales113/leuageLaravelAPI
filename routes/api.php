@@ -19,6 +19,9 @@ use App\Http\Controllers\RoleController;
 use App\Http\Controllers\SportController;
 use App\Http\Controllers\TeamController;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\ScoringController;
+
+
 
 Route::resources([
     'event' => EventController::class,
@@ -38,6 +41,8 @@ Route::resources([
     'user' => UserController::class
 ]);
 
+Route::get('gameSetup/{id}',[ScoringController::class, 'gameSetup'])->name('gameSetup');
+
 
 /*
 |--------------------------------------------------------------------------
@@ -53,3 +58,4 @@ Route::resources([
 // Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 //     return $request->user();
 // });
+    
