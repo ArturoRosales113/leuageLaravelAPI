@@ -60,7 +60,10 @@
                                     {{ $t->players->count() }}
                                 </td>
                                 <td>
+                                    @if ($t->players->where('is_captain', '=' ,1)->count() > 1 )
                                     {{ $t->players->where('is_captain', '=' ,1)->first()->user->name }}
+                                    @endif
+                                   
                                 </td>
                                 <td>
                                     <a href="{{ route('teams.edit', $t->id) }}" class="btn btn-icon btn-2 btn-primary">
