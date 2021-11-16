@@ -18496,6 +18496,9 @@ button.btn-white {
     border-color: rgb(255 255 255 / 18%);
     font-weight: 300;
 }
+.card form {
+    margin-top: 2rem;
+}
 
 /* Tablas */
 
