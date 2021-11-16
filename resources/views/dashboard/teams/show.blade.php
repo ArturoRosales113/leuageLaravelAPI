@@ -109,8 +109,8 @@
 
     
 
-{{-- Modal equipo --}}
-<div class="modal fade" id="modalEquipo" tabindex="-1" aria-labelledby="modalJugador" aria-hidden="true">
+{{-- Modal Jugador --}}
+<div class="modal fade" id="modalJugador" tabindex="-1" aria-labelledby="modalJugador" aria-hidden="true">
     <div class="modal-dialog modal-lg">
       <div class="modal-content">
         <div class="modal-header">
