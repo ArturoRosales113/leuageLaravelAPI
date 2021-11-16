@@ -8,7 +8,7 @@
     @include('layouts.headers.userhead')
     @include('users.partials.access')
         
-        <div class="card shadow mt-4">
+        <div class="card mt-4">
             <div class="card-header border-0">
                 <div class="row align-items-center">
                     <div class="col">
@@ -74,7 +74,7 @@
 
         <div class="row mt-5">
         <div class="col-xl-4 mb-4">
-                <div class="card shadow">
+                <div class="card">
                     <div class="card-header border-0">
                         <div class="row align-items-center">
                             <div class="col">
@@ -113,7 +113,7 @@
             </div>
 
             <div class="col-xl-4 mb-4">
-                <div class="card shadow">
+                <div class="card">
                     <div class="card-header border-0">
                         <div class="row align-items-center">
                             <div class="col">
@@ -152,7 +152,7 @@
             </div>
 
             <div class="col-xl-4 mb-4">
-                <div class="card shadow">
+                <div class="card">
                     <div class="card-header border-0">
                         <div class="row align-items-center">
                             <div class="col">

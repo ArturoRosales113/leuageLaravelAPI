@@ -1620,14 +1620,11 @@ pre code {
 .table th,
 .table td {
     padding: 1rem;
-
     vertical-align: top;
-
-    border-top: 1px solid #e9ecef;
+    border-top: 1px solid rgb(233 236 239 / 21%);
 }
 .table thead th {
     vertical-align: bottom;
-
     border-bottom: 2px solid #e9ecef;
 }
 .table tbody + tbody {
@@ -1958,19 +1955,15 @@ pre code {
 .form-control {
     font-size: 1rem;
     line-height: 1.5;
-
     display: block;
-
     width: 100%;
-    height: calc(2.75rem + 2px);
-    padding: 0.625rem 0.75rem;
-
+    height: calc(2rem + 2px);
+    padding: 0.525rem 0.55rem;
     transition: all 0.2s cubic-bezier(0.68, -0.55, 0.265, 1.55);
-
-    color: #8898aa;
-    border: 1px solid #cad1d7;
+    color: #bbc4cf;
+    border: 1px solid #163252;
     border-radius: 0.375rem;
-    background-color: #fff;
+    background-color: #625a5a0f;
     background-clip: padding-box;
     box-shadow: none;
 }
@@ -2021,9 +2014,8 @@ select.form-control:focus::-ms-value {
 }
 
 .col-form-label {
-    font-size: inherit;
+    font-size: 14px;
     line-height: 1.5;
-
     margin-bottom: 0;
     padding-top: calc(0.625rem + 1px);
     padding-bottom: calc(0.625rem + 1px);
@@ -4121,28 +4113,29 @@ input[type="button"].btn-block {
 }
 
 .custom-select {
-    line-height: 1.5;
-
-    display: inline-block;
-
-    width: 100%;
-    height: calc(2.75rem + 2px);
-    padding: 0.375rem 1.75rem 0.375rem 0.75rem;
-
-    vertical-align: middle;
-
-    color: #8898aa;
-    border: 1px solid #cad1d7;
-    border-radius: 0.375rem;
     background: #fff
-        url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 4 5'%3E%3Cpath fill='%2332325d' d='M2 0L0 2h4zm0 5L0 3h4z'/%3E%3C/svg%3E")
+        url(
+            data:image/svg + xml;charset=utf8,
+            %3Csvgxmlns="http://www.w3.org/2000/svg"viewBox="0 0 4 5"%3E%3Cpathfill="%2332325d"d="M2 0L0 2h4zm0 5L0 3h4z"/%3E%3C/svg%3E
+        )
         no-repeat right 0.75rem center;
     background-size: 8px 10px;
-    box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.075);
-
     -webkit-appearance: none;
     -moz-appearance: none;
     appearance: none;
+    font-size: 14px;
+    line-height: 1.5;
+    display: block;
+    width: 100%;
+    height: calc(2rem + 2px);
+    padding: 0.525rem 0.55rem;
+    transition: all 0.2s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+    color: #bbc4cf;
+    border: 1px solid #163252;
+    border-radius: 0.375rem;
+    background-color: #625a5a0f;
+    background-clip: padding-box;
+    box-shadow: none;
 }
 .custom-select:focus {
     border-color: rgba(50, 151, 211, 0.25);
@@ -4216,47 +4209,39 @@ input[type="button"].btn-block {
     background-color: #e9ecef;
 }
 .custom-file-input:lang(en) ~ .custom-file-label::after {
-    content: "Browse";
+    content: "Buscar";
 }
 
 .custom-file-label {
     line-height: 1.5;
-
     position: absolute;
     z-index: 1;
     top: 0;
     right: 0;
     left: 0;
-
-    height: calc(2.75rem + 2px);
-    padding: 0.625rem 0.75rem;
-
+    height: calc(2.2rem + 2px);
+    padding: 0.425rem 0.75rem;
     color: #8898aa;
-    border: 1px solid #cad1d7;
+    border: 1px solid #163252;
     border-radius: 0.375rem;
-    background-color: #fff;
+    background-color: #625a5a0f;
     box-shadow: none;
 }
 .custom-file-label::after {
     line-height: 1.5;
-
     position: absolute;
     z-index: 3;
     top: 0;
     right: 0;
     bottom: 0;
-
     display: block;
-
-    height: 2.75rem;
-    padding: 0.625rem 0.75rem;
-
-    content: "Browse";
-
-    color: #8898aa;
+    height: 2.2rem;
+    padding: 0.25rem 0.75rem;
+    content: "Buscar";
+    color: #ffdaab;
     border-left: 1px solid #cad1d7;
     border-radius: 0 0.375rem 0.375rem 0;
-    background-color: #fff;
+    background-color: #01cdce;
 }
 
 .custom-range {
@@ -4430,7 +4415,6 @@ input[type="button"].btn-block {
 
 .nav-link {
     display: block;
-
     padding: 0.25rem 0.75rem;
 }
 .nav-link:hover,
@@ -4879,17 +4863,13 @@ input[type="button"].btn-block {
 
 .card {
     position: relative;
-
     display: flex;
     flex-direction: column;
-
     min-width: 0;
-
     word-wrap: break-word;
-
     border: 1px solid rgba(0, 0, 0, 0.05);
     border-radius: 0.375rem;
-    background-color: #fff;
+    background-color: #0c1027;
     background-clip: border-box;
 }
 .card > hr {
@@ -4934,10 +4914,9 @@ input[type="button"].btn-block {
 
 .card-header {
     margin-bottom: 0;
-    padding: 1.25rem 1.5rem;
-
+    padding: 0.5rem 1rem;
     border-bottom: 1px solid rgba(0, 0, 0, 0.05);
-    background-color: #fff;
+    background-color: #020514;
 }
 .card-header:first-child {
     border-radius: calc(0.375rem - 1px) calc(0.375rem - 1px) 0 0;
@@ -8003,7 +7982,10 @@ button.bg-darker:focus {
     box-shadow: 0 0 0.5rem rgba(136, 152, 170, 0.075) !important;
 }
 
-.shadow,
+/*.shadow{
+    box-shadow: 0 0 2rem 0 rgba(136, 152, 170, 0.15) !important;
+}*/
+
 .card-profile-image img {
     box-shadow: 0 0 2rem 0 rgba(136, 152, 170, 0.15) !important;
 }
@@ -12161,12 +12143,12 @@ a.text-dark:focus {
 }
 
 .text-default {
-    color: #172b4d !important;
+    color: #00cccc !important;
 }
 
 a.text-default:hover,
 a.text-default:focus {
-    color: #0b1526 !important;
+    color: #ffffff !important;
 }
 
 .text-white {
@@ -15687,7 +15669,7 @@ textarea[resize="horizontal"] {
 }
 
 .nav-link {
-    color: #525f7f;
+    color: #00cccc;
 }
 .nav-link:hover {
     color: #5e72e4;
@@ -17368,12 +17350,12 @@ textarea[resize="horizontal"] {
 
 .table .thead-dark th {
     color: #4d7bca;
-    background-color: #1c345d;
+    background-color: #0c1027;
 }
 
 .table .thead-light th {
     color: #8898aa;
-    background-color: #f6f9fc;
+    background-color: #040820;
 }
 
 .table-hover tr {
@@ -17844,7 +17826,6 @@ html:not([dir="rtl"]) .noUi-horizontal .noUi-origin {
 .noUi-vertical .noUi-handle {
     top: -17px;
     left: -6px;
-
     width: 28px;
     height: 34px;
 }
@@ -17872,7 +17853,6 @@ html:not([dir="rtl"]) .noUi-horizontal .noUi-handle {
 
 .noUi-handle {
     cursor: default;
-
     border: 1px solid #d9d9d9;
     border-radius: 3px;
     outline: none;
@@ -18211,11 +18191,9 @@ html:not([dir="rtl"]) .noUi-horizontal .noUi-handle {
     color: #fff;
 }
 .panel-cont {
-    background: #fff;
-    color: #25292e;
-    border-radius: 11px;
     text-transform: uppercase;
-    font-weight: 700;
+    font-weight: 300;
+    font-size: 14px;
 }
 
 textarea {
@@ -18236,11 +18214,36 @@ textarea {
 .bg-playmaker {
     background: #171e28;
 }
+body {
+    color: #fff;
+}
 
 /* Nav lateral */
 .navbar-playmaker {
     z-index: 1;
     box-shadow: 1px 0px 8px 1px #0008 !important;
+    background: rgb(4, 8, 32);
+    background: -moz-linear-gradient(
+        76deg,
+        rgba(4, 8, 32, 1) 39%,
+        rgba(0, 0, 0, 1) 98%
+    );
+    background: -webkit-linear-gradient(
+        76deg,
+        rgba(4, 8, 32, 1) 39%,
+        rgba(0, 0, 0, 1) 98%
+    );
+    background: linear-gradient(
+        76deg,
+        rgba(4, 8, 32, 1) 39%,
+        rgba(0, 0, 0, 1) 98%
+    );
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#040820",endColorstr="#000000",GradientType=1);
+}
+.nav-dark {
+    background: rgb(255 255 255 / 3%);
+    padding-top: 10px;
+    padding-bottom: 45px;
 }
 .navbar-playmaker .navbar-nav .nav-link {
     color: rgba(250, 250, 250, 1);
@@ -18255,7 +18258,23 @@ textarea {
 
 /* Fin Nav lateral */
 .body-playmaker {
-    background-color: #25292e;
+    background: rgb(4, 8, 32);
+    background: -moz-radial-gradient(
+        circle,
+        rgba(4, 8, 32, 1) 39%,
+        rgba(0, 0, 0, 1) 98%
+    );
+    background: -webkit-radial-gradient(
+        circle,
+        rgba(4, 8, 32, 1) 39%,
+        rgba(0, 0, 0, 1) 98%
+    );
+    background: radial-gradient(
+        circle,
+        rgba(4, 8, 32, 1) 39%,
+        rgba(0, 0, 0, 1) 98%
+    );
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#040820",endColorstr="#000000",GradientType=1);
 }
 .body-playmaker-white {
     background-color: #dee9e2;
@@ -18280,6 +18299,23 @@ li.nav-item .collapse {
     -o-transition: all 300ms ease;
     transition: all 300ms ease;
 }
+li.nav-item:hover a span {
+    -webkit-transition: all 300ms ease;
+    -moz-transition: all 300ms ease;
+    -ms-transition: all 300ms ease;
+    -o-transition: all 300ms ease;
+    transition: all 300ms ease;
+}
+li.nav-item:hover a span {
+    color: #f4ce66;
+}
+.navbar .nav-item {
+    font-variant: small-caps;
+}
+.collapse .nav .nav-item a:hover {
+    color: #f4ce66;
+}
+
 /*Scroll*/
 .scrollbar-light-blue::-webkit-scrollbar-track {
     -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.1);
@@ -18441,8 +18477,7 @@ button.btn-white {
 
 /* Tablas */
 
-.table-flush tr:hover {
-    background: #fff;
+.table-flush tr {
     -webkit-transition: all 300ms ease;
     -moz-transition: all 300ms ease;
     -ms-transition: all 300ms ease;
@@ -18451,8 +18486,17 @@ button.btn-white {
 }
 
 .table-flush tr:hover {
-    background: #f3f3f3;
+    background: rgb(249 249 249 / 5%);
 }
+.card a {
+    color: #00cccc;
+}
+.table .thead-light th {
+    color: #ffca38;
+    border-color: rgb(255 255 255 / 18%);
+    font-weight: 300;
+}
+
 /* Tablas */
 
 /* Avatar */
@@ -18472,5 +18516,49 @@ button.btn-white {
     width: auto;
     height: 100%;
 }
+.card h3.mb-0 {
+    color: #fff;
+    font-weight: 100;
+    font-size: initial;
+    font-variant: small-caps;
+}
 
 /* Avatar img*/
+
+/* Icons Access*/
+.nav-link .circle-access {
+    background: #023746;
+    height: 74px;
+    width: 75px;
+    margin: auto;
+    text-align: center;
+    padding-top: 8px;
+    border-radius: 50%;
+    border: 2px solid #00cccc;
+    -webkit-transition: all 300ms ease;
+    -moz-transition: all 300ms ease;
+    -ms-transition: all 300ms ease;
+    -o-transition: all 300ms ease;
+    transition: all 300ms ease;
+}
+.nav-link:hover .circle-access {
+    border: 2px solid #fff;
+    box-shadow: 0px 0px 8px 4px rgb(0 204 204 / 60%);
+}
+.nav-link {
+    -webkit-transition: all 300ms ease;
+    -moz-transition: all 300ms ease;
+    -ms-transition: all 300ms ease;
+    -o-transition: all 300ms ease;
+    transition: all 300ms ease;
+}
+.nav-link:hover {
+    color: #fff;
+}
+.icon-pm-ligas {
+    color: #fff;
+}
+.icon-pm-ligas:hover {
+    color: #fff;
+}
+/* Icons Access*/

@@ -31,7 +31,7 @@
 
 .icon-pm-panel .path1:before {
     content: "\e900";
-    color: rgb(0, 0, 0);
+    color: rgb(255 255 255);
 }
 .icon-pm-panel .path2:before {
     content: "\e901";
@@ -41,7 +41,7 @@
 .icon-pm-panel .path3:before {
     content: "\e902";
     margin-left: -1em;
-    color: rgb(0, 0, 0);
+    color: rgb(255 255 255);
 }
 .icon-pm-panel .path4:before {
     content: "\e903";
@@ -51,7 +51,7 @@
 .icon-pm-panel .path5:before {
     content: "\e904";
     margin-left: -1em;
-    color: rgb(0, 0, 0);
+    color: rgb(255 255 255);
 }
 .icon-pm-panel .path6:before {
     content: "\e905";
@@ -60,17 +60,17 @@
 }
 .icon-pm-ajustes .path1:before {
     content: "\e906";
-    color: rgb(0, 0, 0);
+    color: rgb(255 255 255);
 }
 .icon-pm-ajustes .path2:before {
     content: "\e907";
     margin-left: -1em;
-    color: rgb(0, 0, 0);
+    color: rgb(255 255 255);
 }
 .icon-pm-ajustes .path3:before {
     content: "\e908";
     margin-left: -1em;
-    color: rgb(0, 0, 0);
+    color: rgb(255 255 255);
 }
 .icon-pm-ajustes .path4:before {
     content: "\e909";
@@ -80,47 +80,47 @@
 .icon-pm-ajustes .path5:before {
     content: "\e90a";
     margin-left: -1em;
-    color: rgb(0, 0, 0);
+    color: rgb(255 255 255);
 }
 .icon-pm-ajustes .path6:before {
     content: "\e90b";
     margin-left: -1em;
-    color: rgb(0, 0, 0);
+    color: rgb(255 255 255);
 }
 .icon-pm-ajustes .path7:before {
     content: "\e90c";
     margin-left: -1em;
-    color: rgb(0, 0, 0);
+    color: rgb(255 255 255);
 }
 .icon-pm-ajustes .path8:before {
     content: "\e90d";
     margin-left: -1em;
-    color: rgb(0, 0, 0);
+    color: rgb(255 255 255);
 }
 .icon-pm-ajustes .path9:before {
     content: "\e90e";
     margin-left: -1em;
-    color: rgb(0, 0, 0);
+    color: rgb(255 255 255);
 }
 .icon-pm-ajustes .path10:before {
     content: "\e90f";
     margin-left: -1em;
-    color: rgb(0, 0, 0);
+    color: rgb(255 255 255);
 }
 .icon-pm-ajustes .path11:before {
     content: "\e910";
     margin-left: -1em;
-    color: rgb(0, 0, 0);
+    color: rgb(255 255 255);
 }
 .icon-pm-ajustes .path12:before {
     content: "\e911";
     margin-left: -1em;
-    color: rgb(0, 0, 0);
+    color: rgb(255 255 255);
 }
 .icon-pm-ajustes .path13:before {
     content: "\e912";
     margin-left: -1em;
-    color: rgb(0, 0, 0);
+    color: rgb(255 255 255);
 }
 .icon-pm-ajustes .path14:before {
     content: "\e913";
@@ -132,12 +132,12 @@
 }
 .icon-pm-campos .path1:before {
     content: "\e915";
-    color: rgb(0, 0, 0);
+    color: rgb(255 255 255);
 }
 .icon-pm-campos .path2:before {
     content: "\e916";
     margin-left: -1em;
-    color: rgb(0, 0, 0);
+    color: rgb(255 255 255);
 }
 .icon-pm-campos .path3:before {
     content: "\e917";
@@ -147,76 +147,76 @@
 .icon-pm-campos .path4:before {
     content: "\e918";
     margin-left: -1em;
-    color: rgb(0, 0, 0);
+    color: rgb(255 255 255);
 }
 .icon-pm-campos .path5:before {
     content: "\e919";
     margin-left: -1em;
-    color: rgb(0, 0, 0);
+    color: rgb(255 255 255);
 }
 .icon-pm-campos .path6:before {
     content: "\e91a";
     margin-left: -1em;
-    color: rgb(0, 0, 0);
+    color: rgb(255 255 255);
 }
 .icon-pm-campos .path7:before {
     content: "\e91b";
     margin-left: -1em;
-    color: rgb(0, 0, 0);
+    color: rgb(255 255 255);
 }
 .icon-pm-campos .path8:before {
     content: "\e91c";
     margin-left: -1em;
-    color: rgb(0, 0, 0);
+    color: rgb(255 255 255);
 }
 .icon-pm-campos .path9:before {
     content: "\e91d";
     margin-left: -1em;
-    color: rgb(0, 0, 0);
+    color: rgb(255 255 255);
 }
 .icon-pm-partidos .path1:before {
     content: "\e91e";
-    color: rgb(0, 0, 0);
+    color: rgb(255 255 255);
 }
 .icon-pm-partidos .path2:before {
     content: "\e91f";
     margin-left: -1em;
-    color: rgb(0, 0, 0);
+    color: rgb(255 255 255);
 }
 .icon-pm-partidos .path3:before {
     content: "\e920";
     margin-left: -1em;
-    color: rgb(0, 0, 0);
+    color: rgb(255 255 255);
 }
 .icon-pm-partidos .path4:before {
     content: "\e921";
     margin-left: -1em;
-    color: rgb(0, 0, 0);
+    color: rgb(255 255 255);
 }
 .icon-pm-partidos .path5:before {
     content: "\e922";
     margin-left: -1em;
-    color: rgb(0, 0, 0);
+    color: rgb(255 255 255);
 }
 .icon-pm-partidos .path6:before {
     content: "\e923";
     margin-left: -1em;
-    color: rgb(0, 0, 0);
+    color: rgb(255 255 255);
 }
 .icon-pm-partidos .path7:before {
     content: "\e924";
     margin-left: -1em;
-    color: rgb(0, 0, 0);
+    color: rgb(255 255 255);
 }
 .icon-pm-partidos .path8:before {
     content: "\e925";
     margin-left: -1em;
-    color: rgb(0, 0, 0);
+    color: rgb(255 255 255);
 }
 .icon-pm-partidos .path9:before {
     content: "\e926";
     margin-left: -1em;
-    color: rgb(0, 0, 0);
+    color: rgb(255 255 255);
 }
 .icon-pm-partidos .path10:before {
     content: "\e927";
@@ -233,57 +233,57 @@
 }
 .icon-pm-estadios .path1:before {
     content: "\e92a";
-    color: rgb(0, 0, 0);
+    color: rgb(255 255 255);
 }
 .icon-pm-estadios .path2:before {
     content: "\e92b";
     margin-left: -1em;
-    color: rgb(0, 0, 0);
+    color: rgb(255 255 255);
 }
 .icon-pm-estadios .path3:before {
     content: "\e92c";
     margin-left: -1em;
-    color: rgb(0, 0, 0);
+    color: rgb(255 255 255);
 }
 .icon-pm-estadios .path4:before {
     content: "\e92d";
     margin-left: -1em;
-    color: rgb(0, 0, 0);
+    color: rgb(255 255 255);
 }
 .icon-pm-estadios .path5:before {
     content: "\e92e";
     margin-left: -1em;
-    color: rgb(0, 0, 0);
+    color: rgb(255 255 255);
 }
 .icon-pm-estadios .path6:before {
     content: "\e92f";
     margin-left: -1em;
-    color: rgb(0, 0, 0);
+    color: rgb(255 255 255);
 }
 .icon-pm-estadios .path7:before {
     content: "\e930";
     margin-left: -1em;
-    color: rgb(0, 0, 0);
+    color: rgb(255 255 255);
 }
 .icon-pm-estadios .path8:before {
     content: "\e931";
     margin-left: -1em;
-    color: rgb(0, 0, 0);
+    color: rgb(255 255 255);
 }
 .icon-pm-estadios .path9:before {
     content: "\e932";
     margin-left: -1em;
-    color: rgb(0, 0, 0);
+    color: rgb(255 255 255);
 }
 .icon-pm-estadios .path10:before {
     content: "\e933";
     margin-left: -1em;
-    color: rgb(0, 0, 0);
+    color: rgb(255 255 255);
 }
 .icon-pm-estadios .path11:before {
     content: "\e934";
     margin-left: -1em;
-    color: rgb(0, 0, 0);
+    color: rgb(255 255 255);
 }
 .icon-pm-estadios .path12:before {
     content: "\e935";
@@ -292,67 +292,67 @@
 }
 .icon-pm-materiales .path1:before {
     content: "\e936";
-    color: rgb(0, 0, 0);
+    color: rgb(255 255 255);
 }
 .icon-pm-materiales .path2:before {
     content: "\e937";
     margin-left: -1em;
-    color: rgb(0, 0, 0);
+    color: rgb(255 255 255);
 }
 .icon-pm-materiales .path3:before {
     content: "\e938";
     margin-left: -1em;
-    color: rgb(0, 0, 0);
+    color: rgb(255 255 255);
 }
 .icon-pm-materiales .path4:before {
     content: "\e939";
     margin-left: -1em;
-    color: rgb(0, 0, 0);
+    color: rgb(255 255 255);
 }
 .icon-pm-materiales .path5:before {
     content: "\e93a";
     margin-left: -1em;
-    color: rgb(0, 0, 0);
+    color: rgb(255 255 255);
 }
 .icon-pm-materiales .path6:before {
     content: "\e93b";
     margin-left: -1em;
-    color: rgb(0, 0, 0);
+    color: rgb(255 255 255);
 }
 .icon-pm-materiales .path7:before {
     content: "\e93c";
     margin-left: -1em;
-    color: rgb(0, 0, 0);
+    color: rgb(255 255 255);
 }
 .icon-pm-materiales .path8:before {
     content: "\e93d";
     margin-left: -1em;
-    color: rgb(0, 0, 0);
+    color: rgb(255 255 255);
 }
 .icon-pm-materiales .path9:before {
     content: "\e93e";
     margin-left: -1em;
-    color: rgb(0, 0, 0);
+    color: rgb(255 255 255);
 }
 .icon-pm-materiales .path10:before {
     content: "\e93f";
     margin-left: -1em;
-    color: rgb(0, 0, 0);
+    color: rgb(255 255 255);
 }
 .icon-pm-materiales .path11:before {
     content: "\e940";
     margin-left: -1em;
-    color: rgb(0, 0, 0);
+    color: rgb(255 255 255);
 }
 .icon-pm-materiales .path12:before {
     content: "\e941";
     margin-left: -1em;
-    color: rgb(0, 0, 0);
+    color: rgb(255 255 255);
 }
 .icon-pm-materiales .path13:before {
     content: "\e942";
     margin-left: -1em;
-    color: rgb(0, 0, 0);
+    color: rgb(255 255 255);
 }
 .icon-pm-materiales .path14:before {
     content: "\e943";
@@ -361,72 +361,72 @@
 }
 .icon-pm-modalidades .path1:before {
     content: "\e944";
-    color: rgb(0, 0, 0);
+    color: rgb(255 255 255);
 }
 .icon-pm-modalidades .path2:before {
     content: "\e945";
     margin-left: -1em;
-    color: rgb(0, 0, 0);
+    color: rgb(255 255 255);
 }
 .icon-pm-modalidades .path3:before {
     content: "\e946";
     margin-left: -1em;
-    color: rgb(0, 0, 0);
+    color: rgb(255 255 255);
 }
 .icon-pm-modalidades .path4:before {
     content: "\e947";
     margin-left: -1em;
-    color: rgb(0, 0, 0);
+    color: rgb(255 255 255);
 }
 .icon-pm-modalidades .path5:before {
     content: "\e948";
     margin-left: -1em;
-    color: rgb(0, 0, 0);
+    color: rgb(255 255 255);
 }
 .icon-pm-modalidades .path6:before {
     content: "\e949";
     margin-left: -1em;
-    color: rgb(0, 0, 0);
+    color: rgb(255 255 255);
 }
 .icon-pm-modalidades .path7:before {
     content: "\e94a";
     margin-left: -1em;
-    color: rgb(0, 0, 0);
+    color: rgb(255 255 255);
 }
 .icon-pm-modalidades .path8:before {
     content: "\e94b";
     margin-left: -1em;
-    color: rgb(0, 0, 0);
+    color: rgb(255 255 255);
 }
 .icon-pm-modalidades .path9:before {
     content: "\e94c";
     margin-left: -1em;
-    color: rgb(0, 0, 0);
+    color: rgb(255 255 255);
 }
 .icon-pm-modalidades .path10:before {
     content: "\e94d";
     margin-left: -1em;
-    color: rgb(0, 0, 0);
+    color: rgb(255 255 255);
 }
 .icon-pm-modalidades .path11:before {
     content: "\e94e";
     margin-left: -1em;
-    color: rgb(0, 0, 0);
+    color: rgb(255 255 255);
 }
 .icon-pm-modalidades .path12:before {
     content: "\e94f";
     margin-left: -1em;
-    color: rgb(0, 0, 0);
+    color: rgb(255 255 255);
 }
 .icon-pm-modalidades .path13:before {
     content: "\e950";
     margin-left: -1em;
-    color: rgb(0, 0, 0);
+    color: rgb(255 255 255);
 }
 .icon-pm-modalidades .path14:before {
     content: "\e951";
     margin-left: -1em;
-    color: rgb(0, 0, 0);
+    color: rgb(255 255 255);
 }
 .icon-pm-modalidades .path15:before {
     content: "\e952";
@@ -436,72 +436,72 @@
 .icon-pm-modalidades .path16:before {
     content: "\e953";
     margin-left: -1em;
-    color: rgb(0, 0, 0);
+    color: rgb(255 255 255);
 }
 .icon-pm-modalidades .path17:before {
     content: "\e954";
     margin-left: -1em;
-    color: rgb(0, 0, 0);
+    color: rgb(255 255 255);
 }
 .icon-pm-modalidades .path18:before {
     content: "\e955";
     margin-left: -1em;
-    color: rgb(0, 0, 0);
+    color: rgb(255 255 255);
 }
 .icon-pm-modalidades .path19:before {
     content: "\e956";
     margin-left: -1em;
-    color: rgb(0, 0, 0);
+    color: rgb(255 255 255);
 }
 .icon-pm-modalidades .path20:before {
     content: "\e957";
     margin-left: -1em;
-    color: rgb(0, 0, 0);
+    color: rgb(255 255 255);
 }
 .icon-pm-modalidades .path21:before {
     content: "\e958";
     margin-left: -1em;
-    color: rgb(0, 0, 0);
+    color: rgb(255 255 255);
 }
 .icon-pm-modalidades .path22:before {
     content: "\e959";
     margin-left: -1em;
-    color: rgb(0, 0, 0);
+    color: rgb(255 255 255);
 }
 .icon-pm-modalidades .path23:before {
     content: "\e95a";
     margin-left: -1em;
-    color: rgb(0, 0, 0);
+    color: rgb(255 255 255);
 }
 .icon-pm-modalidades .path24:before {
     content: "\e95b";
     margin-left: -1em;
-    color: rgb(0, 0, 0);
+    color: rgb(255 255 255);
 }
 .icon-pm-modalidades .path25:before {
     content: "\e95c";
     margin-left: -1em;
-    color: rgb(0, 0, 0);
+    color: rgb(255 255 255);
 }
 .icon-pm-modalidades .path26:before {
     content: "\e95d";
     margin-left: -1em;
-    color: rgb(0, 0, 0);
+    color: rgb(255 255 255);
 }
 .icon-pm-modalidades .path27:before {
     content: "\e95e";
     margin-left: -1em;
-    color: rgb(0, 0, 0);
+    color: rgb(255 255 255);
 }
 .icon-pm-modalidades .path28:before {
     content: "\e95f";
     margin-left: -1em;
-    color: rgb(0, 0, 0);
+    color: rgb(255 255 255);
 }
 .icon-pm-modalidades .path29:before {
     content: "\e960";
     margin-left: -1em;
-    color: rgb(0, 0, 0);
+    color: rgb(255 255 255);
 }
 .icon-pm-modalidades .path30:before {
     content: "\e961";
@@ -511,62 +511,62 @@
 .icon-pm-modalidades .path31:before {
     content: "\e962";
     margin-left: -1em;
-    color: rgb(0, 0, 0);
+    color: rgb(255 255 255);
 }
 .icon-pm-modalidades .path32:before {
     content: "\e963";
     margin-left: -1em;
-    color: rgb(0, 0, 0);
+    color: rgb(255 255 255);
 }
 .icon-pm-modalidades .path33:before {
     content: "\e964";
     margin-left: -1em;
-    color: rgb(0, 0, 0);
+    color: rgb(255 255 255);
 }
 .icon-pm-modalidades .path34:before {
     content: "\e965";
     margin-left: -1em;
-    color: rgb(0, 0, 0);
+    color: rgb(255 255 255);
 }
 .icon-pm-modalidades .path35:before {
     content: "\e966";
     margin-left: -1em;
-    color: rgb(0, 0, 0);
+    color: rgb(255 255 255);
 }
 .icon-pm-modalidades .path36:before {
     content: "\e967";
     margin-left: -1em;
-    color: rgb(0, 0, 0);
+    color: rgb(255 255 255);
 }
 .icon-pm-modalidades .path37:before {
     content: "\e968";
     margin-left: -1em;
-    color: rgb(0, 0, 0);
+    color: rgb(255 255 255);
 }
 .icon-pm-modalidades .path38:before {
     content: "\e969";
     margin-left: -1em;
-    color: rgb(0, 0, 0);
+    color: rgb(255 255 255);
 }
 .icon-pm-modalidades .path39:before {
     content: "\e96a";
     margin-left: -1em;
-    color: rgb(0, 0, 0);
+    color: rgb(255 255 255);
 }
 .icon-pm-modalidades .path40:before {
     content: "\e96b";
     margin-left: -1em;
-    color: rgb(0, 0, 0);
+    color: rgb(255 255 255);
 }
 .icon-pm-modalidades .path41:before {
     content: "\e96c";
     margin-left: -1em;
-    color: rgb(0, 0, 0);
+    color: rgb(255 255 255);
 }
 .icon-pm-modalidades .path42:before {
     content: "\e96d";
     margin-left: -1em;
-    color: rgb(0, 0, 0);
+    color: rgb(255 255 255);
 }
 .icon-pm-modalidades .path43:before {
     content: "\e96e";
@@ -575,27 +575,27 @@
 }
 .icon-pm-referees .path1:before {
     content: "\e96f";
-    color: rgb(0, 0, 0);
+    color: rgb(255 255 255);
 }
 .icon-pm-referees .path2:before {
     content: "\e970";
     margin-left: -1em;
-    color: rgb(0, 0, 0);
+    color: rgb(255 255 255);
 }
 .icon-pm-referees .path3:before {
     content: "\e971";
     margin-left: -1em;
-    color: rgb(0, 0, 0);
+    color: rgb(255 255 255);
 }
 .icon-pm-referees .path4:before {
     content: "\e972";
     margin-left: -1em;
-    color: rgb(0, 0, 0);
+    color: rgb(255 255 255);
 }
 .icon-pm-referees .path5:before {
     content: "\e973";
     margin-left: -1em;
-    color: rgb(0, 0, 0);
+    color: rgb(255 255 255);
 }
 .icon-pm-referees .path6:before {
     content: "\e974";
@@ -604,57 +604,57 @@
 }
 .icon-pm-teams .path1:before {
     content: "\e975";
-    color: rgb(0, 0, 0);
+    color: rgb(255 255 255);
 }
 .icon-pm-teams .path2:before {
     content: "\e976";
     margin-left: -1em;
-    color: rgb(0, 0, 0);
+    color: rgb(255 255 255);
 }
 .icon-pm-teams .path3:before {
     content: "\e977";
     margin-left: -1em;
-    color: rgb(0, 0, 0);
+    color: rgb(255 255 255);
 }
 .icon-pm-teams .path4:before {
     content: "\e978";
     margin-left: -1em;
-    color: rgb(0, 0, 0);
+    color: rgb(255 255 255);
 }
 .icon-pm-teams .path5:before {
     content: "\e979";
     margin-left: -1em;
-    color: rgb(0, 0, 0);
+    color: rgb(255 255 255);
 }
 .icon-pm-teams .path6:before {
     content: "\e97a";
     margin-left: -1em;
-    color: rgb(0, 0, 0);
+    color: rgb(255 255 255);
 }
 .icon-pm-teams .path7:before {
     content: "\e97b";
     margin-left: -1em;
-    color: rgb(0, 0, 0);
+    color: rgb(255 255 255);
 }
 .icon-pm-teams .path8:before {
     content: "\e97c";
     margin-left: -1em;
-    color: rgb(0, 0, 0);
+    color: rgb(255 255 255);
 }
 .icon-pm-teams .path9:before {
     content: "\e97d";
     margin-left: -1em;
-    color: rgb(0, 0, 0);
+    color: rgb(255 255 255);
 }
 .icon-pm-teams .path10:before {
     content: "\e97e";
     margin-left: -1em;
-    color: rgb(0, 0, 0);
+    color: rgb(255 255 255);
 }
 .icon-pm-teams .path11:before {
     content: "\e97f";
     margin-left: -1em;
-    color: rgb(0, 0, 0);
+    color: rgb(255 255 255);
 }
 .icon-pm-teams .path12:before {
     content: "\e980";
@@ -668,117 +668,117 @@
 }
 .icon-pm-jugadores .path1:before {
     content: "\e982";
-    color: rgb(0, 0, 0);
+    color: rgb(255 255 255);
 }
 .icon-pm-jugadores .path2:before {
     content: "\e983";
     margin-left: -1em;
-    color: rgb(0, 0, 0);
+    color: rgb(255 255 255);
 }
 .icon-pm-jugadores .path3:before {
     content: "\e984";
     margin-left: -1em;
-    color: rgb(0, 0, 0);
+    color: rgb(255 255 255);
 }
 .icon-pm-jugadores .path4:before {
     content: "\e985";
     margin-left: -1em;
-    color: rgb(0, 0, 0);
+    color: rgb(255 255 255);
 }
 .icon-pm-jugadores .path5:before {
     content: "\e986";
     margin-left: -1em;
-    color: rgb(0, 0, 0);
+    color: rgb(255 255 255);
 }
 .icon-pm-jugadores .path6:before {
     content: "\e987";
     margin-left: -1em;
-    color: rgb(0, 0, 0);
+    color: rgb(255 255 255);
 }
 .icon-pm-jugadores .path7:before {
     content: "\e988";
     margin-left: -1em;
-    color: rgb(0, 0, 0);
+    color: rgb(255 255 255);
 }
 .icon-pm-jugadores .path8:before {
     content: "\e989";
     margin-left: -1em;
-    color: rgb(0, 0, 0);
+    color: rgb(255 255 255);
 }
 .icon-pm-jugadores .path9:before {
     content: "\e98a";
     margin-left: -1em;
-    color: rgb(0, 0, 0);
+    color: rgb(255 255 255);
 }
 .icon-pm-jugadores .path10:before {
     content: "\e98b";
     margin-left: -1em;
-    color: rgb(0, 0, 0);
+    color: rgb(255 255 255);
 }
 .icon-pm-jugadores .path11:before {
     content: "\e98c";
     margin-left: -1em;
-    color: rgb(0, 0, 0);
+    color: rgb(255 255 255);
 }
 .icon-pm-jugadores .path12:before {
     content: "\e98d";
     margin-left: -1em;
-    color: rgb(0, 0, 0);
+    color: rgb(255 255 255);
 }
 .icon-pm-jugadores .path13:before {
     content: "\e98e";
     margin-left: -1em;
-    color: rgb(0, 0, 0);
+    color: rgb(255 255 255);
 }
 .icon-pm-jugadores .path14:before {
     content: "\e98f";
     margin-left: -1em;
-    color: rgb(0, 0, 0);
+    color: rgb(255 255 255);
 }
 .icon-pm-jugadores .path15:before {
     content: "\e990";
     margin-left: -1em;
-    color: rgb(0, 0, 0);
+    color: rgb(255 255 255);
 }
 .icon-pm-jugadores .path16:before {
     content: "\e991";
     margin-left: -1em;
-    color: rgb(0, 0, 0);
+    color: rgb(255 255 255);
 }
 .icon-pm-jugadores .path17:before {
     content: "\e992";
     margin-left: -1em;
-    color: rgb(0, 0, 0);
+    color: rgb(255 255 255);
 }
 .icon-pm-jugadores .path18:before {
     content: "\e993";
     margin-left: -1em;
-    color: rgb(0, 0, 0);
+    color: rgb(255 255 255);
 }
 .icon-pm-jugadores .path19:before {
     content: "\e994";
     margin-left: -1em;
-    color: rgb(0, 0, 0);
+    color: rgb(255 255 255);
 }
 .icon-pm-jugadores .path20:before {
     content: "\e995";
     margin-left: -1em;
-    color: rgb(0, 0, 0);
+    color: rgb(255 255 255);
 }
 .icon-pm-jugadores .path21:before {
     content: "\e996";
     margin-left: -1em;
-    color: rgb(0, 0, 0);
+    color: rgb(255 255 255);
 }
 .icon-pm-jugadores .path22:before {
     content: "\e997";
     margin-left: -1em;
-    color: rgb(0, 0, 0);
+    color: rgb(255 255 255);
 }
 .icon-pm-jugadores .path23:before {
     content: "\e998";
     margin-left: -1em;
-    color: rgb(0, 0, 0);
+    color: rgb(255 255 255);
 }
 .icon-pm-jugadores .path24:before {
     content: "\e999";
@@ -787,7 +787,7 @@
 }
 .icon-pm-usuarios .path1:before {
     content: "\e99a";
-    color: rgb(0, 0, 0);
+    color: rgb(255 255 255);
 }
 .icon-pm-usuarios .path2:before {
     content: "\e99b";
@@ -797,96 +797,96 @@
 .icon-pm-usuarios .path3:before {
     content: "\e99c";
     margin-left: -1em;
-    color: rgb(0, 0, 0);
+    color: rgb(255 255 255);
 }
 .icon-pm-usuarios .path4:before {
     content: "\e99d";
     margin-left: -1em;
-    color: rgb(0, 0, 0);
+    color: rgb(255 255 255);
 }
 .icon-pm-roles .path1:before {
     content: "\e99e";
-    color: rgb(0, 0, 0);
+    color: rgb(255 255 255);
 }
 .icon-pm-roles .path2:before {
     content: "\e99f";
     margin-left: -1em;
-    color: rgb(0, 0, 0);
+    color: rgb(255 255 255);
 }
 .icon-pm-roles .path3:before {
     content: "\e9a0";
     margin-left: -1em;
-    color: rgb(0, 0, 0);
+    color: rgb(255 255 255);
 }
 .icon-pm-roles .path4:before {
     content: "\e9a1";
     margin-left: -1em;
-    color: rgb(0, 0, 0);
+    color: rgb(255 255 255);
 }
 .icon-pm-roles .path5:before {
     content: "\e9a2";
     margin-left: -1em;
-    color: rgb(0, 0, 0);
+    color: rgb(255 255 255);
 }
 .icon-pm-roles .path6:before {
     content: "\e9a3";
     margin-left: -1em;
-    color: rgb(0, 0, 0);
+    color: rgb(255 255 255);
 }
 .icon-pm-roles .path7:before {
     content: "\e9a4";
     margin-left: -1em;
-    color: rgb(0, 0, 0);
+    color: rgb(255 255 255);
 }
 .icon-pm-roles .path8:before {
     content: "\e9a5";
     margin-left: -1em;
-    color: rgb(0, 0, 0);
+    color: rgb(255 255 255);
 }
 .icon-pm-roles .path9:before {
     content: "\e9a6";
     margin-left: -1em;
-    color: rgb(0, 0, 0);
+    color: rgb(255 255 255);
 }
 .icon-pm-roles .path10:before {
     content: "\e9a7";
     margin-left: -1em;
-    color: rgb(0, 0, 0);
+    color: rgb(255 255 255);
 }
 .icon-pm-roles .path11:before {
     content: "\e9a8";
     margin-left: -1em;
-    color: rgb(0, 0, 0);
+    color: rgb(255 255 255);
 }
 .icon-pm-roles .path12:before {
     content: "\e9a9";
     margin-left: -1em;
-    color: rgb(0, 0, 0);
+    color: rgb(255 255 255);
 }
 .icon-pm-roles .path13:before {
     content: "\e9aa";
     margin-left: -1em;
-    color: rgb(0, 0, 0);
+    color: rgb(255 255 255);
 }
 .icon-pm-roles .path14:before {
     content: "\e9ab";
     margin-left: -1em;
-    color: rgb(0, 0, 0);
+    color: rgb(255 255 255);
 }
 .icon-pm-roles .path15:before {
     content: "\e9ac";
     margin-left: -1em;
-    color: rgb(0, 0, 0);
+    color: rgb(255 255 255);
 }
 .icon-pm-roles .path16:before {
     content: "\e9ad";
     margin-left: -1em;
-    color: rgb(0, 0, 0);
+    color: rgb(255 255 255);
 }
 .icon-pm-roles .path17:before {
     content: "\e9ae";
     margin-left: -1em;
-    color: rgb(0, 0, 0);
+    color: rgb(255 255 255);
 }
 .icon-pm-roles .path18:before {
     content: "\e9af";
@@ -895,7 +895,7 @@
 }
 .icon-pm-scores .path1:before {
     content: "\e9b0";
-    color: rgb(0, 0, 0);
+    color: rgb(255 255 255);
 }
 .icon-pm-scores .path2:before {
     content: "\e9b1";
@@ -905,166 +905,166 @@
 .icon-pm-scores .path3:before {
     content: "\e9b2";
     margin-left: -1em;
-    color: rgb(0, 0, 0);
+    color: rgb(255 255 255);
 }
 .icon-pm-scores .path4:before {
     content: "\e9b3";
     margin-left: -1em;
-    color: rgb(0, 0, 0);
+    color: rgb(255 255 255);
 }
 .icon-pm-scores .path5:before {
     content: "\e9b4";
     margin-left: -1em;
-    color: rgb(0, 0, 0);
+    color: rgb(255 255 255);
 }
 .icon-pm-scores .path6:before {
     content: "\e9b5";
     margin-left: -1em;
-    color: rgb(0, 0, 0);
+    color: rgb(255 255 255);
 }
 .icon-pm-scores .path7:before {
     content: "\e9b6";
     margin-left: -1em;
-    color: rgb(0, 0, 0);
+    color: rgb(255 255 255);
 }
 .icon-pm-scores .path8:before {
     content: "\e9b7";
     margin-left: -1em;
-    color: rgb(0, 0, 0);
+    color: rgb(255 255 255);
 }
 .icon-pm-scores .path9:before {
     content: "\e9b8";
     margin-left: -1em;
-    color: rgb(0, 0, 0);
+    color: rgb(255 255 255);
 }
 .icon-pm-scores .path10:before {
     content: "\e9b9";
     margin-left: -1em;
-    color: rgb(0, 0, 0);
+    color: rgb(255 255 255);
 }
 .icon-pm-scores .path11:before {
     content: "\e9ba";
     margin-left: -1em;
-    color: rgb(0, 0, 0);
+    color: rgb(255 255 255);
 }
 .icon-pm-scores .path12:before {
     content: "\e9bb";
     margin-left: -1em;
-    color: rgb(0, 0, 0);
+    color: rgb(255 255 255);
 }
 .icon-pm-scores .path13:before {
     content: "\e9bc";
     margin-left: -1em;
-    color: rgb(0, 0, 0);
+    color: rgb(255 255 255);
 }
 .icon-pm-scores .path14:before {
     content: "\e9bd";
     margin-left: -1em;
-    color: rgb(0, 0, 0);
+    color: rgb(255 255 255);
 }
 .icon-pm-scores .path15:before {
     content: "\e9be";
     margin-left: -1em;
-    color: rgb(0, 0, 0);
+    color: rgb(255 255 255);
 }
 .icon-pm-scores .path16:before {
     content: "\e9bf";
     margin-left: -1em;
-    color: rgb(0, 0, 0);
+    color: rgb(255 255 255);
 }
 .icon-pm-scores .path17:before {
     content: "\e9c0";
     margin-left: -1em;
-    color: rgb(0, 0, 0);
+    color: rgb(255 255 255);
 }
 .icon-pm-scores .path18:before {
     content: "\e9c1";
     margin-left: -1em;
-    color: rgb(0, 0, 0);
+    color: rgb(255 255 255);
 }
 .icon-pm-scores .path19:before {
     content: "\e9c2";
     margin-left: -1em;
-    color: rgb(0, 0, 0);
+    color: rgb(255 255 255);
 }
 .icon-pm-scores .path20:before {
     content: "\e9c3";
     margin-left: -1em;
-    color: rgb(0, 0, 0);
+    color: rgb(255 255 255);
 }
 .icon-pm-deportes .path1:before {
     content: "\e9c4";
-    color: rgb(0, 0, 0);
+    color: rgb(255 255 255);
 }
 .icon-pm-deportes .path2:before {
     content: "\e9c5";
     margin-left: -1em;
-    color: rgb(0, 0, 0);
+    color: rgb(255 255 255);
 }
 .icon-pm-deportes .path3:before {
     content: "\e9c6";
     margin-left: -1em;
-    color: rgb(0, 0, 0);
+    color: rgb(255 255 255);
 }
 .icon-pm-deportes .path4:before {
     content: "\e9c7";
     margin-left: -1em;
-    color: rgb(0, 0, 0);
+    color: rgb(255 255 255);
 }
 .icon-pm-deportes .path5:before {
     content: "\e9c8";
     margin-left: -1em;
-    color: rgb(0, 0, 0);
+    color: rgb(255 255 255);
 }
 .icon-pm-deportes .path6:before {
     content: "\e9c9";
     margin-left: -1em;
-    color: rgb(0, 0, 0);
+    color: rgb(255 255 255);
 }
 .icon-pm-deportes .path7:before {
     content: "\e9ca";
     margin-left: -1em;
-    color: rgb(0, 0, 0);
+    color: rgb(255 255 255);
 }
 .icon-pm-deportes .path8:before {
     content: "\e9cb";
     margin-left: -1em;
-    color: rgb(0, 0, 0);
+    color: rgb(255 255 255);
 }
 .icon-pm-deportes .path9:before {
     content: "\e9cc";
     margin-left: -1em;
-    color: rgb(0, 0, 0);
+    color: rgb(255 255 255);
 }
 .icon-pm-deportes .path10:before {
     content: "\e9cd";
     margin-left: -1em;
-    color: rgb(0, 0, 0);
+    color: rgb(255 255 255);
 }
 .icon-pm-deportes .path11:before {
     content: "\e9ce";
     margin-left: -1em;
-    color: rgb(0, 0, 0);
+    color: rgb(255 255 255);
 }
 .icon-pm-deportes .path12:before {
     content: "\e9cf";
     margin-left: -1em;
-    color: rgb(0, 0, 0);
+    color: rgb(255 255 255);
 }
 .icon-pm-deportes .path13:before {
     content: "\e9d0";
     margin-left: -1em;
-    color: rgb(0, 0, 0);
+    color: rgb(255 255 255);
 }
 .icon-pm-deportes .path14:before {
     content: "\e9d1";
     margin-left: -1em;
-    color: rgb(0, 0, 0);
+    color: rgb(255 255 255);
 }
 .icon-pm-deportes .path15:before {
     content: "\e9d2";
     margin-left: -1em;
-    color: rgb(0, 0, 0);
+    color: rgb(255 255 255);
 }
 .icon-pm-deportes .path16:before {
     content: "\e9d3";
