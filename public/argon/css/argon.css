@@ -6010,19 +6010,16 @@ button.close {
     right: 0;
     bottom: 0;
     left: 0;
-
     display: none;
     overflow: hidden;
-
+    background: rgb(0 0 0 / 76%);
     outline: 0;
 }
 
 .modal-dialog {
     position: relative;
-
     width: auto;
     margin: 0.5rem;
-
     pointer-events: none;
 }
 .modal.fade .modal-dialog {
@@ -6066,7 +6063,7 @@ button.close {
     border: 0 solid rgba(0, 0, 0, 0.2);
     border-radius: 0.4375rem;
     outline: 0;
-    background-color: #fff;
+    background-color: transparent;
     background-clip: padding-box;
     box-shadow: 0 15px 35px rgba(50, 50, 93, 0.2),
         0 5px 15px rgba(0, 0, 0, 0.17);
@@ -18564,4 +18561,15 @@ button.btn-white {
 .icon-pm-ligas:hover {
     color: #fff;
 }
-/* Icons Access*/
+/* Fin Icons Access*/
+
+/* Modal */
+.modal .modal-content .card {
+    border: 1px solid rgb(0 204 204 / 33%);
+}
+.modal .modal-header {
+    display: flex;
+    padding: 1.25rem 0 0;
+}
+
+/*Fin Modal */
