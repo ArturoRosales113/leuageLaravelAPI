@@ -47,7 +47,7 @@
                         </div>
                     </div>
                 </div>    
-                <div class="table-responsive">
+                <div class="table-responsive scrollbar-light-blue">
                     <!-- Projects table -->
                     <table class="table align-items-center table-flush">
                         <thead class="thead-light">

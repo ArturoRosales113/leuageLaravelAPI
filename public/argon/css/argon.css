@@ -6010,19 +6010,16 @@ button.close {
     right: 0;
     bottom: 0;
     left: 0;
-
     display: none;
     overflow: hidden;
-
+    background: rgb(0 0 0 / 76%);
     outline: 0;
 }
 
 .modal-dialog {
     position: relative;
-
     width: auto;
     margin: 0.5rem;
-
     pointer-events: none;
 }
 .modal.fade .modal-dialog {
@@ -6055,21 +6052,15 @@ button.close {
 
 .modal-content {
     position: relative;
-
     display: flex;
     flex-direction: column;
-
     width: 100%;
-
     pointer-events: auto;
-
     border: 0 solid rgba(0, 0, 0, 0.2);
     border-radius: 0.4375rem;
     outline: 0;
-    background-color: #fff;
+    background-color: transparent;
     background-clip: padding-box;
-    box-shadow: 0 15px 35px rgba(50, 50, 93, 0.2),
-        0 5px 15px rgba(0, 0, 0, 0.17);
 }
 
 .modal-backdrop {
@@ -6158,10 +6149,7 @@ button.close {
     .modal-dialog-centered::before {
         height: calc(100vh - (1.75rem * 2));
     }
-    .modal-content {
-        box-shadow: 0 15px 35px rgba(50, 50, 93, 0.2),
-            0 5px 15px rgba(0, 0, 0, 0.17);
-    }
+
     .modal-sm {
         max-width: 380px;
     }
@@ -18176,8 +18164,8 @@ html:not([dir="rtl"]) .noUi-horizontal .noUi-handle {
 .profile-img {
     font-size: 1rem;
     display: inline-flex;
-    width: 200px;
-    height: 200px;
+    width: 100px;
+    height: 100px;
     color: #fff;
     border-radius: 50%;
     overflow: hidden;
@@ -18222,23 +18210,23 @@ body {
 .navbar-playmaker {
     z-index: 1;
     box-shadow: 1px 0px 8px 1px #0008 !important;
-    background: rgb(4, 8, 32);
+    background: rgb(156, 121, 37);
     background: -moz-linear-gradient(
-        76deg,
-        rgba(4, 8, 32, 1) 39%,
-        rgba(0, 0, 0, 1) 98%
+        0deg,
+        rgba(156, 121, 37, 1) 25%,
+        rgba(18, 18, 18, 1) 57%
     );
     background: -webkit-linear-gradient(
-        76deg,
-        rgba(4, 8, 32, 1) 39%,
-        rgba(0, 0, 0, 1) 98%
+        0deg,
+        rgba(156, 121, 37, 1) 25%,
+        rgba(18, 18, 18, 1) 57%
     );
     background: linear-gradient(
-        76deg,
-        rgba(4, 8, 32, 1) 39%,
-        rgba(0, 0, 0, 1) 98%
+        0deg,
+        rgba(156, 121, 37, 1) 25%,
+        rgba(18, 18, 18, 1) 57%
     );
-    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#040820",endColorstr="#000000",GradientType=1);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#9c7925",endColorstr="#121212",GradientType=1);
 }
 .nav-dark {
     background: rgb(255 255 255 / 3%);
@@ -18496,6 +18484,9 @@ button.btn-white {
     border-color: rgb(255 255 255 / 18%);
     font-weight: 300;
 }
+.card form {
+    margin-top: 2rem;
+}
 
 /* Tablas */
 
@@ -18561,4 +18552,22 @@ button.btn-white {
 .icon-pm-ligas:hover {
     color: #fff;
 }
-/* Icons Access*/
+/* Fin Icons Access*/
+
+/* Modal */
+.modal .modal-content .card {
+    border: 1px solid rgb(0 204 204 / 33%);
+    box-shadow: 0 0 8px 0px rgb(0 204 204 / 31%);
+}
+.modal .modal-header {
+    display: flex;
+    padding: 1.25rem 0 0;
+}
+button.close {
+    background: #fff;
+}
+button.close:hover {
+    background: #fff;
+}
+
+/*Fin Modal */
