@@ -20,6 +20,10 @@ class ScoringController extends Controller
         $sport = $game->league->sport;
         $game['teams'][0]['players'] = Player::with('user')->where('team_id','=', $teams[0]->id)->get();
         $game['teams'][1]['players'] = Player::with('user')->where('team_id','=', $teams[1]->id)->get();
+        $game['teams'][0]['score'] = 0;
+        $game['teams'][1]['score'] = 0;
+        $game['teams'][0]['faltas'] = 0;
+        $game['teams'][1]['faltas'] = 0;
 
         return response()->json([
             'game' => $game,
