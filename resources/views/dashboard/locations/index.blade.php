@@ -9,7 +9,7 @@
         
     <div class="row">
         <div class="col-12">
-            <div class="card shadow mt-4">
+            <div class="card shadow mt-7">
                 <div class="card-header border-0">
                     <div class="row align-items-center">
                         <div class="col">
