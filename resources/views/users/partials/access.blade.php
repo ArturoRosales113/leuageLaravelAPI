@@ -1,5 +1,8 @@
-<div class="row mt-5">
+<div class="row mt-7">
     <div class="row panel-icons">
+
+
+        <!-- Deportes-->
         <div class="col-sm panel-cont ml-2 mr-2 pt-3 pb-3">
             <a class="nav-link" href="{{ route('sports.index') }}">
                 <div class="glyph fs1 circle-access">
@@ -10,26 +13,8 @@
                 <br>Deportes
             </a>
         </div>
-        <div class="col-sm panel-cont ml-2 mr-2 pt-3 pb-3">
-            <a class="nav-link" href="{{ route('leagues.index') }}">
-                <div class="glyph fs1 circle-access">
-                    <div class="clearfix bshadow0 pbs">
-                        <span class="pmy icon-pm-ligas"></span>
-                    </div>
-                </div>
-                <br>Ligas
-            </a>
-        </div>
-        <div class="col-sm panel-cont ml-2 mr-2 pt-3 pb-3">
-            <a class="nav-link" href="{{ route('teams.index') }}">
-                <div class="glyph fs1 circle-access">
-                    <div class="clearfix bshadow0 pbs">
-                        <span class="pmy icon-pm-teams"><span class="path1"></span><span class="path2"></span><span class="path3"></span><span class="path4"></span><span class="path5"></span><span class="path6"></span><span class="path7"></span><span class="path8"></span><span class="path9"></span><span class="path10"></span><span class="path11"></span><span class="path12"></span><span class="path13"></span></span>
-                    </div>
-                </div>
-                <br>Equipos
-            </a>
-        </div>
+
+        <!--Estadios-->
         <div class="col-sm panel-cont ml-2 mr-2 pt-3 pb-3">
             <a class="nav-link" href="{{ route('fields.index') }}">
                 <div class="glyph fs1 circle-access">
@@ -40,6 +25,33 @@
                 <br>Estadios
             </a>
         </div>
+        
+        <!-- Ligas-->
+        <div class="col-sm panel-cont ml-2 mr-2 pt-3 pb-3">
+            <a class="nav-link" href="{{ route('leagues.index') }}">
+                <div class="glyph fs1 circle-access">
+                    <div class="clearfix bshadow0 pbs">
+                        <span class="pmy icon-pm-ligas"></span>
+                    </div>
+                </div>
+                <br>Ligas
+            </a>
+        </div>
+
+        <!-- Equipos-->
+        <div class="col-sm panel-cont ml-2 mr-2 pt-3 pb-3">
+            <a class="nav-link" href="{{ route('teams.index') }}">
+                <div class="glyph fs1 circle-access">
+                    <div class="clearfix bshadow0 pbs">
+                        <span class="pmy icon-pm-teams"><span class="path1"></span><span class="path2"></span><span class="path3"></span><span class="path4"></span><span class="path5"></span><span class="path6"></span><span class="path7"></span><span class="path8"></span><span class="path9"></span><span class="path10"></span><span class="path11"></span><span class="path12"></span><span class="path13"></span></span>
+                    </div>
+                </div>
+                <br>Equipos
+            </a>
+        </div>
+
+        
+        <!-- Jugadores -->
         <div class="col-sm panel-cont ml-2 mr-2 pt-3 pb-3">
             <a class="nav-link" href="{{ route('players.index') }}">
                 <div class="glyph fs1 circle-access">

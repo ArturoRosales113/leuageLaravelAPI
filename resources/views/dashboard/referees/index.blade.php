@@ -8,17 +8,16 @@
     @include('layouts.headers.userhead')
         
                     
-        <div class="row mt-7">
+        <div class="row mt-8">
             <div class="col-12">
                 <div class="card shadow mt-4">
                     <div class="card-header border-0">
                         <div class="row align-items-center">
                             <div class="col">
-                                <h3 class="mb-0">Referees</h3>
+                                <h3 class="mb-0">Arbitro</h3>
                             </div>
                             <div class="col text-right">
-                                <a href="{{ route('referees.create') }}" class="btn btn-sm btn-default"><i class="fas fa-plus"></i>&nbsp;Crear referee</a>
-        
+                                <a href="{{ route('referees.create') }}" class="btn btn-sm btn-default"><i class="fas fa-plus"></i>&nbsp;Crear arbitro</a>
                             </div>
                         </div>
                     </div>    
@@ -96,10 +95,10 @@
                     <div class="card-header border-0">
                         <div class="row align-items-center">
                             <div class="col">
-                                <h3 class="mb-0">Tipos de referees</h3>
+                                <h3 class="mb-0">Tipos de arbitro</h3>
                             </div>
                             <div class="col text-right">
-                                <a href="{{ route('refereeTypes.create') }}" class="btn btn-sm btn-default"><i class="fas fa-plus"></i>&nbsp;Crear tipo de referee</a>
+                                <a href="{{ route('refereeTypes.create') }}" class="btn btn-sm btn-default"><i class="fas fa-plus"></i>&nbsp;Crear tipo de arbitro</a>
                             </div>
                         </div>
                     </div>    

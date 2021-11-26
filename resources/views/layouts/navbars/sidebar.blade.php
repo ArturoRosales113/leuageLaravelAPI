@@ -6,7 +6,7 @@
         </button>
         <!-- Brand -->
         <a class="navbar-brand pt-0" href="{{ route('home') }}">
-            <img src="{{ asset('argon') }}/img/brand/blue.png" class="navbar-side-brand " alt="..."> 
+            <img src="{{ asset('argon') }}/img/brand/white.png" class="navbar-side-brand " alt="..."> 
 
         </a>
         <!-- <p><span>{{ auth()->user()->name }}</span></p> -->
@@ -72,12 +72,127 @@
                 </div>
             </form>
             <!-- Navigation -->
-            <ul class="navbar-nav nav-dark">
+            <ul class="navbar-nav">
                 <li class="nav-item">
                     <a class="nav-link" href="{{ route('home') }}">
                         <i class="fas fa-tachometer-alt"></i> Panel de control
                     </a>
                 </li>
+
+                {{-- Sports --}}
+                <li class="nav-item">
+                    <a class="nav-link" href="#sports-dropdown" data-toggle="collapse" role="button" aria-expanded="false" aria-controls="sports-dropdown">
+                        <i class="fas fa-table-tennis"></i>
+                        <span class="nav-link-text" >{{ __('Deportes') }}</span>
+                    </a>
+
+                    <div class="collapse" id="sports-dropdown">
+                        <ul class="nav nav-sm flex-column">
+                            <li class="nav-item">
+                                <a class="nav-link" href="{{ route('sports.index') }}">
+                                    {{ __('Listar deportes') }}
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="{{ route('sports.create') }}">
+                                    {{ __('Crear deportes') }}
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </li>
+
+                {{-- locations o estadios --}}
+                <li class="nav-item">
+                    <a class="nav-link" href="#locations-dropdown" data-toggle="collapse" role="button" aria-expanded="false" aria-controls="locations-dropdown">
+                        <i class="fab fa-fort-awesome"></i>
+                        <span class="nav-link-text" >{{ __('Estadios') }}</span>
+                    </a>
+
+                    <div class="collapse" id="locations-dropdown">
+                        <ul class="nav nav-sm flex-column">
+                            <li class="nav-item">
+                                <a class="nav-link" href="{{ route('locations.index') }}">
+                                    {{ __('Mis estadios') }}
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="{{ route('locations.create') }}">
+                                    {{ __('Crear estadios') }}
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </li>
+
+                {{-- Materiales --}}
+                {{-- <li class="nav-item">
+                    <a class="nav-link" href="#materials-dropdown" data-toggle="collapse" role="button" aria-expanded="false" aria-controls="materials-dropdown">
+                        <i class="fas fa-table-tennis"></i>
+                        <span class="nav-link-text" >{{ __('Materiales') }}</span>
+                    </a>
+
+                    <div class="collapse" id="materials-dropdown">
+                        <ul class="nav nav-sm flex-column">
+                            <li class="nav-item">
+                                <a class="nav-link" href="{{ route('materials.index') }}">
+                                    {{ __('Listar todas las materiales') }}
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="{{ route('materials.create') }}">
+                                    {{ __('Crear materiales') }}
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </li> --}}
+
+                {{-- Modalidades de los partidos --}}
+                {{-- <li class="nav-item">
+                    <a class="nav-link" href="#modalities-dropdown" data-toggle="collapse" role="button" aria-expanded="false" aria-controls="modalities-dropdown">
+                        <i class="fas fa-table-tennis"></i>
+                        <span class="nav-link-text" >{{ __('Modalidades') }}</span>
+                    </a>
+
+                    <div class="collapse" id="modalities-dropdown">
+                        <ul class="nav nav-sm flex-column">
+                            <li class="nav-item">
+                                <a class="nav-link" href="{{ route('modalities.index') }}">
+                                    {{ __('Listar todas las modalidades') }}
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="{{ route('modalities.create') }}">
+                                    {{ __('Crear modalidad') }}
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </li> --}}
+
+                {{-- Permisos de los roles --}}
+                {{-- <li class="nav-item">
+                    <a class="nav-link" href="#players-dropdown" data-toggle="collapse" role="button" aria-expanded="false" aria-controls="permissions-dropdown">
+                        <i class="fas fa-table-tennis"></i>
+                        <span class="nav-link-text" >{{ __('Permisos de usuarios') }}</span>
+                    </a>
+
+                    <div class="collapse" id="permissions-dropdown">
+                        <ul class="nav nav-sm flex-column">
+                            <li class="nav-item">
+                                <a class="nav-link" href="{{ route('permissions.index') }}">
+                                    {{ __('Listar todas las permisos') }}
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="{{ route('permissions.create') }}">
+                                    {{ __('Crear permiso') }}
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </li> --}}
 
                 {{-- Acciones --}}
                 {{-- <li class="nav-item">
@@ -213,120 +328,9 @@
                     </div>
                 </li>
 
-                {{-- locations o estadios --}}
-                <li class="nav-item">
-                    <a class="nav-link" href="#locations-dropdown" data-toggle="collapse" role="button" aria-expanded="false" aria-controls="locations-dropdown">
-                        <i class="fab fa-fort-awesome"></i>
-                        <span class="nav-link-text" >{{ __('Estadios') }}</span>
-                    </a>
+                
 
-                    <div class="collapse" id="locations-dropdown">
-                        <ul class="nav nav-sm flex-column">
-                            <li class="nav-item">
-                                <a class="nav-link" href="{{ route('locations.index') }}">
-                                    {{ __('Mis estadios') }}
-                                </a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="{{ route('locations.create') }}">
-                                    {{ __('Crear estadios') }}
-                                </a>
-                            </li>
-                        </ul>
-                    </div>
-                </li>
-
-                {{-- Materiales --}}
-                {{-- <li class="nav-item">
-                    <a class="nav-link" href="#materials-dropdown" data-toggle="collapse" role="button" aria-expanded="false" aria-controls="materials-dropdown">
-                        <i class="fas fa-table-tennis"></i>
-                        <span class="nav-link-text" >{{ __('Materiales') }}</span>
-                    </a>
-
-                    <div class="collapse" id="materials-dropdown">
-                        <ul class="nav nav-sm flex-column">
-                            <li class="nav-item">
-                                <a class="nav-link" href="{{ route('materials.index') }}">
-                                    {{ __('Listar todas las materiales') }}
-                                </a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="{{ route('materials.create') }}">
-                                    {{ __('Crear materiales') }}
-                                </a>
-                            </li>
-                        </ul>
-                    </div>
-                </li> --}}
-
-                {{-- Modalidades de los partidos --}}
-                {{-- <li class="nav-item">
-                    <a class="nav-link" href="#modalities-dropdown" data-toggle="collapse" role="button" aria-expanded="false" aria-controls="modalities-dropdown">
-                        <i class="fas fa-table-tennis"></i>
-                        <span class="nav-link-text" >{{ __('Modalidades') }}</span>
-                    </a>
-
-                    <div class="collapse" id="modalities-dropdown">
-                        <ul class="nav nav-sm flex-column">
-                            <li class="nav-item">
-                                <a class="nav-link" href="{{ route('modalities.index') }}">
-                                    {{ __('Listar todas las modalidades') }}
-                                </a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="{{ route('modalities.create') }}">
-                                    {{ __('Crear modalidad') }}
-                                </a>
-                            </li>
-                        </ul>
-                    </div>
-                </li> --}}
-
-                {{-- Permisos de los roles --}}
-                {{-- <li class="nav-item">
-                    <a class="nav-link" href="#players-dropdown" data-toggle="collapse" role="button" aria-expanded="false" aria-controls="permissions-dropdown">
-                        <i class="fas fa-table-tennis"></i>
-                        <span class="nav-link-text" >{{ __('Permisos de usuarios') }}</span>
-                    </a>
-
-                    <div class="collapse" id="permissions-dropdown">
-                        <ul class="nav nav-sm flex-column">
-                            <li class="nav-item">
-                                <a class="nav-link" href="{{ route('permissions.index') }}">
-                                    {{ __('Listar todas las permisos') }}
-                                </a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="{{ route('permissions.create') }}">
-                                    {{ __('Crear permiso') }}
-                                </a>
-                            </li>
-                        </ul>
-                    </div>
-                </li> --}}
-
-                {{-- Players --}}
-                <li class="nav-item">
-                    <a class="nav-link" href="#players-dropdown" data-toggle="collapse" role="button" aria-expanded="false" aria-controls="players-dropdown">
-                        <i class="fas fa-user-friends"></i>
-                        <span class="nav-link-text" >{{ __('Jugadores') }}</span>
-                    </a>
-
-                    <div class="collapse" id="players-dropdown">
-                        <ul class="nav nav-sm flex-column">
-                            <li class="nav-item">
-                                <a class="nav-link" href="{{ route('players.index') }}">
-                                    {{ __('Listar todas los jugadores') }}
-                                </a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="{{ route('players.create') }}">
-                                    {{ __('Crear jugador') }}
-                                </a>
-                            </li>
-                        </ul>
-                    </div>
-                </li>
+                
 
                 {{-- Profiles --}}
                 {{-- <li class="nav-item">
@@ -345,52 +349,6 @@
                             <li class="nav-item">
                                 <a class="nav-link" href="{{ route('profiles.create') }}">
                                     {{ __('Crear perfil') }}
-                                </a>
-                            </li>
-                        </ul>
-                    </div>
-                </li> --}}
-
-                {{-- Referees --}}
-                <li class="nav-item">
-                    <a class="nav-link" href="#referees-dropdown" data-toggle="collapse" role="button" aria-expanded="false" aria-controls="referees-dropdown">
-                        <i class="fas fa-ruler-vertical"></i>
-                        <span class="nav-link-text" >{{ __('Arbitros') }}</span>
-                    </a>
-
-                    <div class="collapse" id="referees-dropdown">
-                        <ul class="nav nav-sm flex-column">
-                            <li class="nav-item">
-                                <a class="nav-link" href="{{ route('referees.index') }}">
-                                    {{ __('Listar arbitros') }}
-                                </a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="{{ route('referees.create') }}">
-                                    {{ __('Crear arbitro') }}
-                                </a>
-                            </li>
-                        </ul>
-                    </div>
-                </li>
-
-                {{-- Tipos de referees --}}
-                {{-- <li class="nav-item">
-                    <a class="nav-link" href="#refereeTypes-dropdown" data-toggle="collapse" role="button" aria-expanded="false" aria-controls="refereeTypes-dropdown">
-                        <i class="fas fa-table-tennis"></i>
-                        <span class="nav-link-text" >{{ __('Referees') }}</span>
-                    </a>
-
-                    <div class="collapse" id="refereeTypes-dropdown">
-                        <ul class="nav nav-sm flex-column">
-                            <li class="nav-item">
-                                <a class="nav-link" href="{{ route('refereeTypes.index') }}">
-                                    {{ __('Listar todas los tipos de referees') }}
-                                </a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="{{ route('refereeTypes.create') }}">
-                                    {{ __('Crear tipo de referee') }}
                                 </a>
                             </li>
                         </ul>
@@ -443,28 +401,7 @@
                     </div>
                 </li> --}}
 
-                {{-- Sports --}}
-                <li class="nav-item">
-                    <a class="nav-link" href="#sports-dropdown" data-toggle="collapse" role="button" aria-expanded="false" aria-controls="sports-dropdown">
-                        <i class="fas fa-table-tennis"></i>
-                        <span class="nav-link-text" >{{ __('Deportes') }}</span>
-                    </a>
-
-                    <div class="collapse" id="sports-dropdown">
-                        <ul class="nav nav-sm flex-column">
-                            <li class="nav-item">
-                                <a class="nav-link" href="{{ route('sports.index') }}">
-                                    {{ __('Listar deportes') }}
-                                </a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="{{ route('sports.create') }}">
-                                    {{ __('Crear deportes') }}
-                                </a>
-                            </li>
-                        </ul>
-                    </div>
-                </li>
+                
 
                 {{-- Teams --}}
                 <li class="nav-item">
@@ -489,6 +426,29 @@
                     </div>
                 </li>
 
+                {{-- Players --}}
+                <li class="nav-item">
+                    <a class="nav-link" href="#players-dropdown" data-toggle="collapse" role="button" aria-expanded="false" aria-controls="players-dropdown">
+                        <i class="fas fa-user-friends"></i>
+                        <span class="nav-link-text" >{{ __('Jugadores') }}</span>
+                    </a>
+
+                    <div class="collapse" id="players-dropdown">
+                        <ul class="nav nav-sm flex-column">
+                            <li class="nav-item">
+                                <a class="nav-link" href="{{ route('players.index') }}">
+                                    {{ __('Listar todas los jugadores') }}
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="{{ route('players.create') }}">
+                                    {{ __('Crear jugador') }}
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </li>
+
                 {{-- Users --}}
                 {{-- <li class="nav-item">
                     <a class="nav-link" href="#users-dropdown" data-toggle="collapse" role="button" aria-expanded="false" aria-controls="users-dropdown">
@@ -506,6 +466,53 @@
                             <li class="nav-item">
                                 <a class="nav-link" href="{{ route('users.create') }}">
                                     {{ __('Crear usuarios') }}
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </li> --}}
+
+
+                {{-- Arbitros --}}
+                <li class="nav-item">
+                    <a class="nav-link" href="#referees-dropdown" data-toggle="collapse" role="button" aria-expanded="false" aria-controls="referees-dropdown">
+                        <i class="fas fa-ruler-vertical"></i>
+                        <span class="nav-link-text" >{{ __('Arbitros') }}</span>
+                    </a>
+
+                    <div class="collapse" id="referees-dropdown">
+                        <ul class="nav nav-sm flex-column">
+                            <li class="nav-item">
+                                <a class="nav-link" href="{{ route('referees.index') }}">
+                                    {{ __('Listar arbitros') }}
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="{{ route('referees.create') }}">
+                                    {{ __('Crear arbitro') }}
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </li>
+
+                {{-- Tipos de referees --}}
+                {{-- <li class="nav-item">
+                    <a class="nav-link" href="#refereeTypes-dropdown" data-toggle="collapse" role="button" aria-expanded="false" aria-controls="refereeTypes-dropdown">
+                        <i class="fas fa-table-tennis"></i>
+                        <span class="nav-link-text" >{{ __('Referees') }}</span>
+                    </a>
+
+                    <div class="collapse" id="refereeTypes-dropdown">
+                        <ul class="nav nav-sm flex-column">
+                            <li class="nav-item">
+                                <a class="nav-link" href="{{ route('refereeTypes.index') }}">
+                                    {{ __('Listar todas los tipos de referees') }}
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="{{ route('refereeTypes.create') }}">
+                                    {{ __('Crear tipo de referee') }}
                                 </a>
                             </li>
                         </ul>

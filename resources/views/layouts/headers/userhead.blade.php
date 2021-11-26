@@ -1,4 +1,4 @@
-<div class="image-user mt--8">
+<div class="image-user mgt-pl">
         <div class="media align-items-center">
             <span class="rounded-circle border-b profile-img">
                 <img alt="Image placeholder" src="{{ asset('argon') }}/img/theme/team-4-800x800.jpg">

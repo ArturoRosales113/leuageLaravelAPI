@@ -10,7 +10,7 @@
                     <div class="card-header border-0">
                         <div class="row align-items-center">
                             <div class="col">
-                                <h3 class="mb-0">Editar un tipo de referee</h3>
+                                <h3 class="mb-0">Editar un tipo de arbitro</h3>
                                 @if ($errors->any())
                                 <div class="alert alert-danger">
                                     <ul>

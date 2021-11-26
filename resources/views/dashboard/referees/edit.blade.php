@@ -6,7 +6,7 @@
 <div class="container-fluid">
     @include('layouts.headers.userhead')
     
-    <div class="row mt-7">
+    <div class="row mt-8">
         <div class="col">
             <div class="card shadow pb-5">
                 <div class="card-header border-0">
@@ -30,13 +30,13 @@
                     @csrf
                     {{ method_field('PUT') }}
                     <div class="form-group row">
-                        <label for="name" class="col-sm-3 col-form-label">Nombre del referee</label>
+                        <label for="name" class="col-sm-3 col-form-label">Nombre del arbitro</label>
                         <div class="col-sm-9">
                             <input type="text" class="form-control" name="name" value="{{ old('name', $referee->user->name) }}" id="player" placeholder="" >
                         </div>
                     </div>
                     <div class="form-group row">
-                        <label for="email" class="col-sm-3 col-form-label">Email del referee</label>
+                        <label for="email" class="col-sm-3 col-form-label">Email del arbitro</label>
                         <div class="col-sm-9">
                             <input type="text" class="form-control" id="Email" name="email" value="{{ old('email', $referee->user->email) }}" placeholder="usuario@email.com" >
                         </div>

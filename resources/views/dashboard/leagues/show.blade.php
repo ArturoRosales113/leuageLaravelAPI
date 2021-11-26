@@ -8,7 +8,7 @@
     'portada' => $league->img_path
     ])   
 
-<div class="container-fluid mt-4">
+<div class="container-fluid">
     <div class="row justify-content-center">
         <div class="col-11">
             <div class="card shadow mt-4">
@@ -44,7 +44,7 @@
                             @foreach ($league->teams as $t)
                             <tr>
                                 <th>
-                                    <span class="rounded-circle border-b avatar">
+                                    <span class="avatar-rectangle">
                                         <img alt="Image placeholder" src="{{ $t->icon_path == null ? asset('argon/img/theme/team-4-800x800.jpg') :asset( $t->icon_path) }}">
                                     </span>
                                 </th>
@@ -104,7 +104,7 @@
                         </div>
                     </div>
                 </div>    
-                <div class="table-responsive">
+                <div class="table-responsive scrollbar-light-blue">
                     <!-- Projects table -->
                     <table class="table align-items-center table-flush">
                         <thead class="thead-light">
@@ -123,7 +123,7 @@
                             @foreach ($league->games as $lg)
                             <tr>
                                 <th>
-                                    <span class="rounded-circle border-b avatar">
+                                    <span class="avatar-rectangle">
                                         <img alt="Image placeholder" src="{{ $t->icon_path == null ? asset('argon/img/theme/team-4-800x800.jpg') :asset( $t->icon_path) }}">
                                     </span>
                                 </th>

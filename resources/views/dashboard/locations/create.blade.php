@@ -7,7 +7,7 @@
     <div class="container-fluid">
         @include('layouts.headers.userhead')
         
-        <div class="row mt-5">
+        <div class="row mt-8">
             <div class="col">
                 <div class="card shadow">
                     <div class="card-header border-0">
@@ -32,13 +32,13 @@
                             <div class="form-group row">
                                 <label for="Name" class="col-sm-3 col-form-label">Nombre Locación</label>
                                 <div class="col-sm-9">
-                                    <input type="text" class="form-control" name="name" value="{{ old('name') }}" placeholder="ej. Basketball" >
+                                    <input type="text" class="form-control" name="name" value="{{ old('name') }}" placeholder="ej. Estadio Ramón Zamora" >
                                 </div>
                             </div>
                             <div class="form-group row">
                                 <label for="Liga" class="col-sm-3 col-form-label">Selecciona una liga</label>
                                 <div class="col-sm-9">
-                                    <select class="form-control" name="league_id" placeholder="Selecciona una liga">
+                                    <select class="custom-select" name="league_id" placeholder="Selecciona una liga">
                                         <option selected value="0">Selecciona una opción</option>
                                         @foreach ($leagues as $l)
                                             <option  {{ old('league_id') == $l->id ? 'selected' : '' }} value="{{ $l->id }}">{{ $l->name }}</option>t
@@ -70,7 +70,7 @@
                             <div class="form-group row">
                                 <label for="State" class="col-sm-3 col-form-label">¿Cuál es tu estado?</label>
                                 <div class="col-sm-9">
-                                    <select class="form-control" name="state" placeholder="Selecciona tu estado">
+                                    <select class="custom-select" name="state" placeholder="Selecciona tu estado">
                                         <option value="Aguascalientes">Aguascalientes</option>
                                         <option value="Baja California">Baja California</option>
                                         <option value="Baja California Sur">Baja California Sur</option>
