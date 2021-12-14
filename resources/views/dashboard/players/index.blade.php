@@ -15,7 +15,6 @@
                     </div>
                     <div class="col text-right">
                         <a href="{{ route('players.create') }}" class="btn btn-sm btn-default"><i class="fas fa-plus"></i>&nbsp;Crear jugador</a>
-
                     </div>
                 </div>
             </div>    
@@ -43,7 +42,7 @@
                         <tr>
                             <th>
                                 <span class="rounded-circle border-b avatar">
-                                    <img alt="Image placeholder" src="{{ asset('argon') }}/img/theme/team-4-800x800.jpg">
+                                   <img alt="Image placeholder" src="{{ $pl->icon_path == null ? asset('argon/img/theme/team-4-800x800.jpg') :asset( $pl->icon_path) }}">
                                 </span>
                             </th>
                             <td>

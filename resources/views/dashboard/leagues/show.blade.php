@@ -97,10 +97,9 @@
                         <div class="col">
                             <h3 class="mb-0">Juegos</h3>
                         </div>
+                        
                         <div class="col text-right">
-                            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modalJuego">
-                                Crear Juego
-                            </button>
+                            <a href="{{ route('games.create') }}" class="btn btn-sm btn-default"><i class="fas fa-plus"></i>&nbsp;Crear juego</a>
                         </div>
                     </div>
                 </div>    
@@ -211,6 +210,9 @@
     </div>
   </div>
 
+
+  <!--
+
 {{-- Modal equipo --}}
 <div class="modal fade" id="modalJuego" tabindex="-1" aria-labelledby="modalJuego" aria-hidden="true">
     <div class="modal-dialog modal-lg">
@@ -251,6 +253,7 @@
       </div>
     </div>
   </div>
+-->
 
 
     @endsection

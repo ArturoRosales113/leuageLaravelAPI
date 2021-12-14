@@ -16,7 +16,7 @@
                         <div class="col-lg-3 order-lg-2">
                             <div class="card-profile-image">
                                 <span class="rounded-circle">
-                                    <img alt="Image placeholder" src="{{ $player->icon_path == null ? asset('argon/img/theme/team-4-800x800.jpg') :asset( $pl->icon_path) }}">
+aa                                    <img alt="Image placeholder" src="{{ $player->icon_path == null ? asset('argon/img/theme/team-4-800x800.jpg') :asset( $pl->icon_path) }}">
                                 </span>
                             </div>
                         </div>
@@ -65,7 +65,7 @@
                         </div>
                     </div>
                     <div class="card-body">
-                        <form method="post" action="{{ route('profile.update') }}" autocomplete="off">
+                        <form method="post" action="{{ route('players.update') }}" autocomplete="off">
                             @csrf
                             @method('put')
 
@@ -107,6 +107,10 @@
                                     <button type="submit" class="btn btn-success mt-4">{{ __('Guardar') }}</button>
                                 </div>
                             </div>
+
+
+
+
                         </form>
                         <hr class="my-4" />
                         <form method="post" action="{{ route('profile.password') }}" autocomplete="off">
