@@ -18487,6 +18487,25 @@ button.btn-white {
 .bg-perfil {
     background-image: url(./../../images/bg/head.jpg);
 }
+.bg-leagues {
+    background-image: url(./../../images/bg/leagues.png);
+}
+.bg-teams {
+    background-image: url(./../../images/bg/teams.png);
+}
+.bg-arbitros {
+    background-image: url(./../../images/bg/arbitros.png);
+}
+.bg-stadium {
+    background-image: url(./../../images/bg/stadium.png);
+}
+.bg-players {
+    background-image: url(./../../images/bg/players.png);
+}
+.bg-sports {
+    background-image: url(./../../images/bg/sports.png);
+}
+
 /* Fin Gradient Header */
 
 /* Tablas */

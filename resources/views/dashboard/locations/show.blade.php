@@ -10,32 +10,12 @@
 
    
 
-<div class="container-fluid mt--7">
+<div class="container-fluid">
     <div class="row">
-        <div class="col-4">
-            <div class="card shadow pb-5">
-                <div class="card-header border-0">
-                    <div class="row align-items-center">
-                        <div class="col">
-                            <h3 class="mb-0">Registrar Cancha</h3>
-                            @if ($errors->any())
-                            <div class="alert alert-danger">
-                                <ul>
-                                    @foreach ($errors->all() as $error)
-                                        <li>{{ $error }}</li>
-                                    @endforeach
-                                </ul>
-                            </div>
-                            @endif
-                        </div>
-                    </div>
-                </div>
 
-                @include('dashboard.fields.createForm', ['individualLocation' => $location])
-            </div>
-        </div>
-        <div class="col-8">
-            <div class="card shadow mt-4">
+
+    <div class="col-12">
+            <div class="card shadow mt-5">
                 <div class="card-header border-0">
                     <div class="row align-items-center">
                         <div class="col">
@@ -65,8 +45,8 @@
                             @foreach ($location->fields as $f)
                             <tr>
                                 <th>
-                                    <span class="rounded-circle border-b avatar">
-                                        <img alt="Image placeholder" src="{{ asset('argon') }}/img/theme/team-4-800x800.jpg">
+                                    <span class="avatar-rectangle">
+                                    <img alt="Image placeholder" src="{{ $f->icon_path == null ? asset('argon/img/theme/team-4-800x800.jpg') :asset( $f->icon_path) }}">
                                     </span>
                                 </th>
                                 <td>
@@ -103,6 +83,31 @@
                 </div>
             </div>
         </div>
+
+
+        <div class="col-12 mt-4">
+            <div class="card shadow pb-5">
+                <div class="card-header border-0">
+                    <div class="row align-items-center">
+                        <div class="col">
+                            <h3 class="mb-0">Registrar Cancha</h3>
+                            @if ($errors->any())
+                            <div class="alert alert-danger">
+                                <ul>
+                                    @foreach ($errors->all() as $error)
+                                        <li>{{ $error }}</li>
+                                    @endforeach
+                                </ul>
+                            </div>
+                            @endif
+                        </div>
+                    </div>
+                </div>
+
+                @include('dashboard.fields.createForm', ['individualLocation' => $location])
+            </div>
+        </div>
+        
     </div>
     @include('layouts.footers.auth')
 </div>

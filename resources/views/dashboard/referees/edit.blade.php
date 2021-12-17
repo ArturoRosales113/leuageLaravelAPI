@@ -1,7 +1,7 @@
 @extends('layouts.app', ['title' => __('User Profile')])
 
 @section('content')
-@include('users.partials.head')
+@include('users.partials.arbitros')
 
 <div class="container-fluid">
     @include('layouts.headers.userhead')

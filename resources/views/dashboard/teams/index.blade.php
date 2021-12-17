@@ -2,7 +2,7 @@
 
 @section('content')
 
-    @include('users.partials.head')
+    @include('users.partials.teams')
 
     <div class="container-fluid">
     @include('layouts.headers.userhead')

@@ -7,7 +7,7 @@
     <div class="container-fluid">
     @include('layouts.headers.userhead')
         
-        <div class="card shadow mt-7">
+        <div class="card shadow mt-8">
             <div class="card-header border-0">
                 <div class="row align-items-center">
                     <div class="col">
@@ -36,8 +36,8 @@
                         @foreach ($modalities as $m)
                         <tr>
                             <th>
-                                <span class="rounded-circle border-b avatar">
-                                    <img alt="Image placeholder" src="{{ asset('argon') }}/img/theme/team-4-800x800.jpg">
+                                <span class="avatar-rectangle">
+                                    <img alt="Image placeholder" src="{{ $m->icon_path == null ? asset('argon/img/theme/team-4-800x800.jpg') :asset( $m->icon_path) }}">
                                 </span>
                             </th>
                             <td>

@@ -2,7 +2,7 @@
 
 @section('content')
 
-    @include('users.partials.head')
+    @include('users.partials.sports')
 
     <div class="container-fluid">
     @include('layouts.headers.userhead')
@@ -36,8 +36,8 @@
                     @foreach ($sports as $sp)
                         <tr>
                             <th>
-                                <span class="rounded-circle border-b avatar">
-                                    <img alt="Image placeholder" src="{{ asset('argon') }}/img/theme/team-4-800x800.jpg">
+                                <span class="avatar-rectangle">
+                                    <img alt="Image placeholder" src="{{ $sp->icon_path == null ? asset('argon/img/theme/team-4-800x800.jpg') :asset( $sp->icon_path) }}">    
                                 </span>
                             </th>
                             <td scope="row">
