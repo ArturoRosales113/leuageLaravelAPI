@@ -1,17 +1,15 @@
-@extends('layouts.app', ['title' => __('User Profile')])
+@extends('layouts.app')
 
 @section('content')
-    @include('users.partials.header', [
-    'title' => $league->name,
-    'description' => $league->description,
-    'class' => 'col-lg-12',
-    'portada' => $league->img_path
-    ])   
+
+    @include('users.partials.leagues')
 
 <div class="container-fluid">
-    <div class="row justify-content-center">
-        <div class="col-11">
-            <div class="card shadow mt-4">
+    @include('layouts.headers.league')
+
+
+
+            <div class="card shadow mt-8">
                 <div class="card-header border-0">
                     <div class="row align-items-center">
                         <div class="col">
@@ -19,8 +17,8 @@
                         </div>
                         <div class="col text-right">
                             <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modalEquipo">
-                           Crear Equipo
-                              </button>
+                                Crear Equipo
+                            </button>
                             
                         </div>
                     </div>
@@ -87,19 +85,22 @@
                     </table>
                 </div>
             </div>
-        </div>
-    </div>
-    <div class="row justify-content-center">
-        <div class="col-11">
-            <div class="card shadow mt-4">
+
+
+    
+            <div class="card shadow mt-5">
                 <div class="card-header border-0">
                     <div class="row align-items-center">
                         <div class="col">
                             <h3 class="mb-0">Juegos</h3>
                         </div>
                         
+                
+
                         <div class="col text-right">
-                            <a href="{{ route('games.create') }}" class="btn btn-sm btn-default"><i class="fas fa-plus"></i>&nbsp;Crear juego</a>
+                            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modalJuego">
+                                Crear Juego
+                            </button>
                         </div>
                     </div>
                 </div>    
@@ -149,7 +150,7 @@
                                     {{-- <a href="{{ route('teams.edit', $lgt->id) }}" class="btn btn-icon btn-2 btn-primary">
                                         <span class="btn-inner--icon"><i class="far fa-edit"></i></span>
                                     </a>
-         --}}
+                                    --}}
                                     <form method="POST" class="d-inline-block" action="{{ route('games.delete', $lg->id) }}">
                                         {{ csrf_field() }}
                                         {{ method_field('DELETE') }}
@@ -167,8 +168,7 @@
                     </table>
                 </div>
             </div>
-        </div>
-    </div>
+ 
     @include('layouts.footers.auth')
 </div>
 
@@ -211,7 +211,7 @@
   </div>
 
 
-  <!--
+  
 
 {{-- Modal equipo --}}
 <div class="modal fade" id="modalJuego" tabindex="-1" aria-labelledby="modalJuego" aria-hidden="true">
@@ -253,7 +253,5 @@
       </div>
     </div>
   </div>
--->
-
 
     @endsection

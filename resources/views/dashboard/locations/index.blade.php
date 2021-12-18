@@ -2,7 +2,7 @@
 
 @section('content')
 
-    @include('users.partials.head')
+    @include('users.partials.stadium')
 
     <div class="container-fluid">
     @include('layouts.headers.userhead')
@@ -42,8 +42,8 @@
                             @foreach ($locations as $lo)
                             <tr>
                                 <th>
-                                <span class="avatar-rectangle">
-                                        <img alt="Image placeholder" src="{{ asset('argon') }}/img/theme/team-4-800x800.jpg">
+                                    <span class="avatar-rectangle">
+                                    <img alt="Image placeholder" src="{{ $lo->icon_path == null ? asset('argon/img/theme/team-4-800x800.jpg') :asset( $lo->icon_path) }}">
                                     </span>
                                 </th>
                                 <td>

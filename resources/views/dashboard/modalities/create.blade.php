@@ -7,7 +7,7 @@
     <div class="container-fluid">
         @include('layouts.headers.userhead')
         
-        <div class="row mt-7">
+        <div class="row mt-8">
             <div class="col">
                 <div class="card shadow">
                     <div class="card-header border-0">
@@ -32,7 +32,7 @@
                             <div class="form-group row">
                                 <label for="name" class="col-sm-3 col-form-label">Modalidades</label>
                                 <div class="col-sm-9">
-                                    <input type="text" class="form-control" name="name" value="{{ old('name') }}" placeholder="ej. Basketball" >
+                                    <input type="text" class="form-control" name="name" value="{{ old('name') }}" placeholder="ej. Torneo de Liga" >
                                 </div>
                             </div>
                             <div class="form-group row">

@@ -2,7 +2,7 @@
 
 @section('content')
 
-    @include('users.partials.head')
+    @include('users.partials.arbitros')
 
     <div class="container-fluid">
     @include('layouts.headers.userhead')
@@ -43,7 +43,7 @@
                                 <tr>
                                     <th>
                                         <span class="rounded-circle border-b avatar">
-                                            <img alt="Image placeholder" src="{{ asset('argon') }}/img/theme/team-4-800x800.jpg">
+                                        <img alt="Image placeholder" src="{{ $rf->icon_path == null ? asset('argon/img/theme/team-4-800x800.jpg') :asset( $rf->icon_path) }}">    
                                         </span>
                                     </th>
                                     <td>
@@ -120,7 +120,8 @@
                                 <tr>
                                     <th>
                                         <span class="rounded-circle border-b avatar">
-                                            <img alt="Image placeholder" src="{{ asset('argon') }}/img/theme/team-4-800x800.jpg">
+                                            <img alt="Image placeholder" src="{{ $rft->icon_path == null ? asset('argon/img/theme/team-4-800x800.jpg') :asset( $rft->icon_path) }}">    
+                                        
                                         </span>
                                     </th>
                                     <td>
