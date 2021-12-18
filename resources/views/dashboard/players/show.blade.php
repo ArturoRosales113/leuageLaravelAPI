@@ -16,7 +16,7 @@
                         <div class="col-lg-3 order-lg-2">
                             <div class="card-profile-image">
                                 <span class="rounded-circle">
-aa                                    <img alt="Image placeholder" src="{{ $player->icon_path == null ? asset('argon/img/theme/team-4-800x800.jpg') :asset( $pl->icon_path) }}">
+aa                                    <img alt="Image placeholder" src="{{ $player->icon_path == null ? asset('argon/img/theme/team-4-800x800.jpg') :asset( $player->icon_path) }}">
                                 </span>
                             </div>
                         </div>
@@ -65,7 +65,7 @@ aa                                    <img alt="Image placeholder" src="{{ $play
                         </div>
                     </div>
                     <div class="card-body">
-                        <form method="post" action="{{ route('players.update') }}" autocomplete="off">
+                        <form method="post" action="{{ route('players.update', $player->id) }}" autocomplete="off">
                             @csrf
                             @method('put')
 

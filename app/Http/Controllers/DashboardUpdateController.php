@@ -462,6 +462,10 @@ class DashboardUpdateController extends Controller
               
             $user->name = $input['name'];
             $user->email =  $input['email'];
+            if (array_key_exists('password', $input))
+            {
+                $user->password = Hash::make($input['password']);
+            }
             $user->save();
   
               
