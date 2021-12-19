@@ -45,8 +45,8 @@
                                     <span class="heading">{{ $player->numero }}</span>
                                     <span class="description">{{ __('Dorsal') }}</span>
                                 </div>
-                                <div class="d-flex w-100 flex-column align-items-center align-items-lg-start p-3">
-                                    <div class="row justify-content-center mb-4">
+                                <div class="d-flex w-100 flex-column align-items-center align-items-lg-start py-3">
+                                    <div class="row justify-content-center justify-content-lg-start mb-4">
                                         <div class="col-12 col-md-6">
                                             <img alt="Image placeholder" class="img-fluid" src="{{ $player->team->icon_path == null ? asset('argon/img/theme/team-4-800x800.jpg') :asset( $player->team->icon_path) }}">
                                         </div>
