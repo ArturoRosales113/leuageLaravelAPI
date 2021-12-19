@@ -80,14 +80,14 @@
                     
                         <div class="row">
                             <label for="perfil" class="col-md-12 col-form-label">Foto del jugador</label>
-                            <div class="col-sm-10 ml-3">
+                            <div class="col-sm-12">
                                 <input type="file" class="custom-file-input" name="icon_path" id="customFile">
                                 <label class="custom-file-label" for="customFile">Cargar imagen</label>
                             </div>
                         </div>
                         <div class="row">
                             <label for="img_path" class="col-md-12 col-form-label">Foto de portada</label>
-                            <div class="col-sm-10 ml-3">
+                            <div class="col-sm-12">
                                 <input type="file" class="custom-file-input" name="img_path" id="customFile">
                                 <label class="custom-file-label" for="customFile">Cargar imagen</label>
                             </div>

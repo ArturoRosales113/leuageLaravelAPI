@@ -1,169 +1,198 @@
 @extends('layouts.app', ['title' => __('User Profile')])
 
 @section('content')
-    @include('users.partials.header', [
-        'title' => __('Hola') . ' '. auth()->user()->name,
-        'description' => __('Esta es tu ficha de jugador a qui veras tu progeso y estadisticas de juego.'),
-        'class' => 'col-lg-7',
-        'portada' => $player->img_path
-    ])   
+@include('users.partials.header', [
+'title' => __('Hola') . ' '. $player->user->name,
+'description' => __('Esta es tu ficha de jugador aquí verás tu progeso y estadísticas de juego.'),
+'class' => 'col-lg-12',
+'portada' => $player->img_path
+])   
 
-    <div class="container-fluid mt--7">
-        <div class="row">
-            <div class="col-xl-4 mb-5 mb-xl-0">
-                <div class="card card-profile shadow">
-                    <div class="row justify-content-center">
-                        <div class="col-lg-3 order-lg-2">
-                            <div class="card-profile-image">
-                                <span class="rounded-circle">
-aa                                    <img alt="Image placeholder" src="{{ $player->icon_path == null ? asset('argon/img/theme/team-4-800x800.jpg') :asset( $player->icon_path) }}">
-                                </span>
-                            </div>
+<div class="container-fluid mt--7">
+    <div class="row">
+        <div class="col-xl-4 mb-5 mb-xl-0">
+            <div class="card card-profile shadow">
+                <div class="row justify-content-center">
+                    <div class="col-lg-3 order-lg-2">
+                        <div class="card-profile-image">
+                            <span class="rounded-circle">
+                                aa                                    <img alt="Image placeholder" src="{{ $player->icon_path == null ? asset('argon/img/theme/team-4-800x800.jpg') :asset( $player->icon_path) }}">
+                            </span>
                         </div>
                     </div>
-                    <!--
+                </div>
+                <!--
                     <div class="card-header text-center border-0 pt-8 pt-md-4 pb-0 pb-md-4">
                         <div class="d-flex justify-content-between">
                             <a href="#" class="btn btn-sm btn-info mr-4">{{ __('Connect') }}</a>
                             <a href="#" class="btn btn-sm btn-default float-right">{{ __('Message') }}</a>
                         </div>
                     </div>
-                    -->
-                    <div class="card-body pt-0 pt-md-4 mt-5">
-                        <div class="row">
-                            <div class="col">
-                                <div class="card-profile-stats d-flex justify-content-center mt-md-5">
-                                    <div>
-                                        <span class="heading">22</span>
-                                        <span class="description">{{ __('Goles') }}</span>
+                -->
+                <div class="card-body pt-0 pt-md-4 mt-5">
+                    <div class="row pt-5 justify-content-center">
+                        <div class="col-12 col-lg-10">
+
+                                <div class="d-flex w-100 flex-column align-items-center align-items-lg-start py-3">
+                                    <span class="heading">{{ $player->user->name }}</span>
+                                    <span class="description">{{ __('Nombre') }}</span>
+                                </div>
+                                <div class="d-flex w-100 flex-column align-items-center align-items-lg-start py-3">
+                                    <span class="heading">{{ $player->apodo }}</span>
+                                    <span class="description">{{ __('Apodo') }}</span>
+                                </div>
+                                <div class="d-flex w-100 flex-column align-items-center align-items-lg-start py-3">
+                                    <span class="heading">{{ $player->numero }}</span>
+                                    <span class="description">{{ __('Dorsal') }}</span>
+                                </div>
+                                <div class="d-flex w-100 flex-column align-items-center align-items-lg-start p-3">
+                                    <div class="row justify-content-center mb-4">
+                                        <div class="col-12 col-md-6">
+                                            <img alt="Image placeholder" class="img-fluid" src="{{ $player->team->icon_path == null ? asset('argon/img/theme/team-4-800x800.jpg') :asset( $player->team->icon_path) }}">
+                                        </div>
                                     </div>
-                                    <div>
-                                        <span class="heading">10</span>
-                                        <span class="description">{{ __('Asistencias') }}</span>
-                                    </div>
-
+                                    <span class="heading">{{ $player->team->name }}</span>
+                                    <span class="description">{{ __('Equipo') }}</span>
                                 </div>
-                            </div>
+                                
                         </div>
-                        <div class="text-center">
-                            <h3>
-                                {{ auth()->user()->name }}<span class="font-weight-light">, {{ $player->edad }}</span>
-                            </h3>
-                            <div class="h5 font-weight-300">
-                                <i class="ni location_pin mr-2"></i>{{ __('-') }}
-                            </div>
-                            
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-xl-8 ">
-                <div class="card bg-secondary shadow">
-                    <div class="card-header bg-white border-0">
-                        <div class="row align-items-center">
-                            <h3 class="mb-0">{{ __('Editar jugador') }}</h3>
-                        </div>
-                    </div>
-                    <div class="card-body">
-                        <form method="post" action="{{ route('players.update', $player->id) }}" autocomplete="off">
-                            @csrf
-                            @method('put')
-
-                            <h6 class="heading-small text-muted mb-4">{{ __('Perfil') }}</h6>
-                            
-                            @if (session('status'))
-                                <div class="alert alert-success alert-dismissible fade show" role="alert">
-                                    {{ session('status') }}
-                                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                                        <span aria-hidden="true">&times;</span>
-                                    </button>
-                                </div>
-                            @endif
-
-
-                            <div class="pl-lg-4">
-                                <div class="form-group{{ $errors->has('name') ? ' has-danger' : '' }}">
-                                    <label class="form-control-label" for="input-name">{{ __('Name') }}</label>
-                                    <input type="text" name="name" id="input-name" class="form-control form-control-alternative{{ $errors->has('name') ? ' is-invalid' : '' }}" placeholder="{{ __('Name') }}" value="{{ old('name', auth()->user()->name) }}" required autofocus>
-
-                                    @if ($errors->has('name'))
-                                        <span class="invalid-feedback" role="alert">
-                                            <strong>{{ $errors->first('name') }}</strong>
-                                        </span>
-                                    @endif
-                                </div>
-                                <div class="form-group{{ $errors->has('email') ? ' has-danger' : '' }}">
-                                    <label class="form-control-label" for="input-email">{{ __('Email') }}</label>
-                                    <input type="email" name="email" id="input-email" class="form-control form-control-alternative{{ $errors->has('email') ? ' is-invalid' : '' }}" placeholder="{{ __('Email') }}" value="{{ old('email', auth()->user()->email) }}" required>
-
-                                    @if ($errors->has('email'))
-                                        <span class="invalid-feedback" role="alert">
-                                            <strong>{{ $errors->first('email') }}</strong>
-                                        </span>
-                                    @endif
-                                </div>
-
-                                <div class="text-center">
-                                    <button type="submit" class="btn btn-success mt-4">{{ __('Guardar') }}</button>
-                                </div>
-                            </div>
-
-
-
-
-                        </form>
-                        <hr class="my-4" />
-                        <form method="post" action="{{ route('profile.password') }}" autocomplete="off">
-                            @csrf
-                            @method('put')
-
-                            <h6 class="heading-small text-muted mb-4">{{ __('Contraseña') }}</h6>
-
-                            @if (session('password_status'))
-                                <div class="alert alert-success alert-dismissible fade show" role="alert">
-                                    {{ session('password_status') }}
-                                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                                        <span aria-hidden="true">&times;</span>
-                                    </button>
-                                </div>
-                            @endif
-
-                            <div class="pl-lg-4">
-                                <div class="form-group{{ $errors->has('old_password') ? ' has-danger' : '' }}">
-                                    <label class="form-control-label" for="input-current-password">{{ __('Contraseña anterior') }}</label>
-                                    <input type="password" name="old_password" id="input-current-password" class="form-control form-control-alternative{{ $errors->has('old_password') ? ' is-invalid' : '' }}" placeholder="{{ __('Current Password') }}" value="" required>
-                                    
-                                    @if ($errors->has('old_password'))
-                                        <span class="invalid-feedback" role="alert">
-                                            <strong>{{ $errors->first('old_password') }}</strong>
-                                        </span>
-                                    @endif
-                                </div>
-                                <div class="form-group{{ $errors->has('password') ? ' has-danger' : '' }}">
-                                    <label class="form-control-label" for="input-password">{{ __('Nueva contraseña') }}</label>
-                                    <input type="password" name="password" id="input-password" class="form-control form-control-alternative{{ $errors->has('password') ? ' is-invalid' : '' }}" placeholder="{{ __('*****') }}" value="" required>
-                                    
-                                    @if ($errors->has('password'))
-                                        <span class="invalid-feedback" role="alert">
-                                            <strong>{{ $errors->first('password') }}</strong>
-                                        </span>
-                                    @endif
-                                </div>
-                                <div class="form-group">
-                                    <label class="form-control-label" for="input-password-confirmation">{{ __('Confirmar contraseña') }}</label>
-                                    <input type="password" name="password_confirmation" id="input-password-confirmation" class="form-control form-control-alternative" placeholder="{{ __('*****') }}" value="" required>
-                                </div>
-
-                                <div class="text-center">
-                                    <button type="submit" class="btn btn-success mt-4">{{ __('Cambia Contraseña') }}</button>
-                                </div>
-                            </div>
-                        </form>
                     </div>
                 </div>
             </div>
         </div>
-        
-        @include('layouts.footers.auth')
+        <div class="col-xl-8 ">
+            <div class="card shadow">
+                <div class="card-header border-0">
+                    <div class="row align-items-center">
+                        <div class="col-12">
+                            <h3 class="mb-0">{{ __('Editar jugador') }}</h3>
+                        </div>
+                    </div>
+                </div>
+                <div class="card-body">
+                    @if ($errors->any())
+                    <div class="alert alert-danger">
+                        <ul>
+                            @foreach ($errors->all() as $error)
+                                <li>{{ $error }}</li>
+                            @endforeach
+                        </ul>
+                    </div>
+                    @endif
+                    <form method="POST" enctype="multipart/form-data" action="{{ route('players.update', $player->id) }}" class="pl-5 pr-5">
+                        @csrf
+                        <input type="hidden" name="email" value="{{ $player->user->email }}">
+                        <input type="hidden" name="team_id" value="{{ $player->team->id }}">
+                        <input type="hidden" name="edad" value="{{ $player->edad }}">
+                        {{ method_field('PUT') }}
+                        <div class="form-group row">
+                            <label for="name" class="col-sm-3 col-form-label">Nombre del Jugador</label>
+                            <div class="col-sm-9">
+                                <input type="text" class="form-control" name="name" value="{{ old('name', $player->user->name) }}" id="player" placeholder="" >
+                            </div>
+                        </div>
+                        
+                        <div class="form-group row">
+                            <label for="posicion" class="col-sm-3 col-form-label">Posición</label>
+                            <div class="col-sm-9">
+                                <input type="text" class="form-control" id="posicion" name="posicion" value="{{ old('posicion', $player->posicion) }}" placeholder="Defensa" >
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label for="apodo" class="col-sm-3 col-form-label">Apodo</label>
+                            <div class="col-sm-9">
+                                <input type="text" class="form-control" id="apodo" name="apodo" value="{{ old('apodo', $player->apodo) }}" placeholder="Apodo" >
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label for="Numero" class="col-sm-3 col-form-label">No. dentro del equipo</label>
+                            <div class="col-sm-9">
+                                <select class="custom-select" name="numero">
+                                    <option selected value="0">Selecciona una opción</option>
+                                    @for ($i = 1; $i < 100; $i++)
+                                    <option {{ old('numero') == $i || $player->numero == $i ?  'selected' : '' }} value="{{ $i }}">{{ $i }}</option>
+                                    @endfor
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label for="peso" class="col-sm-3 col-form-label">Peso</label>
+                            <div class="col-sm-9">
+                                <input type="text" name="peso" value="{{ old('peso' , $player->peso) }}" class="form-control" placeholder="88.10 kg" />
+                            </div>
+                        </div>
+                                                    
+                        <div class="form-group row">
+                            <label for="estatura" class="col-sm-3 col-form-label">Estatura</label>
+                            <div class="col-sm-9">
+                                <input type="text" name="estatura" value="{{ old('estatura' , $player->estatura) }}" class="form-control" placeholder="80.5 cm" />
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label for="email" class="col-sm-3 col-form-label">Email del jugador</label>
+                            <div class="col-sm-9">
+                                <input type="text" class="form-control" id="Email" name="email" value="{{ old('email', $player->user->email) }}" placeholder="usuario@email.com" >
+                            </div>
+                        </div>
+                       
+                        
+                        
+                        
+                        <fieldset disabled>
+                            <div class="form-group row ">
+                                <label for="Numero" class="col-sm-3 col-form-label">Pertenece al equipo</label>
+                                <div class="col-sm-9">
+                                    @isset($player)
+                                    <select class="custom-select">
+                                        <option value="{{ $player->team->id }}">{{ $player->team->name }}</option>
+                                    </select>
+                                    @endisset                                
+                                </div>
+                            </div>
+                            <div class="form-group row ">
+                                <label for="edad" class="col-sm-3 col-form-label">Elige la edad</label>
+                                <div class="col-sm-9">
+                                    <select class="custom-select">
+                                        <option selected value="0">Selecciona una opción</option>
+                                        @for ($i = 6; $i < 51; $i++)
+                                        <option {{ old('edad') == $i || $player->edad == $i ? 'selected' : '' }} value="{{ $i }}">{{ $i }}</option>
+                                        @endfor
+                                    </select>
+                                </div>
+                            </div>
+                            
+
+
+                        </fieldset>
+                        
+                        
+                        
+                        
+                        
+                        <hr class="bg-white text-white">
+                        
+                        <div class="form-group row">
+                            <label for="perfil" class="col-sm-3 col-form-label">Foto de Perfil</label>
+                            <div class="col-sm-9 pr-5">
+                                <input type="file" class="custom-file-input" name="icon_path" id="customFile">
+                                <label class="custom-file-label" for="customFile">Cargar imagen</label>
+                            </div>
+                        </div>
+                        <hr class="bg-white text-white">
+                        <div class="form-group row">
+                            <label for="img_path" class="col-sm-3 col-form-label">Foto de Portada</label>
+                            <div class="col-sm-9 pr-5">
+                                <input type="file" class="custom-file-input" name="img_path" id="customFile">
+                                <label class="custom-file-label" for="customFile">Cargar imagen</label>
+                            </div>
+                        </div>
+                        <button class="btn btn-primary" type="submit">Guardar</button>                        
+                    </form>
+                </div>
+            </div>
+        </div>
     </div>
+    
+    @include('layouts.footers.auth')
+</div>
 @endsection
