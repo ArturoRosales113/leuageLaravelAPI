@@ -213,7 +213,7 @@
 
   
 
-{{-- Modal equipo --}}
+{{-- Modal juego --}}
 <div class="modal fade" id="modalJuego" tabindex="-1" aria-labelledby="modalJuego" aria-hidden="true">
     <div class="modal-dialog modal-lg">
       <div class="modal-content">
