@@ -128,7 +128,7 @@
                                 <input type="text" name="peso" value="{{ old('peso') }}" class="form-control" placeholder="88.10 kg" />
                             </div>
                         </div>
-                         <button class="btn btn-primary" type="submit">Guardar</button>                        
+                         <button class="btn btn-primary mt-4" type="submit">Guardar</button>                        
                     </form>
                     
                     

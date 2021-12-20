@@ -1,9 +1,9 @@
 @extends('layouts.app', ['title' => __('User Profile')])
 
 @section('content')
-    @include('users.partials.head')   
+    @include('users.partials.arbitros')  
 
-    <div class="container-fluid mt--7">
+    <div class="container-fluid mt-4">
         <div class="row mt-5">
             <div class="col">
                 <div class="card shadow">

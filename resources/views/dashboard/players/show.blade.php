@@ -3,12 +3,12 @@
 @section('content')
 @include('users.partials.header', [
 'title' => __('Hola') . ' '. $player->user->name,
-'description' => __('Esta es tu ficha de jugador aquí verás tu progeso y estadísticas de juego.'),
+'description' => __('Esta es tu ficha de jugador'),
 'class' => 'col-lg-12',
 'portada' => $player->img_path
-])   
+])
 
-<div class="container-fluid mt--7">
+<div class="container-fluid mt-7">
     <div class="row">
         <div class="col-xl-4 mb-5 mb-xl-0">
             <div class="card card-profile shadow">
@@ -16,7 +16,7 @@
                     <div class="col-lg-3 order-lg-2">
                         <div class="card-profile-image">
                             <span class="rounded-circle">
-                                aa                                    <img alt="Image placeholder" src="{{ $player->icon_path == null ? asset('argon/img/theme/team-4-800x800.jpg') :asset( $player->icon_path) }}">
+                                <img alt="Image placeholder" src="{{ $player->icon_path == null ? asset('argon/img/theme/team-4-800x800.jpg') :asset( $player->icon_path) }}">
                             </span>
                         </div>
                     </div>
@@ -137,7 +137,6 @@
                        
                         
                         
-                        
                         <fieldset disabled>
                             <div class="form-group row ">
                                 <label for="Numero" class="col-sm-3 col-form-label">Pertenece al equipo</label>
@@ -178,6 +177,7 @@
                                 <label class="custom-file-label" for="customFile">Cargar imagen</label>
                             </div>
                         </div>
+                        <!--
                         <hr class="bg-white text-white">
                         <div class="form-group row">
                             <label for="img_path" class="col-sm-3 col-form-label">Foto de Portada</label>
@@ -186,6 +186,7 @@
                                 <label class="custom-file-label" for="customFile">Cargar imagen</label>
                             </div>
                         </div>
+                        -->
                         <button class="btn btn-primary" type="submit">Guardar</button>                        
                     </form>
                 </div>
