@@ -109,6 +109,11 @@ class DashboardShowController extends Controller
         $team = Team::findOrFail($id);
         return view('dashboard.teams.show', ['team' => $team]);
     }
+	public function tournaments($id)
+    {
+        $tournament = Tournament::findOrFail($id);
+        return view('dashboard.tournaments.show', ['tournament' => $tournament]);
+    }
 	public function users($id)
     {
         $user = User::findOrFail($id);

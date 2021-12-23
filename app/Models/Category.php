@@ -5,17 +5,16 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Permission extends Model
+class Category extends Model
 {
     use HasFactory;
-    
+
     protected $fillable = [
-        'name', 'display_name', 'sport_id', 'icon_path', 'img_path'
+        'name', 'display_name', 'description', 'icon_path', 'img_path'
     ];
 
-    public function roles()
+    public function tournaments()
     {
-        return $this->hasMany(Permission::class);
+        return $this->hasMany(Tournament::class);
     }
-
 }

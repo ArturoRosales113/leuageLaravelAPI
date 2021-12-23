@@ -61,10 +61,43 @@ class CreateTeamsTable extends Migration
             $table->string('name')->nullable();
             $table->string('icon_path')->nullable();
             $table->string('img_path')->nullable();
-            $table->integer('numero_equipos')->nullable();
             $table->longText('description')->nullable();
             $table->string('reglamento_path')->nullable();
             $table->json('schedule')->nullable();
+            $table->timestamps();
+        });
+
+        Schema::create('categories', function (Blueprint $table) {
+            $table->id();
+            $table->string('name');
+            $table->string('display_name');
+            $table->longText('description')->nullable();
+            $table->string('icon_path')->nullable();
+            $table->string('img_path')->nullable();
+            $table->timestamps();
+            $table->softDeletes();
+        });
+
+        Schema::create('tournaments', function (Blueprint $table) {
+            $table->id();
+            $table->unsignedBigInteger('category_id');
+            $table->foreign('category_id')->references('id')->on('categories')->onDelete('cascade');
+            $table->unsignedBigInteger('league_id');
+            $table->foreign('league_id')->references('id')->on('leagues')->onDelete('cascade');  
+            $table->string('name')->nullable();
+            $table->string('icon_path')->nullable();
+            $table->string('img_path')->nullable();
+            $table->integer('number_teams')->nullable();
+            $table->json('gamedays')->nullable();
+            $table->json('schedule')->nullable();
+            $table->integer('number_periods')->nullable();
+            $table->integer('period_lenght')->nullable();
+            $table->integer('time_offs')->nullable();
+            $table->integer('extra_time')->nullable();
+            $table->boolean('is_extra_time')->nullable();
+            $table->integer('number_teams_playoffs')->nullable();
+            $table->longText('description')->nullable();
+            $table->string('reglamento_path')->nullable();
             $table->timestamps();
         });
 
@@ -175,8 +208,8 @@ class CreateTeamsTable extends Migration
             $table->unsignedBigInteger('modality_id');
             $table->foreign('modality_id')->references('id')->on('modalities')->onDelete('cascade');
 
-            $table->unsignedBigInteger('league_id');
-            $table->foreign('league_id')->references('id')->on('leagues')->onDelete('cascade');
+            $table->unsignedBigInteger('tournament_id')->nullable();
+            $table->foreign('tournament_id')->references('id')->on('tournaments')->onDelete('cascade');
 
             $table->unsignedBigInteger('field_id');
             $table->foreign('field_id')->references('id')->on('fields')->onDelete('cascade');
@@ -232,6 +265,15 @@ class CreateTeamsTable extends Migration
             $table->timestamps();
         });
 
+        Schema::create('team_tournamet', function (Blueprint $table) {
+            $table->id();
+            $table->unsignedBigInteger('tournament_id');
+            $table->foreign('tournament_id')->references('id')->on('tournaments')->onDelete('cascade');
+            $table->unsignedBigInteger('team_id');
+            $table->foreign('team_id')->references('id')->on('teams')->onDelete('cascade');
+            $table->timestamps();
+        });
+
     }
 
     /**
@@ -241,6 +283,7 @@ class CreateTeamsTable extends Migration
      */
     public function down()
     {
+        Schema::dropIfExists('team_tournamet');
         Schema::dropIfExists('actions');
         Schema::dropIfExists('scores');
         Schema::dropIfExists('game_referee');
@@ -253,6 +296,8 @@ class CreateTeamsTable extends Migration
         Schema::dropIfExists('fields');
         Schema::dropIfExists('materials');
         Schema::dropIfExists('locations');
+        Schema::dropIfExists('tournaments');
+        Schema::dropIfExists('categories');
         Schema::dropIfExists('leagues');
         Schema::dropIfExists('referees');
         Schema::dropIfExists('referee_types');

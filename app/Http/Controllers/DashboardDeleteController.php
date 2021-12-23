@@ -158,6 +158,21 @@ class DashboardDeleteController extends Controller
         Alert::success('Éxito', 'Liga eliminada');
         return view('dashboard.teams.index');
     }
+    public function tournaments($id)
+    {
+        $player = Player::findOrFail($id);
+        $user = User::findOrFail($player->user->id);
+        if($player->icon_path != null){
+            $this->deleteAsset($player->icon_path);
+         }
+         if($player->icon_path != null){
+            $this->deleteAsset($player->icon_path);
+         }
+        $player->delete();
+        $user->delete();
+        Alert::success('Éxito', 'Jugador eliminado');
+        return redirect()->back();
+    }
     public function users($id)
     {
         $league = League::findOrFail($id);

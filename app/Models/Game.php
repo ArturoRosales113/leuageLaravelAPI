@@ -11,7 +11,7 @@ class Game extends Model
 
     protected $fillable = [
         'modality_id',
-        'league_id',
+        'tournament_id',
         'field_id',
         'start_time',
         'result',
@@ -34,9 +34,9 @@ class Game extends Model
         return $this->belongsToMany(Referee::class,'game_referee');
     }
 
-    public function league()
+    public function tournament()
     {
-        return $this->belongsTo(League::class);
+        return $this->belongsTo(Tournament::class);
     }
 
     public function field()

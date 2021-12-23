@@ -21,6 +21,7 @@ use App\Models\Role;
 use App\Models\Score;
 use App\Models\Sport;
 use App\Models\Team;
+use App\Models\Tournament;
 use App\Models\User;
 
 class DashboardEditController extends Controller
@@ -104,6 +105,11 @@ class DashboardEditController extends Controller
     {
         $team = Team::findOrFail($id);
         return view('dashboard.teams.edit', ['team' => $team]);
+    }
+	public function tournaments($id)
+    {
+        $tournament = Tournament::findOrFail($id);
+        return view('dashboard.tournaments.edit', ['tournament' => $tournament]);
     }
 	public function users($id)
     {

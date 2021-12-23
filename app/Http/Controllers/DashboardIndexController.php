@@ -21,6 +21,7 @@ use App\Models\Role;
 use App\Models\Score;
 use App\Models\Sport;
 use App\Models\Team;
+use App\Models\Tournament;
 use App\Models\User;
 
 
@@ -126,6 +127,12 @@ class DashboardIndexController extends Controller
     {
         return view('dashboard.teams.index',
          ['teams' => Team::all()]
+        );
+    }
+	public function tournament()
+    {
+        return view('dashboard.tournaments.index',
+         ['tournaments' => Tournament::all()]
         );
     }
 	public function users()

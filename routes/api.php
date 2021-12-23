@@ -17,10 +17,11 @@ use App\Http\Controllers\RefereeController;
 use App\Http\Controllers\RefereeTypeController;
 use App\Http\Controllers\RoleController;
 use App\Http\Controllers\SportController;
+use App\Http\Controllers\ScoringController;
 use App\Http\Controllers\TeamController;
 use App\Http\Controllers\UserController;
-use App\Http\Controllers\ScoringController;
-
+use App\Http\Controllers\ApiLoginController;
+   
 
 
 Route::resources([
@@ -41,9 +42,14 @@ Route::resources([
     'user' => UserController::class
 ]);
 
+// Route::post('/login', [ApiLoginController::class, 'login']);
+
+
 Route::get('gameSetup/{id}',[ScoringController::class, 'gameSetup'])->name('gameSetup');
 
-
+Route::middleware('auth:sanctum')->get('/userStatus', function (Request $request) {
+    return $request->user();
+});
 /*
 |--------------------------------------------------------------------------
 | API Routes

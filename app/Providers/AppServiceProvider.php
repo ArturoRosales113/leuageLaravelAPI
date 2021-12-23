@@ -13,6 +13,8 @@ use App\Models\Team;
 use App\Models\RefereeType;
 use App\Models\Referee;
 use App\Models\Game;
+use App\Models\Tournament;
+use App\Models\Category;
 
 
 class AppServiceProvider extends ServiceProvider
@@ -74,6 +76,24 @@ class AppServiceProvider extends ServiceProvider
 
         view()->composer('dashboard.games.createForm', function ($view) {
             $view->with('modalities' , Modalitie::all());
+        });
+        view()->composer('dashboard.tournaments.createForm', function ($view) {
+            $view->with([
+                'categories' => Category::all(),
+                'leagues' => League::all(), 
+            ]);
+        });
+        view()->composer('dashboard.tournaments.create', function ($view) {
+            $view->with([
+                'categories' => Category::all(),
+                'leagues' => League::all(), 
+            ]);
+        });
+        view()->composer('dashboard.tournaments.edit', function ($view) {
+            $view->with([
+                'categories' => Category::all(),
+                'leagues' => League::all(), 
+            ]);
         });
 
         view()->composer('dashboard.games.createForm', function ($view) {

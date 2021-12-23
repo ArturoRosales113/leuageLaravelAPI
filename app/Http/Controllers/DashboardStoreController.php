@@ -22,6 +22,7 @@ use App\Models\RefereeType;
 use App\Models\Team;
 use App\Models\User;
 use App\Models\Game;
+use App\Models\Tournament;
 
 use App\Http\Traits\ImageManagerTrait;
 
@@ -123,6 +124,70 @@ class DashboardStoreController extends Controller
             $league->save();
             Alert::success('Éxito', 'Liga creada');
             return redirect()->route('leagues.index');
+        }
+    }
+
+    public function tournaments(Request $request)
+    {
+        
+        $input = $request->all();
+        $rules = [
+         'name' => 'required',
+         'description' => 'max:1000',
+         'reglamento_path' => 'mimes:pdf|max:5000',
+         'category_id' => 'required|not_in:0',
+         'league_id' => 'required|not_in:0',
+         'number_teams' => 'required|numeric', 
+         'gamedays' => 'required', 
+         'schedule' => 'required', 
+         'number_periods' => 'required|numeric',
+         'period_lenght' => 'required|numeric', 
+         'time_offs' => 'required|numeric', 
+         'extra_time' => 'required|numeric', 
+         'number_teams_playoffs' => 'required|numeric', 
+         'icon_path' => 'max:3000|mimes:jpg,bmp,png',
+         'img_path' => 'max:3000|mimes:jpg,bmp,png' 
+        ];
+ 
+        $validator = Validator::make($input, $rules);
+        if ($validator->fails()) {
+            //dd($input);
+            return redirect()->back()
+           ->withErrors($validator)
+           ->withInput();
+        } else {
+            //dd($input);
+            $tournament = Tournament::create([
+                'name' => $input['name'],
+                'league_id' => $input['league_id'],
+                'category_id' => $input['category_id'],
+                'number_teams' => $input['number_teams'],
+                'number_teams_playoffs' => $input['number_teams_playoffs'],
+                'description' => $input['description'],
+                'number_periods' => $input['number_periods'],
+                'period_lenght' => $input['period_lenght'], 
+                'time_offs' => $input['time_offs'], 
+                'extra_time' => $input['extra_time'],
+                'gamedays' => json_encode($input['gamedays']), 
+                'schedule' => json_encode($input['schedule']), 
+            ]);
+
+            if (array_key_exists('icon_path', $input) && $input['icon_path'] != null) {
+                $iconFile = $request->file('icon_path');
+                $tournament->icon_path = $this->createIcon($iconFile);
+            }
+            if (array_key_exists('img_path', $input) && $input['img_path'] != null) {
+                $imageFile = $request->file('img_path');
+                $tournament->img_path = $this->createImage($imageFile);
+            }
+            if (array_key_exists('reglamento_path', $input) && $input['reglamento_path'] != null) {
+                $pdfFile = $request->file('reglamento_path');
+                $tournament->reglamento_path = $this->createPDF($pdfFile);
+            }
+
+            $tournament->save();
+            Alert::success('Éxito', 'Torneo creado');
+            return redirect()->route('leagues.show', $request->league_id);
         }
     }
 
@@ -571,7 +636,7 @@ class DashboardStoreController extends Controller
 
         $game = Game::create([
             'modality_id' => $input['modality_id'],
-            'league_id' => $input['league_id'],
+            'tournament_id' => $input['tournament_id'],
             'field_id' => $input['field_id'],
             'start_time' => $input['start_time'],
         ]);

@@ -15,7 +15,6 @@ class League extends Model
         'sport_id',
         'icon_path',
         'img_path',
-        'numero_equipos',
         'description',
         'reglamento_path'
     ];
@@ -32,12 +31,17 @@ class League extends Model
 
     public function games()
     {
-        return $this->hasMany(Game::class);
+        return $this->hasManyThrough(Game::class, Tournament::class);
     }
 
     public function teams()
     {
         return $this->hasMany(Team::class);
+    }
+
+    public function tournaments()
+    {
+        return $this->hasMany(Tournament::class);
     }
 
     public function players()

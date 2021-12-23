@@ -73,36 +73,107 @@
             </form>
             <!-- Navigation -->
             <ul class="navbar-nav">
-                <li class="nav-item">
-                    <a class="nav-link" href="{{ route('home') }}">
-                        <i class="fas fa-tachometer-alt"></i> Panel de control
-                    </a>
-                </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ route('home') }}">
+                            <i class="fas fa-tachometer-alt"></i> Panel de control
+                        </a>
+                    </li>
+                @hasanyrole('super-admin')
 
-                {{-- Sports --}}
-                <li class="nav-item">
-                    <a class="nav-link" href="#sports-dropdown" data-toggle="collapse" role="button" aria-expanded="false" aria-controls="sports-dropdown">
-                        <i class="fas fa-table-tennis"></i>
-                        <span class="nav-link-text" >{{ __('Deportes') }}</span>
-                    </a>
+                    {{-- Sports --}}
+                    <li class="nav-item">
+                        <a class="nav-link" href="#sports-dropdown" data-toggle="collapse" role="button" aria-expanded="false" aria-controls="sports-dropdown">
+                            <i class="fas fa-table-tennis"></i>
+                            <span class="nav-link-text" >{{ __('Deportes') }}</span>
+                        </a>
 
-                    <div class="collapse" id="sports-dropdown">
-                        <ul class="nav nav-sm flex-column">
-                            <li class="nav-item">
-                                <a class="nav-link" href="{{ route('sports.index') }}">
-                                    {{ __('Listar deportes') }}
-                                </a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="{{ route('sports.create') }}">
-                                    {{ __('Crear deportes') }}
-                                </a>
-                            </li>
-                        </ul>
-                    </div>
-                </li>
+                        <div class="collapse" id="sports-dropdown">
+                            <ul class="nav nav-sm flex-column">
+                                <li class="nav-item">
+                                    <a class="nav-link" href="{{ route('sports.index') }}">
+                                        {{ __('Listar deportes') }}
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="{{ route('sports.create') }}">
+                                        {{ __('Crear deportes') }}
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </li>
 
-                {{-- locations o estadios --}}
+                    {{-- Ligas --}}
+                    <li class="nav-item">
+                        <a class="nav-link" href="#leagues-dropdown" data-toggle="collapse" role="button" aria-expanded="false" aria-controls="leagues-dropdown">
+                            
+                            <i class="fas fa-trophy"></i>
+                            <span class="nav-link-text" >{{ __('Ligas') }}</span>
+                        </a>
+
+                        <div class="collapse" id="leagues-dropdown">
+                            <ul class="nav nav-sm flex-column">
+                                <li class="nav-item">
+                                    <a class="nav-link" href="{{ route('leagues.index') }}">
+                                        {{ __('Listar todas las ligas') }}
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="{{ route('leagues.create') }}">
+                                        {{ __('Crear liga') }}
+                                    </a>
+                                </li>
+                                <li>
+                            </ul>
+                            <h5 class="navbar-heading text-white pl-4"><i class="fas fa-sitemap">&nbsp;</i>Modalidades</h5>
+                            <ul class="nav nav-sm flex-column">
+                                
+                                </li>
+                                <li class="nav-item">
+                                    
+                                    <a class="nav-link" href="{{ route('modalities.index') }}">
+                                        {{ __('Listar todas las modalidades') }}
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    
+                                    <a class="nav-link" href="{{ route('modalities.create') }}">
+                                        {{ __('Crear modalidad') }}
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </li>
+                    
+                    {{-- Materiales --}}
+                    <li class="nav-item">
+                        <a class="nav-link" href="#materials-dropdown" data-toggle="collapse" role="button" aria-expanded="false" aria-controls="materials-dropdown">
+                            <i class="fas fa-table-tennis"></i>
+                            <span class="nav-link-text" >{{ __('Materiales') }}</span>
+                        </a>
+
+                        <div class="collapse" id="materials-dropdown">
+                            <ul class="nav nav-sm flex-column">
+                                <li class="nav-item">
+                                    <a class="nav-link" href="{{ route('materials.index') }}">
+                                        {{ __('Listar todas las materiales') }}
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="{{ route('materials.create') }}">
+                                        {{ __('Crear materiales') }}
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </li>
+
+                @endhasanyrole
+
+
+                    
+                @hasanyrole('super-admin|league_administrator')
+                                    {{-- locations o estadios --}}
                 <li class="nav-item">
                     <a class="nav-link" href="#locations-dropdown" data-toggle="collapse" role="button" aria-expanded="false" aria-controls="locations-dropdown">
                         <i class="fab fa-fort-awesome"></i>
@@ -124,29 +195,13 @@
                         </ul>
                     </div>
                 </li>
+                @endhasanyrole
+  
 
-                {{-- Materiales --}}
-                {{-- <li class="nav-item">
-                    <a class="nav-link" href="#materials-dropdown" data-toggle="collapse" role="button" aria-expanded="false" aria-controls="materials-dropdown">
-                        <i class="fas fa-table-tennis"></i>
-                        <span class="nav-link-text" >{{ __('Materiales') }}</span>
-                    </a>
 
-                    <div class="collapse" id="materials-dropdown">
-                        <ul class="nav nav-sm flex-column">
-                            <li class="nav-item">
-                                <a class="nav-link" href="{{ route('materials.index') }}">
-                                    {{ __('Listar todas las materiales') }}
-                                </a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="{{ route('materials.create') }}">
-                                    {{ __('Crear materiales') }}
-                                </a>
-                            </li>
-                        </ul>
-                    </div>
-                </li> --}}
+
+
+
 
                 {{-- Modalidades de los partidos --}}
                 {{-- <li class="nav-item">
@@ -286,47 +341,7 @@
                     </div>
                 </li> --}}
 
-                {{-- Ligas --}}
-                <li class="nav-item">
-                    <a class="nav-link" href="#leagues-dropdown" data-toggle="collapse" role="button" aria-expanded="false" aria-controls="leagues-dropdown">
-                        
-                        <i class="fas fa-trophy"></i>
-                        <span class="nav-link-text" >{{ __('Ligas') }}</span>
-                    </a>
 
-                    <div class="collapse" id="leagues-dropdown">
-                        <ul class="nav nav-sm flex-column">
-                            <li class="nav-item">
-                                <a class="nav-link" href="{{ route('leagues.index') }}">
-                                    {{ __('Listar todas las ligas') }}
-                                </a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="{{ route('leagues.create') }}">
-                                    {{ __('Crear liga') }}
-                                </a>
-                            </li>
-                            <li>
-                        </ul>
-                        <h5 class="navbar-heading text-white pl-4"><i class="fas fa-sitemap">&nbsp;</i>Modalidades</h5>
-                        <ul class="nav nav-sm flex-column">
-                            
-                            </li>
-                            <li class="nav-item">
-                                
-                                <a class="nav-link" href="{{ route('modalities.index') }}">
-                                    {{ __('Listar todas las modalidades') }}
-                                </a>
-                            </li>
-                            <li class="nav-item">
-                                
-                                <a class="nav-link" href="{{ route('modalities.create') }}">
-                                    {{ __('Crear modalidad') }}
-                                </a>
-                            </li>
-                        </ul>
-                    </div>
-                </li>
 
                 
 

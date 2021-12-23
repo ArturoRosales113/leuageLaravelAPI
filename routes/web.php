@@ -36,9 +36,11 @@ Route::group(['middleware' => 'auth'], function () {
 	Route::put('profile/images', ['as' => 'profile.images', 'uses' => 'App\Http\Controllers\ProfileController@images']);
 
 
-	// Index
+
+// Index
+
+	Route::get('events',[DashboardIndexController::class, 'events'])->name('events.index');		
 	Route::get('actions',[DashboardIndexController::class, 'actions'])->name('actions.index');
-	Route::get('events',[DashboardIndexController::class, 'events'])->name('events.index');
 	Route::get('fields',[DashboardIndexController::class, 'fields'])->name('fields.index');
 	Route::get('games',[DashboardIndexController::class, 'games'])->name('games.index');
 	Route::get('leagues',[DashboardIndexController::class, 'leagues'])->name('leagues.index');
@@ -54,6 +56,7 @@ Route::group(['middleware' => 'auth'], function () {
 	Route::get('scores',[DashboardIndexController::class, 'scores'])->name('scores.index');
 	Route::get('sports',[DashboardIndexController::class, 'sports'])->name('sports.index');
 	Route::get('teams',[DashboardIndexController::class, 'teams'])->name('teams.index');
+	Route::get('tournaments',[DashboardIndexController::class, 'tournaments'])->name('tournaments.index');
 	Route::get('users',[DashboardIndexController::class, 'users'])->name('users.index');
 
 	// Create
@@ -74,6 +77,7 @@ Route::group(['middleware' => 'auth'], function () {
 	Route::get('scores/create',[DashboardCreateController::class, 'scores'])->name('scores.create');
 	Route::get('sports/create',[DashboardCreateController::class, 'sports'])->name('sports.create');
 	Route::get('teams/create',[DashboardCreateController::class, 'teams'])->name('teams.create');
+	Route::get('tournaments/create',[DashboardCreateController::class, 'tournaments'])->name('tournaments.create');
 	Route::get('users/create',[DashboardCreateController::class, 'users'])->name('users.create');
 
 	// Recibir formulario create
@@ -94,6 +98,7 @@ Route::group(['middleware' => 'auth'], function () {
 	Route::post('scores',[DashboardStoreController::class, 'scores'])->name('scores.store');
 	Route::post('sports',[DashboardStoreController::class, 'sports'])->name('sports.store');
 	Route::post('teams',[DashboardStoreController::class, 'teams'])->name('teams.store');
+	Route::post('tournaments',[DashboardStoreController::class, 'tournaments'])->name('tournaments.store');
 	Route::post('users',[DashboardStoreController::class, 'users'])->name('users.store');
 
 	// Vista a detalle
@@ -114,6 +119,7 @@ Route::group(['middleware' => 'auth'], function () {
 	Route::get('scores/{id}',[DashboardShowController::class, 'scores'])->name('scores.show');
 	Route::get('sports/{id}',[DashboardShowController::class, 'sports'])->name('sports.show');
 	Route::get('teams/{id}',[DashboardShowController::class, 'teams'])->name('teams.show');
+	Route::get('tournaments/{id}',[DashboardShowController::class, 'tournaments'])->name('tournaments.show');
 	Route::get('users/{id}',[DashboardShowController::class, 'users'])->name('users.show');
 
 	// Formulario editar
@@ -134,6 +140,7 @@ Route::group(['middleware' => 'auth'], function () {
 	Route::get('scores/edit/{id}',[DashboardEditController::class, 'scores'])->name('scores.edit');
 	Route::get('sports/edit/{id}',[DashboardEditController::class, 'sports'])->name('sports.edit');
 	Route::get('teams/edit/{id}',[DashboardEditController::class, 'teams'])->name('teams.edit');
+	Route::get('tournaments/edit/{id}',[DashboardEditController::class, 'tournaments'])->name('tournaments.edit');
 	Route::get('users/edit/{id}',[DashboardEditController::class, 'users'])->name('users.edit');
 
 	// Recibir formulario editar
@@ -154,6 +161,7 @@ Route::group(['middleware' => 'auth'], function () {
 	Route::put('scores/update/{id}',[DashboardUpdateController::class, 'scores'])->name('scores.update'); //
 	Route::put('sports/update/{id}',[DashboardUpdateController::class, 'sports'])->name('sports.update'); 
 	Route::put('teams/update/{id}',[DashboardUpdateController::class, 'teams'])->name('teams.update');
+	Route::put('tournaments/update/{id}',[DashboardUpdateController::class, 'tournaments'])->name('tournaments.update');
 	Route::put('users/update /{id}',[DashboardUpdateController::class, 'users'])->name('users.update'); //
 
 	// Borrar
@@ -174,6 +182,7 @@ Route::group(['middleware' => 'auth'], function () {
 	Route::delete('scores/{id}',[DashboardDeleteController::class, 'scores'])->name('scores.delete');
 	Route::delete('sports/{id}',[DashboardDeleteController::class, 'sports'])->name('sports.delete');
 	Route::delete('teams/{id}',[DashboardDeleteController::class, 'teams'])->name('teams.delete');
+	Route::delete('tournaments/{id}',[DashboardDeleteController::class, 'tournaments'])->name('tournaments.delete');
 	Route::delete('users/{id}',[DashboardDeleteController::class, 'users'])->name('users.delete');
 });
 

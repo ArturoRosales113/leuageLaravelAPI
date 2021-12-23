@@ -74,6 +74,10 @@ class DashboardCreateController extends Controller
     {
         return view('dashboard.teams.create');
     }
+	public function tournaments()
+    {
+        return view('dashboard.tournaments.create');
+    }
 	public function users()
     {
         return view('dashboard.users.create');
