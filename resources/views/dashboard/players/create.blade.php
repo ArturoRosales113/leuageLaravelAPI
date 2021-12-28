@@ -85,17 +85,17 @@
                                 <label class="custom-file-label" for="customFile">Cargar imagen</label>
                             </div>
                         </div>
-                        <div class="row">
+                        {{-- <div class="row">
                             <label for="img_path" class="col-md-12 col-form-label">Foto de portada</label>
                             <div class="col-sm-12">
                                 <input type="file" class="custom-file-input" name="img_path" id="customFile">
                                 <label class="custom-file-label" for="customFile">Cargar imagen</label>
                             </div>
-                        </div>
+                        </div> --}}
                     
                     
                         <div class="row">
-                          <label for="Numero" class="col-md-12 col-form-label">No. dentro del equipo</label>
+                          <label for="Numero" class="col-md-12 col-form-label">No. del jugador</label>
                               <div class="col-md-12">
                                 <select class="custom-select" name="numero">
                                   <option selected value="0">Selecciona una opción</option>
@@ -110,7 +110,7 @@
                               <div class="col-md-12">
                                 <select class="custom-select" name="edad">
                                   <option selected value="0">Selecciona una opción</option>
-                                  @for ($i = 6; $i < 51; $i++)
+                                  @for ($i = 6; $i < 71; $i++)
                                   <option {{ old('edad') == $i ? 'selected' : '' }} value="{{ $i }}">{{ $i }}</option>
                                   @endfor
                                 </select>
@@ -119,7 +119,7 @@
                         <div class="row">
                             <label for="estatura" class="col-md-12 col-form-label">Estatura</label>
                             <div class="col-md-12">
-                                <input type="text" name="estatura" value="{{ old('estatura') }}" class="form-control" placeholder="80.5 cm" />
+                                <input type="text" name="estatura" value="{{ old('estatura') }}" class="form-control" placeholder="1.85 m" />
                             </div>
                         </div>
                         <div class="row">

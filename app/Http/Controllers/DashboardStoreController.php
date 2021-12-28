@@ -208,7 +208,7 @@ class DashboardStoreController extends Controller
             'name' => 'required',
             'captain_name' => 'required',
             'email' => 'required|email',
-            'description' => 'required|max:1000',
+            'description' => 'max:1000',
             'league_id' => 'required|not_in:0', 
             'icon_path' => 'max:3000|mimes:jpg,bmp,png',
             'img_path' => 'max:3000|mimes:jpg,bmp,png'
