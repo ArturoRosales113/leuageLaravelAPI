@@ -13,7 +13,7 @@
                     <div class="card-header border-0">
                         <div class="row align-items-center">
                             <div class="col">
-                                <h3 class="mb-0">Crear Ligas</h3>
+                                <h3 class="mb-0">Crear Torneo</h3>
                                 @if ($errors->any())
                                 <div class="alert alert-danger">
                                     <ul>
@@ -32,20 +32,29 @@
                         <div class="form-group row">
                             <label for="league" class="col-sm-3 col-form-label">Nombre del torneo</label>
                             <div class="col-sm-9">
-                                <input type="text" class="form-control" name="name" value="{{ old('name') }}" id="league" placeholder="Liga Valle Verde" >
+                                <input type="text" class="form-control" name="name" value="{{ old('name') }}" id="league" placeholder="Torneo flash" >
                             </div>
                         </div>
+
+               
+
+                        @hasanyrole('super-admin')
                         <div class="form-group row">
-                            <label for="sport" class="col-sm-3 col-form-label">Elige una liga</label>
-                                <div class="col-sm-9">
-                                  <select class="custom-select" name="league_id">
-                                    <option selected value="0">Selecciona una opción</option>
-                                    @foreach ($leagues as $l)
-                                    <option {{ old('league_id') == $l->id ? 'selected' : ''}} value="{{ $l->id }}">{{ $l->name }}</option>`
-                                    @endforeach
-                                  </select>
-                                </div>
-                        </div>
+                          <label for="sport" class="col-sm-3 col-form-label">Elige una liga</label>
+                              <div class="col-sm-9">
+                                <select class="custom-select" name="league_id">
+                                  <option selected value="0">Selecciona una opción</option>
+                                  @foreach ($leagues as $l)
+                                  <option {{ old('league_id') == $l->id ? 'selected' : ''}} value="{{ $l->id }}">{{ $l->name }}</option>`
+                                  @endforeach
+                                </select>
+                              </div>
+                         </div>
+                        @endhasanyrole
+                    
+                        @hasanyrole('league_administrator')
+                         <input type="hidden" name="league_id" value="{{ auth()->user()->league->id }}">
+                        @endhasanyrole
                         <div class="form-group row">
                             <label for="sport" class="col-sm-3 col-form-label">Elige una Categoría</label>
                                 <div class="col-sm-9">

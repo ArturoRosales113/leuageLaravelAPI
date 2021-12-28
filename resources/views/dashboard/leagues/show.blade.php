@@ -18,9 +18,9 @@
                 
     
                         <div class="col text-right">
-                            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modalTorneo">
+                            <a class="btn btn-icon btn-2 btn-primary" href="{{ route('tournaments.create') }}">
                                 Crear torneo
-                            </button>
+                            </a>
                         </div>
                     </div>
                 </div>    
@@ -32,6 +32,7 @@
                                 <th scope="col">
                                     &nbsp;
                                 </th>
+                                <th scope="col">ID</th>
                                 <th scope="col">Nombre</th>
                                 <th scope="col">Categorías</th>
                                 <th scope="col">No. Equipos</th>
@@ -46,6 +47,9 @@
                                         <img alt="Image placeholder" src="{{ $lt->icon_path == null ? asset('argon/img/theme/team-4-800x800.jpg') :asset( $tt->icon_path) }}">
                                     </span>
                                 </th>
+                                <td scope="row">    
+                                    {{ $lt->id  }}
+                                </td>
                                 <td scope="row">    
                                     {{ $lt->name  }}
                                 </td>
@@ -87,9 +91,9 @@
                             <h3 class="mb-0">Mis Equipos</h3>
                         </div>
                         <div class="col text-right">
-                            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modalEquipo">
+                            <a class="btn btn-primary" href="{{ route('teams.create') }}">
                                 Crear Equipo
-                            </button>
+                            </a>
                             
                         </div>
                     </div>
@@ -102,8 +106,9 @@
                                 <th scope="col">
                                     &nbsp;
                                 </th>
+                                <th scope="col">ID</th>
                                 <th scope="col">Nombre</th>
-                                <th scope="col">Liga</th>
+
                                 <th scope="col">Jugadores</th>
                                 <th scope="col">Capitan</th>
                                 <th scope="col">Acción</th>
@@ -119,11 +124,13 @@
                                 </th>
                                 <td scope="row">
                                     <a href="{{ route('teams.show', $t->id) }}" class="text-default text-underline">
-                                        {{ $t -> name }}
+                                        {{ $t -> id }}
                                     </a>
                                 </td>
-                                <td>
-                                   {{ $t->league->name }}
+                                <td scope="row">
+                                    <a href="{{ route('teams.show', $t->id) }}" class="text-default text-underline">
+                                        {{ $t -> name }}
+                                    </a>
                                 </td>
                                 <td>
                                     {{ $t->players->count() }}

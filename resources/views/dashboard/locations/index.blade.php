@@ -28,6 +28,7 @@
                                 <th scope="col" data="icon_path">
                                     &nbsp;
                                 </th>
+                                <th scope="col" data="id">ID</th>
                                 <th scope="col" data="name">Nombre</th>
                                 <th scope="col" data="name">Canchas</th>
                                 <th scope="col" data="league_name">Liga</th>
@@ -46,6 +47,11 @@
                                       <img alt="Image placeholder" src="{{ $lo->icon_path == null ? asset('argon/img/theme/team-4-800x800.jpg') :asset( $lo->icon_path) }}">
                                     </span>
                                 </th>
+                                <td>
+                                    <a href="{{ route('locations.show', $lo->id) }}">
+                                        {{ $lo->id }}
+                                    </a>
+                                </td>
                                 <td>
                                     <a href="{{ route('locations.show', $lo->id) }}">
                                         {{ $lo->display_name }}

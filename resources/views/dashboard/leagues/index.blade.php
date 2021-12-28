@@ -26,6 +26,7 @@
                             <th scope="col" data="icon_path">
                                 &nbsp;
                             </th>
+                            <th scope="col" data="id">ID</th>
                             <th scope="col" data="league_name">Liga</th>
                             <th scope="col" data="name">Deporte</th>
                             <th scope="col">Equipos</th>
@@ -41,6 +42,11 @@
                                     <img alt="Image placeholder" src="{{ $lg->icon_path == null ? asset('argon/img/theme/team-4-800x800.jpg') :asset( $lg->icon_path) }}">
                                 </span>
                             </th>
+                            <td>
+                               <a href="{{ route('leagues.show', $lg->id) }}" class="text-default text-underline">
+                                {{ $lg->id }}
+                               </a>
+                            </td>
                             <td>
                                <a href="{{ route('leagues.show', $lg->id) }}" class="text-default text-underline">
                                 {{ $lg->name }}

@@ -7,6 +7,9 @@ use Illuminate\Support\Str;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
 use RealRashid\SweetAlert\Facades\Alert;
+use Illuminate\Support\Facades\Mail;
+
+use App\Mail\NewUser;
 
 //Modelos
 use App\Models\Event;
@@ -94,11 +97,16 @@ class DashboardStoreController extends Controller
            ->withErrors($validator)
            ->withInput();
         } else {
+            $pass = Str::random(10); 
             $user = User::create([
                 'name' => $input['name'],
                 'email' =>  $input['email'],
-                'password' => Hash::make(Str::random(10))
+                'password' => Hash::make($pass)
             ]);
+
+            $user->assignRole('league_administrator');
+
+            Mail::to($user->email)->send(new NewUser($user, $pass));
 
             $league = League::create([
                 'user_id' => $user->id,
@@ -193,6 +201,7 @@ class DashboardStoreController extends Controller
 
     public function teams(Request $request)
     {
+
         $input = $request->all();
         
         $rules = [
@@ -220,11 +229,17 @@ class DashboardStoreController extends Controller
                 'description' => $input['description']
             ]);
 
+            $pass = Str::random(10);
+
             $captain = User::create([
                 'name' => $input['captain_name'],
                 'email' =>  $input['email'],
-                'password' => Hash::make(Str::random(10))
+                'password' => Hash::make($pass)
             ]);
+
+            $captain->assignRole('captain');
+
+            Mail::to($captain->email)->send(new NewUser($captain, $pass));
 
             $player = Player::create([
                 'user_id' => $captain->id,
@@ -505,6 +520,8 @@ class DashboardStoreController extends Controller
                 'password' => Hash::make(Str::random(10))
             ]);
 
+            $user->assignRole('player');
+
             $player = Player::create([
                 'user_id' => $user->id,
                 'team_id' => $input['team_id'],
@@ -561,6 +578,8 @@ class DashboardStoreController extends Controller
                 'email' =>  $input['email'],
                 'password' => Hash::make(Str::random(10))
             ]);
+
+            $user->assignRole('referee');
 
             $referee = Referee::create([
                 'user_id' => $user->id,

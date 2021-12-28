@@ -25,7 +25,7 @@
                             <img src="{{ auth()->user()->icon_path == null ? asset('argon/img/theme/team-4-800x800.jpg') : asset( auth()->user()->icon_path) }}">                                        
                         </span>
                         <div class="media-body ml-2 d-none d-lg-block">
-                            <span class="mb-0 text-sm  font-weight-bold">{{ auth()->user()->name }}</span>
+                            <span class="mb-0 text-sm  font-weight-bold">{{ auth()->user()->id.' '.  auth()->user()->name }}</span>
                         </div>
                     </div>
                 </a>

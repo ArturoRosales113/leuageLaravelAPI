@@ -74,9 +74,6 @@ class AppServiceProvider extends ServiceProvider
             $view->with('materials' , Material::all());
         });
 
-        view()->composer('dashboard.games.createForm', function ($view) {
-            $view->with('modalities' , Modalitie::all());
-        });
         view()->composer('dashboard.tournaments.createForm', function ($view) {
             $view->with([
                 'categories' => Category::all(),
@@ -97,7 +94,11 @@ class AppServiceProvider extends ServiceProvider
         });
 
         view()->composer('dashboard.games.createForm', function ($view) {
-            $view->with('referees' , Referee::all());
+            $view->with([
+                'referees' => Referee::all(),
+                'modalities' => Modalitie::all(),
+                'tournaments' => Tournament::all()
+            ]);
         });
 
         view()->composer('dashboard.fields.edit', function ($view) {

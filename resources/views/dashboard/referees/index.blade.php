@@ -29,6 +29,7 @@
                                     <th scope="col" data="icon_path">
                                         &nbsp;
                                     </th>
+                                    <th scope="col" data="id">ID</th>
                                     <th scope="col" data="name">Nombre</th>
                                     <th scope="col">Tipo</th>
                                     <th scope="col" data="edad">Edad</th>
@@ -46,6 +47,9 @@
                                         <img alt="Image placeholder" src="{{ $rf->icon_path == null ? asset('argon/img/theme/team-4-800x800.jpg') :asset( $rf->icon_path) }}">    
                                         </span>
                                     </th>
+                                    <td>
+                                        {{ $rf->id }}
+                                    </td>
                                     <td>
                                         {{ $rf->user->name }}
                                     </td>
