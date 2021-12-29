@@ -30,7 +30,9 @@ class RolesAndPermissionsSeeder extends Seeder
         $role = Role::create(['name' => 'super-admin']);
         $role->givePermissionTo(Permission::all());
         $user = User::findOrFail(1);
+        $user2 = User::findOrFail(1);
         $user->assignRole($role);
+        $user2->assignRole($role);
 
         // Back Office
         $role = Role::create(['name' => 'back_office']);

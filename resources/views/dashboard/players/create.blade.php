@@ -85,6 +85,7 @@
                                 <label class="custom-file-label" for="customFile">Cargar imagen</label>
                             </div>
                         </div>
+
                         {{-- <div class="row">
                             <label for="img_path" class="col-md-12 col-form-label">Foto de portada</label>
                             <div class="col-sm-12">
@@ -92,7 +93,6 @@
                                 <label class="custom-file-label" for="customFile">Cargar imagen</label>
                             </div>
                         </div> --}}
-                    
                     
                         <div class="row">
                           <label for="Numero" class="col-md-12 col-form-label">No. del jugador</label>
@@ -105,6 +105,7 @@
                                 </select>
                               </div>
                         </div>
+
                         <div class="row">
                           <label for="edad" class="col-md-12 col-form-label">Elige la edad</label>
                               <div class="col-md-12">
@@ -116,18 +117,21 @@
                                 </select>
                               </div>
                         </div>
+
                         <div class="row">
                             <label for="estatura" class="col-md-12 col-form-label">Estatura</label>
                             <div class="col-md-12">
                                 <input type="text" name="estatura" value="{{ old('estatura') }}" class="form-control" placeholder="1.85 m" />
                             </div>
                         </div>
+
                         <div class="row">
                             <label for="peso" class="col-md-12 col-form-label">Peso</label>
                             <div class="col-md-12">
                                 <input type="text" name="peso" value="{{ old('peso') }}" class="form-control" placeholder="88.10 kg" />
                             </div>
                         </div>
+                        
                          <button class="btn btn-primary mt-4" type="submit">Guardar</button>                        
                     </form>
                     
