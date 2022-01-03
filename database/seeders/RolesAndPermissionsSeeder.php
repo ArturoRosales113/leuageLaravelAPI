@@ -7,6 +7,7 @@ use Spatie\Permission\Models\Role;
 use Spatie\Permission\Models\Permission;
 use App\Models\User;
 
+
 class RolesAndPermissionsSeeder extends Seeder
 {
     /**
