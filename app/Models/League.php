@@ -34,6 +34,11 @@ class League extends Model
         return $this->hasManyThrough(Game::class, Tournament::class);
     }
 
+    public function locations()
+    {
+        return $this->hasMany(Location::class);
+    }
+
     public function teams()
     {
         return $this->hasMany(Team::class);

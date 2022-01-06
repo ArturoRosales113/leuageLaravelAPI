@@ -250,7 +250,7 @@ class DashboardUpdateController extends Controller
   
               $team->save();
               Alert::success('Éxito', 'Equipo modificado');
-              return redirect()->route('teams.index');
+              return redirect()->route('teams.show', $id);
           }
       }
   

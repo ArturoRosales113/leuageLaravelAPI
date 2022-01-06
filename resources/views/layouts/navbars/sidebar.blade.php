@@ -399,7 +399,7 @@
 
                 @endhasanyrole
 
-                @hasanyrole('captain')
+                @hasanyrole('team_administrator')
                     {{-- Capitán --}}
                     <li class="nav-item">
                         <a class="nav-link" href="#referees-dropdown" data-toggle="collapse" role="button" aria-expanded="false" aria-controls="referees-dropdown">
@@ -411,14 +411,19 @@
                             <ul class="nav nav-sm flex-column">
                                 <li class="nav-item">
                                     <a class="nav-link" href="{{ route('teams.show', auth()->user()->player->team->id) }}">
-                                        {{ __('Listar arbitros') }}
+                                        {{ __('Ver mi equipo') }}
                                     </a>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link" href="{{ route('players.show', auth()->user()->player->id) }}">
-                                        {{ __('Mi perfil') }}
+                                    <a class="nav-link" href="{{ route('teams.edit', auth()->user()->player->team->id) }}">
+                                        {{ __('Editar información del equipo') }}
                                     </a>
                                 </li>
+                                {{-- <li class="nav-item">
+                                    <a class="nav-link" href="{{ route('players.show', auth()->user()->player->id) }}">
+                                        {{ __('Ver mis jugadores') }}
+                                    </a>
+                                </li> --}}
                             </ul>
                         </div>
                     </li>

@@ -14,7 +14,7 @@
     <div class=" row">
     <label for="league_id" class="col-md-12 col-form-label">Selecciona un torneo</label>
         <div class="col-md-12">
-            <select class="form-control" name="league_id" placeholder="Selecciona una liga">
+            <select class="form-control" name="tournament_id" placeholder="Selecciona una liga">
                 <option selected value="0">Selecciona un torneo</option>
                 @foreach ($league->tournaments as $t)
                     <option  {{ old('tournament_id') == $t->id ? 'selected' : '' }} value="{{ $t->id }}">{{ $t->name }}</option>
@@ -26,11 +26,11 @@
     @endhasanyrole
     @hasanyrole('league_administrator')
     <div class=" row">
-    <label for="league_id" class="col-md-12 col-form-label">Selecciona un torneo</label>
+    <label for="tournament_id" class="col-md-12 col-form-label">Selecciona un torneo</label>
         <div class="col-md-12">
 
 
-            <select class="form-control" name="league_id" placeholder="Selecciona una liga">
+            <select class="form-control" name="tournament_id" placeholder="Selecciona una liga">
                 <option selected value="0">Selecciona un torneo</option>
                 @foreach ($league->tournaments as $t)
                     <option  {{ old('tournament_id') == $t->id ? 'selected' : '' }} value="{{ $t->id }}">{{ $t->name }}</option>

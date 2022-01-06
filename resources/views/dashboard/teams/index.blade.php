@@ -33,6 +33,7 @@
                         </tr>
                     </thead>
                     <tbody>
+                        @hasanyrole('super-admin')
                         @foreach ($teams as $t)
                         <tr>
                             <th>
@@ -69,6 +70,45 @@
                             </td>
                         </tr>
                         @endforeach
+                        @endhasanyrole
+                        @hasanyrole('league_administrator')
+                        @foreach (auth()->user()->league->teams as $t)
+                        <tr>
+                            <th>
+                                <span class="avatar-rectangle">
+                                    <img alt="Image placeholder" src="{{ $t->icon_path == null ? asset('argon/img/theme/team-4-800x800.jpg') :asset( $t->icon_path) }}">
+                                </span>
+                            </th>
+                            <td scope="row">
+                                <a href="{{ route('teams.show', $t->id) }}" class="text-default text-underline">
+                                    {{ $t -> name }}
+                                </a>
+                            </td>
+                            <td>
+                               {{ $t->league->name }}
+                            </td>
+                            <td>
+                                {{ $t->players->count() }}
+                            </td>
+                            <td>
+                                <a href="{{ route('teams.edit', $t->id) }}" class="btn btn-icon btn-2 btn-primary">
+                                    <span class="btn-inner--icon"><i class="far fa-edit"></i></span>
+                                </a>
+    
+                                {{-- <form method="POST" class="d-inline-block" action="{{ route('teams.delete', $t->id) }}">
+                                    {{ csrf_field() }}
+                                    {{ method_field('DELETE') }}
+                            
+                                    <div class="form-group">
+                                        <button class="btn btn-icon btn-2 btn-danger" type="submit">
+                                            <span class="btn-inner--icon"><i class="fas fa-trash"></i></span>
+                                        </button>
+                                    </div>
+                                </form> --}}
+                            </td>
+                        </tr>
+                        @endforeach
+                        @endhasanyrole
                     </tbody>
                 </table>
             </div>

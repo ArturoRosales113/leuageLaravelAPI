@@ -32,6 +32,11 @@ class Tournament extends Model
         return $this->belongsTo(Category::class);
     }
 
+    public function league()
+    {
+        return $this->belongsTo(League::class);
+    }
+
 }
 
 

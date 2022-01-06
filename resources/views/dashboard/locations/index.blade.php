@@ -40,11 +40,71 @@
                             </tr>
                         </thead>
                         <tbody>
-                            @foreach ($locations as $lo)
+
+                            @hasanyrole('super-admin')
+                                @foreach ($locations as $lo)
+                                <tr>
+                                    <th>
+                                        <span class="avatar-rectangle">
+                                        <img alt="Image placeholder" src="{{ $lo->icon_path == null ? asset('argon/img/theme/team-4-800x800.jpg') :asset( $lo->icon_path) }}">
+                                        </span>
+                                    </th>
+                                    <td>
+                                        <a href="{{ route('locations.show', $lo->id) }}">
+                                            {{ $lo->id }}
+                                        </a>
+                                    </td>
+                                    <td>
+                                        <a href="{{ route('locations.show', $lo->id) }}">
+                                            {{ $lo->display_name }}
+                                        </a>
+                                    </td>
+                                    <td>
+                                        {{ $lo->fields->count() }}
+                                    </td>
+                                    <td>
+                                        {{ $lo->league->name }}
+                                    </td>
+                                    <td>
+                                        {{ $lo->league->sport->display_name }}
+                                    </td>
+                                    <td>
+                                        {{ $lo->state }}
+                                    </td>
+                                    <td>
+                                        {{ $lo->city }}
+                                    </td>
+                                    <td>
+                                        @if ($lo->lat != null && $lo->long !=null)
+                                        <a href="">Ver mapa</a>
+                                        @endif
+                                    </td>
+                                    <td>
+                                        <a href="{{ route('locations.edit', $lo->id) }}" class="btn btn-icon btn-2 btn-primary">
+                                            <span class="btn-inner--icon"><i class="far fa-edit"></i></span>
+                                        </a>
+            
+                                        <form method="POST" class="d-inline-block" action="{{ route('locations.delete', $lo->id) }}">
+                                            {{ csrf_field() }}
+                                            {{ method_field('DELETE') }}
+                                    
+                                            <div class="form-group">
+                                                <button class="btn btn-icon btn-2 btn-danger" type="submit">
+                                                    <span class="btn-inner--icon"><i class="fas fa-trash"></i></span>
+                                                </button>
+                                            </div>
+                                        </form>
+                                    </td>
+                                </tr>
+                                @endforeach
+                            @endhasanyrole
+                    
+                            @hasanyrole('league_administrator')
+                            @foreach (auth()->user()->league->locations as $lo)
                             <tr>
                                 <th>
                                     <span class="avatar-rectangle">
-                                      <img alt="Image placeholder" src="{{ $lo->icon_path == null ? asset('argon/img/theme/team-4-800x800.jpg') :asset( $lo->icon_path) }}">
+                                    <img alt="Image placeholder" src="{{ $lo->icon_path == null ? asset('argon/img/theme/team-4-800x800.jpg') :asset( $lo->icon_path) }}">
                                     </span>
                                 </th>
                                 <td>
@@ -77,7 +137,7 @@
                                     <a href="">Ver mapa</a>
                                     @endif
                                 </td>
-                                  <td>
+                                <td>
                                     <a href="{{ route('locations.edit', $lo->id) }}" class="btn btn-icon btn-2 btn-primary">
                                         <span class="btn-inner--icon"><i class="far fa-edit"></i></span>
                                     </a>
@@ -95,12 +155,16 @@
                                 </td>
                             </tr>
                             @endforeach
+                            @endhasanyrole
+                    
+
+
                         </tbody>
                     </table>
                 </div>
             </div>
         </div>
-
+        @hasanyrole('super-admin')
         <div class="col-6">
             <div class="card shadow mt-4">
                 <div class="card-header border-0">
@@ -109,7 +173,10 @@
                             <h3 class="mb-0">Mis materiales de cancha</h3>
                         </div>
                         <div class="col text-right">
+                            
+                            @hasanyrole('super-admin')
                              <a href="{{ route('materials.create') }}" class="btn btn-sm btn-default"><i class="fas fa-plus"></i>&nbsp;Crear material</a>
+                             @endhasanyrole
                         </div>
                     </div>
                 </div>    
@@ -141,6 +208,7 @@
                                     {{ $m->description }}
                                 </td>
                                 <td>
+                               
                                     <a href="{{ route('materials.edit', $m->id) }}" class="btn btn-icon btn-2 btn-primary">
                                         <span class="btn-inner--icon"><i class="far fa-edit"></i></span>
                                     </a>
@@ -155,6 +223,7 @@
                                             </button>
                                         </div>
                                     </form>
+                           
                                 </td>
                             </tr>
                             @endforeach
@@ -163,6 +232,7 @@
                 </div>
             </div>
         </div>
+        @endhasanyrole
     </div>
 
         

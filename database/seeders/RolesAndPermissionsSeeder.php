@@ -46,7 +46,7 @@ class RolesAndPermissionsSeeder extends Seeder
         }
 
         // Capitan encargado de equipo
-        $role = Role::create(['name' => 'captain']);
+        $role = Role::create(['name' => 'team_administrator']);
 
         // Arbitro
         $role = Role::create(['name' => 'referee']);

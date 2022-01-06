@@ -19,10 +19,11 @@
                             <h3 class="mb-0">Miembros</h3>
                         </div>
                         <div class="col text-right">
+                            @hasanyrole('league_administrator|super-admin|team_administrator')
                             <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modalJugador">
                            Crear Jugador
                               </button>
-                            
+                             @endhasanyrole
                         </div>
                     </div>
                 </div>    
@@ -44,7 +45,8 @@
                                 <th scope="col">Acción</th>
                             </tr>
                         </thead>
-                        <tbody>
+                        <tbody>                    
+                            @hasanyrole('league_administrator|super-admin')
                             @foreach ($team->players as $pl)
                             <tr>
                                 <th>
@@ -95,6 +97,59 @@
                                 </td>
                             </tr>    
                             @endforeach
+                            @endhasanyrole
+                            @hasanyrole('')
+                            @foreach ($team->players as $pl)
+                            <tr>
+                                <th>
+                                    <span class="rounded-circle border-b avatar">
+                                        <img alt="Image placeholder" src="{{ $pl->icon_path == null ? asset('argon/img/theme/team-4-800x800.jpg') :asset( $pl->icon_path) }}">
+                                    </span>
+                                </th>
+                                <td>
+                                    <a href="{{ route('players.show', $pl->id) }}">
+                                        {{ $pl->user->name }}
+                                    </a>
+                                </td>
+                                <td>
+                                    {{ $pl->apodo }}
+                                </td>
+                                <td>
+                                    {{ $pl->numero }}
+                                </td>
+                                <td>
+                                    {{ $pl->posicion }}
+                                </td>
+                                <td>
+                                    {{ $pl->edad }}
+                                </td>
+                                <td>
+                                    {{ $pl->peso . ' kg' }}
+                                </td>
+                                <td>
+                                    {{ $pl->estatura . ' cm'}}
+                                </td>
+                                
+                                  <td>
+                                    <a href="{{ route('players.edit', $pl->id) }}" class="btn btn-icon btn-2 btn-primary">
+                                        <span class="btn-inner--icon"><i class="far fa-edit"></i></span>
+                                    </a>
+        
+                                    <form method="POST" class="d-inline-block" action="{{ route('players.delete', $pl->id) }}">
+                                        {{ csrf_field() }}
+                                        {{ method_field('DELETE') }}
+                                
+                                        <div class="form-group">
+                                            <button class="btn btn-icon btn-2 btn-danger" type="submit">
+                                                <span class="btn-inner--icon"><i class="fas fa-trash"></i></span>
+                                            </button>
+                                        </div>
+                                    </form>
+    
+                                </td>
+                            </tr>    
+                            @endforeach
+                            @endhasanyrole
                         </tbody>
                     </table>
                 </div>

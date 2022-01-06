@@ -207,7 +207,7 @@ class DashboardStoreController extends Controller
         $rules = [
             'name' => 'required',
             'captain_name' => 'required',
-            'email' => 'required|email',
+            'email' => 'required|email|unique:users',
             'description' => 'max:1000',
             'league_id' => 'required|not_in:0', 
             'icon_path' => 'max:3000|mimes:jpg,bmp,png',
@@ -237,7 +237,7 @@ class DashboardStoreController extends Controller
                 'password' => Hash::make($pass)
             ]);
 
-            $captain->assignRole('captain');
+            $captain->assignRole('team_administrator');
 
             Mail::to($captain->email)->send(new NewUser($captain, $pass));
 

@@ -37,6 +37,7 @@
                                 <input type="text" class="form-control" name="name" value="{{ old('name', $team->name) }}" placeholder="" >
                             </div>
                         </div>
+                        @hasanyrole('super-admin')
                         <div class="form-group row">
                             <label for="Liga" class="col-sm-3 col-form-label">Selecciona una liga</label>
                             <div class="col-sm-9">
@@ -48,6 +49,14 @@
                                 </select>
                             </div>
                         </div>
+                        @endhasanyrole
+                        
+                        @hasanyrole('league_administrator')
+                         <input type="hidden" name="league_id" value="{{ auth()->user()->league->id }}">
+                        @endhasanyrole
+                        @hasanyrole('team_administrator')
+                         <input type="hidden" name="league_id" value="{{ $team->league->id }}">
+                        @endhasanyrole
                         <div class="form-group row">
                             <label for="Description" class="col-sm-3 col-form-label">Descripción</label>
                             <div class="col-sm-9">
