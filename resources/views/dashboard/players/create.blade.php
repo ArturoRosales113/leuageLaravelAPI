@@ -63,7 +63,7 @@
                     
                                 @isset($teams)
                                 <select class="custom-select" name="team_id">
-                                <option selected>Selecciona una opción</option>
+                                <option value="0" selected>Selecciona una opción</option>
                                     @foreach ($teams as $t)
                                     <option value="{{ $t->id }}">{{ $t->name }}</option>
                                     @endforeach    
