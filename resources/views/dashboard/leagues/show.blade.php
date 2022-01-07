@@ -44,7 +44,7 @@
                             <tr>
                                 <th>
                                     <span class="avatar-rectangle">
-                                        <img alt="Image placeholder" src="{{ $lt->icon_path == null ? asset('argon/img/theme/team-4-800x800.jpg') :asset( $tt->icon_path) }}">
+                                        <img alt="Image placeholder" src="{{ $lt->icon_path == null ? asset('argon/img/theme/team-4-800x800.jpg') :asset( $lt->icon_path) }}">
                                     </span>
                                 </th>
                                 <td scope="row">    
