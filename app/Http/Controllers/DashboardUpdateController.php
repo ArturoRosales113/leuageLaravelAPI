@@ -90,8 +90,7 @@ class DashboardUpdateController extends Controller
            'icon_path' => 'max:3000|mimes:jpg,bmp,png',
            'img_path' => 'max:3000|mimes:jpg,bmp,png',
            'sport_id' => 'required|not_in:0',
-           'reglamento_path' => 'mimes:pdf|max:5000',
-           'numero_equipos' => 'required|not_in:0'
+           'reglamento_path' => 'mimes:pdf|max:5000'
           ];
    
           $validator = Validator::make($input, $rules);
@@ -109,7 +108,6 @@ class DashboardUpdateController extends Controller
               
               $league->user_id = $user->id;
               $league->name = $input['name'];
-              $league->numero_equipos = $input['numero_equipos'];
               $league->sport_id = $input['sport_id'];
               $league->description = $input['description'];
   
