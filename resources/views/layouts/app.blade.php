@@ -20,6 +20,7 @@
         <!-- Argon CSS -->
         <link type="text/css" href="{{ asset('argon') }}/css/argon.css?v=1.0.0" rel="stylesheet">
         <link type="text/css" href="{{ asset('argon') }}/css/icons.css?v=1.0.0" rel="stylesheet">
+        
     </head>
 
     <body class="{{ $class ?? '' }} scrollbar-light-blue body-playmaker">
@@ -47,6 +48,7 @@
         
         <!-- Argon JS -->
         <script src="{{ asset('argon') }}/js/argon.js?v=1.0.0"></script>
-        
+        <script src="{{ asset('/js/menu-sidebar.js')}}"></script>
+
     </body>
 </html>

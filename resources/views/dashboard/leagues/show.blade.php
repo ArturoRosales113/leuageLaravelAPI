@@ -8,7 +8,7 @@
     @include('layouts.headers.league')
     <div class="row">
         <div class="col">
-            <div class="card shadow mt-5">
+            <div class="card shadow mt-8">
                 <div class="card-header border-0">
                     <div class="row align-items-center">
                         <div class="col">
@@ -84,7 +84,7 @@
     </div>
     <div class="row">
         <div class="col-12 col-lg-6">
-            <div class="card shadow mt-8">
+            <div class="card shadow mt-5">
                 <div class="card-header border-0">
                     <div class="row align-items-center">
                         <div class="col">
@@ -165,7 +165,7 @@
             </div>
         </div>
         <div class="col-12 col-lg-6">
-            <div class="card shadow mt-8">
+            <div class="card shadow mt-5">
                 <div class="card-header border-0">
                     <div class="row align-items-center">
                         <div class="col">

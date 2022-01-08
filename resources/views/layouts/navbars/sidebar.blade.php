@@ -1,17 +1,28 @@
-<nav class="navbar navbar-vertical fixed-left navbar-expand-md navbar-playmaker bg-playmaker scrollbar-light-blue" id="sidenav-main">
+    <nav class="navbar navbar-vertical fixed-left navbar-expand-md navbar-playmaker bg-playmaker scrollbar-light-blue" id="sidenav-main">
     <div class="container-fluid">
         <!-- Toggler -->
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#sidenav-collapse-main" aria-controls="sidenav-main" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
         <!-- Brand -->
-        <a class="navbar-brand pt-0" href="{{ route('home') }}">
-            <img src="{{ asset('argon') }}/img/brand/white.png" class="navbar-side-brand " alt="..."> 
+        <a class="navbar-brand pt-0 logoHide" href="{{ route('home') }}">
+            <img src="{{ asset('argon') }}/img/brand/white.png" class="navbar-side-brand" alt="..."> 
 
+        </a>
+
+        <a class="navbar-brand pt-0 logoShow" href="{{ route('home') }}">
+            <img src="{{ asset('argon') }}/img/brand/pwhite.png" class="p-side-brand" alt="..."> 
         </a>
         <!-- <p><span>{{ auth()->user()->name }}</span></p> -->
         
         <!-- User -->
+
+        
+        <button class="ocultarMenu" onclick="Functiondos()">
+            <img src="{{ asset('argon') }}/img/icons/menui.svg" class="sidem" alt="">
+        </button>
+     
+
         <ul class="nav align-items-center d-md-none">
             <li class="nav-item dropdown">
                 <a class="nav-link" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -75,16 +86,16 @@
             <ul class="navbar-nav">
                     <li class="nav-item">
                         <a class="nav-link" href="{{ route('home') }}">
-                            <i class="fas fa-tachometer-alt"></i> Panel de control
+                            <i class="fas fa-tachometer-alt"></i><span class="itemHide">Panel de control</span>
                         </a>
                     </li>
                 @hasanyrole('super-admin')
 
                     {{-- Sports --}}
-                    <li class="nav-item">
+                    <li class="nav-item" onclick="Functionuno()">
                         <a class="nav-link" href="#sports-dropdown" data-toggle="collapse" role="button" aria-expanded="false" aria-controls="sports-dropdown">
                             <i class="fas fa-table-tennis"></i>
-                            <span class="nav-link-text" >{{ __('Deportes') }}</span>
+                            <span class="nav-link-text itemHide" >{{ __('Deportes') }}</span>
                         </a>
 
                         <div class="collapse" id="sports-dropdown">
@@ -104,11 +115,10 @@
                     </li>
 
                     {{-- Ligas --}}
-                    <li class="nav-item">
+                    <li class="nav-item" onclick="Functionuno()">
                         <a class="nav-link" href="#leagues-dropdown" data-toggle="collapse" role="button" aria-expanded="false" aria-controls="leagues-dropdown">
-                            
                             <i class="fas fa-trophy"></i>
-                            <span class="nav-link-text" >{{ __('Ligas') }}</span>
+                            <span class="nav-link-text itemHide" >{{ __('Ligas') }}</span>
                         </a>
 
                         <div class="collapse" id="leagues-dropdown">
@@ -192,10 +202,10 @@
                     </li> --}}
 
                     {{-- locations o estadios --}}
-                    <li class="nav-item">
+                    <li class="nav-item" onclick="Functionuno()">
                         <a class="nav-link" href="#locations-dropdown" data-toggle="collapse" role="button" aria-expanded="false" aria-controls="locations-dropdown">
                             <i class="fab fa-fort-awesome"></i>
-                            <span class="nav-link-text" >{{ __('Estadios') }}</span>
+                            <span class="nav-link-text itemHide" >{{ __('Estadios') }}</span>
                         </a>
 
                         <div class="collapse" id="locations-dropdown">
@@ -215,10 +225,10 @@
                     </li>            
 
                     {{-- Teams --}}
-                    <li class="nav-item">
+                    <li class="nav-item" onclick="Functionuno()">
                         <a class="nav-link" href="#teams-dropdown" data-toggle="collapse" role="button" aria-expanded="false" aria-controls="teams-dropdown">
                             <i class="fas fa-users"></i>
-                            <span class="nav-link-text" >{{ __('Equipos') }}</span>
+                            <span class="nav-link-text itemHide" >{{ __('Equipos') }}</span>
                         </a>
 
                         <div class="collapse" id="teams-dropdown">
@@ -238,10 +248,10 @@
                     </li>
 
                     {{-- Players --}}
-                    <li class="nav-item">
+                    <li class="nav-item" onclick="Functionuno()">
                         <a class="nav-link" href="#players-dropdown" data-toggle="collapse" role="button" aria-expanded="false" aria-controls="players-dropdown">
                             <i class="fas fa-user-friends"></i>
-                            <span class="nav-link-text" >{{ __('Jugadores') }}</span>
+                            <span class="nav-link-text itemHide" >{{ __('Jugadores') }}</span>
                         </a>
 
                         <div class="collapse" id="players-dropdown">
@@ -261,10 +271,10 @@
                     </li>
 
                     {{-- Arbitros --}}
-                    <li class="nav-item">
+                    <li class="nav-item" onclick="Functionuno()">
                         <a class="nav-link" href="#referees-dropdown" data-toggle="collapse" role="button" aria-expanded="false" aria-controls="referees-dropdown">
                             <i class="fas fa-ruler-vertical"></i>
-                            <span class="nav-link-text" >{{ __('Arbitros') }}</span>
+                            <span class="nav-link-text itemHide" >{{ __('Arbitros') }}</span>
                         </a>
 
                         <div class="collapse" id="referees-dropdown">
@@ -289,7 +299,7 @@
                     
                 @hasanyrole('league_administrator')
                     {{-- Mi liga --}}
-                    <li class="nav-item">
+                    <li class="nav-item" onclick="Functionuno()">
                         <a class="nav-link" href="#leagues-dropdown" data-toggle="collapse" role="button" aria-expanded="false" aria-controls="leagues-dropdown">
                             <i class="fab fa-fort-awesome"></i>
                             <span class="nav-link-text" >{{ __('Mi liga') }}</span>
@@ -306,7 +316,7 @@
                         </div>
                     </li> 
                     {{-- locations o estadios --}}
-                    <li class="nav-item">
+                    <li class="nav-item" onclick="Functionuno()">
                         <a class="nav-link" href="#locations-dropdown" data-toggle="collapse" role="button" aria-expanded="false" aria-controls="locations-dropdown">
                             <i class="fab fa-fort-awesome"></i>
                             <span class="nav-link-text" >{{ __('Estadios') }}</span>
@@ -329,7 +339,7 @@
                     </li>            
 
                     {{-- Teams --}}
-                    <li class="nav-item">
+                    <li class="nav-item" onclick="Functionuno()">
                         <a class="nav-link" href="#teams-dropdown" data-toggle="collapse" role="button" aria-expanded="false" aria-controls="teams-dropdown">
                             <i class="fas fa-users"></i>
                             <span class="nav-link-text" >{{ __('Equipos') }}</span>
@@ -352,7 +362,7 @@
                     </li>
 
                     {{-- Players --}}
-                    <li class="nav-item">
+                    <li class="nav-item" onclick="Functionuno()">
                         <a class="nav-link" href="#players-dropdown" data-toggle="collapse" role="button" aria-expanded="false" aria-controls="players-dropdown">
                             <i class="fas fa-user-friends"></i>
                             <span class="nav-link-text" >{{ __('Jugadores') }}</span>
@@ -375,7 +385,7 @@
                     </li>
 
                     {{-- Arbitros --}}
-                    <li class="nav-item">
+                    <li class="nav-item" onclick="Functionuno()">
                         <a class="nav-link" href="#referees-dropdown" data-toggle="collapse" role="button" aria-expanded="false" aria-controls="referees-dropdown">
                             <i class="fas fa-ruler-vertical"></i>
                             <span class="nav-link-text" >{{ __('Arbitros') }}</span>
@@ -399,9 +409,9 @@
 
                 @endhasanyrole
 
-                @hasanyrole('team_administrator')
+                @hasanyrole('captain')
                     {{-- Capitán --}}
-                    <li class="nav-item">
+                    <li class="nav-item" onclick="Functionuno()">
                         <a class="nav-link" href="#referees-dropdown" data-toggle="collapse" role="button" aria-expanded="false" aria-controls="referees-dropdown">
                             <i class="fas fa-ruler-vertical"></i>
                             <span class="nav-link-text" >{{ __('Mi equipo') }}</span>
@@ -411,19 +421,14 @@
                             <ul class="nav nav-sm flex-column">
                                 <li class="nav-item">
                                     <a class="nav-link" href="{{ route('teams.show', auth()->user()->player->team->id) }}">
-                                        {{ __('Ver mi equipo') }}
+                                        {{ __('Listar arbitros') }}
                                     </a>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link" href="{{ route('teams.edit', auth()->user()->player->team->id) }}">
-                                        {{ __('Editar información del equipo') }}
+                                    <a class="nav-link" href="{{ route('players.show', auth()->user()->player->id) }}">
+                                        {{ __('Mi perfil') }}
                                     </a>
                                 </li>
-                                {{-- <li class="nav-item">
-                                    <a class="nav-link" href="{{ route('players.show', auth()->user()->player->id) }}">
-                                        {{ __('Ver mis jugadores') }}
-                                    </a>
-                                </li> --}}
                             </ul>
                         </div>
                     </li>
@@ -431,7 +436,7 @@
 
                 @hasanyrole('referee')
                     {{-- Arbitros --}}
-                    <li class="nav-item">
+                    <li class="nav-item" onclick="Functionuno()"> 
                         <a class="nav-link" href="#referees-dropdown" data-toggle="collapse" role="button" aria-expanded="false" aria-controls="referees-dropdown">
                             <i class="fas fa-ruler-vertical"></i>
                             <span class="nav-link-text" >{{ __('Arbitros') }}</span>
@@ -456,7 +461,7 @@
 
                 @hasanyrole('player')
                     {{-- Arbitros --}}
-                    <li class="nav-item">
+                    <li class="nav-item" onclick="Functionuno()">
                         <a class="nav-link" href="#referees-dropdown" data-toggle="collapse" role="button" aria-expanded="false" aria-controls="referees-dropdown">
                             <i class="fas fa-ruler-vertical"></i>
                             <span class="nav-link-text" >{{ __('Mi perfil') }}</span>

@@ -696,8 +696,8 @@ pre code {
     width: 100%;
     margin-right: auto;
     margin-left: auto;
-    padding-right: 15px;
-    padding-left: 15px;
+    padding-right: 30px;
+    padding-left: 30px;
 }
 
 .row {
@@ -14555,14 +14555,14 @@ a.btn-icon-only {
     position: absolute;
     z-index: 1;
     top: 0;
-    left: 0;
-
-    width: 100%;
+    right: 0;
+    width: 80%;
     padding-right: 0 !important;
     padding-left: 0 !important;
 
     background-color: transparent;
 }
+/*
 @media (min-width: 768px) {
     .main-content .container-fluid {
         padding-right: 39px !important;
@@ -14613,7 +14613,7 @@ a.btn-icon-only {
         margin-right: 250px;
     }
 }
-
+*/
 .custom-checkbox .custom-control-input ~ .custom-control-label {
     font-size: 0.875rem;
 
@@ -16164,13 +16164,11 @@ textarea[resize="horizontal"] {
 }
 @media (min-width: 768px) {
     .navbar-vertical.navbar-expand-md {
-        position: fixed;
+        position: relative;
         top: 0;
         bottom: 0;
-
         display: block;
-        overflow-y: auto;
-
+        /*overflow-y: auto;*/
         width: 100%;
         max-width: 250px;
         padding-right: 1.5rem;
@@ -16196,8 +16194,8 @@ textarea[resize="horizontal"] {
 @media (min-width: 768px) {
     .navbar-vertical.navbar-expand-md.fixed-left {
         left: 0;
-
         border-width: 0 1px 0 0;
+        min-height: 100vh;
     }
     .navbar-vertical.navbar-expand-md.fixed-right {
         right: 0;
@@ -16244,7 +16242,7 @@ textarea[resize="horizontal"] {
         padding-left: 4.5rem;
     }
     .navbar-vertical.navbar-expand-md .navbar-brand {
-        display: block;
+        /*display: block;*/
         padding-top: 1rem;
         padding-bottom: 0rem;
         text-align: left;
@@ -18234,6 +18232,31 @@ input.form-control:focus {
 /* Fin Formularios*/
 
 /* Nav lateral */
+.ocultarMenu {
+    color: #ffffff;
+    position: absolute;
+    z-index: 2;
+    right: -40px;
+    top: 0;
+    background: #e7b828;
+    border: 0;
+    cursor: pointer;
+}
+.ocultarMenu:hover,
+.ocultarMenu:active {
+    border: 0;
+}
+.sidem {
+    width: 26px;
+    padding-bottom: 4px;
+}
+.logoShow {
+    display: none;
+}
+.p-side-brand {
+    width: auto;
+    height: 3rem !important;
+}
 .navbar-playmaker {
     z-index: 1;
     box-shadow: 1px 0px 8px 1px #0008 !important;
@@ -18290,6 +18313,7 @@ input.form-control:focus {
         rgba(0, 0, 0, 1) 98%
     );
     filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#040820",endColorstr="#000000",GradientType=1);
+    display: flex;
 }
 .body-playmaker-white {
     background-color: #dee9e2;
@@ -18486,24 +18510,38 @@ button.btn-white {
 
 .bg-perfil {
     background-image: url(./../../images/bg/head.jpg);
+    background-size: cover;
+    background-position: center;
 }
 .bg-leagues {
     background-image: url(./../../images/bg/leagues.png);
+    background-size: cover;
+    background-position: center;
 }
 .bg-teams {
     background-image: url(./../../images/bg/teams.png);
+    background-size: cover;
+    background-position: center;
 }
 .bg-arbitros {
     background-image: url(./../../images/bg/arbitros.png);
+    background-size: cover;
+    background-position: center;
 }
 .bg-stadium {
     background-image: url(./../../images/bg/stadium.png);
+    background-size: cover;
+    background-position: center;
 }
 .bg-players {
     background-image: url(./../../images/bg/players.png);
+    background-size: cover;
+    background-position: center;
 }
 .bg-sports {
     background-image: url(./../../images/bg/sports.png);
+    background-size: cover;
+    background-position: center;
 }
 
 /* Fin Gradient Header */
@@ -18616,3 +18654,7 @@ button.close:hover {
 }
 
 /*Fin Modal */
+
+.main-content {
+    width: 100%;
+}
