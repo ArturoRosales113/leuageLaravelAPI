@@ -18513,6 +18513,11 @@ button.btn-white {
     background-size: cover;
     background-position: center;
 }
+.bg-plym {
+    background-image: url(./../../images/bg/bg-login2.jpeg);
+    background-size: cover;
+    background-position: center;
+}
 .bg-leagues {
     background-image: url(./../../images/bg/leagues.png);
     background-size: cover;
@@ -18637,6 +18642,56 @@ button.btn-white {
 }
 /* Fin Icons Access*/
 
+/*Profile*/
+.tarjeta {
+    width: 250px;
+    height: 250px;
+    background-repeat: no-repeat !important;
+    background-position: center !important;
+    border-radius: 50%;
+    border: 7px solid #0acfcf;
+    margin: 15px auto 0;
+    overflow: hidden;
+    box-shadow: 0 0 5px 5px #308d8d;
+}
+.numb-number {
+    font-size: 75px;
+    font-weight: 600;
+    padding: 0px 10px;
+    color: #0acfcf;
+    border-right: 1px solid;
+    margin-right: 10px;
+}
+.itemplayer {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.escudo-img {
+    text-align: center;
+}
+.escudo-img img {
+    margin: auto;
+    max-width: 150px;
+    width: 100%;
+}
+.alias {
+    color: #ffca38;
+}
+.estadisticas {
+    max-width: 90%;
+    margin: 10px auto;
+}
+.right {
+    text-align: right;
+}
+.yellow {
+    color: #ffca38;
+}
+.estadisticas th {
+    font-weight: 300;
+}
+/*Fin Profile*/
 /* Modal */
 .modal .modal-content .card {
     border: 1px solid rgb(0 204 204 / 33%);

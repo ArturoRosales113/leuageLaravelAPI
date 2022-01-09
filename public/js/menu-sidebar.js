@@ -57,6 +57,10 @@ function Functiondos() {
         e.style.width = '100%';
       }
    }
+   var dropdown = document.querySelector(".collapse .show")
+    if (dropdown){
+      dropdown.classList.remove("show")
+  }
 
  }
 
@@ -107,3 +111,5 @@ function Functiondos() {
       }
    }
 }
+
+
