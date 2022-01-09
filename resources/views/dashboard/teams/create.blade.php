@@ -36,13 +36,13 @@
                                 </div>
                             </div>
                             <div class="form-group row">
-                                <label for="user_id" class="col-sm-3 col-form-label">Nombre del Capitán</label>
+                                <label for="user_id" class="col-sm-3 col-form-label">Nombre del Responsable</label>
                                 <div class="col-sm-9">
                                     <input type="text" class="form-control" name="captain_name" value="{{ old('user_id') }}"  placeholder="" >
                                 </div>
                             </div>
                             <div class="form-group row">
-                                <label for="email" class="col-sm-3 col-form-label">Email del capitán</label>
+                                <label for="email" class="col-sm-3 col-form-label">Email del responsablew</label>
                                 <div class="col-sm-9">
                                     <input type="text" class="form-control" id="Email" name="email" value="{{ old('email') }}" placeholder="usuario@email.com" >
                                 </div>
@@ -97,3 +97,4 @@
             @include('layouts.footers.auth')
     </div>
 @endsection
+

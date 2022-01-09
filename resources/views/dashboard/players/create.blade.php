@@ -44,7 +44,10 @@
                         <div class="row">
                             <label for="posicion" class="col-md-12 col-form-label">Posición</label>
                             <div class="col-md-12">
-                                <input type="text" class="form-control" id="posicion" name="posicion" value="{{ old('posicion') }}" placeholder="Defensa" >
+                                <select class="custom-select" name="team_id">
+                                    <option value="null" selected>Selecciona una opción</option>
+                                        <option value="{{ $t->id }}">{{ $t->name }}</option>
+                                    </select>
                             </div>
                         </div>
                         <div class="row">

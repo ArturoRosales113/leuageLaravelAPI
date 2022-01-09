@@ -222,13 +222,6 @@ class DashboardStoreController extends Controller
            ->withInput();
         } else {
 
-            $team = Team::create([
-                'name'=> $input['name'],
-                'description'=> $input['description'],
-                'league_id' => $input['league_id'],
-                'description' => $input['description']
-            ]);
-
             $pass = Str::random(10);
 
             $captain = User::create([
@@ -241,11 +234,12 @@ class DashboardStoreController extends Controller
 
             Mail::to($captain->email)->send(new NewUser($captain, $pass));
 
-            $player = Player::create([
-                'user_id' => $captain->id,
-                'team_id' => $team->id,
-                'is_active' => true,
-                'is_captain' => true                
+            $team = Team::create([
+                'name'=> $input['name'],
+                'description'=> $input['description'],
+                'league_id' => $input['league_id'],
+                'description' => $input['description'],
+                'user_id' => $captain->id
             ]);
 
             if (array_key_exists('icon_path', $input) && $input['icon_path'] != null) {
@@ -498,6 +492,7 @@ class DashboardStoreController extends Controller
          'name' => 'required',
          'email' => 'required|email|unique:users',
          'team_id' => 'required|not_in:0',
+         'posicion' => 'required|not_in:null',
          'icon_path' => 'max:3000|mimes:jpg,bmp,png',
          'img_path' => 'max:3000|mimes:jpg,bmp,png',
          'numero' => 'required|not_in:0',
@@ -558,6 +553,7 @@ class DashboardStoreController extends Controller
          'name' => 'required',
          'email' => 'required|email|unique:users',
          'referee_type_id' => 'required|not_in:0',
+         'league_id' => 'required|not_in:0',
          'icon_path' => 'max:3000|mimes:jpg,bmp,png',
          'img_path' => 'max:3000|mimes:jpg,bmp,png',
          'edad' => 'required|not_in:0',
@@ -585,7 +581,9 @@ class DashboardStoreController extends Controller
                 'user_id' => $user->id,
                 'name' => $input['name'],
                 'refereeType_id' => $input['referee_type_id'],
+                'league_id' => $input['league_id'],
                 'edad' => $input['edad'],
+                'licencia' => $input['licencia'],
                 'estatura' => $input['estatura'],
                 'peso' => $input['peso'],                
                 'is_active' => true                

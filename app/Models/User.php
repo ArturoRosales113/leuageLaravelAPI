@@ -62,6 +62,11 @@ class User extends Authenticatable
         return $this->hasOne(League::class);
     }
 
+    public function team()
+    {
+        return $this->hasOne(Team::class);
+    }
+
     
 
 }

@@ -54,6 +54,30 @@
                                 </select>
                             </div>
                         </div>
+                        <div class="form-group row">
+                            <label for="name" class="col-sm-3 col-form-label">Licencia del arbitro</label>
+                            <div class="col-sm-9">
+                                <input type="text" class="form-control" name="licencia" value="{{ old('licencia') }}" id="licencia" placeholder="" >
+                            </div>
+                        </div>
+
+                        @hasanyrole('super-admin')
+                        <div class="form-group row">
+                          <label for="sport" class="col-sm-3 col-form-label">Elige una liga</label>
+                              <div class="col-sm-9">
+                                <select class="custom-select" name="league_id">
+                                  <option selected value="0">Selecciona una opción</option>
+                                  @foreach ($leagues as $l)
+                                  <option {{ old('league_id') == $l->id ? 'selected' : ''}} value="{{ $l->id }}">{{ $l->name }}</option>`
+                                  @endforeach
+                                </select>
+                              </div>
+                         </div>
+                        @endhasanyrole
+                    
+                        @hasanyrole('league_administrator')
+                         <input type="hidden" name="league_id" value="{{ auth()->user()->league->id }}">
+                        @endhasanyrole
 
                         <div class="form-group row">
                             <label for="perfil" class="col-sm-3 col-form-label">Foto de Perfil</label>

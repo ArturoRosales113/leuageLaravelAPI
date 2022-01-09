@@ -110,15 +110,24 @@ class AppServiceProvider extends ServiceProvider
         });
 
         view()->composer('dashboard.referees.create', function ($view) {
-            $view->with('refereeTypes' , RefereeType::all());
+            $view->with([
+                'refereeTypes' => RefereeType::all(),
+                'leagues' => League::all(), 
+            ]);
         });
 
         view()->composer('dashboard.referees.index', function ($view) {
-            $view->with('refereeTypes' , RefereeType::all());
+            $view->with([
+                'refereeTypes' => RefereeType::all(),
+                'leagues' => League::all(), 
+            ]);
         });
 
         view()->composer('dashboard.referees.edit', function ($view) {
-            $view->with('refereeTypes' , RefereeType::all());
+            $view->with([
+                'refereeTypes' => RefereeType::all(),
+                'leagues' => League::all(), 
+            ]);
         });
 
         view()->composer('dashboard.refereeTypes.create', function ($view) {

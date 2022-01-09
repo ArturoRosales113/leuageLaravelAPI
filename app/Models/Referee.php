@@ -18,7 +18,8 @@ class Referee extends Model
         'peso',
         'is_active',
         'icon_path',
-        'img_path'
+        'img_path',
+        'licencia',
     ];
 
     public function user()

@@ -575,6 +575,7 @@ class DashboardUpdateController extends Controller
            'name' => 'required',
            'email' => 'required|email|unique:users,email,'.$user->id,
            'referee_type_id' => 'required|not_in:0',
+           'league_id' => 'required|not_in:0',
            'icon_path' => 'max:3000|mimes:jpg,bmp,png',
            'img_path' => 'max:3000|mimes:jpg,bmp,png',
            'edad' => 'required',
@@ -598,7 +599,9 @@ class DashboardUpdateController extends Controller
               
             $referee->user_id = $user->id;
             $referee->refereeType_id = $input['referee_type_id'];
+            $referee->league_id = $input['league_id'];
             $referee->edad = $input['edad'];
+            $referee->licencia = $input['licencia'];
             $referee->estatura = $input['estatura'];
             $referee->peso = $input['peso'];
               
@@ -618,7 +621,7 @@ class DashboardUpdateController extends Controller
               }
   
               $referee->save();
-              Alert::success('Éxito', 'Referee creado');
+              Alert::success('Éxito', 'Referee modificado');
               return redirect()->route('referees.index');
           }
       }

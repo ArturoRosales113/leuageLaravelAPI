@@ -14,7 +14,8 @@ class Team extends Model
         'description',
         'league_id',
         'icon_path',
-        'img_path'
+        'img_path',
+        'user_id'
     ];
 
     public function league()
@@ -25,6 +26,11 @@ class Team extends Model
     public function players()
     {
         return $this->hasMany(Player::class);
+    }
+
+    public function user()
+    {
+        return $this->belongsTo(User::class);
     }
 }
 

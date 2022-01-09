@@ -24,6 +24,23 @@ class CreateTeamsTable extends Migration
             $table->softDeletes();
         });
 
+     
+        Schema::create('leagues', function (Blueprint $table) {
+            $table->id();
+            $table->unsignedBigInteger('user_id');
+            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
+            $table->unsignedBigInteger('sport_id');
+            $table->foreign('sport_id')->references('id')->on('sports')->onDelete('cascade');
+            $table->string('name')->nullable();
+            $table->string('icon_path')->nullable();
+            $table->string('img_path')->nullable();
+            $table->longText('description')->nullable();
+            $table->string('reglamento_path')->nullable();
+            $table->json('schedule')->nullable();
+            $table->boolean('is_active')->default(1);
+            $table->timestamps();
+        });
+
         Schema::create('referee_types', function (Blueprint $table) {
             $table->id();
             $table->string('name');
@@ -41,31 +58,20 @@ class CreateTeamsTable extends Migration
             $table->id();
             $table->unsignedBigInteger('user_id');
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
+            $table->unsignedBigInteger('league_id');
+            $table->foreign('league_id')->references('id')->on('leagues')->onDelete('cascade');  
             $table->integer('edad');
             $table->float('estatura');
             $table->float('peso');
-            $table->integer('is_active');
+            $table->string('licencia')->nullable();
             $table->unsignedBigInteger('refereeType_id');
             $table->foreign('refereeType_id')->references('id')->on('referee_types')->onDelete('cascade');
             $table->string('icon_path')->nullable();
             $table->string('img_path')->nullable();
+            $table->boolean('is_active')->default(1);
             $table->timestamps();
         });
 
-        Schema::create('leagues', function (Blueprint $table) {
-            $table->id();
-            $table->unsignedBigInteger('user_id');
-            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
-            $table->unsignedBigInteger('sport_id');
-            $table->foreign('sport_id')->references('id')->on('sports')->onDelete('cascade');
-            $table->string('name')->nullable();
-            $table->string('icon_path')->nullable();
-            $table->string('img_path')->nullable();
-            $table->longText('description')->nullable();
-            $table->string('reglamento_path')->nullable();
-            $table->json('schedule')->nullable();
-            $table->timestamps();
-        });
 
         Schema::create('categories', function (Blueprint $table) {
             $table->id();
@@ -93,11 +99,13 @@ class CreateTeamsTable extends Migration
             $table->integer('number_periods')->nullable();
             $table->integer('period_lenght')->nullable();
             $table->integer('time_offs')->nullable();
+            $table->integer('extra_time_periods')->nullable();
             $table->integer('extra_time')->nullable();
             $table->boolean('is_extra_time')->nullable();
             $table->integer('number_teams_playoffs')->nullable();
             $table->longText('description')->nullable();
             $table->string('reglamento_path')->nullable();
+            $table->boolean('is_active')->default(1);
             $table->timestamps();
         });
 
@@ -116,6 +124,7 @@ class CreateTeamsTable extends Migration
             $table->string('country')->nullable();
             $table->float('lat')->nullable();
             $table->float('long')->nullable();
+            $table->boolean('is_active')->default(1);
             $table->timestamps();
             $table->softDeletes();
         });
@@ -144,6 +153,7 @@ class CreateTeamsTable extends Migration
             $table->foreign('material_id')->references('id')->on('materials')->onDelete('cascade');
             $table->string('width')->nullable();
             $table->string('height')->nullable();
+            $table->boolean('is_active')->default(1);
             $table->timestamps();
             $table->softDeletes();
         });
@@ -151,11 +161,14 @@ class CreateTeamsTable extends Migration
         Schema::create('teams', function (Blueprint $table) {
             $table->id();
             $table->string('name')->nullable();
+            $table->unsignedBigInteger('user_id');
+            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
             $table->longText('description')->nullable();
             $table->unsignedBigInteger('league_id');
             $table->foreign('league_id')->references('id')->on('leagues')->onDelete('cascade');
             $table->string('icon_path')->nullable();
             $table->string('img_path')->nullable();
+            $table->boolean('is_active')->default(1);
             $table->timestamps();
         });
 
@@ -171,24 +184,11 @@ class CreateTeamsTable extends Migration
             $table->integer('edad')->nullable();
             $table->float('estatura')->nullable();
             $table->float('peso')->nullable();
-            $table->boolean('is_active');
+            $table->boolean('is_active')->default(1);
             $table->boolean('is_captain');
             $table->string('icon_path')->nullable();
             $table->string('img_path')->nullable();
             $table->timestamps();
-        });
-
-        Schema::create('events', function (Blueprint $table) {
-            $table->id();
-            $table->string('name');
-            $table->string('display_name');
-            $table->longText('description')->nullable();
-            $table->unsignedBigInteger('sport_id');
-            $table->foreign('sport_id')->references('id')->on('sports')->onDelete('cascade');
-            $table->string('icon_path')->nullable();
-            $table->string('img_path')->nullable();
-            $table->timestamps();
-            $table->softDeletes();
         });
 
         Schema::create('modalities', function (Blueprint $table) {
@@ -244,24 +244,26 @@ class CreateTeamsTable extends Migration
 
         Schema::create('scores', function (Blueprint $table) {
             $table->id();
+            $table->string('name');
             $table->unsignedBigInteger('game_id');
             $table->foreign('game_id')->references('id')->on('games')->onDelete('cascade');
             $table->unsignedBigInteger('player_id');
             $table->foreign('player_id')->references('id')->on('players')->onDelete('cascade');
             $table->integer('value');
-            $table->time('eventTime', $precision = 0);
+            $table->string('time');
+            $table->integer('period');
             $table->timestamps();
         });
 
         Schema::create('actions', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('event_id');
-            $table->foreign('event_id')->references('id')->on('events')->onDelete('cascade');
+            $table->string('name');
             $table->unsignedBigInteger('game_id');
             $table->foreign('game_id')->references('id')->on('games')->onDelete('cascade');
             $table->unsignedBigInteger('player_id');
             $table->foreign('player_id')->references('id')->on('players')->onDelete('cascade');
-            $table->time('eventTime', $precision = 0);
+            $table->string('time');
+            $table->integer('period');
             $table->timestamps();
         });
 
@@ -290,7 +292,6 @@ class CreateTeamsTable extends Migration
         Schema::dropIfExists('team_game');
         Schema::dropIfExists('games');
         Schema::dropIfExists('modalities');
-        Schema::dropIfExists('events');
         Schema::dropIfExists('players');
         Schema::dropIfExists('teams');
         Schema::dropIfExists('fields');
@@ -298,9 +299,9 @@ class CreateTeamsTable extends Migration
         Schema::dropIfExists('locations');
         Schema::dropIfExists('tournaments');
         Schema::dropIfExists('categories');
-        Schema::dropIfExists('leagues');
         Schema::dropIfExists('referees');
         Schema::dropIfExists('referee_types');
+        Schema::dropIfExists('leagues');
         Schema::dropIfExists('sports');
     }
 }
