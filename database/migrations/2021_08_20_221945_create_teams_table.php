@@ -94,8 +94,7 @@ class CreateTeamsTable extends Migration
             $table->string('icon_path')->nullable();
             $table->string('img_path')->nullable();
             $table->integer('number_teams')->nullable();
-            $table->json('gamedays')->nullable();
-            $table->json('schedule')->nullable();
+            $table->string('gameday')->nullable();
             $table->integer('number_periods')->nullable();
             $table->integer('period_lenght')->nullable();
             $table->integer('time_offs')->nullable();

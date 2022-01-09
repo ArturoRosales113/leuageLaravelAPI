@@ -14,10 +14,18 @@ class DatabaseSeeder extends Seeder
     public function run()
     {
         $this->call([UsersTableSeeder::class]);
+        $this->call([RolesAndPermissionsSeeder::class]);
         $this->call([SportSeeder::class]);
         $this->call([CategorySeeder::class]);
+        $this->call([ModalitySeeder::class]);
         $this->call([MaterialSeeder::class]);
+        $this->call([RefereeTypeSeeder::class]);
         $this->call([LeagueSeeder::class]);
-        $this->call([RolesAndPermissionsSeeder::class]);
+        $this->call([LocationSeeder::class]);
+        $this->call([FieldSeeder::class]);
+        $this->call([RefereeSeeder::class]);
+        $this->call([TeamSeeder::class]);
+        $this->call([PlayerSeeder::class]);
+
     }
 }

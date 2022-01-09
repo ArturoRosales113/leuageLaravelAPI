@@ -41,6 +41,17 @@
                                 <input type="text" class="form-control" id="Email" name="email" value="{{ old('email', $player->user->email) }}" placeholder="usuario@email.com" >
                             </div>
                         </div>
+                        <div class="row">
+                            <label for="posicion" class="col-md-12 col-form-label">Posición</label>
+                            <div class="col-md-12">
+                                <select class="custom-select" name="team_id">
+                                    <option value="null" selected>Selecciona una opción</option>
+                                        <option value="Alero">Alero</option>
+                                        <option value="Poste">Poste</option>
+                                        <option value="Centro">Centro</option>
+                                    </select>
+                            </div>
+                        </div>
                         <div class="form-group row">
                             <label for="posicion" class="col-sm-3 col-form-label">Posición</label>
                             <div class="col-sm-9">
@@ -63,7 +74,16 @@
                                 <select class="custom-select" name="team_id">
                                     <option value="{{ $player->team->id }}">{{ $player->team->name }}</option>
                                 </select>
-                                @endisset                                
+                                @endisset 
+                                      
+                                @isset($teams)
+                                <select class="custom-select" name="team_id">
+                                <option value="0" selected>Selecciona una opción</option>
+                                    @foreach ($teams as $t)
+                                    <option value="{{ $t->id }}">{{ $t->name }}</option>
+                                    @endforeach    
+                                </select>
+                                @endisset                               
                             </div>
                         </div>
                     

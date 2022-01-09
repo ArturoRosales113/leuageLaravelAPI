@@ -15,8 +15,7 @@ class Tournament extends Model
         'icon_path',
         'img_path',
         'number_teams',
-        'gamedays',
-        'schedule',
+        'gameday',
         'number_periods',
         'period_lenght',
         'time_offs',
@@ -24,7 +23,9 @@ class Tournament extends Model
         'extra_time',
         'is_extra_time',
         'description',
-        'reglamento_path'
+        'reglamento_path',
+        'extra_time_periods',
+        'is_active'
     ];
 
     public function category()

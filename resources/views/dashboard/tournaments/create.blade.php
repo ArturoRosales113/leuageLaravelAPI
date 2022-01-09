@@ -123,7 +123,7 @@
                         <div class="form-group row">
                           <label for="n-teams" class="col-sm-3 col-form-label">Día de la semana en que se juega</label>
                               <div class="col-sm-9">
-                                <select class="custom-select" name="gamedays[]" multiple>
+                                <select class="custom-select" name="gameday">
                                   <option selected value="0">Selecciona una opción</option>            
                                   <option value="1">Lunes</option>            
                                   <option value="2">Martes</option>            
@@ -136,15 +136,15 @@
                               </div>
                         </div>
 
-                        <div class="form-group row">
+                        {{-- <div class="form-group row">
                           <label for="n-teams" class="col-sm-3 col-form-label">Horario</label>
                               <div class="col-sm-9">
                                 <input type="time" id="appt" name="schedule[]">                                
                                 <input type="time" id="appt" name="schedule[]">                                
                                 <input type="time" id="appt" name="schedule[]">                                
-                                {{-- <small>Office hours are 9am to 6pm</small> --}}                                
+                             
                               </div>
-                        </div>
+                        </div> --}}
 
                         <hr class="bg-white">
                     
@@ -154,7 +154,7 @@
                                 <select class="custom-select" name="number_periods">
                                   <option selected value="0">Selecciona una opción</option>
                     
-                                  @for ($i = 1; $i < 21; $i++)
+                                  @for ($i = 1; $i < 6; $i++)
                                   <option {{ old('number_periods') == $i ? 'selected' : '' }} value="{{ $i }}">{{ $i }}</option>
                                   @endfor
                     
@@ -168,7 +168,7 @@
                                   <select class="custom-select" name="period_lenght">
                                     <option selected value="0">Selecciona una opción</option>
                       
-                                    @for ($i = 1; $i < 21; $i++)
+                                    @for ($i = 1; $i < 6; $i++)
                                     <option {{ old('period_lenght') == $i ? 'selected' : '' }} value="{{ $i }}">{{ $i }}</option>
                                     @endfor
                       
@@ -182,20 +182,34 @@
                                   <select class="custom-select" name="time_offs">
                                     <option selected value="0">Selecciona una opción</option>
                       
-                                    @for ($i = 1; $i < 21; $i++)
+                                    @for ($i = 1; $i < 11; $i++)
                                     <option {{ old('time_offs') == $i ? 'selected' : '' }} value="{{ $i }}">{{ $i }}</option>
                                     @endfor
                       
                                   </select>
                                 </div>
                           </div>
-                    
+                          <hr class="bg-white">
+
+                          <div class="form-group row">
+                            <label for="n-teams" class="col-sm-3 col-form-label">Tiempos extra por partido</label>
+                                <div class="col-sm-9">
+                                  <select class="custom-select" name="extra_time_periods">
+                                    <option selected value="0">Selecciona una opción</option>
+                      
+                                    @for ($i = 1; $i < 6; $i++)
+                                    <option {{ old('extra_time_periods') == $i ? 'selected' : '' }} value="{{ $i }}">{{ $i }}</option>
+                                    @endfor
+                      
+                                  </select>
+                                </div>
+                          </div>
+
                         <div class="form-group row">
                             <label for="n-teams" class="col-sm-3 col-form-label">Duración tiempo extra(minutos)</label>
                                 <div class="col-sm-9">
                                   <select class="custom-select" name="extra_time">
-                                    
-                      
+                                    <option selected value="0">Selecciona una opción</option>
                                     @for ($i = 0; $i < 21; $i++)
                                     <option {{ old('extra_time') == $i ? 'selected' : '' }} value="{{ $i }}">{{ $i }}</option>
                                     @endfor

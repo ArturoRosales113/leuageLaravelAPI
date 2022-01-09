@@ -4,6 +4,7 @@
     @include('users.partials.header', [
     'title' => $team->name,
     'description' => $team->description,
+    'identifier' => 'ID: '.$team->id,
     'class' => 'col-lg-12',
     'portada' => $team->img_path
     ])   

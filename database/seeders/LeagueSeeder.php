@@ -6,6 +6,12 @@ namespace Database\Seeders;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Str;
+use Illuminate\Support\Facades\Hash;
+
+use App\Models\User;
+use App\Models\League;
+
+
 use Faker\Factory as Faker;
 
 class LeagueSeeder extends Seeder
@@ -22,92 +28,30 @@ class LeagueSeeder extends Seeder
     {
         $this->faker = Faker::create();
 
-        DB::table('leagues')->insert([
-            'user_id' => '2',
-            'name' => $this->faker->city(),
-            'sport_id' => $this->faker->randomElement($array = array(1,2,3,4)),
-            'icon_path' => 'img/icons/4QrumbKONxAsvP0R29z0BV5eSJz0pCDc2XEMrEBo.jpg',
-            'img_path' => 'img/images/ppNBz2x8YthGq7v1uKNjo3HRqPbcn7zTdtm73HAY.jpg',
-            'description' => $this->faker->text($maxNbChars = 200),
-            'reglamento_path' => 'pdf/Ay3JSKihdqeGNVtnO17hh92Di5BxG05EFnUWmL0F.pdf'
-        ]);
+        for ($i=1; $i < 31; $i++) { 
+            $user = User::create([
+                'name' => $this->faker->name($gender = null),
+                'email' => 'league'.$i.'@gmail.com',
+                'email_verified_at' => now(),
+                'password' => Hash::make('password'),
+                'created_at' => now(),
+                'updated_at' => now()
+            ]);
 
-        
-        DB::table('leagues')->insert([
-            'user_id' => '3',
-            'name' => $this->faker->city(),
-            'sport_id' => $this->faker->randomElement($array = array(1,2,3,4)),
-            'icon_path' => 'img/icons/4QrumbKONxAsvP0R29z0BV5eSJz0pCDc2XEMrEBo.jpg',
-            'img_path' => 'img/images/ppNBz2x8YthGq7v1uKNjo3HRqPbcn7zTdtm73HAY.jpg',
-            'description' => $this->faker->text($maxNbChars = 200),
-            'reglamento_path' => 'pdf/Ay3JSKihdqeGNVtnO17hh92Di5BxG05EFnUWmL0F.pdf'
-        ]);
-        DB::table('leagues')->insert([
-            'user_id' => '4',
-            'name' => $this->faker->city(),
-            'sport_id' => $this->faker->randomElement($array = array(1,2,3,4)),
-            'icon_path' => 'img/icons/4QrumbKONxAsvP0R29z0BV5eSJz0pCDc2XEMrEBo.jpg',
-            'img_path' => 'img/images/ppNBz2x8YthGq7v1uKNjo3HRqPbcn7zTdtm73HAY.jpg',
-            'description' => $this->faker->text($maxNbChars = 200),
-            'reglamento_path' => 'pdf/Ay3JSKihdqeGNVtnO17hh92Di5BxG05EFnUWmL0F.pdf'
-        ]);
-        DB::table('leagues')->insert([
-            'user_id' => '5',
-            'name' => $this->faker->city(),
-            'sport_id' => $this->faker->randomElement($array = array(1,2,3,4)),
-            'icon_path' => 'img/icons/4QrumbKONxAsvP0R29z0BV5eSJz0pCDc2XEMrEBo.jpg',
-            'img_path' => 'img/images/ppNBz2x8YthGq7v1uKNjo3HRqPbcn7zTdtm73HAY.jpg',
-            'description' => $this->faker->text($maxNbChars = 200),
-            'reglamento_path' => 'pdf/Ay3JSKihdqeGNVtnO17hh92Di5BxG05EFnUWmL0F.pdf'
-        ]);
-        DB::table('leagues')->insert([
-            'user_id' => '6',
-            'name' => $this->faker->city(),
-            'sport_id' => $this->faker->randomElement($array = array(1,2,3,4)),
-            'icon_path' => 'img/icons/4QrumbKONxAsvP0R29z0BV5eSJz0pCDc2XEMrEBo.jpg',
-            'img_path' => 'img/images/ppNBz2x8YthGq7v1uKNjo3HRqPbcn7zTdtm73HAY.jpg',
-            'description' => $this->faker->text($maxNbChars = 200),
-            'reglamento_path' => 'pdf/Ay3JSKihdqeGNVtnO17hh92Di5BxG05EFnUWmL0F.pdf'
-        ]);
-        DB::table('leagues')->insert([
-            'user_id' => '7',
-            'name' => $this->faker->city(),
-            'sport_id' => $this->faker->randomElement($array = array(1,2,3,4)),
-            'icon_path' => 'img/icons/4QrumbKONxAsvP0R29z0BV5eSJz0pCDc2XEMrEBo.jpg',
-            'img_path' => 'img/images/ppNBz2x8YthGq7v1uKNjo3HRqPbcn7zTdtm73HAY.jpg',
-            'description' => $this->faker->text($maxNbChars = 200),
-            'reglamento_path' => 'pdf/Ay3JSKihdqeGNVtnO17hh92Di5BxG05EFnUWmL0F.pdf'
-        ]);
-        DB::table('leagues')->insert([
-            'user_id' => '8',
-            'name' => $this->faker->city(),
-            'sport_id' => $this->faker->randomElement($array = array(1,2,3,4)),
-            'icon_path' => 'img/icons/4QrumbKONxAsvP0R29z0BV5eSJz0pCDc2XEMrEBo.jpg',
-            'img_path' => 'img/images/ppNBz2x8YthGq7v1uKNjo3HRqPbcn7zTdtm73HAY.jpg',
-            'description' => $this->faker->text($maxNbChars = 200),
-            'reglamento_path' => 'pdf/Ay3JSKihdqeGNVtnO17hh92Di5BxG05EFnUWmL0F.pdf'
-        ]);
-        DB::table('leagues')->insert([
-            'user_id' => '9',
-            'name' => $this->faker->city(),
-            'sport_id' => $this->faker->randomElement($array = array(1,2,3,4)),
-            'icon_path' => 'img/icons/4QrumbKONxAsvP0R29z0BV5eSJz0pCDc2XEMrEBo.jpg',
-            'img_path' => 'img/images/ppNBz2x8YthGq7v1uKNjo3HRqPbcn7zTdtm73HAY.jpg',
-            'description' => $this->faker->text($maxNbChars = 200),
-            'reglamento_path' => 'pdf/Ay3JSKihdqeGNVtnO17hh92Di5BxG05EFnUWmL0F.pdf'
-        ]);
-        DB::table('leagues')->insert([
-            'user_id' => '10',
-            'name' => $this->faker->city(),
-            'sport_id' => $this->faker->randomElement($array = array(1,2,3,4)),
-            'icon_path' => 'img/icons/4QrumbKONxAsvP0R29z0BV5eSJz0pCDc2XEMrEBo.jpg',
-            'img_path' => 'img/images/ppNBz2x8YthGq7v1uKNjo3HRqPbcn7zTdtm73HAY.jpg',
-            'description' => $this->faker->text($maxNbChars = 200),
-            'reglamento_path' => 'pdf/Ay3JSKihdqeGNVtnO17hh92Di5BxG05EFnUWmL0F.pdf'
-        ]);
+            $user->assignRole('league_administrator');
+
+            $league = League::create([
+                'user_id' => $user->id,
+                'name' => $this->faker->company().' '.$this->faker->companySuffix(),
+                'sport_id' => 1,
+                'icon_path' => 'seeders/league_icons/'.$this->faker->numberBetween($min=1,$max=6).'.png',
+                'img_path' =>  'seeders/league_portrait/'.$this->faker->numberBetween($min=1,$max=6).'.png',
+                'description' => $this->faker->text($maxNbChars = 200),
+                'reglamento_path' => 'pdf/Ay3JSKihdqeGNVtnO17hh92Di5BxG05EFnUWmL0F.pdf'
+            ]);
 
 
-
+        }
 
     }
 }

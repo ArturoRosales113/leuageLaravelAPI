@@ -109,6 +109,10 @@ class AppServiceProvider extends ServiceProvider
             $view->with('teams' , Team::all());
         });
 
+        view()->composer('dashboard.players.edit', function ($view) {
+            $view->with('teams' , Team::all());
+        });
+
         view()->composer('dashboard.referees.create', function ($view) {
             $view->with([
                 'refereeTypes' => RefereeType::all(),

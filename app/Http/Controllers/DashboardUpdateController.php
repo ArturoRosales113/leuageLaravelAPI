@@ -151,12 +151,12 @@ class DashboardUpdateController extends Controller
             'category_id' => 'required|not_in:0',
             'league_id' => 'required|not_in:0',
             'number_teams' => 'required|numeric', 
-            'gamedays' => 'required', 
-            'schedule' => 'required', 
+            'gameday' => 'required', 
             'number_periods' => 'required|numeric',
-            'period_lenght' => 'required|numeric', 
-            'time_offs' => 'required|numeric', 
-            'extra_time' => 'required|numeric', 
+            'extra_time_periods' => 'required|not_in:0'
+            'period_lenght' => 'required|not_in:0' 
+            'time_offs' => 'required|numeric|not_in:0', 
+            'extra_time' => 'required|numeric|not_in:0',
             'number_teams_playoffs' => 'required|numeric', 
             'icon_path' => 'max:3000|mimes:jpg,bmp,png',
             'img_path' => 'max:3000|mimes:jpg,bmp,png' 
@@ -180,6 +180,7 @@ class DashboardUpdateController extends Controller
                 $tournament->number_periods = $input['number_periods'];
                 $tournament->period_lenght = $input['period_lenght'];
                 $tournament->time_offs = $input['time_offs']; 
+                $tournament->extra_time_periods = $input['extra_time_periods'];
                 $tournament->extra_time = $input['extra_time'];
                 $tournament->gamedays = json_encode($input['gamedays']); 
                 $tournament->schedule = json_encode($input['schedule']); 

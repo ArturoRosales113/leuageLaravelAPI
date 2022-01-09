@@ -27,7 +27,7 @@ class Referee extends Model
         return $this->belongsTo(User::class);
     }
 
-    public function refereetype()
+    public function type()
     {
         return $this->belongsTo(RefereeType::class);
     }

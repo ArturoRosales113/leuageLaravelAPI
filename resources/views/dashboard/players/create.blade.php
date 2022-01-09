@@ -46,7 +46,9 @@
                             <div class="col-md-12">
                                 <select class="custom-select" name="team_id">
                                     <option value="null" selected>Selecciona una opción</option>
-                                        <option value="{{ $t->id }}">{{ $t->name }}</option>
+                                        <option value="Alero">Alero</option>
+                                        <option value="Poste">Poste</option>
+                                        <option value="Centro">Centro</option>
                                     </select>
                             </div>
                         </div>
