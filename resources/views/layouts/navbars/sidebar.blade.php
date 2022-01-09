@@ -289,6 +289,12 @@
                                         {{ __('Crear arbitro') }}
                                     </a>
                                 </li>
+
+                                <li class="nav-item">
+                                    <a class="nav-link" href="http://3.16.161.92/score/" target="new">
+                                        Calculadora
+                                    </a>
+                                </li>
                             </ul>
                         </div>
                     </li>
