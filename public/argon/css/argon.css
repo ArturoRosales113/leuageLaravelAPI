@@ -18713,3 +18713,16 @@ button.close:hover {
 .main-content {
     width: 100%;
 }
+
+.table-responsive p {
+    margin-bottom: 1px;
+}
+.center-v {
+    text-align: center;
+    display: flex;
+    align-content: center;
+    align-items: center;
+}
+.center-v div {
+    margin-right: 10px;
+}

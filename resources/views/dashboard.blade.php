@@ -14,7 +14,7 @@
             <div class="card-header border-0">
                 <div class="row align-items-center">
                     <div class="col">
-                        <h3 class="mb-0">Mis Ligas Playmaker</h3>
+                        <h3 class="mb-0">Mis Ligas Playmakeras</h3>
                     </div>
                     <div class="col text-right">
                         <a href="{{ route('fields.create') }}" class="btn btn-sm btn-default"><i class="fas fa-plus"></i>&nbsp;Crear campo</a>
@@ -33,7 +33,7 @@
                             <th scope="col" data="name">Deporte</th>
                             <th scope="col">Equipos</th>
                             <th scope="col">Status</th>
-                            <th scope="col">Favorito</th>
+                            <th scope="col">Posición</th>
                             <th scope="col">Acción</th>
                         </tr>
                     </thead>
@@ -57,7 +57,7 @@
                                 Activa
                             </td>
                             <td>
-                                <i class="fas fa-star"></i>
+                                1
                             </td>
                               <td>
                             <a href="" class="btn btn-icon btn-2 btn-primary">
@@ -74,142 +74,7 @@
             </div>
         </div>
 
-        <div class="row mt-5">
-            <div class="col-xl-4 mb-4">
-                <div class="card">
-                    <div class="card-header border-0">
-                        <div class="row align-items-center">
-                            <div class="col">
-                                <h3 class="mb-0">Mis ligas favoritas</h3>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="table-responsive">
-                        <!-- Projects table -->
-                        <table class="table align-items-center table-flush">
-                            <thead class="thead-light">
-                                <tr>
-                                    <th scope="col" data="icon_path">
-                                        &nbsp;
-                                    </th>
-                                    <th scope="col" data="league_name">Liga</th>
-                                    <th scope="col">Favorito</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <th scope="row">
-                                       
-                                    </th>
-                                    <td>
-                                        <a href="">Liga del Bajío</a>
-                                    </td>
-                                    <td>
-                                        <i class="fas fa-star"></i>
-                                    </td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                </div>
-            </div>
-
-            <div class="col-xl-4 mb-4">
-                <div class="card">
-                    <div class="card-header border-0">
-                        <div class="row align-items-center">
-                            <div class="col">
-                                <h3 class="mb-0">Mis equipos favoritos</h3>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="table-responsive">
-                        <!-- Projects table -->
-                        <table class="table align-items-center table-flush">
-                            <thead class="thead-light">
-                                <tr>
-                                    <th scope="col" data="icon_path">
-                                        &nbsp;
-                                    </th>
-                                    <th scope="col">Equipo</th>
-                                    <th scope="col">Posición</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <th scope="row">
-                                       
-                                    </th>
-                                    <td>
-                                        <a href="">Power Rangers</a>
-                                    </td>
-                                    <td>
-                                        Posición
-                                    </td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                </div>
-            </div>
-
-            <div class="col-xl-4 mb-4">
-                <div class="card">
-                    <div class="card-header border-0">
-                        <div class="row align-items-center">
-                            <div class="col">
-                                <h3 class="mb-0">Mis jugadores top</h3>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="table-responsive">
-                        <!-- Projects table -->
-                        <table class="table align-items-center table-flush">
-                            <thead class="thead-light">
-                                <tr>
-                                    <th scope="col" data="icon_path">
-                                        &nbsp;
-                                    </th>
-                                    <th scope="col">Nombre</th>
-                                    <th scope="col">Anotaciones</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <th scope="row">
-                                       
-                                    </th>
-                                    <td>
-                                        <a href="">Julio</a>
-                                    </td>
-                                    <td>
-                                        115
-                                    </td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                </div>
-            </div>
-
-            <div class="col-xl-4 mb-4">
-                <div class="card">
-                    <div class="card-header border-0">
-                        <div class="row align-items-center">
-                            <div class="col">
-                                <h3 class="mb-0">Mis jugadores top</h3>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="table-responsive">
-      
-
-
-                    </div>
-                </div>
-            </div>
-            
-        </div>
+        
         @endrole
         
         @role('back_office')
