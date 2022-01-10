@@ -177,7 +177,7 @@ class DashboardStoreController extends Controller
                 'period_lenght' => $input['period_lenght'], 
                 'time_offs' => $input['time_offs'], 
                 'extra_time' => $input['extra_time'],
-                'gameday' => $input['gamedays'],
+                'gameday' => $input['gameday'],
                  
             ]);
 
