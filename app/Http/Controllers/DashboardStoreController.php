@@ -177,8 +177,8 @@ class DashboardStoreController extends Controller
                 'period_lenght' => $input['period_lenght'], 
                 'time_offs' => $input['time_offs'], 
                 'extra_time' => $input['extra_time'],
-                'gamedays' => json_encode($input['gamedays']), 
-                'schedule' => json_encode($input['schedule']), 
+                'gameday' => $input['gamedays'],
+                 
             ]);
 
             if (array_key_exists('icon_path', $input) && $input['icon_path'] != null) {
