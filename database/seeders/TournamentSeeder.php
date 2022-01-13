@@ -2,7 +2,12 @@
 
 namespace Database\Seeders;
 
+use Illuminate\Support\Facades\DB;
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\Hash;
+
+use App\Models\Tournament;
+use App\Models\League;
 
 class TournamentSeeder extends Seeder
 {
@@ -13,6 +18,32 @@ class TournamentSeeder extends Seeder
      */
     public function run()
     {
-        //
+        $tournament = Tournament::create([
+            'category_id' => 1, 
+            'league_id' => 1,
+            'name' => 'Torneo prueba',
+            'number_teams' => 12,
+            'gameday' => 'Lunes',
+            'number_periods' => 4,
+            'period_lenght' => 10,
+            'time_offs' => 5,
+            'number_teams_playoffs' => 8,
+            'extra_time_periods' => 2,
+            'extra_time' => 5
+        ]);
+
+        $tournament = Tournament::create([
+            'category_id' => 3, 
+            'league_id' => 2,
+            'name' => 'Torneo prueba',
+            'number_teams' => 9,
+            'gameday' => 'Lunes',
+            'number_periods' => 4,
+            'period_lenght' => 10,
+            'time_offs' => 5,
+            'number_teams_playoffs' => 4,
+            'extra_time_periods' => 2,
+            'extra_time' => 5
+        ]);
     }
 }

@@ -17,6 +17,7 @@ class ScoringController extends Controller
     {
         $game = Game::with('referees')->findOrFail($id);
         $teams = $game->teams;
+        $tournament = $game->tournament;
         $sport = $game->tournament->league->sport;
         $game['teams'][0]['players'] = Player::with('user')->where('team_id','=', $teams[0]->id)->get();
         $game['teams'][1]['players'] = Player::with('user')->where('team_id','=', $teams[1]->id)->get();
@@ -27,6 +28,7 @@ class ScoringController extends Controller
 
         return response()->json([
             'game' => $game,
+            'tournament' => $tournament,
             'sport' => $sport
         ], 200);
     }

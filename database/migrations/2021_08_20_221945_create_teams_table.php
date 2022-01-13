@@ -210,14 +210,16 @@ class CreateTeamsTable extends Migration
             $table->unsignedBigInteger('tournament_id')->nullable();
             $table->foreign('tournament_id')->references('id')->on('tournaments')->onDelete('cascade');
 
-            $table->unsignedBigInteger('field_id');
+            $table->unsignedBigInteger('field_id')->nullable();
             $table->foreign('field_id')->references('id')->on('fields')->onDelete('cascade');
 
             $table->datetime('start_time')->nullable();
-            $table->integer('result')->nullable();
             $table->string('icon_path')->nullable();
             $table->string('img_path')->nullable();
 
+            $table->integer('ronda')->nullable();
+            $table->boolean('is_free')->nullable()->default(false);
+            $table->boolean('is_finished')->default(false);
             $table->timestamps();
             $table->softDeletes();
     
@@ -229,6 +231,7 @@ class CreateTeamsTable extends Migration
             $table->foreign('team_id')->references('id')->on('teams')->onDelete('cascade');
             $table->unsignedBigInteger('game_id');
             $table->foreign('game_id')->references('id')->on('games')->onDelete('cascade');
+            $table->string('score')->nullable();
             $table->timestamps();
         });
 
@@ -238,6 +241,7 @@ class CreateTeamsTable extends Migration
             $table->foreign('game_id')->references('id')->on('games')->onDelete('cascade');
             $table->unsignedBigInteger('referee_id');
             $table->foreign('referee_id')->references('id')->on('referees')->onDelete('cascade');
+            $table->string('position')->nullable();
             $table->timestamps();
         });
 
@@ -266,12 +270,17 @@ class CreateTeamsTable extends Migration
             $table->timestamps();
         });
 
-        Schema::create('team_tournamet', function (Blueprint $table) {
+        Schema::create('team_tournament', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('tournament_id');
             $table->foreign('tournament_id')->references('id')->on('tournaments')->onDelete('cascade');
             $table->unsignedBigInteger('team_id');
             $table->foreign('team_id')->references('id')->on('teams')->onDelete('cascade');
+            $table->integer('position')->nullable();
+            $table->integer('ganados')->nullable();
+            $table->integer('perdidos')->nullable();
+            $table->integer('empates')->nullable();
+            
             $table->timestamps();
         });
 
@@ -284,7 +293,7 @@ class CreateTeamsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('team_tournamet');
+        Schema::dropIfExists('team_tournament');
         Schema::dropIfExists('actions');
         Schema::dropIfExists('scores');
         Schema::dropIfExists('game_referee');

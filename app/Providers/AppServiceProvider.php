@@ -15,6 +15,7 @@ use App\Models\Referee;
 use App\Models\Game;
 use App\Models\Tournament;
 use App\Models\Category;
+use App\Models\Field;
 
 
 class AppServiceProvider extends ServiceProvider
@@ -95,6 +96,16 @@ class AppServiceProvider extends ServiceProvider
 
         view()->composer('dashboard.games.createForm', function ($view) {
             $view->with([
+                'referees' => Referee::all(),
+                'modalities' => Modalitie::all(),
+                'tournaments' => Tournament::all()
+            ]);
+        });
+
+        view()->composer('dashboard.games.edit', function ($view) {
+            $view->with([
+                'leagues' => League::all(),
+                'fields' => Field::all(),
                 'referees' => Referee::all(),
                 'modalities' => Modalitie::all(),
                 'tournaments' => Tournament::all()

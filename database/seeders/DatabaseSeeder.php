@@ -21,11 +21,13 @@ class DatabaseSeeder extends Seeder
         $this->call([MaterialSeeder::class]);
         $this->call([RefereeTypeSeeder::class]);
         $this->call([LeagueSeeder::class]);
+        $this->call([TournamentSeeder::class]);
         $this->call([LocationSeeder::class]);
         $this->call([FieldSeeder::class]);
         $this->call([RefereeSeeder::class]);
         $this->call([TeamSeeder::class]);
         $this->call([PlayerSeeder::class]);
+        
 
     }
 }

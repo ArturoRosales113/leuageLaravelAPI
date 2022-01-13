@@ -8,6 +8,8 @@ use App\Http\Controllers\DashboardShowController;
 use App\Http\Controllers\DashboardEditController;
 use App\Http\Controllers\DashboardUpdateController;
 use App\Http\Controllers\DashboardDeleteController;
+
+use App\Http\Controllers\TournamentSetUpController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -35,8 +37,9 @@ Route::group(['middleware' => 'auth'], function () {
 	Route::put('profile/password', ['as' => 'profile.password', 'uses' => 'App\Http\Controllers\ProfileController@password']);
 	Route::put('profile/images', ['as' => 'profile.images', 'uses' => 'App\Http\Controllers\ProfileController@images']);
 
-
-
+	Route::post('tournament/addTeam',[TournamentSetUpController::class, 'addTeam'] )->name('tournaments.addTeam');
+	Route::get('tournament/setGames/{id}',[TournamentSetUpController::class, 'setGames'] )->name('tournaments.setGames');
+ 
 // Index
 
 	Route::get('events',[DashboardIndexController::class, 'events'])->name('events.index');		

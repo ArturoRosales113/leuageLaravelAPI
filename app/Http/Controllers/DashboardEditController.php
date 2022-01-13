@@ -7,7 +7,7 @@ use Illuminate\Http\Request;
 //Models
 use App\Models\Event;
 use App\Models\Field;
-use App\Models\Games;
+use App\Models\Game;
 use App\Models\League;
 use App\Models\Location;
 use App\Models\Material;

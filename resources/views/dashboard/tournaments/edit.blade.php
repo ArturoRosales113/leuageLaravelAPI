@@ -121,28 +121,28 @@
                     <div class="form-group row">
                       <label for="n-teams" class="col-sm-3 col-form-label">Día de la semana en que se juega</label>
                           <div class="col-sm-9">
-                            <select class="custom-select" name="gamedays[]" multiple>
+                            <select class="custom-select" name="gameday">
                               <option value="0">Selecciona una opción</option>            
-                              <option value="1" {{ in_array(1, json_decode($tournament->gamedays)) ? 'selected' : '' }} >Lunes</option>            
-                              <option value="2" {{ in_array(2, json_decode($tournament->gamedays)) ? 'selected' : '' }} >Martes</option>            
-                              <option value="3" {{ in_array(3, json_decode($tournament->gamedays)) ? 'selected' : '' }}>Miércoles</option>            
-                              <option value="4" {{ in_array(4, json_decode($tournament->gamedays)) ? 'selected' : '' }}>Jueves</option>            
-                              <option value="5" {{ in_array(5, json_decode($tournament->gamedays)) ? 'selected' : '' }}>Viernes</option>            
-                              <option value="6" {{ in_array(6, json_decode($tournament->gamedays)) ? 'selected' : '' }}>Sábado</option>            
-                              <option value="7" {{ in_array(7, json_decode($tournament->gamedays)) ? 'selected' : '' }}>Domingo</option>                
+                              <option value="Lunes" {{ $tournament->gameday == 'Lunes' ? 'selected' : '' }} >Lunes</option>            
+                              <option value="Martes" {{ $tournament->gameday == 'Martes' ? 'selected' : '' }} >Martes</option>            
+                              <option value="Miércoles" {{ $tournament->gameday == 'Miércoles' ? 'selected' : '' }}>Miércoles</option>            
+                              <option value="Jueves" {{ $tournament->gameday == 'Jueves' ? 'selected' : '' }}>Jueves</option>            
+                              <option value="Viernes" {{ $tournament->gameday == 'Viernes' ? 'selected' : '' }}>Viernes</option>            
+                              <option value="Sábado" {{ $tournament->gameday == '' ? 'selected' : '' }}>Sábado</option>            
+                              <option value="Domingo" {{ $tournament->gameday == '' ? 'selected' : '' }}>Domingo</option>                
                             </select>
                           </div>
                     </div>
-
+{{-- 
                     <div class="form-group row">
                       <label for="n-teams" class="col-sm-3 col-form-label">Horario</label>
                           <div class="col-sm-9">
                             <input type="time" id="appt" name="schedule[]" value="{{ old('schedule[0]', json_decode($tournament->schedule)[0] )  }}">                                
                             <input type="time" id="appt" name="schedule[]"  value="{{ old('schedule[0]', json_decode($tournament->schedule)[1] )  }}">                                
                             <input type="time" id="appt" name="schedule[]"  value="{{ old('schedule[0]', json_decode($tournament->schedule)[2] )  }}">                                
-                            {{-- <small>Office hours are 9am to 6pm</small> --}}                                
+                            
                           </div>
-                    </div>
+                    </div> --}}
 
                     <hr class="bg-white">
                 
@@ -182,6 +182,21 @@
                   
                                 @for ($i = 1; $i < 21; $i++)
                                 <option {{ old('time_offs', $tournament->time_offs) == $i ? 'selected' : '' }} value="{{ $i }}">{{ $i }}</option>
+                                @endfor
+                  
+                              </select>
+                            </div>
+                      </div>
+                      <hr class="bg-white">
+
+                      <div class="form-group row">
+                        <label for="n-teams" class="col-sm-3 col-form-label">Tiempos extra por partido</label>
+                            <div class="col-sm-9">
+                              <select class="custom-select" name="extra_time_periods">
+                                <option selected value="0">Selecciona una opción</option>
+                  
+                                @for ($i = 1; $i < 6; $i++)
+                                <option {{ old('extra_time_periods', $tournament->extra_time_periods) == $i ? 'selected' : '' }} value="{{ $i }}">{{ $i }}</option>
                                 @endfor
                   
                               </select>

@@ -14,9 +14,11 @@ class Game extends Model
         'tournament_id',
         'field_id',
         'start_time',
-        'result',
         'icon_path',
-        'img_path'
+        'img_path',
+        'ronda',
+        'is_finished',
+        'is_free',
     ];
 
     public function modalitie()

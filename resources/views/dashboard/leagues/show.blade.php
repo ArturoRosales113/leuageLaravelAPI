@@ -51,7 +51,9 @@
                                     {{ $lt->id  }}
                                 </td>
                                 <td scope="row">    
+                                  <a href="{{ route('tournaments.show', $lt->id) }}">
                                     {{ $lt->name  }}
+                                  </a>
                                 </td>
                                 <td scope="row">    
                                     {{ $lt->category->display_name  }}
@@ -200,9 +202,9 @@
                             @foreach ($league->games as $lg)
                             <tr>
                                 <th>
-                                    <span class="avatar-rectangle">
+                                    {{-- <span class="avatar-rectangle">
                                         <img alt="Image placeholder" src="{{ $t->icon_path == null ? asset('argon/img/theme/team-4-800x800.jpg') :asset( $t->icon_path) }}">
-                                    </span>
+                                    </span> --}}
                                 </th>
                                 <td scope="row">    
                                     @foreach ($lg->teams as $lgt)
@@ -212,16 +214,16 @@
                                     {{ $loop->first ? ' vs ' : '' }}
                                     @endforeach
                                 </td>
-                                <td>
+                                {{-- <td>
                                    {{ $lg->field->location->name . '//' .  $lg->field->name }}
-                                </td>
+                                </td> --}}
                                 <td>
-                                    @foreach ($lg->referees as $lgr)
+                                    {{-- @foreach ($lg->referees as $lgr)
                                         {{ $lgr->user->name }}
-                                    @endforeach
+                                    @endforeach --}}
                                 </td>
                                 <td>
-                                    {{ Carbon::parse($lg->start_time)->diffForHumans(); }}
+                                    {{-- {{ Carbon::parse($lg->start_time)->diffForHumans(); }} --}}
                                 </td>
                                 <td>
                                     {{-- <a href="{{ route('teams.edit', $lgt->id) }}" class="btn btn-icon btn-2 btn-primary">

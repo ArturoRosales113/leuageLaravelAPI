@@ -24,8 +24,10 @@ class PermissionSeeder extends Seeder
         //Super admin
         $user = User::findOrFail(3);
         $user2 = User::findOrFail(4);
+        $user3 = User::findOrFail(5);
         $user->assignRole('super-admin');
         $user2->assignRole('super-admin');
+        $user3->assignRole('super-admin');
 
 
     }

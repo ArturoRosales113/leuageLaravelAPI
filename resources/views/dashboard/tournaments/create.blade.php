@@ -110,7 +110,7 @@
                                 <select class="custom-select" name="number_teams_playoffs">
                                   <option selected value="0">Selecciona una opción</option>
                     
-                                  @for ($i = 1; $i < 21; $i++)
+                                  @for ($i = 4; $i < 21; $i= $i+4)
                                   <option {{ old('number_teams_playoffs') == $i ? 'selected' : '' }} value="{{ $i }}">{{ $i }}</option>
                                   @endfor
                     
@@ -125,13 +125,13 @@
                               <div class="col-sm-9">
                                 <select class="custom-select" name="gameday">
                                   <option selected value="0">Selecciona una opción</option>            
-                                  <option value="1">Lunes</option>            
-                                  <option value="2">Martes</option>            
-                                  <option value="3">Miércoles</option>            
-                                  <option value="4">Jueves</option>            
-                                  <option value="5">Viernes</option>            
-                                  <option value="6">Sábado</option>            
-                                  <option value="7">Domingo</option>                
+                                  <option value="Lunes">Lunes</option>            
+                                  <option value="Martes">Martes</option>            
+                                  <option value="Miércoles">Miércoles</option>            
+                                  <option value="Jueves">Jueves</option>            
+                                  <option value="Viernes">Viernes</option>            
+                                  <option value="Sábado">Sábado</option>            
+                                  <option value="Domingo">Domingo</option>                
                                 </select>
                               </div>
                         </div>
@@ -168,7 +168,7 @@
                                   <select class="custom-select" name="period_lenght">
                                     <option selected value="0">Selecciona una opción</option>
                       
-                                    @for ($i = 1; $i < 6; $i++)
+                                    @for ($i = 1; $i < 31; $i++)
                                     <option {{ old('period_lenght') == $i ? 'selected' : '' }} value="{{ $i }}">{{ $i }}</option>
                                     @endfor
                       

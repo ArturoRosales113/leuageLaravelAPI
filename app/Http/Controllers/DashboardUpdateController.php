@@ -153,8 +153,8 @@ class DashboardUpdateController extends Controller
             'number_teams' => 'required|numeric', 
             'gameday' => 'required', 
             'number_periods' => 'required|numeric',
-            'extra_time_periods' => 'required|not_in:0'
-            'period_lenght' => 'required|not_in:0' 
+            'extra_time_periods' => 'required|not_in:0',
+            'period_lenght' => 'required|not_in:0', 
             'time_offs' => 'required|numeric|not_in:0', 
             'extra_time' => 'required|numeric|not_in:0',
             'number_teams_playoffs' => 'required|numeric', 
@@ -182,8 +182,8 @@ class DashboardUpdateController extends Controller
                 $tournament->time_offs = $input['time_offs']; 
                 $tournament->extra_time_periods = $input['extra_time_periods'];
                 $tournament->extra_time = $input['extra_time'];
-                $tournament->gamedays = json_encode($input['gamedays']); 
-                $tournament->schedule = json_encode($input['schedule']); 
+                $tournament->gameday = $input['gameday']; 
+                
                 
 
                 if (array_key_exists('icon_path', $input) && $input['icon_path'] != null) {
@@ -200,7 +200,7 @@ class DashboardUpdateController extends Controller
                 }
 
                 $tournament->save();
-                Alert::success('Éxito', 'Torneo creado');
+                Alert::success('Éxito', 'Torneo editado');
                 return redirect()->route('leagues.show', $request->league_id);
             }
         }

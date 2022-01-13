@@ -25,7 +25,7 @@ class Tournament extends Model
         'description',
         'reglamento_path',
         'extra_time_periods',
-        'is_active'
+        'is_active',
     ];
 
     public function category()
@@ -36,6 +36,16 @@ class Tournament extends Model
     public function league()
     {
         return $this->belongsTo(League::class);
+    }
+
+    public function games()
+    {
+        return $this->hasMany(Game::class);
+    }
+
+    public function teams()
+    {
+        return $this->belongsToMany(Team::class,'team_tournament');
     }
 
 }

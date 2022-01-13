@@ -21,6 +21,7 @@ use App\Models\Role;
 use App\Models\Score;
 use App\Models\Sport;
 use App\Models\Team;
+use App\Models\Tournament;
 use App\Models\User;
 
 use App\Http\Traits\ImageManagerTrait;
