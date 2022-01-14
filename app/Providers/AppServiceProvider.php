@@ -4,6 +4,9 @@ namespace App\Providers;
 
 use Illuminate\Support\ServiceProvider;
 use Illuminate\Support\Facades\Schema;
+
+use Carbon\Carbon;
+
 use App\Models\Sport;
 use App\Models\League;
 use App\Models\Location;
@@ -38,6 +41,8 @@ class AppServiceProvider extends ServiceProvider
     public function boot()
     {
         Schema::defaultStringLength(191);
+        Carbon::setLocale('es');
+        setlocale(LC_TIME,'es_MX');
 
         view()->composer('dashboard.leagues.create', function ($view) {
             $view->with('sports' , Sport::all());

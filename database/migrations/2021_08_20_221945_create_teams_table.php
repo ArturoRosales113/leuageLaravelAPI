@@ -247,7 +247,6 @@ class CreateTeamsTable extends Migration
 
         Schema::create('scores', function (Blueprint $table) {
             $table->id();
-            $table->string('name');
             $table->unsignedBigInteger('game_id');
             $table->foreign('game_id')->references('id')->on('games')->onDelete('cascade');
             $table->unsignedBigInteger('player_id');

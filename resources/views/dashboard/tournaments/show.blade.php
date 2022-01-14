@@ -2,6 +2,7 @@
 
 @section('content')
 
+
     @include('users.partials.leagues')
 
 <div class="container-fluid">
@@ -131,14 +132,30 @@
                                                 </a>
                                             </div>
                                     </div>
+                                    <div class="row justify-content-center py-3">                                        
+                                            @if ($tgs->field_id != null)
+                                            <div class="col-10">
+                                                <h5>Estadio</h5>
+                                                <p>{{ $tgs->field->location->name }} cancha {{ $tgs->field->name }}</p>
+                                            </div>
+                                            @endif
+                                     
+                                            @if ($tgs->referees()->exists())
+                                            <div class="col-5">
+                                                <h5>Arbitro</h5>
+                                                @foreach ($tgs->referees as $gmRf)
+                                                <p>{{ $gmRf->user->name }}</p>
+                                                @endforeach
+                                            </div>
+                                            @endif
+                                            @if ($tgs->start_time != null)
+                                            <div class="col-5">
+                                                <h5>Horario</h5>                                            
+                                                <p>{{ Carbon::parse($tgs->start_time)->toDateTimeString(); }}</p>
+                                            </div>
+                                            @endif
+                                    </div>
                                     @endforeach
-{{--                                     
-                                    @foreach ($tg->teams as $lgt)
-                                    <a href="{{ route('teams.show', $lgt->id) }}" class="text-default text-underline">
-                                        <small>{{ $lgt->name }}</small>
-                                    </a>
-                                    {{ $loop->first ? ' vs ' : '' }}
-                                    @endforeach --}}
                                 </div>
                             </div>
                         </div>

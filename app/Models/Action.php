@@ -10,26 +10,21 @@ class Action extends Model
     use HasFactory;
 
     protected $fillable = [
-        'event_id',
+        'name',
         'game_id',
         'player_id',
-        'eventTime'
+        'time',
+        'period'
     ];
-
-
-    public function event()
-    {
-        return $this->belongsTo('App\Models\Event');
-    }
 
     public function game()
     {
-        return $this->belongsTo('App\Models\Game');
+        return $this->belongsTo(Gamme::class);
     }
 
     public function player()
     {
-        return $this->belongsTo('App\Models\Player');
+        return $this->belongsTo(Player::class);
     }
 }
 

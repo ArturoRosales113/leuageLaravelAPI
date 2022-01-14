@@ -44,8 +44,9 @@
                         </div>
                         <div class="row justify-content-center">
                             <div class="col-10">
-                                <form method="POST" enctype="multipart/form-data" action="{{ route('games.store') }}" class="pl-3 pr-3">
+                                <form method="POST" enctype="multipart/form-data" action="{{ route('games.update', $game->id) }}" class="pl-3 pr-3">
                                     @csrf
+                                    {{ method_field('PUT') }}
                                     <input type="hidden" name="tournament_id" value="{{ $game->tournament_id }}">
                                     <input type="hidden" name="modality_id" value="{{ $game->modality_id }}">
                                     
@@ -61,7 +62,7 @@
                                                     @foreach ($game->tournament->league->locations as $loc)
                                                     <optgroup label="{{ $loc->name }}">
                                                         @foreach ($loc->fields as $fld)
-                                                            <option  {{ old('field_id') == $fld->id ? 'selected' : '' }} value="{{ $fld->id }}">{{ $fld->name }}</option>t
+                                                            <option  {{ old('field_id') == $fld->id || $game->field_id == $fld->id ? 'selected' : '' }} value="{{ $fld->id }}">{{ $fld->name }}</option>t
                                                         @endforeach
                                                     </optgroup>
                                                     @endforeach
@@ -74,22 +75,11 @@
                                             <select class="custom-select" name="referee_id">
                                             <option selected>Selecciona una opción</option>
                                             @foreach ($game->tournament->league->referees as $rfs)
-                                                <option  {{ old('referee_id') == $rfs->id ? 'selected' : '' }} value="{{ $rfs->id }}">{{ $rfs->user->name }}</option>t
+                                                <option  {{ old('referee_id') == $rfs->id || $game->referees->contains($rfs->id) ? 'selected' : '' }} value="{{ $rfs->id }}">{{ $rfs->user->name }}</option>t
                                             @endforeach
                                             </select>
                                         </div>
                                     </div>
-                                    {{-- <div class=" row">
-                                        <label for="teams[]" class="col-md-12 col-form-label">Selecciona dos equipos</label>
-                                        <div class="col-md-12">
-                                            <select class="custom-select" multiple="multiple" name="teams[]">
-                                            <option selected>Selecciona una opción</option>
-                                            @foreach ($league->teams as $lgtm)
-                                                <option   value="{{ $lgtm->id }}">{{ $lgtm->name }}</option>t
-                                            @endforeach
-                                            </select>
-                                        </div>
-                                    </div> --}}
                                     <div class=" row">
                                         <label for="start_time" class="col-md-10 col-form-label">Selecciona un horario </label>
                                         <div class="col-md-10">
@@ -98,31 +88,7 @@
                                             min="{{ Carbon::today()->toDateTimeLocalString() }}" max="{{ Carbon::today()->addYear()->addDay()->toDateTimeLocalString() }}">
                                         </div>
                                     </div>
-                                    {{-- <div class=" row">
-                                        <label for="referee_id" class="col-md-12 col-form-label">Asignar arbitros</label>
-                                        <div class="col-md-12">
-                                            <input class="form-check-input" type="checkbox" name="referee_id[]" value="" id="defaultCheck1">
-                                            <label class="form-check-label" for="defaultCheck1">
-                                                Default checkbox
-                                            </label>
-                                            <input class="form-check-input" type="checkbox" name="referee_id[]" value="" id="defaultCheck1">
-                                            <label class="form-check-label" for="defaultCheck1">
-                                                Default checkbox
-                                            </label>
-                                            <input class="form-check-input" type="checkbox" name="referee_id[]" value="" id="defaultCheck1">
-                                            <label class="form-check-label" for="defaultCheck1">
-                                                Default checkbox
-                                            </label>
-                                            <input class="form-check-input" type="checkbox" name="referee_id[]" value="" id="defaultCheck1">
-                                            <label class="form-check-label" for="defaultCheck1">
-                                                Default checkbox
-                                            </label>
-                                            <input class="form-check-input" type="checkbox" name="referee_id[]" value="" id="defaultCheck1">
-                                            <label class="form-check-label" for="defaultCheck1">
-                                                Default checkbox
-                                            </label>
-                                        </div>
-                                    </div> --}}
+
                                 
                                 <br>
                                 

@@ -165,7 +165,7 @@ Route::group(['middleware' => 'auth'], function () {
 	Route::put('sports/update/{id}',[DashboardUpdateController::class, 'sports'])->name('sports.update'); 
 	Route::put('teams/update/{id}',[DashboardUpdateController::class, 'teams'])->name('teams.update');
 	Route::put('tournaments/update/{id}',[DashboardUpdateController::class, 'tournaments'])->name('tournaments.update');
-	Route::put('users/update /{id}',[DashboardUpdateController::class, 'users'])->name('users.update'); //
+	Route::put('users/update/{id}',[DashboardUpdateController::class, 'users'])->name('users.update'); //
 
 	// Borrar
 	Route::delete('actions/{id}',[DashboardDeleteController::class, 'actions'])->name('actions.delete');

@@ -43,10 +43,13 @@ Route::resources([
 ]);
 
 // Route::post('/login', [ApiLoginController::class, 'login']);
+Route::get('gameSetup/{id}',[ScoringController::class, 'gameSetup'])->name('game.gameSetup');
+Route::group(['middleware' => ['cors']], function () {
 
-
-Route::get('gameSetup/{id}',[ScoringController::class, 'gameSetup'])->name('gameSetup');
-
+    Route::post('gameSetup/addScore', [ScoringController::class, 'addScore'])->name('game.addScore');
+    Route::post('gameSetup/addAction', [ScoringController::class, 'addAction'])->name('game.addAction');
+    Route::post('gameSetup/finishGame', [ScoringController::class, 'finishGame'])->name('game.finishGame');
+});
 Route::middleware('auth:sanctum')->get('/userStatus', function (Request $request) {
     return $request->user();
 });

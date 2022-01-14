@@ -15,6 +15,7 @@ use App\Models\Material;
 use App\Models\Modalitie;
 use App\Models\League;
 use App\Models\Location;
+use App\Models\Game;
 use App\Models\Sport;
 use App\Models\Player;
 use App\Models\Referee;
@@ -675,5 +676,34 @@ class DashboardUpdateController extends Controller
               return redirect()->route('referees.index');
           }
       }
+
+      public function games(Request $request, $id)
+      {
+        $input = $request->all();
+        //dd($input);
+        $rules = [
+            'field_id' => 'required|not_in:0',
+            'start_time' => 'required',
+            'referee_id' => 'required|not_in:0',
+        ];
+ 
+        $validator = Validator::make($input, $rules);
+        if ($validator->fails()) {
+            //dd($validator);
+            return redirect()->back()
+           ->withErrors($validator)
+           ->withInput();
+        } else {
+          //dd($request->all());
+          $input = $request->all();
+          $game = Game::find($id);
+          $game->field_id = $input['field_id'];
+          $game->start_time = $input['start_time'];
+          $game->referees()->attach($input['referee_id']);
+          $game->save();
+          Alert::success('Éxito', 'Juego programado');
+          return redirect()->route('tournaments.show', $game->tournament_id);
+      } 
+    }
   
 }

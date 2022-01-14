@@ -13,7 +13,8 @@ class Score extends Model
     'game_id',
     'player_id',
     'value',
-    'eventTime'
+    'time',
+    'period'
     ];
 
     public function game()
