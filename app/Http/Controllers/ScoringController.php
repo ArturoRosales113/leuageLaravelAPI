@@ -8,6 +8,7 @@ use App\Models\Game;
 use App\Models\Score;
 use App\Models\Player;
 use App\Models\Sport;
+use App\Models\Tournament;
 use App\Models\Event;
 use App\Models\User;
 
@@ -67,9 +68,45 @@ class ScoringController extends Controller
 
     public function finishGame(Request $request)
     {   
+        $game = Game::with('teams')->find($request->game_id);        
+        $tournament = Tournament::with('teams')->find($request->tournament_id);
+
+        $game->is_finished = true;        
+
+        $game->teams()->updateExistingPivot($request->team1_id,array('score' => $request->team1_score), true);
+        $game->teams()->updateExistingPivot($request->team2_id,array('score' => $request->team2_score), true);
+
+        // //team1 
+        $setTeam1 = [];
+        $setTeam1['jugados']   =   $tournament->teams->find($request->team1_id)->pivot->jugados + 1;
+        $setTeam1['puntos_favor']     =   $tournament->teams->find($request->team1_id)->pivot->puntos_favor + $request->team1_score;
+        $setTeam1['puntos_contra']    =   $tournament->teams->find($request->team1_id)->pivot->puntos_contra + $request->team2_score;
+
+        // //team2
+        $setTeam2 = [];
+        $setTeam2['jugados']   =   $tournament->teams->find($request->team2_id)->pivot->jugados + 1;
+        $setTeam2['puntos_favor']     =   $tournament->teams->find($request->team2_id)->pivot->puntos_favor + $request->team2_score;
+        $setTeam2['puntos_contra']    =   $tournament->teams->find($request->team2_id)->pivot->puntos_contra + $request->team1_score;
+
+        if($request->team1_score > $request->team2_score){
+            $setTeam1['ganados']   =   $tournament->teams->find($request->team1_id)->pivot->ganados + 1;
+            $setTeam2['perdidos']  =   $tournament->teams->find($request->team2_id)->pivot->perdidos + 1;
+         }else{
+            $setTeam2['ganados']   =   $tournament->teams->find($request->team2_id)->pivot->ganados + 1;
+            $setTeam1['perdidos']  =   $tournament->teams->find($request->team1_id)->pivot->perdidos + 1;
+        }
         
+        //update de tablas de posicion
+        $tournament->teams()->updateExistingPivot($request->team1_id,$setTeam1, true);
+        $tournament->teams()->updateExistingPivot($request->team2_id,$setTeam2, true);
+
+        $tournamentUpdate = Tournament::with('teams')->find($request->tournament_id);
+        
+
+
         return response()->json([
-            'action' => $action,
+            'game' => $game,
+            'tournament' => $tournamentUpdate
         ], 200);
         
     }

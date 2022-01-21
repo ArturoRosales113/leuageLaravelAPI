@@ -276,10 +276,12 @@ class CreateTeamsTable extends Migration
             $table->unsignedBigInteger('team_id');
             $table->foreign('team_id')->references('id')->on('teams')->onDelete('cascade');
             $table->integer('position')->nullable();
-            $table->integer('ganados')->nullable();
-            $table->integer('perdidos')->nullable();
-            $table->integer('empates')->nullable();
-            
+            $table->integer('jugados')->default(0);
+            $table->integer('ganados')->default(0);
+            $table->integer('perdidos')->default(0);
+            $table->integer('empates')->default(0);            
+            $table->integer('puntos_favor')->default(0);            
+            $table->integer('puntos_contra')->default(0);            
             $table->timestamps();
         });
 

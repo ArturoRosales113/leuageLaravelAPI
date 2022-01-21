@@ -28,7 +28,7 @@ class Game extends Model
 
     public function teams()
     {
-        return $this->belongsToMany(Team::class,'team_game');
+        return $this->belongsToMany(Team::class,'team_game')->withPivot(['score']);
     }
 
     public function referees()
@@ -48,8 +48,10 @@ class Game extends Model
 
     public function scores()
     {
-        return $this->hasMay(Score::class);
+        return $this->hasMany(Score::class);
     }
+
+
 }
 
 

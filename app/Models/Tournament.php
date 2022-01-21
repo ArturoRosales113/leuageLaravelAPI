@@ -45,12 +45,20 @@ class Tournament extends Model
 
     public function teams()
     {
-        return $this->belongsToMany(Team::class,'team_tournament')->withPivot(['position','ganados','perdidos','empates']);
+        return $this->belongsToMany(Team::class,'team_tournament')
+                    ->withPivot(['position','jugados','ganados','perdidos','empates', 'puntos_favor', 'puntos_contra']);
     }
 
     public function positions()
     {
-        return $this->belongsToMany(Team::class,'team_tournament')->withPivot('position')->orderBy('team_tournament.position');;
+        return $this->belongsToMany(Team::class,'team_tournament')->withPivot('ganados')->orderBy('team_tournament.ganados');
+    }
+
+    public function addWin($teamId,$tournamentId)
+    {
+        return $this->teams()->newPivotQuery()->where('tournament_id',$tournamentId)
+        ->where('team_id',$teamId)->increment('ganados');
+        
     }
 
 }

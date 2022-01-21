@@ -39,6 +39,8 @@ Route::group(['middleware' => 'auth'], function () {
 
 	Route::post('tournament/addTeam',[TournamentSetUpController::class, 'addTeam'] )->name('tournaments.addTeam');
 	Route::get('tournament/setGames/{id}',[TournamentSetUpController::class, 'setGames'] )->name('tournaments.setGames');
+	Route::get('tournament/table/{id}',[TournamentSetUpController::class, 'setGames'] )->name('tournaments.setGames');
+	Route::get('tournament/',[TournamentSetUpController::class, 'setGames'] )->name('tournaments.setGames');
  
 // Index
 
