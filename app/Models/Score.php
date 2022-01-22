@@ -27,6 +27,20 @@ class Score extends Model
         return $this->belongsTo(Player::class);
     }
 
+    public function scopeSencillos($query)
+    {
+        return $query->where('value', '=', 1);
+    }
+
+    public function scopeDobles($query)
+    {
+        return $query->where('value', '=', 2);
+    }
+
+    public function scopeTriples($query)
+    {
+        return $query->where('value', '=', 3);
+    }
 
 
 

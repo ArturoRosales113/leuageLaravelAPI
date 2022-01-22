@@ -81,7 +81,7 @@
                                 Puntos
                             </th>
                             <td class="right">
-                                50
+                                {{ $player->scores->sum('value') }}
                             </td>
                         </tr>
                         <tr>
@@ -89,7 +89,7 @@
                                 Asistencias
                             </th>
                             <td class="right">
-                                55
+                                {{ $player->actions()->asistencias()->count() }}
                             </td>
                         </tr>
                         <tr>
@@ -97,7 +97,7 @@
                                 Rebotes
                             </th>
                             <td class="right">
-                                23
+                                {{ $player->actions()->rebotes()->count() }}                                
                             </td>
                         </tr>
                         <tr>
@@ -105,7 +105,7 @@
                                 Robos
                             </th>
                             <td class="right">
-                                55
+                                {{ $player->actions()->robos()->count() }}
                             </td>
                         </tr>
                     </tbody>
@@ -142,7 +142,7 @@
                                 Total de puntos logrados
                             </th>
                             <td class="right">
-                                50
+                                {{ $player->scores->sum('value') }}
                             </td>
                         </tr>
                         <tr>
@@ -150,23 +150,83 @@
                                 Triples dobles
                             </th>
                             <td class="right">
-                                55
+                                {{ $player->scores()->triples()->count() }}
                             </td>
                         </tr>
                         <tr>
                             <th scope="row">
-                                Asistencias
+                                Dobles
                             </th>
                             <td class="right">
-                                23
+                                {{ $player->scores()->dobles()->count() }}
                             </td>
                         </tr>
                         <tr>
                             <th scope="row">
-                                Faltas
+                                Sencillo
                             </th>
                             <td class="right">
-                                5
+                                {{ $player->scores()->sencillos()->count() }}
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+
+
+            <div class="card shadow">
+                <div class="card-header border-0">
+                    <div class="row align-items-center">
+                        <div class="col-12">
+                            <h3 class="yellow">Información faltas</h3>
+                        </div>
+                    </div>
+                </div>
+                <!-- Projects table -->
+                <table class="table align-items-center estadisticas">
+                    <!--
+                        <thead class="thead-light">
+                        <tr>
+                            <th scope="col" data="icon_path">
+                                &nbsp;
+                            </th>
+                            <th scope="col">Nombre</th>
+                            <th scope="col">Anotaciones</th>
+                        </tr>
+                    </thead>
+                    -->
+                    <tbody>
+                        <tr>
+                            <th scope="row">
+                                Total faltas
+                            </th>
+                            <td class="right">
+                                {{ $player->actions()->faltas()->count() }}
+                            </td>
+                        </tr>
+                        <tr>
+                            <th scope="row">
+                                Normales
+                            </th>
+                            <td class="right">
+                                {{ $player->actions()->fnormales()->count() }}
+                            </td>
+                        </tr>
+                        <tr>
+                            <th scope="row">
+                                Técnicas
+                            </th>
+                            <td class="right">
+                                {{ $player->actions()->ftecnicas()->count() }}
+                            </td>
+                        </tr>
+                        <tr>
+                            <th scope="row">
+                                Antideportivas
+                            </th>
+                            <td class="right">
+                                {{ $player->actions()->fadeportivas()->count() }}
                             </td>
                         </tr>
                     </tbody>

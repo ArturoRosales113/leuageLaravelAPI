@@ -26,6 +26,42 @@ class Action extends Model
     {
         return $this->belongsTo(Player::class);
     }
+    
+    
+    public function scopeAsistencias($query)
+    {
+        return $query->where('name', '=', 'Asistencia');
+    }
+    
+    public function scopeRebotes($query)
+    {
+        return $query->where('name', '=', 'Rebote');
+    }
+    
+    public function scopeRobos($query)
+    {
+        return $query->where('name', '=', 'Robo');
+    }
+    
+    public function scopeFaltas($query)
+    {
+        return $query->where('name', 'LIKE', '%Falta%');
+    }
+    
+    public function scopeFnormales($query)
+    {
+        return $query->where('name', '=', 'Falta Normal');
+    }
+    
+    public function scopeFtecnicas($query)
+    {
+        return $query->where('name', '=', 'Falta Técnica');
+    }
+    
+    public function scopeFadeportivas($query)
+    {
+        return $query->where('name', '=', 'Falta Antideportiva');
+    }
 }
 
 

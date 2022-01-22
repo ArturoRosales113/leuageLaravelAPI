@@ -33,6 +33,15 @@ class Player extends Model
     {
         return $this->belongsTo('App\Models\Team');
     }
+
+    public function scores()
+    {
+        return $this->hasMany(Score::class);
+    }
+    public function actions()
+    {
+        return $this->hasMany(Action::class);
+    }
 }
 
 
