@@ -86,9 +86,24 @@ class TournamentSetUpController extends Controller
 
         Alert::success('Éxito', 'El rol de juegos ha sido creado.');
         return redirect()->route('tournaments.show', $tournament->id);
-
-
-
-
     }
+
+    public function getTable($id)
+    {
+        $tournament = Tournament::with('positions')->find($id);
+        return view('dashboard.tournaments.table', ['tournament' => $tournament]);
+    }
+
+    public function getEstadisticas($id)
+    {
+        $tournament = Tournament::with(['actions','scores'])->find($id);
+        return view('dashboard.tournaments.estadisticas', ['tournament' => $tournament]);
+    }
+
+    public function getOportunidades($id)
+    {
+        $tournament = Tournament::with('positions')->find($id);
+        return view('dashboard.tournaments.oportunidades', ['tournament' => $tournament]);
+    }
+
 }

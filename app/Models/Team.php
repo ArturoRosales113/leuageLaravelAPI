@@ -35,7 +35,7 @@ class Team extends Model
 
     public function tournament()
     {
-        return $this->belongsToMany(Tournament::class,'team_tournament');
+        return $this->belongsToMany(Tournament::class,'team_tournament')->withPivot(['position','jugados','ganados','perdidos','empates', 'puntos_favor', 'puntos_contra']);
     }
 }
 

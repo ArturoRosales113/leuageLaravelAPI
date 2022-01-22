@@ -37,10 +37,11 @@ Route::group(['middleware' => 'auth'], function () {
 	Route::put('profile/password', ['as' => 'profile.password', 'uses' => 'App\Http\Controllers\ProfileController@password']);
 	Route::put('profile/images', ['as' => 'profile.images', 'uses' => 'App\Http\Controllers\ProfileController@images']);
 
-	Route::post('tournament/addTeam',[TournamentSetUpController::class, 'addTeam'] )->name('tournaments.addTeam');
-	Route::get('tournament/setGames/{id}',[TournamentSetUpController::class, 'setGames'] )->name('tournaments.setGames');
-	Route::get('tournament/table/{id}',[TournamentSetUpController::class, 'setGames'] )->name('tournaments.setGames');
-	Route::get('tournament/',[TournamentSetUpController::class, 'setGames'] )->name('tournaments.setGames');
+	Route::post('tournaments/addTeam',[TournamentSetUpController::class, 'addTeam'] )->name('tournaments.addTeam');
+	Route::get('tournaments/setGames/{id}',[TournamentSetUpController::class, 'setGames'] )->name('tournaments.setGames');
+	Route::get('tournaments/tabla/{id}',[TournamentSetUpController::class, 'getTable'] )->name('tournaments.getTable');
+	Route::get('tournaments/estadisticas/{id}',[TournamentSetUpController::class, 'getEstadisticas'] )->name('tournaments.getEstadisticas');
+	Route::get('tournaments/oportunidades/{id}',[TournamentSetUpController::class, 'getOportunidades'] )->name('tournaments.getOportunidades');
  
 // Index
 

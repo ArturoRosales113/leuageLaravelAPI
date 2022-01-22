@@ -86,7 +86,14 @@
         </div>
 
         @else
-        <div class="card shadow mt-8">
+        <div class="row mt-8 py-3">
+            <div class="col">
+            <a class="btn btn-primary" href="{{ route('tournaments.getTable', $tournament->id) }}">Tabla de posiciones</a>
+            <a class="btn btn-primary" href="{{ route('tournaments.getEstadisticas', $tournament->id) }}">Estadisticas</a>
+            <a class="btn btn-primary" href="{{ route('tournaments.getOportunidades', $tournament->id) }}">Oportunidades</a>
+            </div>
+        </div>
+        <div class="card shadow">
             <div class="card-header border-0">
                 <div class="row align-items-center">
                     <div class="col">
