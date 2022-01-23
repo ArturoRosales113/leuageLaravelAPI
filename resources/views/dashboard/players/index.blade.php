@@ -6,8 +6,8 @@
 
     <div class="container-fluid">
     @include('layouts.headers.userhead')
-        
-        <div class="card shadow mt-8">
+
+        <div class="card shadow mt-5">
             <div class="card-header border-0">
                 <div class="row align-items-center">
                     <div class="col">
@@ -30,9 +30,11 @@
                             <th scope="col">Apodo</th>
                             <th scope="col" data="numero">No. de Dorso</th>
                             <th scope="col">Posición</th>
+                            <!--
                             <th scope="col" data="edad">Edad</th>
                             <th scope="col" data="peso">Peso</th>
                             <th scope="col" data="estatura">Estatura</th>
+                            -->
                             <th scope="col">Equipo</th>
                             <th scope="col">Acción</th>
                         </tr>
@@ -60,15 +62,17 @@
                                 <td>
                                     {{ $pl->posicion }}
                                 </td>
+                                <!--
                                 <td>
                                     {{ $pl->edad }}
                                 </td>
+                                
                                 <td>
                                     {{ $pl->peso . ' kg' }}
                                 </td>
                                 <td>
                                     {{ $pl->estatura . ' cm'}}
-                                </td>
+                                </td>-->
                                 <td>
                                     <a href="{{ route('teams.show', $pl->team->id) }}">
                                         {{ $pl->team->name }}

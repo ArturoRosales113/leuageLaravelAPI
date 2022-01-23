@@ -23,7 +23,7 @@
         
     </head>
 
-    <body class="{{ $class ?? '' }} scrollbar-light-blue body-playmaker">
+    <body class="{{ $class ?? '' }} scrollbar-light-blue body-playmaker panel-principal">
         @auth()
             <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
                 @csrf
@@ -31,7 +31,7 @@
             @include('layouts.navbars.sidebar')
         @endauth
         
-        <div class="main-content">
+        <div id="panelcontent" class="main-content">
             @include('layouts.navbars.navbar')
             @yield('content')
         </div>

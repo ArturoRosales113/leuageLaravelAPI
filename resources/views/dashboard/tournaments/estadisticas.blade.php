@@ -30,6 +30,7 @@
             </div>
         @endforeach
     </div>
+    
     <div class="row mt-2">
         @foreach ($tournament->scores->groupBy('value') as $value=>$score)
             <div class="col-6 mb-4">

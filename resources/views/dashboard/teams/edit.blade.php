@@ -8,7 +8,7 @@
 <div class="container-fluid">
     @include('layouts.headers.userhead')
     
-    <div class="row mt-8">
+    <div class="row mt-5">
         <div class="col">
             <div class="card shadow">
                 <div class="card-header border-0">

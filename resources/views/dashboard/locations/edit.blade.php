@@ -1,13 +1,13 @@
-@extends('layouts.app', ['title' => __('User Profile')])
+@extends('layouts.app')
 
 @section('content')
 
-    @include('users.partials.head')
+    @include('users.partials.stadium')
 
     <div class="container-fluid">
-        @include('layouts.headers.userhead')
+    @include('layouts.headers.userhead')
         
-        <div class="row mt-8">
+        <div class="row mt-5">
             <div class="col">
                 <div class="card shadow">
                     <div class="card-header border-0">

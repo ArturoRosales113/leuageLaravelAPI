@@ -5,10 +5,10 @@
     @include('users.partials.leagues')
 
 <div class="container-fluid">
-    @include('layouts.headers.league')
+
     <div class="row">
         <div class="col">
-            <div class="card shadow mt-8">
+            <div class="card shadow mt-5">
                 <div class="card-header border-0">
                     <div class="row align-items-center">
                         <div class="col">
@@ -18,7 +18,7 @@
                 
     
                         <div class="col text-right">
-                            <a class="btn btn-icon btn-2 btn-primary" href="{{ route('tournaments.create') }}">
+                            <a class="btn btn-sm btn-default" href="{{ route('tournaments.create') }}">
                                 Crear torneo
                             </a>
                         </div>
@@ -93,7 +93,7 @@
                             <h3 class="mb-0">Mis Equipos</h3>
                         </div>
                         <div class="col text-right">
-                            <a class="btn btn-primary" href="{{ route('teams.create') }}">
+                            <a class="btn btn-sm btn-default" href="{{ route('teams.create') }}">
                                 Crear Equipo
                             </a>
                             
@@ -177,7 +177,7 @@
                 
     
                         <div class="col text-right">
-                            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modalJuego">
+                            <button type="button" class="btn btn-sm btn-default" data-toggle="modal" data-target="#modalJuego">
                                 Crear Juego
                             </button>
                         </div>

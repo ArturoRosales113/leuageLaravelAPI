@@ -1,3 +1,5 @@
+var isopen = true
+
 function Functiondos() {
     var elements = document.getElementsByClassName("itemHide"),
         n = elements.length;
@@ -46,23 +48,21 @@ function Functiondos() {
         e.style.width = 'auto';
       }
    }
-   var elements = document.getElementsByClassName("main-content"),
-        n = elements.length;
-    for (var i = 0; i < n; i++) {
-      var e = elements[i];
- 
-      if(e.style.width == '100%') {
-        e.style.width = '100%';
+   
+   var margen = document.getElementById("panelcontent")
+      if(isopen) {
+        margen.style.marginLeft = '90px';
+        isopen = false
       } else {
-        e.style.width = '100%';
+        margen.style.marginLeft = '250px';
+        isopen = true
       }
-   }
+
    var dropdown = document.querySelector(".collapse .show")
     if (dropdown){
       dropdown.classList.remove("show")
-  }
-
- }
+  } 
+}
 
  function Functionuno() {
     var elements = document.getElementsByClassName("itemHide"),
@@ -109,7 +109,11 @@ function Functiondos() {
       } else {
         e.style.display = 'block';
       }
-   }
+   }   
+   var main = document.querySelector(".margen")
+   if (main){
+     main.classList.remove("margen")
+  }
 }
 
 

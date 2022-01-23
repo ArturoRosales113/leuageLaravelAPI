@@ -8,7 +8,7 @@
     @include('layouts.headers.userhead')
         
                     
-        <div class="row mt-8">
+        <div class="row mt-5">
             <div class="col-12">
                 <div class="card shadow mt-4">
                     <div class="card-header border-0">

@@ -9,7 +9,7 @@
         
     <div class="row">
         <div class="col-12">
-            <div class="card shadow mt-8">
+            <div class="card shadow mt-5">
                 <div class="card-header border-0">
                     <div class="row align-items-center">
                         <div class="col">
@@ -32,7 +32,7 @@
                                 <th scope="col" data="name">Nombre</th>
                                 <th scope="col" data="name">Canchas</th>
                                 <th scope="col" data="league_name">Liga</th>
-                                <th scope="col" data="name">Deporte</th>
+                                <!--<th scope="col" data="name">Deporte</th>-->
                                 <th scope="col" data="state">Estado</th>
                                 <th scope="col" data="city">Ciudad</th>
                                 <th scope="col">Ubicación</th>
@@ -65,9 +65,11 @@
                                     <td>
                                         {{ $lo->league->name }}
                                     </td>
-                                    <td>
+                                    <!--
+                                        <td>
                                         {{ $lo->league->sport->display_name }}
                                     </td>
+                                    -->
                                     <td>
                                         {{ $lo->state }}
                                     </td>

@@ -6,7 +6,7 @@
     @include('users.partials.leagues')
 
 <div class="container-fluid">
-    @include('layouts.headers.league')
+
 
         @if ($tournament->teams->count() < $tournament->number_teams)
 
@@ -86,83 +86,85 @@
         </div>
 
         @else
-        <div class="row mt-8 py-3">
+        <div class="row mt-5 py-3">
             <div class="col">
-            <a class="btn btn-primary" href="{{ route('tournaments.getTable', $tournament->id) }}">Tabla de posiciones</a>
-            <a class="btn btn-primary" href="{{ route('tournaments.getEstadisticas', $tournament->id) }}">Estadisticas</a>
-            <a class="btn btn-primary" href="{{ route('tournaments.getOportunidades', $tournament->id) }}">Oportunidades</a>
+            <a class="btn btn-sm btn-default" href="{{ route('tournaments.getTable', $tournament->id) }}">Tabla de posiciones</a>
+            <a class="btn btn-sm btn-default" href="{{ route('tournaments.getEstadisticas', $tournament->id) }}">Estadisticas</a>
+            <a class="btn btn-sm btn-default" href="{{ route('tournaments.getOportunidades', $tournament->id) }}">Oportunidades</a>
             </div>
         </div>
         <div class="card shadow">
             <div class="card-header border-0">
                 <div class="row align-items-center">
                     <div class="col">
-                        <h3 class="mb-0">Juegos</h3>
+                        <h3 class="mb-0">Calendarios de encuentros</h3>
                     </div>
 
                     <div class="col text-right">
                         @if (!$tournament->games()->exists() )
-                        <a class="btn btn-lg btn-primary" href="{{ route('tournaments.setGames', $tournament->id) }}">
+                        <a class="btn btn-sm btn-default" href="{{ route('tournaments.setGames', $tournament->id) }}">
                             Crear rol de Juegos
                         </a>
                         @endif
                     </div>
                 </div>
             </div>
-            <div class="card-body">
+            <div class="card-body calendar">
                 <div class="row justify-content-around">
                     @foreach ($tournament->games->groupBy('ronda') as $ronda=>$rid)
                         <div class="col-12 col-md-6 col-lg-5 mb-4">
 
                             <div class="card">
-                                <div class="card-body">
-                                    Jornada {{ $ronda }}
-                                    <hr class="bg-white">
-                                    @foreach ($rid as $tgs)
-                                    <div class="row align-items-center justify-content-between mt-4">
-                                        @foreach ($tgs->teams as $lgt)
-                                        <div class="col-4 text-center">
-                                            <a href="{{ route('teams.show', $lgt->id) }}" class="text-default text-underline">
-                                                <img width="50px" alt="Image placeholder" src="{{ $lgt->icon_path == null ? asset('argon/img/theme/team-4-800x800.jpg') :asset( $lgt->icon_path) }}"> <br>
-                                                <small>{{ $lgt->name }}</small>                                        
-                                            </a>
-                                        </div>
-                                        @if ($loop->first)
-                                            <div class="col-2 text-center">
-                                                <span>VS</span>
-                                            </div>
-                                        @endif
-                                        @endforeach
-                                            <div class="col-2">
-                                                <a class="btn btn-primary" href="{{ route('games.edit', $tgs->id) }}">
-                                                    Editar juego {{ $tgs->id }}
+                                <div>
+                                    <div class="centro jornada">Jornada {{ $ronda }}</div>
+                                    <div class="itemsJornada">
+                                        @foreach ($rid as $tgs)
+                                        <div class="row align-items-center justify-content-between mt-4 top-card">
+                                            @foreach ($tgs->teams as $lgt)
+                                            <div class="col-4 text-center">
+                                                <a href="{{ route('teams.show', $lgt->id) }}" class="text-default text-underline">
+                                                    <img width="50px" alt="Image placeholder" src="{{ $lgt->icon_path == null ? asset('argon/img/theme/team-4-800x800.jpg') :asset( $lgt->icon_path) }}"> <br>
+                                                    <small>{{ $lgt->name }}</small>                                        
                                                 </a>
                                             </div>
+                                            @if ($loop->first)
+                                                <div class="col-2 text-center">
+                                                    <span>VS</span>
+                                                </div>
+                                            @endif
+                                            @endforeach
+                                                
+                                        </div>
+                                        <div class="row justify-content-center details-card">                                        
+                                                @if ($tgs->field_id != null)
+                                                <div class="col-12 pdItem">
+                                                    <h5 class="yellow centro">Estadio</h5>
+                                                    <p class="centro">{{ $tgs->field->location->name }} cancha {{ $tgs->field->name }}</p>
+                                                </div>
+                                                @endif
+                                        
+                                                @if ($tgs->referees()->exists())
+                                                <div class="col-6 pdItem">
+                                                    <h5 class="yellow">Arbitro</h5>
+                                                    @foreach ($tgs->referees as $gmRf)
+                                                    <p>{{ $gmRf->user->name }}</p>
+                                                    @endforeach
+                                                </div>
+                                                @endif
+                                                @if ($tgs->start_time != null)
+                                                <div class="col-6 pdItem">
+                                                    <h5 class="yellow">Horario</h5>                                            
+                                                    <p>{{ Carbon::parse($tgs->start_time)->toDateTimeString(); }}</p>
+                                                </div>
+                                                @endif
+                                        </div>
+                                        <div>
+                                            <a class="btn btn-sm btn-default redBtn btnFull" href="{{ route('games.edit', $tgs->id) }}">
+                                                Editar {{ $tgs->id }}
+                                            </a>
+                                        </div>
+                                        @endforeach
                                     </div>
-                                    <div class="row justify-content-center py-3">                                        
-                                            @if ($tgs->field_id != null)
-                                            <div class="col-10">
-                                                <h5>Estadio</h5>
-                                                <p>{{ $tgs->field->location->name }} cancha {{ $tgs->field->name }}</p>
-                                            </div>
-                                            @endif
-                                     
-                                            @if ($tgs->referees()->exists())
-                                            <div class="col-5">
-                                                <h5>Arbitro</h5>
-                                                @foreach ($tgs->referees as $gmRf)
-                                                <p>{{ $gmRf->user->name }}</p>
-                                                @endforeach
-                                            </div>
-                                            @endif
-                                            @if ($tgs->start_time != null)
-                                            <div class="col-5">
-                                                <h5>Horario</h5>                                            
-                                                <p>{{ Carbon::parse($tgs->start_time)->toDateTimeString(); }}</p>
-                                            </div>
-                                            @endif
-                                    </div>
-                                    @endforeach
                                 </div>
                             </div>
                         </div>

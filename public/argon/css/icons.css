@@ -28,7 +28,13 @@
 .pmy {
     font-size: 4em;
 }
-
+.pmy2 {
+    font-size: 2.8em;
+}
+.pmy3 {
+    font-size: 3em;
+    margin-left: 4px;
+}
 .icon-pm-panel .path1:before {
     content: "\e900";
     color: rgb(255 255 255);

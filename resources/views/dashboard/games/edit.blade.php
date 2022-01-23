@@ -7,7 +7,7 @@
     <div class="container-fluid">
         @include('layouts.headers.userhead')
         
-        <div class="row mt-8">
+        <div class="row mt-5">
             <div class="col">
                 <div class="card shadow pb-5">
                     <div class="card-header border-0">
@@ -55,14 +55,14 @@
                                     
                                     @endhasanyrole
                                     <div class=" row">
-                                        <label for="field_id" class="col-md-12 col-form-label">Selecciona una Campo</label>
+                                        <label for="field_id" class="col-md-12 col-form-label">Selecciona un Campo</label>
                                             <div class="col-md-12">
-                                                <select class="form-control" name="field_id" placeholder="Selecciona una liga">
+                                                <select class="custom-select" name="field_id" placeholder="Selecciona una liga">
                                                     <option selected value="0">Selecciona una opción</option>
                                                     @foreach ($game->tournament->league->locations as $loc)
                                                     <optgroup label="{{ $loc->name }}">
                                                         @foreach ($loc->fields as $fld)
-                                                            <option  {{ old('field_id') == $fld->id || $game->field_id == $fld->id ? 'selected' : '' }} value="{{ $fld->id }}">{{ $fld->name }}</option>t
+                                                            <option  {{ old('field_id') == $fld->id || $game->field_id == $fld->id ? 'selected' : '' }} value="{{ $fld->id }}">{{ $fld->name }}</option>
                                                         @endforeach
                                                     </optgroup>
                                                     @endforeach
@@ -75,7 +75,7 @@
                                             <select class="custom-select" name="referee_id">
                                             <option selected>Selecciona una opción</option>
                                             @foreach ($game->tournament->league->referees as $rfs)
-                                                <option  {{ old('referee_id') == $rfs->id || $game->referees->contains($rfs->id) ? 'selected' : '' }} value="{{ $rfs->id }}">{{ $rfs->user->name }}</option>t
+                                                <option  {{ old('referee_id') == $rfs->id || $game->referees->contains($rfs->id) ? 'selected' : '' }} value="{{ $rfs->id }}">{{ $rfs->user->name }}</option>
                                             @endforeach
                                             </select>
                                         </div>

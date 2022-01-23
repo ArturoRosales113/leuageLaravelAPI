@@ -16,9 +16,6 @@
                     <div class="col">
                         <h3 class="mb-0">Mis Ligas Playmakeras</h3>
                     </div>
-                    <div class="col text-right">
-                        <a href="{{ route('fields.create') }}" class="btn btn-sm btn-default"><i class="fas fa-plus"></i>&nbsp;Crear campo</a>
-                    </div>
                 </div>
             </div>    
             <div class="table-responsive scrollbar-light-blue">
@@ -73,6 +70,9 @@
                 </table>
             </div>
         </div>
+
+
+
 
         
         @endrole

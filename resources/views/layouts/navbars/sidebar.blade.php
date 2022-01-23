@@ -18,7 +18,7 @@
         <!-- User -->
 
         
-        <button class="ocultarMenu" onclick="Functiondos()">
+        <button class="ocultarMenu desactivar" onclick="Functiondos()">
             <img src="{{ asset('argon') }}/img/icons/menui.svg" class="sidem" alt="">
         </button>
      

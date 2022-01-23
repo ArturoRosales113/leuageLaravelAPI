@@ -1,18 +1,14 @@
-@extends('layouts.app', ['title' => __('User Profile')])
+@extends('layouts.app')
 
 @section('content')
-    @include('users.partials.header', [
-    'title' => $location->name,
-    'description' => $location->liga,
-    'class' => 'col-lg-12',
-    'portada' => $location->img_path
-    ])   
 
-   
+    @include('users.partials.stadium')
+
+    <div class="container-fluid">
+    @include('layouts.headers.userhead')
 
 <div class="container-fluid">
     <div class="row">
-
 
     <div class="col-12">
             <div class="card shadow mt-5">

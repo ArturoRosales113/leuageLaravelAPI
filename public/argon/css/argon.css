@@ -13759,40 +13759,33 @@ a.text-lighter:focus {
 
 .avatar {
     font-size: 1rem;
-
     display: inline-flex;
-
-    width: 48px;
-    height: 48px;
-
+    width: 55px;
+    height: 55px;
     color: #fff;
     border-radius: 50%;
     background-color: #fff;
-
     align-items: center;
     justify-content: center;
+    overflow: hidden;
 }
 .avatar img {
     width: 100%;
-
     border-radius: 50%;
 }
 .avatar + .avatar-content {
     display: inline-block;
-
     margin-left: 0.75rem;
 }
 
 .avatar-lg {
     font-size: 0.875rem;
-
     width: 58px;
     height: 58px;
 }
 
 .avatar-sm {
     font-size: 0.875rem;
-
     width: 36px;
     height: 36px;
 }
@@ -13800,7 +13793,6 @@ a.text-lighter:focus {
 .avatar-group .avatar {
     position: relative;
     z-index: 2;
-
     border: 2px solid #fff;
 }
 .avatar-group .avatar:hover {
@@ -14550,6 +14542,7 @@ a.btn-icon-only {
 
 .main-content {
     position: relative;
+    margin-left: 250px;
 }
 .main-content .navbar-top {
     position: absolute;
@@ -17368,8 +17361,8 @@ textarea[resize="horizontal"] {
 }
 .card .table td,
 .card .table th {
-    padding-right: 1.5rem;
-    padding-left: 1.5rem;
+    padding-right: 1.2rem;
+    padding-left: 1.2rem;
 }
 
 p {
@@ -18210,6 +18203,11 @@ a.btn.btn-icon.btn-2.btn-primary .btn-inner--icon {
     color: #fff !important;
 }
 
+.table tr th:first-child {
+    width: 120px;
+    padding-right: 0;
+}
+
 /*Formularios*/
 select.form-control:focus,
 select.form-control:focus-visible {
@@ -18514,7 +18512,7 @@ button.btn-white {
     background-position: center;
 }
 .bg-plym {
-    background-image: url(./../../images/bg/bg-login2.jpeg);
+    background-image: url(./../../images/bg/playmaker.jpeg);
     background-size: cover;
     background-position: center;
 }
@@ -18611,7 +18609,7 @@ button.btn-white {
     width: 75px;
     margin: auto;
     text-align: center;
-    padding-top: 8px;
+    padding-top: 7px;
     border-radius: 50%;
     border: 2px solid #00cccc;
     -webkit-transition: all 300ms ease;
@@ -18620,7 +18618,23 @@ button.btn-white {
     -o-transition: all 300ms ease;
     transition: all 300ms ease;
 }
-.nav-link:hover .circle-access {
+.nav-link .circle-access2 {
+    background: #023746;
+    height: 74px;
+    width: 75px;
+    margin: auto;
+    text-align: center;
+    padding-top: 14px;
+    border-radius: 50%;
+    border: 2px solid #00cccc;
+    -webkit-transition: all 300ms ease;
+    -moz-transition: all 300ms ease;
+    -ms-transition: all 300ms ease;
+    -o-transition: all 300ms ease;
+    transition: all 300ms ease;
+}
+.nav-link:hover .circle-access,
+nav-link:hover .circle-access2 {
     border: 2px solid #fff;
     box-shadow: 0px 0px 8px 4px rgb(0 204 204 / 60%);
 }
@@ -18725,4 +18739,107 @@ button.close:hover {
 }
 .center-v div {
     margin-right: 10px;
+}
+
+.card .table-responsive form {
+    margin-top: 0rem;
+}
+.card .table-responsive form .form-group {
+    margin-bottom: 0px;
+}
+.rounded-circle img {
+    width: 150%;
+    border-radius: 50%;
+}
+.est-team {
+    padding: 0;
+    width: 82px;
+}
+.posicion {
+    width: 65px !important;
+    color: #ffca38;
+}
+.lugar {
+    font-size: 18px;
+    font-weight: 900;
+}
+.ganados {
+    background: #1d4602 !important;
+    color: #fff !important;
+}
+.perdidos {
+    background: #700319 !important;
+    color: #fff !important;
+}
+.centro {
+    text-align: center;
+}
+
+nav#sidenav-main {
+    position: fixed;
+}
+.margen {
+    margin-left: 250px;
+}
+.table-players {
+    max-width: 1040px;
+    width: 100%;
+}
+span.badge-success {
+    background: #2ad5d5;
+    color: #04081f;
+}
+button.btn.btn-sm.btn-default {
+    color: #01cdce;
+}
+button.btn.btn-sm.btn-default:hover {
+    color: #fff;
+}
+.calendar {
+    background-color: #020514;
+}
+.redBtn {
+    background: #f5365c;
+    color: #fff !important;
+    font-weight: 300;
+}
+.redBtn:hover {
+    background: #00cccc;
+    color: #000 !important;
+}
+.btnFull {
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 2rem;
+}
+.itemsJornada {
+    padding: 0px 1.5rem 1rem;
+    margin-bottom: 5px;
+}
+.top-card {
+    background: #040820;
+    padding: 1rem 0;
+    border-radius: 8px 8px 0 0;
+    max-width: 500px;
+    width: 100%;
+    margin: auto;
+}
+.pdItem {
+    padding: 1rem 1rem;
+    background: #060b28;
+    border-top: 1px solid rgb(255 255 255 / 13%);
+}
+.pdItem p {
+    margin: 0;
+}
+.jornada {
+    padding: 1rem 0 0;
+    color: #e7b828;
+    font-weight: 600;
+    text-transform: uppercase;
+}
+.details-card {
+    max-width: 500px;
+    width: 100%;
+    margin: auto;
 }
