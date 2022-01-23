@@ -58,6 +58,8 @@ function Functiondos() {
         isopen = true
       }
 
+
+      
    var dropdown = document.querySelector(".collapse .show")
     if (dropdown){
       dropdown.classList.remove("show")
@@ -110,16 +112,19 @@ function Functiondos() {
         e.style.display = 'block';
       }
    } 
-   
-   var margen = document.getElementById("panelcontent")
-      if(isopen) {
-        margen.style.marginLeft = '90px';
-        isopen = false
-      } else {
-        margen.style.marginLeft = '250px';
-        isopen = true
-      }
-      
+
+
+  var margen = document.getElementById("panelcontent")
+  if(isopen) {
+    margen.style.marginLeft = '250px';
+    isopen = true
+  } else {
+    margen.style.marginLeft = '250px';
+    isopen = true
+  }
+
+
+
    var main = document.querySelector(".margen")
    if (main){
      main.classList.remove("margen")

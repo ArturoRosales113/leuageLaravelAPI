@@ -81,7 +81,7 @@
                                 </td>
                                 
                                 <td>
-                                    <a href="{{ route('players.show', $pl->id) }}" class="btn btn-icon btn-2 btn-primary">
+                                    <a href="{{ route('players.edit', $pl->id) }}" class="btn btn-icon btn-2 btn-primary">
                                         <span class="btn-inner--icon"><i class="far fa-edit"></i></span>
                                     </a>
                                     <form method="POST" class="d-inline-block" action="{{ route('players.delete', $pl->id) }}">

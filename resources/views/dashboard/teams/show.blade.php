@@ -21,7 +21,7 @@
                         </div>
                         <div class="col text-right">
                             @hasanyrole('league_administrator|super-admin|team_administrator')
-                            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modalJugador">
+                            <button type="button" class="btn btn-sm btn-default" data-toggle="modal" data-target="#modalJugador">
                            Crear Jugador
                               </button>
                              @endhasanyrole
