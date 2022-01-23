@@ -18843,3 +18843,11 @@ button.btn.btn-sm.btn-default:hover {
     width: 100%;
     margin: auto;
 }
+.row_stats {
+    background: #151a32;
+    border-bottom: 1px solid #ffffff29;
+    padding: 5px;
+}
+.registro .main-content {
+    margin-left: 0 !important;
+}

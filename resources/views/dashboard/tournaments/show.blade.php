@@ -92,6 +92,11 @@
             <a class="btn btn-sm btn-default" href="{{ route('tournaments.getEstadisticas', $tournament->id) }}">Estadisticas</a>
             <a class="btn btn-sm btn-default" href="{{ route('tournaments.getOportunidades', $tournament->id) }}">Oportunidades</a>
             </div>
+            <div class="col text-right">
+                <a href="{{ route('leagues.create') }}" class="btn btn-sm btn-default">
+                    <i class="fas fa-arrow-left"></i>&nbsp;Regresar
+                </a>
+            </div>
         </div>
         <div class="card shadow">
             <div class="card-header border-0">
