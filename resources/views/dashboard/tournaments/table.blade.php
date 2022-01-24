@@ -15,7 +15,7 @@
                         <h3 class="mb-0">Tabla de posiciones</h3>
                     </div>
                     <div class="col text-right">
-                         <a href="{{ route('leagues.create') }}" class="btn btn-sm btn-default"><i class="fas fa-arrow-left"></i>&nbsp;Regresar</a>
+                         <a href="{{ route('tournaments.show', $tournament->id) }}" class="btn btn-sm btn-default"><i class="fas fa-arrow-left"></i>&nbsp;Regresar</a>
                     </div>
                 </div>
             </div>    
@@ -59,10 +59,10 @@
                                 {{ $tp->pivot->perdidos }}
                             </td>
                             <td class="centro">
-                                1
+                                {{ $tp->games->count() - $tp->pivot->jugados}}
                             </td>
                             <td class="centro">
-                                1
+                                {{ $tp->pivot->ganados * 3 }}
                             </td>
                             <td class="centro">
                                 {{ $tp->pivot->puntos_favor }}
@@ -71,7 +71,7 @@
                                 {{ $tp->pivot->puntos_contra }}
                             </td>
                             <td class="centro">
-                                1
+                                {{ $tp->pivot->puntos_favor - $tp->pivot->puntos_contra}}
                             </td>
                         </tr>
      
