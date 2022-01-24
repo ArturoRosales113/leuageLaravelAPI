@@ -18851,3 +18851,9 @@ button.btn.btn-sm.btn-default:hover {
 .registro .main-content {
     margin-left: 0 !important;
 }
+.teams-icons {
+    width: 100px;
+}
+td.encuentros {
+    display: flex;
+}

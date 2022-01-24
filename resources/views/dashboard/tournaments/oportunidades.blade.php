@@ -7,11 +7,9 @@
 
 <div class="container-fluid mt-5">
 
-    <div class="col text-right">
-        <a href="{{ route('leagues.create') }}" class="btn btn-sm btn-default">
-            <i class="fas fa-arrow-left"></i>&nbsp;Regresar
-        </a>
-    </div>
+            <div class="col text-right">
+                         <a href="{{ route('tournaments.show', $tournament->id) }}" class="btn btn-sm btn-default"><i class="fas fa-arrow-left"></i>&nbsp;Regresar</a>
+                    </div>
 
     <div class="row mt-4">
 

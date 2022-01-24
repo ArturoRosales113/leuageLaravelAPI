@@ -93,9 +93,7 @@
             <a class="btn btn-sm btn-default" href="{{ route('tournaments.getOportunidades', $tournament->id) }}">Oportunidades</a>
             </div>
             <div class="col text-right">
-                <a href="{{ route('leagues.create') }}" class="btn btn-sm btn-default">
-                    <i class="fas fa-arrow-left"></i>&nbsp;Regresar
-                </a>
+                <a href="{{ route('leagues.show' , $tournament -> league_id  ) }}" class="btn btn-sm btn-default"><i class="fas fa-arrow-left"></i>&nbsp;Regresar</a>
             </div>
         </div>
         <div class="card shadow">
@@ -150,7 +148,7 @@
                                         
                                                 @if ($tgs->referees()->exists())
                                                 <div class="col-6 pdItem">
-                                                    <h5 class="yellow">Arbitro</h5>
+                                                    <h5 class="yellow">Arbitros</h5>
                                                     @foreach ($tgs->referees as $gmRf)
                                                     <p>{{ $gmRf->user->name }}</p>
                                                     @endforeach
@@ -159,7 +157,7 @@
                                                 @if ($tgs->start_time != null)
                                                 <div class="col-6 pdItem">
                                                     <h5 class="yellow">Horario</h5>                                            
-                                                    <p>{{ Carbon::parse($tgs->start_time)->toDateTimeString(); }}</p>
+                                                    <p>{{ Carbon::parse($tgs->start_time)->toDayDateTimeString(); }}</p>
                                                 </div>
                                                 @endif
                                         </div>

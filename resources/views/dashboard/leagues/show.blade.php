@@ -5,10 +5,10 @@
     @include('users.partials.leagues')
 
 <div class="container-fluid">
-
+    @include('layouts.headers.league')
     <div class="row">
         <div class="col">
-            <div class="card shadow mt-5">
+            <div class="card shadow mt-8">
                 <div class="card-header border-0">
                     <div class="row align-items-center">
                         <div class="col">
@@ -110,9 +110,10 @@
                                 </th>
                                 <th scope="col">ID</th>
                                 <th scope="col">Nombre</th>
-
+                                <!--
                                 <th scope="col">Jugadores</th>
                                 <th scope="col">Capitan</th>
+                                -->
                                 <th scope="col">Acción</th>
                             </tr>
                         </thead>
@@ -134,6 +135,7 @@
                                         {{ $t -> name }}
                                     </a>
                                 </td>
+                                <!--
                                 <td>
                                     {{ $t->players->count() }}
                                 </td>
@@ -143,6 +145,7 @@
                                     @endif
                                    
                                 </td>
+                                -->
                                 <td>
                                     <a href="{{ route('teams.edit', $t->id) }}" class="btn btn-icon btn-2 btn-primary">
                                         <span class="btn-inner--icon"><i class="far fa-edit"></i></span>
@@ -188,58 +191,42 @@
                     <table class="table align-items-center table-flush">
                         <thead class="thead-light">
                             <tr>
-                                <th scope="col">
-                                    &nbsp;
-                                </th>
                                 <th scope="col">Equipos</th>
                                 <th scope="col">Estadio/Cancha</th>
                                 <th scope="col">Arbitros</th>
                                 <th scope="col">Horario</th>
-                                <th scope="col">Acción</th>
                             </tr>
                         </thead>
                         <tbody>
                             @foreach ($league->games as $lg)
                             <tr>
-                                <th>
-                                    {{-- <span class="avatar-rectangle">
-                                        <img alt="Image placeholder" src="{{ $t->icon_path == null ? asset('argon/img/theme/team-4-800x800.jpg') :asset( $t->icon_path) }}">
-                                    </span> --}}
-                                </th>
-                                <td scope="row">    
+                                <td scope="row" class="encuentros">    
                                     @foreach ($lg->teams as $lgt)
                                     <a href="{{ route('teams.show', $lgt->id) }}" class="text-default text-underline">
-                                        {{ $lgt->name }}
+                                        
+                                        <span class="avatar-rectangle">
+                                            <img alt="Image placeholder" src="{{ $t->icon_path == null ? asset('argon/img/theme/team-4-800x800.jpg') :asset( $lgt->icon_path) }}">
+                                        </span>
+                                    
+                                        <!--
+                                            {{ $lgt->name }}
+                                        -->
                                     </a>
                                     {{ $loop->first ? ' vs ' : '' }}
                                     @endforeach
                                 </td>
-                                {{-- <td>
-                                   {{ $lg->field->location->name . '//' .  $lg->field->name }}
-                                </td> --}}
+
                                 <td>
-                                    {{-- @foreach ($lg->referees as $lgr)
+                                   @if ($lg->field != null) {{ $lg->field->location->name . '//' .  $lg->field->name }} @endif
+                                </td>
+
+                                <td>
+                                   @foreach ($lg->referees as $lgr)
                                         {{ $lgr->user->name }}
-                                    @endforeach --}}
+                                    @endforeach
                                 </td>
                                 <td>
-                                    {{-- {{ Carbon::parse($lg->start_time)->diffForHumans(); }} --}}
-                                </td>
-                                <td>
-                                    {{-- <a href="{{ route('teams.edit', $lgt->id) }}" class="btn btn-icon btn-2 btn-primary">
-                                        <span class="btn-inner--icon"><i class="far fa-edit"></i></span>
-                                    </a>
-                                    --}}
-                                    <form method="POST" class="d-inline-block" action="{{ route('games.delete', $lg->id) }}">
-                                        {{ csrf_field() }}
-                                        {{ method_field('DELETE') }}
-                                
-                                        <div class="form-group">
-                                            <button class="btn btn-icon btn-2 btn-danger" type="submit">
-                                                <span class="btn-inner--icon"><i class="fas fa-trash"></i></span>
-                                            </button>
-                                        </div>
-                                    </form>
+                                    {{ Carbon::parse($lg->start_time)->toDayDateTimeString(); }}
                                 </td>
                             </tr>
                             @endforeach
