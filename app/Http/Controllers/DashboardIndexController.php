@@ -158,9 +158,8 @@ class DashboardIndexController extends Controller
         );
     }
         
-    public function getRefereeGames($id)
+    public function getRefereeGames()
     {
-        $referee = Tournament::with('positions')->find($id);
-        return view('dashboard.tournaments.oportunidades', ['tournament' => $tournament]);
+        return view('dashboard.referees.games');
     }
 }

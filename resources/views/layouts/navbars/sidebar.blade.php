@@ -451,13 +451,13 @@
                         <div class="collapse" id="referees-dropdown">
                             <ul class="nav nav-sm flex-column">
                                 <li class="nav-item">
-                                    <a class="nav-link" href="{{ route('referees.index') }}">
+                                    <a class="nav-link" href="{{ route('referees.getRefereeGames') }}">
                                         {{ __('Mis partidos') }}
                                     </a>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link" href="{{ route('referees.create') }}">
-                                        {{ __('Crear arbitro') }}
+                                    <a class="nav-link" href="{{ route('referees.edit', Auth::user()->referee->id) }}">
+                                        {{ __('Editar perfil arbitro') }}
                                     </a>
                                 </li>
                             </ul>

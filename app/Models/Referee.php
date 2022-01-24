@@ -32,6 +32,10 @@ class Referee extends Model
         return $this->belongsTo(RefereeType::class);
     }
 
+    public function games()
+    {
+        return $this->belongsToMany(Game::class,'game_referee');
+    }
 }
 
 
