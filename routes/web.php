@@ -8,7 +8,6 @@ use App\Http\Controllers\DashboardShowController;
 use App\Http\Controllers\DashboardEditController;
 use App\Http\Controllers\DashboardUpdateController;
 use App\Http\Controllers\DashboardDeleteController;
-
 use App\Http\Controllers\TournamentSetUpController;
 /*
 |--------------------------------------------------------------------------
@@ -42,6 +41,7 @@ Route::group(['middleware' => 'auth'], function () {
 	Route::get('tournaments/tabla/{id}',[TournamentSetUpController::class, 'getTable'] )->name('tournaments.getTable');
 	Route::get('tournaments/estadisticas/{id}',[TournamentSetUpController::class, 'getEstadisticas'] )->name('tournaments.getEstadisticas');
 	Route::get('tournaments/oportunidades/{id}',[TournamentSetUpController::class, 'getOportunidades'] )->name('tournaments.getOportunidades');
+
  
 // Index
 
@@ -64,7 +64,7 @@ Route::group(['middleware' => 'auth'], function () {
 	Route::get('teams',[DashboardIndexController::class, 'teams'])->name('teams.index');
 	Route::get('tournaments',[DashboardIndexController::class, 'tournaments'])->name('tournaments.index');
 	Route::get('users',[DashboardIndexController::class, 'users'])->name('users.index');
-
+	Route::get('referees/games',[DashboardIndexController::class, 'getRefereeGames'] )->name('referees.getRefereeGames');
 	// Create
 	Route::get('actions/create',[DashboardCreateController::class, 'actions'])->name('actions.create');
 	Route::get('events/create',[DashboardCreateController::class, 'events'])->name('events.create');
@@ -127,6 +127,7 @@ Route::group(['middleware' => 'auth'], function () {
 	Route::get('teams/{id}',[DashboardShowController::class, 'teams'])->name('teams.show');
 	Route::get('tournaments/{id}',[DashboardShowController::class, 'tournaments'])->name('tournaments.show');
 	Route::get('users/{id}',[DashboardShowController::class, 'users'])->name('users.show');
+	
 
 	// Formulario editar
 	Route::get('actions/edit/{id}',[DashboardEditController::class, 'actions'])->name('actions.edit');

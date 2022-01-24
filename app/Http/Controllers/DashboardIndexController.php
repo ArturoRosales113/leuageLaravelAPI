@@ -45,100 +45,122 @@ class DashboardIndexController extends Controller
          ['fields' => Field::all()]
         );
     }
+
 	public function games()
     {
         return view('dashboard.games.index',
          ['games' => Game::all()]
         );
     }
+
 	public function leagues()
     {
         return view('dashboard.leagues.index',
          ['leagues' => League::all()]
         );
     }
+
 	public function locations()
     {
         return view('dashboard.locations.index',
          ['locations' => Location::all()]
         );
     }
+
 	public function materials()
     {
         return view('dashboard.materials.index',
          ['materials' => Material::all()]
         );
     }
+
 	public function modalities()
     {
         return view('dashboard.modalities.index',
          ['modalities' => Modalitie::all()]
         );
     }
+
 	public function permissions()
     {
         return view('dashboard.permissions.index',
          ['permissions' => Permission::all()]
         );
     }
+
 	public function players()
     {
         return view('dashboard.players.index',
          ['players' => Player::all()]
         );
     }
+
 	public function profiles()
     {
         return view('dashboard.profiles.index',
          ['profiles' => Profile::all()]
         );
     }
+
 	public function referees()
     {
         return view('dashboard.referees.index',
          ['referees' => Referee::all()]
         );
     }
+
 	public function refereeTypes()
     {
         return view('dashboard.refereeTypes.index',
          ['refereeTypes' => RefereeType::all()]
         );
     }
+
 	public function roles()
     {
         return view('dashboard.roles.index',
          ['roles' => Role::all()]
         );
     }
+
 	public function scores()
     {
         return view('dashboard.scores.index',
          ['scores' => Score::all()]
         );
     }
+
 	public function sports()
     {
         return view('dashboard.sports.index',
          ['sports' => Sport::all()]
         );
     }
+
 	public function teams()
     {
         return view('dashboard.teams.index',
          ['teams' => Team::all()]
         );
     }
+
 	public function tournament()
     {
         return view('dashboard.tournaments.index',
          ['tournaments' => Tournament::all()]
         );
     }
+
 	public function users()
     {
         return view('dashboard.users.index',
          ['users' => User::all()]
         );
+    }
+        
+    public function getRefereeGames($id)
+    {
+        $referee = Tournament::with('positions')->find($id);
+        return view('dashboard.tournaments.oportunidades', ['tournament' => $tournament]);
     }
 }

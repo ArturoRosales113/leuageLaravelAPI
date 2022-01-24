@@ -120,4 +120,5 @@ class DashboardShowController extends Controller
         $user = User::findOrFail($id);
         return view('dashboard.users.show', ['user' => $user]);
     }
+
 }

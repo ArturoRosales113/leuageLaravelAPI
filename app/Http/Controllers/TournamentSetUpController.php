@@ -106,4 +106,5 @@ class TournamentSetUpController extends Controller
         return view('dashboard.tournaments.oportunidades', ['tournament' => $tournament]);
     }
 
+
 }
