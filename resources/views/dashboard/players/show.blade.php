@@ -94,7 +94,7 @@
                         </tr>
                         <tr>
                             <th scope="row">
-                                Rebotes
+                                Rebotes ofensivos
                             </th>
                             <td class="right">
                                 {{ $player->actions()->rebotes()->count() }}                                
@@ -110,7 +110,7 @@
                         </tr>
                         <tr>
                             <th scope="row">
-                                Total de puntos logrados
+                                Total de puntos
                             </th>
                             <td class="right">
                                 {{ $player->scores->sum('value') }}
@@ -118,7 +118,7 @@
                         </tr>
                         <tr>
                             <th scope="row">
-                                Triples dobles
+                                Puntos de 3
                             </th>
                             <td class="right">
                                 {{ $player->scores()->triples()->count() }}
@@ -126,7 +126,7 @@
                         </tr>
                         <tr>
                             <th scope="row">
-                                Dobles
+                                Puntos de 2
                             </th>
                             <td class="right">
                                 {{ $player->scores()->dobles()->count() }}
@@ -134,7 +134,7 @@
                         </tr>
                         <tr>
                             <th scope="row">
-                                Sencillo
+                                Puntos de 1
                             </th>
                             <td class="right">
                                 {{ $player->scores()->sencillos()->count() }}
