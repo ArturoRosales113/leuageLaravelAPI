@@ -35,9 +35,14 @@ class Action extends Model
     
     public function scopeRebotes($query)
     {
-        return $query->where('name', '=', 'Rebote');
+        return $query->where('name', '=', 'Rebote Defensivo');
     }
     
+    public function scopeRebotesofensivo($query)
+    {
+        return $query->where('name', '=', 'Rebote Ofensivo');
+    }
+
     public function scopeRobos($query)
     {
         return $query->where('name', '=', 'Robo');

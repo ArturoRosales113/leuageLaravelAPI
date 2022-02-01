@@ -76,14 +76,7 @@
                     </thead>
                     -->
                     <tbody>
-                        <tr>
-                            <th scope="row">
-                                Puntos
-                            </th>
-                            <td class="right">
-                                {{ $player->scores->sum('value') }}
-                            </td>
-                        </tr>
+
                         <tr>
                             <th scope="row">
                                 Asistencias
@@ -94,7 +87,7 @@
                         </tr>
                         <tr>
                             <th scope="row">
-                                Rebotes ofensivos
+                                Rebotes ofensivo
                             </th>
                             <td class="right">
                                 {{ $player->actions()->rebotes()->count() }}                                
@@ -102,20 +95,39 @@
                         </tr>
                         <tr>
                             <th scope="row">
-                                Robos
+                            Rebotes defensivos
                             </th>
                             <td class="right">
                                 {{ $player->actions()->robos()->count() }}
                             </td>
                         </tr>
+                    </tbody>
+                </table>
+            </div>
+            
+            <br>
+            <div class="card shadow">
+                <div class="card-header border-0">
+                    <div class="row align-items-center">
+                        <div class="col-12">
+                            <h3 class="yellow">Detalle de encestes</h3>
+                        </div>
+                    </div>
+                </div>
+                <!-- Projects table -->
+                <table class="table align-items-center estadisticas">
+                    <!--
+                        <thead class="thead-light">
                         <tr>
-                            <th scope="row">
-                                Total de puntos
+                            <th scope="col" data="icon_path">
+                                &nbsp;
                             </th>
-                            <td class="right">
-                                {{ $player->scores->sum('value') }}
-                            </td>
+                            <th scope="col">Nombre</th>
+                            <th scope="col">Anotaciones</th>
                         </tr>
+                    </thead>
+                    -->
+                    <tbody>
                         <tr>
                             <th scope="row">
                                 Puntos de 3
@@ -140,10 +152,20 @@
                                 {{ $player->scores()->sencillos()->count() }}
                             </td>
                         </tr>
+                        <tr>
+                            <th scope="row">
+                                Total de puntos logrados
+                            </th>
+                            <td class="right">
+                                {{ $player->scores->sum('value') }}
+                            </td>
+                        </tr>
                     </tbody>
                 </table>
             </div>
+
             <br>
+
             <div class="card shadow">
                 <div class="card-header border-0">
                     <div class="row align-items-center">
