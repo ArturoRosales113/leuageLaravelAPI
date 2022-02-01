@@ -85,7 +85,7 @@
         </div>
     </div>
     <div class="row">
-        <div class="col-12 col-lg-6">
+        <div class="col-12 col-lg-12">
             <div class="card shadow mt-5">
                 <div class="card-header border-0">
                     <div class="row align-items-center">
@@ -169,6 +169,7 @@
                 </div>
             </div>
         </div>
+        <!--
         <div class="col-12 col-lg-6">
             <div class="card shadow mt-5">
                 <div class="card-header border-0">
@@ -187,7 +188,7 @@
                     </div>
                 </div>    
                 <div class="table-responsive scrollbar-light-blue">
-                    <!-- Projects table -->
+                   
                     <table class="table align-items-center table-flush">
                         <thead class="thead-light">
                             <tr>
@@ -208,9 +209,7 @@
                                             <img alt="Image placeholder" src="{{ $t->icon_path == null ? asset('argon/img/theme/team-4-800x800.jpg') :asset( $lgt->icon_path) }}">
                                         </span>
                                     
-                                        <!--
-                                            {{ $lgt->name }}
-                                        -->
+                            
                                     </a>
                                     {{ $loop->first ? ' vs ' : '' }}
                                     @endforeach
@@ -234,7 +233,7 @@
                     </table>
                 </div>
             </div>
-        </div>
+        </div>-->
     </div>
  
     @include('layouts.footers.auth')
