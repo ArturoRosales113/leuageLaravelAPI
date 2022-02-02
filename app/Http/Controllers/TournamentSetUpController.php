@@ -91,7 +91,20 @@ class TournamentSetUpController extends Controller
     public function getTable($id)
     {
         $tournament = Tournament::with('positions')->find($id);
-        return view('dashboard.tournaments.table', ['tournament' => $tournament]);
+        $contenders = $tournament->positions->take($tournament->number_teams_playoffs)->toArray();
+        $po_predictions = [];
+        $i = 0;
+        while((count($contenders) > 0) && (count($contenders)% 2 == 0 ))
+        {
+            $po_predictions[$i][0] = array_shift($contenders);
+            $po_predictions[$i][1] = array_pop($contenders);
+            $i++;
+        }
+        //dd($po_predictions);
+        return view('dashboard.tournaments.table', [
+            'tournament' => $tournament,
+            'predicciones' => $po_predictions
+        ]);
     }
 
     public function getEstadisticas($id)
