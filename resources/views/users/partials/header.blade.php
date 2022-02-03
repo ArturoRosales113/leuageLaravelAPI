@@ -1,9 +1,9 @@
 @isset($portada)
-<div class="header pb-6 pt-6 d-flex align-items-center" style="background-image: url({{ asset($portada) }}); background-size: cover; background-position: center center;">
+<div class="header bg-leagues image-user pt-5 pl-5 pt-md-5 pb-md-5">
 @endisset
 
 @empty($portada)
-<div class="header pb-5 pt-4 d-flex align-items-center" style="background-image: url(../argon/img/theme/profile-cover.jpg); background-size: cover; background-position: center center;">
+<div class="header bg-leagues image-user pt-5 pl-5 pt-md-5 pb-md-5">
 @endempty
     <!-- Mask -->
     <span class="mask bg-gradient-default opacity-4"></span>

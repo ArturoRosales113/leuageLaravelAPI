@@ -18144,7 +18144,7 @@ html:not([dir="rtl"]) .noUi-horizontal .noUi-handle {
     position: relative;
 }
 .border-b {
-    border: 5px solid #fff;
+    border: 2px solid #fff;
 }
 .profile-img {
     font-size: 1rem;
@@ -18856,4 +18856,10 @@ button.btn.btn-sm.btn-default:hover {
 }
 td.encuentros {
     display: flex;
+}
+span.avatar.avatar-sm.rounded-circle > img {
+    width: 100%;
+}
+.navbar-nav .dropdown.nav-item:hover a span{
+    color: #000!important;
 }

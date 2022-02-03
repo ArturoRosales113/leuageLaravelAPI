@@ -1,5 +1,6 @@
 @extends('layouts.app', ['title' => __('User Profile')])
 
+
 @section('content')
     @include('users.partials.header', [
         'title' => __('Hola') . ' '. auth()->user()->name,
@@ -7,9 +8,9 @@
         'class' => 'col-md-12'
     ])   
 
-    <div class="container-fluid mt--7">
+    <div class="container-fluid mt-5">
         <div class="row">
-            {{-- <div class="col-xl-4 order-xl-2 mb-5 mb-xl-0">
+            {{-- <div class="col-xl-6 order-xl-2 mb-5 mb-xl-0">
                 <div class="card card-profile shadow">
                     <div class="row justify-content-center">
                         <div class="col-lg-3 order-lg-2">
@@ -69,7 +70,8 @@
                     </div>
                 </div>
             </div> --}}
-            <div class="col-xl-8 order-xl-1">
+            
+            <div class="col-xl-6 order-xl-1">
                 <div class="card shadow">
                     <div class="card-header border-0">
                         <div class="row align-items-center">
@@ -122,7 +124,22 @@
                                 </div>
                             </div>
                         </form>
-                        <hr class="my-4" />
+                    </div>
+                </div>
+            </div>
+            
+        
+
+            <div class="col-xl-6 order-xl-1">
+                <div class="card shadow">
+                    <div class="card-header border-0">
+                        <div class="row align-items-center">
+                         <div class="col">
+                            <h3 class="mb-0">{{ __('Editar contraseña') }}</h3>
+                         </div>
+                        </div>
+                    </div>
+                    <div class="card-body">
                         <form method="post" action="{{ route('profile.password') }}" autocomplete="off">
                             @csrf
                             @method('put')
@@ -172,6 +189,12 @@
                     </div>
                 </div>
             </div>
+
+
+
+
+
+
         </div>
         
         @include('layouts.footers.auth')
