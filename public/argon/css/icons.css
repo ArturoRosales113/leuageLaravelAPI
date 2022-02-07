@@ -35,6 +35,9 @@
     font-size: 3em;
     margin-left: 4px;
 }
+span.pmy.icon-pm-referees {
+    font-size: 2.9rem;
+}
 .icon-pm-panel .path1:before {
     content: "\e900";
     color: rgb(255 255 255);

@@ -190,14 +190,6 @@
                     <tbody>
                         <tr>
                             <th scope="row">
-                                Total faltas
-                            </th>
-                            <td class="right">
-                                {{ $player->actions()->faltas()->count() }}
-                            </td>
-                        </tr>
-                        <tr>
-                            <th scope="row">
                                 Normales
                             </th>
                             <td class="right">
@@ -218,6 +210,22 @@
                             </th>
                             <td class="right">
                                 {{ $player->actions()->fadeportivas()->count() }}
+                            </td>
+                        </tr>
+                        <tr>
+                            <th scope="row">
+                                Expulsiones
+                            </th>
+                            <td class="right">
+                                {{ $player->actions()->fadeportivas()->count() }}
+                            </td>
+                        </tr>
+                        <tr>
+                            <th scope="row">
+                                Total faltas
+                            </th>
+                            <td class="right">
+                                {{ $player->actions()->faltas()->count() }}
                             </td>
                         </tr>
                     </tbody>
