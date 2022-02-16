@@ -25,6 +25,7 @@
                            Crear Jugador
                               </button>
                              @endhasanyrole
+                             <a href="{{ route('teams.index') }}" class="btn btn-sm btn-default"><i class="fas fa-arrow-left"></i>&nbsp;Regresar</a>
                         </div>
                     </div>
                 </div>    

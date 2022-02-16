@@ -18,7 +18,8 @@
                             <h3 class="mb-0">Canchas</h3>
                         </div>
                         <div class="col text-right">
-                            
+                        
+                        <a class="btn btn-sm btn-default" href="{{ route('locations.index') }}"><i class="fas fa-arrow-left"></i>&nbsp;Regresar</a>
                             
                         </div>
                     </div>

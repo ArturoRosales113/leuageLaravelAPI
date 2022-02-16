@@ -6,7 +6,7 @@
 
     <div class="container-fluid">
     @include('layouts.headers.userhead')
-        
+       
         <div class="card shadow mt-5">
             <div class="card-header border-0">
                 <div class="row align-items-center">
@@ -15,6 +15,7 @@
                     </div>
                     <div class="col text-right">
                        <a href="{{ route('sports.create') }}" class="btn btn-sm btn-default"><i class="fas fa-plus"></i>&nbsp;Crear deportes</a>
+                       <a href="{{ route('home') }}"" class="btn btn-sm btn-default"><i class="fas fa-arrow-left"></i>&nbsp;Regresar</a>
                     </div>
                 </div>
             </div>    

@@ -15,6 +15,7 @@
                     </div>
                     <div class="col text-right">
                         <a href="{{ route('players.create') }}" class="btn btn-sm btn-default"><i class="fas fa-plus"></i>&nbsp;Crear jugador</a>
+                        <a href="{{ route('home') }}" class="btn btn-sm btn-default"><i class="fas fa-arrow-left"></i>&nbsp;Regresar</a>
                     </div>
                 </div>
             </div>    
