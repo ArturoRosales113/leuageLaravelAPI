@@ -13,6 +13,7 @@ class Location extends Model
         'name',
         'league_id',
         'description',
+        'display_name',
         'icon_path',
         'img_path',
         'address',

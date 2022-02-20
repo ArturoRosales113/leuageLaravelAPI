@@ -44,7 +44,7 @@
                         <div class="form-group row">
                             <label for="posicion" class="col-md-3 col-form-label">Posición</label>
                             <div class="col-md-9">
-                                <select class="custom-select" name="team_id">
+                                <select class="custom-select" name="posicion">
                                     <option value="null" selected>Selecciona una opción</option>
                                         <option value="Alero">Alero</option>
                                         <option value="Poste">Poste</option>
