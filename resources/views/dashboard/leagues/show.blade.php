@@ -21,6 +21,8 @@
                             <a class="btn btn-sm btn-default" href="{{ route('tournaments.create') }}">
                                 Crear torneo
                             </a>
+
+                            <a href="{{ route('leagues.index') }}" class="btn btn-sm btn-default"><i class="fas fa-arrow-left"></i>&nbsp;Regresar</a>
                         </div>
                     </div>
                 </div>    

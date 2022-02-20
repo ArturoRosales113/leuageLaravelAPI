@@ -57,8 +57,11 @@
             <div class="card shadow">
                 <div class="card-header border-0">
                     <div class="row align-items-center">
-                        <div class="col-12">
+                        <div class="col">
                             <h3 class="yellow">Estadisticas Individuales</h3>
+                        </div>
+                        <div class="col text-right">
+                            <a href="{{ route('players.index') }}" class="btn btn-sm btn-default"><i class="fas fa-arrow-left"></i>&nbsp;Regresar</a>
                         </div>
                     </div>
                 </div>

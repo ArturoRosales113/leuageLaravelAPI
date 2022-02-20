@@ -8,7 +8,10 @@
     'portada' => $sport->img_path
     ])     
 
-    <div class="container-fluid mt--7">
+    <div class="container-fluid" style="margin-top: 5rem;">
+
+
+    sdsd
       
         @include('layouts.footers.auth')
     </div>
