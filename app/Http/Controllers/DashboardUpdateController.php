@@ -394,6 +394,7 @@ class DashboardUpdateController extends Controller
               'city' => 'max:1000',
               'state' => 'max:1000',
               'country' => 'max:1000',
+              'tipo_estadio' => 'required|not_in:0',
               'lat' => 'max:1000',
               'long' => 'max:1000',
               'league_id' => 'required|not_in:0', 
@@ -414,6 +415,7 @@ class DashboardUpdateController extends Controller
               $location->display_name = $input['name'];
               $location->description = $input['description'];
               $location->address = $input['address'];
+              $location->tipo_estadio = $input['tipo_estadio'];
               $location->city = $input['city'];
               $location->state = $input['state'];
               $location->lat = $input['lat'];

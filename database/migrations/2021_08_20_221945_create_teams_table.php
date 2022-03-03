@@ -121,6 +121,7 @@ class CreateTeamsTable extends Migration
             $table->string('city')->nullable();
             $table->string('state')->nullable();
             $table->string('country')->nullable();
+            $table->string('tipo_estadio')->nullable();
             $table->float('lat')->nullable();
             $table->float('long')->nullable();
             $table->boolean('is_active')->default(1);
