@@ -16,7 +16,7 @@
 
         <!--Estadios-->
         <div class="col-sm panel-cont ml-2 mr-2 pt-3 pb-3">
-            <a class="nav-link" href="{{ route('fields.index') }}">
+            <a class="nav-link" href="{{ route('locations.index') }}">
                 <div class="glyph fs1 circle-access">
                     <div class="clearfix bshadow0 pbs">
                         <span class="pmy icon-pm-estadios"><span class="path1"></span><span class="path2"></span><span class="path3"></span><span class="path4"></span><span class="path5"></span><span class="path6"></span><span class="path7"></span><span class="path8"></span><span class="path9"></span><span class="path10"></span><span class="path11"></span><span class="path12"></span></span>

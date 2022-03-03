@@ -10,6 +10,10 @@
         
         @role('super-admin')
         @include('users.partials.access')
+
+   
+    <!--
+
         <div class="card mt-4">
             <div class="card-header border-0">
                 <div class="row align-items-center">
@@ -19,7 +23,7 @@
                 </div>
             </div>    
             <div class="table-responsive scrollbar-light-blue">
-                <!-- Projects table -->
+       
                 <table class="table align-items-center table-flush">
                     <thead class="thead-light">
                         <tr>
@@ -71,7 +75,7 @@
             </div>
         </div>
 
-
+    -->
 
 
         
