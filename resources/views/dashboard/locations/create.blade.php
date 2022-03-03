@@ -126,20 +126,19 @@
                                     <input type="text" class="form-control" name="address" value="{{ old('address') }}" placeholder="Dirección completa" >
                                 </div>
                             </div>
-<!--
+
+                            
 
                             <div class="form-group row">
                                 <label for="" class="col-sm-3 col-form-label">Tipo de estadio</label>
                                 <div class="col-sm-9">
-                                    <select class="custom-select" name="" placeholder="Selecciona una opción">
-                                        <option value="NA">Selecciona una opción</option>    
-                                        <option value="Abierto">Abierto</option>
-                                        <option value="Cerrado">Cerrado</option>
+                                    <select class="custom-select" name="tipo_estadio" placeholder="Selecciona una opción">
+                                        <option {{ old('tipo_estadio') == 'Abierto' ? 'selected' : '' }} value="Abierto">Abierto</option>
+                                        <option {{ old('tipo_estadio') == 'Cerrado' ? 'selected' : '' }} value="Cerrado">Cerrado</option>
                                     </select>
                                 </div>
                             </div>
 
-                            -->
 
 
 
