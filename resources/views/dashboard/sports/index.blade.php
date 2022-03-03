@@ -64,7 +64,8 @@
                                     <span class="btn-inner--icon"><i class="far fa-edit"></i></span>
                                 </a>
                             
-                                <form method="POST" class="d-inline-block" action="{{ route('sports.delete', $sp->id) }}">
+                                
+                                <!-- <form method="POST" class="d-inline-block" action="{{ route('sports.delete', $sp->id) }}">
                                     {{ csrf_field() }}
                                     {{ method_field('DELETE') }}
                             
@@ -74,7 +75,7 @@
                                         </button>
                                     
                                     </div>
-                                </form>
+                                </form> -->
                             </td>
                         </tr>
                     @endforeach
