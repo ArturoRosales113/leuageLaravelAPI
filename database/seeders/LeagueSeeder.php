@@ -28,7 +28,7 @@ class LeagueSeeder extends Seeder
     {
         $this->faker = Faker::create();
 
-        for ($i=1; $i < 6; $i++) { 
+        for ($i=1; $i < 4; $i++) { 
             $user = User::create([
                 'name' => $this->faker->name($gender = null),
                 'email' => 'league'.$i.'@gmail.com',

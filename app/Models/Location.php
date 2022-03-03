@@ -21,7 +21,8 @@ class Location extends Model
         'state',
         'country',
         'lat',
-        'long'
+        'long',
+        'tipo_estadio'
     ];
 
     public function league()
