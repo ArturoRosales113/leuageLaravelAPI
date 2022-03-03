@@ -393,8 +393,6 @@ class DashboardStoreController extends Controller
             'city' => 'max:1000',
             'state' => 'max:1000',
             'country' => 'max:1000',
-            'lat' => 'max:1000',
-            'long' => 'max:1000',
             'tipo_estadio' => 'required|not_in:0',
             'league_id' => 'required|not_in:0', 
             'icon_path' => 'max:3000|mimes:jpg,bmp,png',
@@ -417,8 +415,6 @@ class DashboardStoreController extends Controller
                 'tipo_estadio' => $input['tipo_estadio'],
                 'city' => $input['city'],
                 'state' => $input['state'],
-                'lat' => $input['lat'],
-                'long' => $input['long'],
                 'league_id' => $input['league_id']
             ]);
 

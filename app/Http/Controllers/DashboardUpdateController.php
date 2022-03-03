@@ -395,8 +395,6 @@ class DashboardUpdateController extends Controller
               'state' => 'max:1000',
               'country' => 'max:1000',
               'tipo_estadio' => 'required|not_in:0',
-              'lat' => 'max:1000',
-              'long' => 'max:1000',
               'league_id' => 'required|not_in:0', 
               'icon_path' => 'max:3000|mimes:jpg,bmp,png',
               'img_path' => 'max:3000|mimes:jpg,bmp,png'
@@ -418,8 +416,6 @@ class DashboardUpdateController extends Controller
               $location->tipo_estadio = $input['tipo_estadio'];
               $location->city = $input['city'];
               $location->state = $input['state'];
-              $location->lat = $input['lat'];
-              $location->long = $input['long'];
               $location->league_id = $input['league_id'];
               
   
