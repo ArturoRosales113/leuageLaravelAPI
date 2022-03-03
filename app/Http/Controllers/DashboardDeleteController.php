@@ -22,6 +22,7 @@ use App\Models\Role;
 use App\Models\Score;
 use App\Models\Sport;
 use App\Models\Team;
+use App\Models\Tournament;
 use App\Models\User;
 
 use App\Http\Traits\ImageManagerTrait;
@@ -61,10 +62,16 @@ class DashboardDeleteController extends Controller
     }
     public function leagues($id)
     {
-        $league = League::findOrFail($id);
-        dd($league);
+        $league = League::findOrFail($id);        
+        if($league->icon_path != null){
+            $this->deleteAsset($league->icon_path);
+         }
+         if($league->icon_path != null){
+            $this->deleteAsset($league->icon_path);
+         }
+        $league->delete();
         Alert::success('Éxito', 'Liga eliminada');
-        return redirect($id)->route('leagues.index');
+        return redirect()->back();
     }
     public function locations($id)
     {
@@ -118,10 +125,16 @@ class DashboardDeleteController extends Controller
     }
     public function referees($id)
     {
-        $league = League::findOrFail($id);
-        dd($league);
-        Alert::success('Éxito', 'Liga eliminada');
-        return view('dashboard.referees.index');
+        $referee = Referee::findOrFail($id);        
+        if($referee->icon_path != null){
+            $this->deleteAsset($referee->icon_path);
+         }
+         if($referee->icon_path != null){
+            $this->deleteAsset($referee->icon_path);
+         }
+        $referee->delete();
+        Alert::success('Éxito', 'Árbitro eliminada');
+        return redirect()->back();
     }
     public function refereeTypes($id)
     {
@@ -153,23 +166,27 @@ class DashboardDeleteController extends Controller
     }
     public function teams($id)
     {
-        $league = League::findOrFail($id);
-        dd($league);
-        Alert::success('Éxito', 'Liga eliminada');
-        return view('dashboard.teams.index');
+        $team = Team::findOrFail($id);        
+        if($team->icon_path != null){
+            $this->deleteAsset($team->icon_path);
+         }
+         if($team->icon_path != null){
+            $this->deleteAsset($team->icon_path);
+         }
+        $team->delete();
+        Alert::success('Éxito', 'Equipo eliminado');
+        return redirect()->back();
     }
     public function tournaments($id)
     {
-        $player = Player::findOrFail($id);
-        $user = User::findOrFail($player->user->id);
-        if($player->icon_path != null){
-            $this->deleteAsset($player->icon_path);
+        $tournament = Tournament::findOrFail($id);        
+        if($tournament->icon_path != null){
+            $this->deleteAsset($tournament->icon_path);
          }
-         if($player->icon_path != null){
-            $this->deleteAsset($player->icon_path);
+         if($tournament->icon_path != null){
+            $this->deleteAsset($tournament->icon_path);
          }
-        $player->delete();
-        $user->delete();
+        $tournament->delete();
         Alert::success('Éxito', 'Jugador eliminado');
         return redirect()->back();
     }
