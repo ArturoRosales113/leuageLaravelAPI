@@ -36,7 +36,7 @@
                                 <!--<th scope="col" data="name">Deporte</th>-->
                                 <th scope="col" data="state">Estado</th>
                                 <th scope="col" data="city">Ciudad</th>
-                                <th scope="col">Ubicación</th>
+                                <th scope="col">Tipo</th>
                                 <th scope="col">Acción</th>
                             </tr>
                         </thead>
@@ -78,9 +78,9 @@
                                         {{ $lo->city }}
                                     </td>
                                     <td>
-                                        @if ($lo->lat != null && $lo->long !=null)
-                                        <a href="">Ver mapa</a>
-                                        @endif
+                                      
+                                        {{$lo->tipo_estadio}}
+                                     
                                     </td>
                                     <td>
                                         <a href="{{ route('locations.edit', $lo->id) }}" class="btn btn-icon btn-2 btn-primary">

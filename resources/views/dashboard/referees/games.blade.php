@@ -61,7 +61,7 @@
                                     {{ Carbon::parse($lg->start_time)->diffForHumans(); }}
                                 </td>
                                 <td>
-                                     <a href="http://3.16.161.92/score/#/{{ $lg->id }}" target="_blank" class="btn btn-icon btn-2 btn-primary">
+                                     <a href="http://playmate.playmakerleagues.com.mx/#/{{ $lg->id }}" target="_blank" class="btn btn-icon btn-2 btn-primary">
                                         <span class="btn-inner--icon"><i class="fas fa-mobile"></i>&nbsp;Arbitrar</span>
                                     </a>
                                     {{-- <form method="POST" class="d-inline-block" action="{{ route('games.delete', $lg->id) }}">
