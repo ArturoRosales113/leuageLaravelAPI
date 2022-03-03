@@ -8,7 +8,7 @@
 <div class="container-fluid">
 
 
-        @if ($tournament->teams->count() < $tournament->number_teams)
+    @if ($tournament->teams->count() < $tournament->number_teams)
 
 
 
@@ -122,9 +122,9 @@
                                     <div class="centro jornada">Jornada {{ $ronda }}</div>
                                     <div class="itemsJornada">
                                         @foreach ($rid as $tgs)
-                                        <div class="row align-items-center justify-content-between mt-4 top-card">
+                                        <div class="row align-items-center mt-4 top-card">
                                             @foreach ($tgs->teams as $lgt)
-                                            <div class="col-4 text-center">
+                                            <div class="col-4 text-center pd1">
                                                 <a href="{{ route('teams.show', $lgt->id) }}" class="text-default text-underline">
                                                     <img width="50px" alt="Image placeholder" src="{{ $lgt->icon_path == null ? asset('argon/img/theme/team-4-800x800.jpg') :asset( $lgt->icon_path) }}"> <br>
                                                     <small>{{ $lgt->name }}</small>                                        
@@ -142,7 +142,8 @@
                                                 @if ($tgs->field_id != null)
                                                 <div class="col-12 pdItem">
                                                     <h5 class="yellow centro">Estadio</h5>
-                                                    <p class="centro">{{ $tgs->field->location->name }} cancha {{ $tgs->field->name }}</p>
+                                                    <p class="centro">{{ $tgs->field->location->name }} // {{ $tgs->field->name }}</p>
+                                                  
                                                 </div>
                                                 @endif
                                         
@@ -161,12 +162,12 @@
                                                 </div>
                                                 @endif
                                         </div>
-                                        <div>
+                                        <div class="botones_encentros">
                                             <a class="btn btn-sm btn-default redBtn btnFull" href="{{ route('games.edit', $tgs->id) }}">
-                                                Editar {{ $tgs->id }}
+                                                Editar <span>{{ $tgs->id }}</span>
                                             </a>
-                                            <a class="btn btn-sm btn-default redBtn btnFull" href="{{ 'http://playmate.playmakerleagues.com.mx/#/'.$tgs->id }}">
-                                                Calculadora {{ $tgs->id }}
+                                            <a class="btn btn-sm btn-default redBtn btnFull" href="{{ 'http://playmate.playmakerleagues.com.mx/#/'.$tgs->id }}" target="_blank">
+                                                Arbitrar <span>{{ $tgs->id }}</span>
                                             </a>
                                         </div>
                                         @endforeach
@@ -180,7 +181,7 @@
             </div>
         </div>
 
-        @endif
+    @endif
 
 
 

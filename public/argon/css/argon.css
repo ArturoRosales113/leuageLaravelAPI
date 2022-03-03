@@ -2815,7 +2815,6 @@ fieldset:disabled a.btn {
 .show > .btn-default.dropdown-toggle {
     color: #fff;
     border-color: #172b4d;
-    background-color: #0b1526;
 }
 .btn-default:not(:disabled):not(.disabled):active:focus,
 .btn-default:not(:disabled):not(.disabled).active:focus,
@@ -15959,13 +15958,41 @@ textarea[resize="horizontal"] {
 }
 .navbar-vertical.navbar-expand-xs > [class*="container"] {
     flex-direction: column;
-
     min-height: 100%;
     padding-right: 0;
     padding-left: 0;
-
     align-items: stretch;
 }
+
+.botones_encentros{
+    display: flex;
+}
+.botones_encentros span{
+    display: none;
+}
+.top-games{
+    background: #040820;
+    padding: 1rem 0;
+    border-radius: 8px 8px 0 0;
+    width: 100%;
+    margin: auto;
+    display: flex;
+    justify-content: center;
+}
+.pd1 {
+    padding: 5px 7px;
+    line-height: normal;
+    color: #00cccc;
+  }
+.itemsJornadas{
+    padding: 0px 1.5rem 1rem;
+    margin-bottom: 5px;
+    display: flex;
+    align-content: flex-start;
+}
+  .itemsJornada-arbitro{
+    width: 50%;
+  }
 @media all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
     .navbar-vertical.navbar-expand-xs > [class*="container"] {
         height: 100%;
@@ -18809,8 +18836,9 @@ button.btn.btn-sm.btn-default:hover {
 }
 .btnFull {
     width: 100%;
-    padding: 12px;
+    padding: 10px 12px;
     margin-bottom: 2rem;
+    font-size: 14px;
 }
 .itemsJornada {
     padding: 0px 1.5rem 1rem;
@@ -18823,6 +18851,11 @@ button.btn.btn-sm.btn-default:hover {
     max-width: 500px;
     width: 100%;
     margin: auto;
+    display: flex;
+    justify-content: center;
+}
+.versusTeams{
+    padding: 5px 15px;
 }
 .pdItem {
     padding: 1rem 1rem;
@@ -18831,6 +18864,9 @@ button.btn.btn-sm.btn-default:hover {
 }
 .pdItem p {
     margin: 0;
+}
+.pdItem .yellow {
+    text-transform: uppercase;
 }
 .jornada {
     padding: 1rem 0 0;
