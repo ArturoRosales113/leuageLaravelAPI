@@ -20,6 +20,7 @@ class Referee extends Model
         'icon_path',
         'img_path',
         'licencia',
+        'league_id'
     ];
 
     public function user()
