@@ -22,8 +22,8 @@ class CategorySeeder extends Seeder
             'img_path' => 'img/default-img.jpg'
         ]);
         DB::table('categories')->insert([
-            'name' => 'masculino',
-            'display_name' => 'masculino',
+            'name' => 'varonil',
+            'display_name' => 'varonil',
             'description' => 'Lorem ipsum dolor sit amet consectetur adipisicing elit.',
             'icon_path' => 'img/default-icon.jpg',
             'img_path' => 'img/default-img.jpg'
