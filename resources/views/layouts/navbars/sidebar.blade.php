@@ -447,7 +447,7 @@
                     <li class="nav-item" onclick="Functionuno()"> 
                         <a class="nav-link" href="#referees-dropdown" data-toggle="collapse" role="button" aria-expanded="false" aria-controls="referees-dropdown">
                             <i class="fas fa-ruler-vertical"></i>
-                            <span class="nav-link-text" >{{ __('Arbitros') }}</span>
+                            <span class="nav-link-text itemHide" >{{ __('Arbitros') }}</span>
                         </a>
 
                         <div class="collapse" id="referees-dropdown">
