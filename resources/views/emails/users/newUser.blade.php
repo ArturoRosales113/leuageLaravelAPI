@@ -9,10 +9,10 @@ Para iniciar sesión utiliza tu email:
 Tu contraseña es:
 # {{ $password }}
 
-@component('mail::button', ['url' => ''])
+@component('mail::button', ['url' => 'http://playmakerleagues.com.mx/login'])
 Inicia Sesion
 @endcomponent
 
 Gracias,<br>
-{{ config('app.name') }}
+PlayMaker
 @endcomponent
