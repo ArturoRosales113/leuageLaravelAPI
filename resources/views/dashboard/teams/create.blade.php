@@ -42,7 +42,7 @@
                                 </div>
                             </div>
                             <div class="form-group row">
-                                <label for="email" class="col-sm-3 col-form-label">Email del responsablew</label>
+                                <label for="email" class="col-sm-3 col-form-label">Email del responsable</label>
                                 <div class="col-sm-9">
                                     <input type="text" class="form-control" id="Email" name="email" value="{{ old('email') }}" placeholder="usuario@email.com" >
                                 </div>
