@@ -62,7 +62,8 @@ class DashboardDeleteController extends Controller
     }
     public function leagues($id)
     {
-        $league = League::findOrFail($id);        
+        $league = League::findOrFail($id);   
+        $user = User::findOrFail($league->user->id);     
         if($league->icon_path != null){
             $this->deleteAsset($league->icon_path);
          }
@@ -70,6 +71,7 @@ class DashboardDeleteController extends Controller
             $this->deleteAsset($league->icon_path);
          }
         $league->delete();
+        $user->delete();
         Alert::success('Éxito', 'Liga eliminada');
         return redirect()->back();
     }
@@ -125,13 +127,15 @@ class DashboardDeleteController extends Controller
     }
     public function referees($id)
     {
-        $referee = Referee::findOrFail($id);        
+        $referee = Referee::findOrFail($id);
+        $user = User::findOrFail($referee->user->id);        
         if($referee->icon_path != null){
             $this->deleteAsset($referee->icon_path);
          }
          if($referee->icon_path != null){
             $this->deleteAsset($referee->icon_path);
          }
+        $user->delete();
         $referee->delete();
         Alert::success('Éxito', 'Árbitro eliminada');
         return redirect()->back();
