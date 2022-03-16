@@ -61,7 +61,7 @@
                                   <select class="custom-select" name="category_id">
                                     <option selected value="0">Selecciona una opción</option>
                                     @foreach ($categories as $c)
-                                    <option {{ old('category_id') == $c->id ? 'selected' : ''}} value="{{ $c->id }}">{{ ucfirst($c->display_name) }}</option>`
+                                    <option {{ old('category_id') == $c->id ? 'selected' : ''}} value="{{ $c->id }}">{{ ucfirst($c->display_name) }}</option>
                                     @endforeach
                                   </select>
                                 </div>

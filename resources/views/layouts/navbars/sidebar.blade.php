@@ -1,4 +1,4 @@
-    <nav class="navbar navbar-vertical fixed-left navbar-expand-md navbar-playmaker bg-playmaker scrollbar-light-blue" id="sidenav-main">
+<nav class="navbar navbar-vertical fixed-left navbar-expand-md navbar-playmaker bg-playmaker scrollbar-light-blue" id="sidenav-main">
     <div class="container-fluid">
         <!-- Toggler -->
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#sidenav-collapse-main" aria-controls="sidenav-main" aria-expanded="false" aria-label="Toggle navigation">
@@ -289,11 +289,14 @@
                                     </a>
                                 </li>
 
-                                <li class="nav-item">
-                                    <a class="nav-link" href="http://3.16.161.92/score/" target="new">
+                                <!--
+                                    <li class="nav-item">
+                                    <a class="nav-link" href="http://playmate.playmakerleagues.com.mx/#" target="new">
                                         Calculadora
                                     </a>
                                 </li>
+                            -->
+
                             </ul>
                         </div>
                     </li>
@@ -307,7 +310,7 @@
                     <li class="nav-item" onclick="Functionuno()">
                         <a class="nav-link" href="#leagues-dropdown" data-toggle="collapse" role="button" aria-expanded="false" aria-controls="leagues-dropdown">
                             <i class="fab fa-fort-awesome"></i>
-                            <span class="nav-link-text itemHide" >{{ __('Mi liga') }}</span>
+                            <span class="nav-link-text" >{{ __('Mi liga') }}</span>
                         </a>
 
                         <div class="collapse" id="leagues-dropdown">
@@ -324,7 +327,7 @@
                     <li class="nav-item" onclick="Functionuno()">
                         <a class="nav-link" href="#locations-dropdown" data-toggle="collapse" role="button" aria-expanded="false" aria-controls="locations-dropdown">
                             <i class="fab fa-fort-awesome"></i>
-                            <span class="nav-link-text itemHide" >{{ __('Estadios') }}</span>
+                            <span class="nav-link-text" >{{ __('Estadios') }}</span>
                         </a>
 
                         <div class="collapse" id="locations-dropdown">
@@ -347,7 +350,7 @@
                     <li class="nav-item" onclick="Functionuno()">
                         <a class="nav-link" href="#teams-dropdown" data-toggle="collapse" role="button" aria-expanded="false" aria-controls="teams-dropdown">
                             <i class="fas fa-users"></i>
-                            <span class="nav-link-text itemHide" >{{ __('Equipos') }}</span>
+                            <span class="nav-link-text" >{{ __('Equipos') }}</span>
                         </a>
 
                         <div class="collapse" id="teams-dropdown">
@@ -370,7 +373,7 @@
                     <li class="nav-item" onclick="Functionuno()">
                         <a class="nav-link" href="#players-dropdown" data-toggle="collapse" role="button" aria-expanded="false" aria-controls="players-dropdown">
                             <i class="fas fa-user-friends"></i>
-                            <span class="nav-link-text itemHide" >{{ __('Jugadores') }}</span>
+                            <span class="nav-link-text" >{{ __('Jugadores') }}</span>
                         </a>
 
                         <div class="collapse" id="players-dropdown">
@@ -393,7 +396,7 @@
                     <li class="nav-item" onclick="Functionuno()">
                         <a class="nav-link" href="#referees-dropdown" data-toggle="collapse" role="button" aria-expanded="false" aria-controls="referees-dropdown">
                             <i class="fas fa-ruler-vertical"></i>
-                            <span class="nav-link-text itemHide" >{{ __('Arbitros') }}</span>
+                            <span class="nav-link-text" >{{ __('Arbitros') }}</span>
                         </a>
 
                         <div class="collapse" id="referees-dropdown">
@@ -419,7 +422,7 @@
                     <li class="nav-item" onclick="Functionuno()">
                         <a class="nav-link" href="#referees-dropdown" data-toggle="collapse" role="button" aria-expanded="false" aria-controls="referees-dropdown">
                             <i class="fas fa-ruler-vertical"></i>
-                            <span class="nav-link-text itemHide" >{{ __('Mi equipo') }}</span>
+                            <span class="nav-link-text" >{{ __('Mi equipo') }}</span>
                         </a>
 
                         <div class="collapse" id="referees-dropdown">
@@ -444,7 +447,7 @@
                     <li class="nav-item" onclick="Functionuno()"> 
                         <a class="nav-link" href="#referees-dropdown" data-toggle="collapse" role="button" aria-expanded="false" aria-controls="referees-dropdown">
                             <i class="fas fa-ruler-vertical"></i>
-                            <span class="nav-link-text itemHide" >{{ __('Arbitros') }}</span>
+                            <span class="nav-link-text" >{{ __('Arbitros') }}</span>
                         </a>
 
                         <div class="collapse" id="referees-dropdown">
@@ -455,7 +458,7 @@
                                     </a>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link" href="{{ route('referees.edit', Auth::user()->referee->id) }}">
+                                    <a class="nav-link" href="{{ route('referees.edit', auth()->user()->referee->id) }}">
                                         {{ __('Editar perfil arbitro') }}
                                     </a>
                                 </li>
@@ -466,11 +469,10 @@
 
                 @hasanyrole('player')
                     {{-- Arbitros --}}
-
                     <li class="nav-item" onclick="Functionuno()">
                         <a class="nav-link" href="#referees-dropdown" data-toggle="collapse" role="button" aria-expanded="false" aria-controls="referees-dropdown">
                             <i class="fas fa-ruler-vertical"></i>
-                            <span class="nav-link-text itemHide" >{{ __('Mi perfil') }}</span>
+                            <span class="nav-link-text" >{{ __('Mi perfil') }}</span>
                         </a>
 
                         <div class="collapse" id="referees-dropdown">
