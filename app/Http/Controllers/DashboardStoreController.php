@@ -507,15 +507,15 @@ class DashboardStoreController extends Controller
            ->withErrors($validator)
            ->withInput();
         } else {
-
+            $pass = Str::random(10); 
             $user = User::create([
                 'name' => $input['name'],
                 'email' =>  $input['email'],
-                'password' => Hash::make(Str::random(10))
+                'password' =>$pass
             ]);
 
             $user->assignRole('player');
-
+            Mail::to($user->email)->send(new NewUser($user, $pass));
             $player = Player::create([
                 'user_id' => $user->id,
                 'team_id' => $input['team_id'],
@@ -567,14 +567,16 @@ class DashboardStoreController extends Controller
            ->withErrors($validator)
            ->withInput();
         } else {
+            $pass = Str::random(10); 
 
             $user = User::create([
                 'name' => $input['name'],
                 'email' =>  $input['email'],
-                'password' => Hash::make(Str::random(10))
+                'password' => $pass
             ]);
 
             $user->assignRole('referee');
+            Mail::to($user->email)->send(new NewUser($user, $pass));
 
             $referee = Referee::create([
                 'user_id' => $user->id,

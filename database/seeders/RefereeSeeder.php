@@ -28,6 +28,7 @@ class RefereeSeeder extends Seeder
         {
 
             for ($i=1; $i < 13; $i++){
+
                 $user = User::create([
                     'name' => $this->faker->name($gender = null),
                     'email' => $l->id.'referee'.$i.'@gmail.com',
@@ -36,6 +37,7 @@ class RefereeSeeder extends Seeder
                     'created_at' => now(),
                     'updated_at' => now()
                 ]);
+                
                 $user->assignRole('referee');
 
                 $referee = Referee::create([
