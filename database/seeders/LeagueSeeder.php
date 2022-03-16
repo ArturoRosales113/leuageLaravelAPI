@@ -1,16 +1,12 @@
 <?php
-
 namespace Database\Seeders;
 
-
-use Illuminate\Support\Facades\DB;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Str;
 use Illuminate\Support\Facades\Hash;
 
 use App\Models\User;
 use App\Models\League;
-
 
 use Faker\Factory as Faker;
 
@@ -21,9 +17,6 @@ class LeagueSeeder extends Seeder
      *
      * @return void
      */
-
-
-
     public function run()
     {
         $this->faker = Faker::create();
