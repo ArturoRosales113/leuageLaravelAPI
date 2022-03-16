@@ -511,7 +511,7 @@ class DashboardStoreController extends Controller
             $user = User::create([
                 'name' => $input['name'],
                 'email' =>  $input['email'],
-                'password' =>$pass
+                'password' => Hash::make($pass)
             ]);
 
             $user->assignRole('player');
@@ -572,7 +572,7 @@ class DashboardStoreController extends Controller
             $user = User::create([
                 'name' => $input['name'],
                 'email' =>  $input['email'],
-                'password' => $pass
+                'password' => Hash::make($pass)
             ]);
 
             $user->assignRole('referee');
