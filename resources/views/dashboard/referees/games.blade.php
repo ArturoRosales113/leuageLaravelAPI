@@ -53,7 +53,7 @@
                                                 Arbitrar
                                             </a>
                                         -->
-                                            <a class="btn btn-sm btn-default redBtn btnFull" href="http://playmate.playmakerleagues.com.mx/#/{{ $lg->id }}" target="_blank" class="btn btn-icon btn-2 btn-primary">
+                                            <a class="btn btn-sm btn-default redBtn btnFull" href="http://playmate.playmakerleagues.com.mx/#/juego/{{ $lg->id }}" target="_blank" class="btn btn-icon btn-2 btn-primary">
                                                 Arbitrar
                                             </a>
                                         </div>

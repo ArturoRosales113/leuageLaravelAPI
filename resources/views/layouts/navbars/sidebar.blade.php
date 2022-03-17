@@ -478,12 +478,12 @@
                         <div class="collapse" id="referees-dropdown">
                             <ul class="nav nav-sm flex-column">
                                 <li class="nav-item">
-                                    <a class="nav-link" href="{{ route('team.show', auth()->user()->player->team->id ) }}">
+                                    <a class="nav-link" href="{{ route('teams.show', auth()->user()->player->team->id ) }}">
                                         {{ __('Ver mi equipo') }}
                                     </a>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link" href="{{ route('player.show', auth()->user()->player->id ) }}">
+                                    <a class="nav-link" href="{{ route('players.show', auth()->user()->player->id ) }}">
                                         {{ __('Mi perfil') }}
                                     </a>
                                 </li>
