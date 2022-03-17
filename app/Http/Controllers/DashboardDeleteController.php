@@ -142,8 +142,14 @@ class DashboardDeleteController extends Controller
     }
     public function refereeTypes($id)
     {
-        $league = League::findOrFail($id);
-        dd($league);
+        $refereet = RefereeType::findOrFail($id);
+        if($refereet->icon_path != null){
+            $this->deleteAsset($refereet->icon_path);
+         }
+         if($refereet->icon_path != null){
+            $this->deleteAsset($refereet->icon_path);
+         }
+         $refereet->delete();
         Alert::success('Éxito', 'Liga eliminada');
         return view('dashboard.refereeTypes.index');
     }
