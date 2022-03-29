@@ -166,7 +166,7 @@
                                             <a class="btn btn-sm btn-default redBtn btnFull" href="{{ route('games.edit', $tgs->id) }}">
                                                 Editar <span>{{ $tgs->id }}</span>
                                             </a>
-                                            <a class="btn btn-sm btn-default redBtn btnFull" href="{{ 'http://playmate.playmakerleagues.com.mx/juego/#/'.$tgs->id }}" target="_blank">
+                                            <a class="btn btn-sm btn-default redBtn btnFull" href="{{ 'http://playmate.playmakerleagues.com.mx/#/juego/'.$tgs->id }}" target="_blank">
                                                 Arbitrar <span>{{ $tgs->id }}</span>
                                             </a>
                                         </div>

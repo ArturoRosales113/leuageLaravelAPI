@@ -23,6 +23,7 @@
                 </select>
         </div>
     </div>
+    
     <div class="row">
         <label for="apodo" class="col-md-12 col-form-label">Apodo</label>
         <div class="col-md-12">

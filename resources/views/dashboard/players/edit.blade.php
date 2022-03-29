@@ -42,17 +42,6 @@
                             </div>
                         </div>
                         <div class="form-group row">
-                            <label for="posicion" class="col-md-3 col-form-label">Posición</label>
-                            <div class="col-md-9">
-                                <select class="custom-select" name="posicion">
-                                    <option value="null" selected>Selecciona una opción</option>
-                                        <option value="Alero">Alero</option>
-                                        <option value="Poste">Poste</option>
-                                        <option value="Centro">Centro</option>
-                                    </select>
-                            </div>
-                        </div>
-                        <div class="form-group row">
                             <label for="posicion" class="col-sm-3 col-form-label">Posición</label>
                             <div class="col-sm-9">
                                 <input type="text" class="form-control" id="posicion" name="posicion" value="{{ old('posicion', $player->posicion) }}" placeholder="Defensa" >
