@@ -15,7 +15,7 @@
                         <h3 class="mb-0">Tabla de posiciones</h3>
                     </div>
                     <div class="col text-right">
-                         <a href="{{ route('tournaments.show', $tournament->id) }}" class="btn btn-sm btn-default"><i class="fas fa-arrow-left"></i>&nbsp;Regresar</a>
+                        <a href="{{ route('tournaments.show', $tournament->id) }}" class="btn btn-sm btn-default"><i class="fas fa-arrow-left"></i>&nbsp;Regresar</a>
                     </div>
                 </div>
             </div>    
@@ -74,7 +74,6 @@
                                 {{ $tp->pivot->puntos_favor - $tp->pivot->puntos_contra}}
                             </td>
                         </tr>
-     
                         @endforeach
                     </tbody>
                 </table>
@@ -89,26 +88,22 @@
                 <div class="row justify-content-around">
                     @for ($i = 0 ; $i < $tournament->number_teams_playoffs/2 ; $i++)
                     <div class="col-5">
-                        <div class="row align-items-center justify-content-between mt-4 top-card">
-                            
+                        <div class="row align-items-center justify-content-between mt-4 top-card">                            
                             <div class="col-4 text-center">
                                 <a href="{{ route('teams.show', $predicciones[$i][0]['id'] ) }}" class="text-default text-underline">
                                     <img width="50px" alt="Image placeholder" src="{{ $predicciones[$i][0]['icon_path'] == null ? asset('argon/img/theme/team-4-800x800.jpg') :asset( $predicciones[$i][0]['icon_path'] ) }}"> <br>
                                     <small>{{ $predicciones[$i][0]['name'] }}</small>                                        
                                 </a>
+                            </div>                            
+                            <div class="col-2 text-center">
+                                <span>VS</span>
                             </div>
-                            
-                                <div class="col-2 text-center">
-                                    <span>VS</span>
-                                </div>
-                                <div class="col-4 text-center">
-                                    <a href="{{ route('teams.show', $predicciones[$i][1]['id'] ) }}" class="text-default text-underline">
-                                        <img width="50px" alt="Image placeholder" src="{{ $predicciones[$i][1]['icon_path'] == null ? asset('argon/img/theme/team-4-800x800.jpg') :asset( $predicciones[$i][1]['icon_path'] ) }}"> <br>
-                                        <small>{{ $predicciones[$i][1]['name'] }}</small>                                        
-                                    </a>
-                                </div>
-                            
-                                
+                            <div class="col-4 text-center">
+                                <a href="{{ route('teams.show', $predicciones[$i][1]['id'] ) }}" class="text-default text-underline">
+                                    <img width="50px" alt="Image placeholder" src="{{ $predicciones[$i][1]['icon_path'] == null ? asset('argon/img/theme/team-4-800x800.jpg') :asset( $predicciones[$i][1]['icon_path'] ) }}"> <br>
+                                    <small>{{ $predicciones[$i][1]['name'] }}</small>                                        
+                                </a>
+                            </div>                                                            
                         </div>
                     </div>
                     @endfor

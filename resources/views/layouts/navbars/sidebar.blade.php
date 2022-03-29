@@ -429,7 +429,7 @@
                             <ul class="nav nav-sm flex-column">
                                 <li class="nav-item">
                                     <a class="nav-link" href="{{ route('teams.show', auth()->user()->player->team->id) }}">
-                                        {{ __('Listar arbitros') }}
+                                        {{ __('Listar equipo') }}
                                     </a>
                                 </li>
                                 <li class="nav-item">

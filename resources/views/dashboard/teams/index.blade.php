@@ -48,7 +48,7 @@
                                 </a>
                             </td>
                             <td>
-                               {{ $t->league->name }}
+                                {{ $t->league->name }}
                             </td>
                             <td>
                                 {{ $t->players->count() }}
@@ -86,7 +86,7 @@
                                 </a>
                             </td>
                             <td>
-                               {{ $t->league->name }}
+                                {{ $t->league->name }}
                             </td>
                             <td>
                                 {{ $t->players->count() }}
