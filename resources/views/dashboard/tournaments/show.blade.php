@@ -167,7 +167,7 @@
                                                 Editar <span>{{ $tgs->id }}</span>
                                             </a>
                                             <a class="btn btn-sm btn-default redBtn btnFull" href="{{ 'http://playmate.playmakerleagues.com.mx/#/juego/'.$tgs->id }}" target="_blank">
-                                                Arbitrar <span>{{ $tgs->id }}</span>
+                                                Iniciar encuentro <span>{{ $tgs->id }}</span>
                                             </a>
                                         </div>
                                         @endforeach
