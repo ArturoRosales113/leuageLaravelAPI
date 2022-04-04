@@ -32,7 +32,7 @@ class DashboardDeleteController extends Controller
     //Manipulacion de assets
     use ImageManagerTrait;
 
-   
+
     public function events($id)
     {
         $event = $vent::findOrFail($id);
@@ -45,10 +45,10 @@ class DashboardDeleteController extends Controller
         $field = Field::findOrFail($id);
         if($field->icon_path != null){
             $this->deleteAsset($player->icon_path);
-         }
-         if($field->icon_path != null){
+        }
+        if($field->icon_path != null){
             $this->deleteAsset($player->icon_path);
-         }
+        }
         $field->delete();
         Alert::success('Éxito', 'Cancha eliminado');
         return redirect()->back();
@@ -66,10 +66,10 @@ class DashboardDeleteController extends Controller
         $user = User::findOrFail($league->user->id);     
         if($league->icon_path != null){
             $this->deleteAsset($league->icon_path);
-         }
-         if($league->icon_path != null){
+        }
+        if($league->icon_path != null){
             $this->deleteAsset($league->icon_path);
-         }
+        }
         $league->delete();
         $user->delete();
         Alert::success('Éxito', 'Liga eliminada');
@@ -77,9 +77,15 @@ class DashboardDeleteController extends Controller
     }
     public function locations($id)
     {
-        $league = League::findOrFail($id);
-        dd($league);
-        Alert::success('Éxito', 'Liga eliminada');
+        $location = Location::findOrFail($id);
+        if($location->icon_path != null){
+            $this->deleteAsset($location->icon_path);
+        }
+        if($location->icon_path != null){
+            $this->deleteAsset($location->icon_path);
+        }
+        $location->delete();
+        Alert::success('Éxito', 'Estadio eliminado');
         return view('dashboard.locations.index');
     }
     public function materials($id)
@@ -91,8 +97,16 @@ class DashboardDeleteController extends Controller
     }
     public function modalities($id)
     {
-        $league = League::findOrFail($id);
-        dd($league);
+        $modalitie = Modalitie::findOrFail($id);
+        
+        if($modalitie->icon_path != null){
+            $this->deleteAsset($modalitie->icon_path);
+        }
+        if($modalitie->icon_path != null){
+            $this->deleteAsset($modalitie->icon_path);
+        }
+
+        $modalitie->delete();
         Alert::success('Éxito', 'Liga eliminada');
         return view('dashboard.modalities.index');
     }
@@ -109,10 +123,11 @@ class DashboardDeleteController extends Controller
         $user = User::findOrFail($player->user->id);
         if($player->icon_path != null){
             $this->deleteAsset($player->icon_path);
-         }
-         if($player->icon_path != null){
+        }
+        if($player->icon_path != null){
             $this->deleteAsset($player->icon_path);
-         }
+        }
+
         $player->delete();
         $user->delete();
         Alert::success('Éxito', 'Jugador eliminado');
@@ -131,10 +146,10 @@ class DashboardDeleteController extends Controller
         $user = User::findOrFail($referee->user->id);        
         if($referee->icon_path != null){
             $this->deleteAsset($referee->icon_path);
-         }
-         if($referee->icon_path != null){
+        }
+        if($referee->icon_path != null){
             $this->deleteAsset($referee->icon_path);
-         }
+        }
         $user->delete();
         $referee->delete();
         Alert::success('Éxito', 'Árbitro eliminada');
@@ -145,11 +160,11 @@ class DashboardDeleteController extends Controller
         $refereet = RefereeType::findOrFail($id);
         if($refereet->icon_path != null){
             $this->deleteAsset($refereet->icon_path);
-         }
-         if($refereet->icon_path != null){
+        }
+        if($refereet->icon_path != null){
             $this->deleteAsset($refereet->icon_path);
-         }
-         $refereet->delete();
+        }
+        $refereet->delete();
         Alert::success('Éxito', 'Liga eliminada');
         return view('dashboard.refereeTypes.index');
     }
@@ -179,10 +194,10 @@ class DashboardDeleteController extends Controller
         $team = Team::findOrFail($id);        
         if($team->icon_path != null){
             $this->deleteAsset($team->icon_path);
-         }
-         if($team->icon_path != null){
+        }
+        if($team->icon_path != null){
             $this->deleteAsset($team->icon_path);
-         }
+        }
         $team->delete();
         Alert::success('Éxito', 'Equipo eliminado');
         return redirect()->back();
@@ -192,12 +207,12 @@ class DashboardDeleteController extends Controller
         $tournament = Tournament::findOrFail($id);        
         if($tournament->icon_path != null){
             $this->deleteAsset($tournament->icon_path);
-         }
-         if($tournament->icon_path != null){
+        }
+        if($tournament->icon_path != null){
             $this->deleteAsset($tournament->icon_path);
-         }
+        }
         $tournament->delete();
-        Alert::success('Éxito', 'Jugador eliminado');
+        Alert::success('Éxito', 'Torneo eliminado');
         return redirect()->back();
     }
     public function users($id)

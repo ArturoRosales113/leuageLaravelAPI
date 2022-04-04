@@ -9,7 +9,8 @@ class Player extends Model
 {
     use HasFactory;
 
-    protected $fillable = [                
+    protected $fillable = [
+        'uid',                
         'user_id',
         'team_id',
         'numero',

@@ -61,18 +61,6 @@
                             <label class="custom-file-label" for="customFile">Cargar imagen</label>
                         </div>
                     </div>
-                    {{-- <div class="form-group row">
-                        <label for="n-teams" class="col-sm-3 col-form-label">No. de Equipos</label>
-                        <div class="col-sm-9">
-                            <select class="custom-select" name="numero_equipos">
-                                <option value="0">Selecciona una opción</option>
-                                @for ($i = 1; $i < 41; $i++)
-                                <option {{ old('numero_equipos') == $i || $league->numero_equipos == $i ? 'selected' : '' }} value="{{ $i }}">{{ $i }}</option>
-                                @endfor
-                                
-                            </select>
-                        </div>
-                    </div> --}}
                     <div class="form-group row">
                         <label for="sport" class="col-sm-3 col-form-label">Elige un deporte</label>
                         <div class="col-sm-9">

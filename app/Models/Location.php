@@ -10,6 +10,7 @@ class Location extends Model
     use HasFactory;
 
     protected $fillable = [        
+        'uid',
         'name',
         'league_id',
         'description',
@@ -22,7 +23,7 @@ class Location extends Model
         'country',
         'lat',
         'long',
-        'tipo_estadio'
+        'tipo_estadio',        
     ];
 
     public function league()

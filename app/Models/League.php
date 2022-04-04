@@ -9,7 +9,8 @@ class League extends Model
 {
     use HasFactory;
 
-    protected $fillable = [        
+    protected $fillable = [
+        'uid',        
         'user_id',
         'name',
         'sport_id',

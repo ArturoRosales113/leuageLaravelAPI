@@ -9,6 +9,7 @@ class Tournament extends Model
 {
     use HasFactory;
     protected $fillable = [
+        'uid',
         'category_id',
         'league_id',
         'name',

@@ -41,63 +41,64 @@
                         </tr>
                     </thead>
                     <tbody>
-                        @hasanyrole('super-admin')
-                            @foreach ($players as $pl)
-                            <tr>
-                                <th>
-                                    <span class="rounded-circle border-b avatar">
-                                    <img alt="Image placeholder" src="{{ $pl->icon_path == null ? asset('argon/img/theme/team-4-800x800.jpg') :asset( $pl->icon_path) }}">
-                                    </span>
-                                </th>
-                                <td>
-                                    <a href="{{ route('players.show', $pl->id) }}">
-                                        {{ $pl->user->name }}
-                                    </a>
-                                </td>
-                                <td>
-                                    {{ $pl->apodo }}
-                                </td>
-                                <td>
-                                    {{ $pl->numero }}
-                                </td>
-                                <td>
-                                    {{ $pl->posicion }}
-                                </td>
-                                <!--
-                                <td>
-                                    {{ $pl->edad }}
-                                </td>
+                        @foreach ($players as $pl)
+                        <tr>
+                            <th>
+                                <span class="rounded-circle border-b avatar">
+                                <img alt="Image placeholder" src="{{ $pl->icon_path == null ? asset('argon/img/theme/team-4-800x800.jpg') :asset( $pl->icon_path) }}">
+                                </span>
+                            </th>
+                            <td>
+                                <a href="{{ route('players.show', $pl->id) }}">
+                                    {{ $pl->user->name }}
+                                </a>
+                            </td>
+                            <td>
+                                {{ $pl->apodo }}
+                            </td>
+                            <td>
+                                {{ $pl->numero }}
+                            </td>
+                            <td>
+                                {{ $pl->posicion }}
+                            </td>
+                            <!--
+                            <td>
+                                {{ $pl->edad }}
+                            </td>
+                            
+                            <td>
+                                {{ $pl->peso . ' kg' }}
+                            </td>
+                            <td>
+                                {{ $pl->estatura . ' cm'}}
+                            </td>-->
+                            <td>
+                                <a href="{{ route('teams.show', $pl->team->id) }}">
+                                    {{ $pl->team->name }}
+                                </a>
                                 
-                                <td>
-                                    {{ $pl->peso . ' kg' }}
-                                </td>
-                                <td>
-                                    {{ $pl->estatura . ' cm'}}
-                                </td>-->
-                                <td>
-                                    <a href="{{ route('teams.show', $pl->team->id) }}">
-                                        {{ $pl->team->name }}
-                                    </a>
-                                    
-                                </td>
-                                
-                                <td>
-                                    <a href="{{ route('players.edit', $pl->id) }}" class="btn btn-icon btn-2 btn-primary">
-                                        <span class="btn-inner--icon"><i class="far fa-edit"></i></span>
-                                    </a>
-                                    <form method="POST" class="d-inline-block" action="{{ route('players.delete', $pl->id) }}">
-                                        {{ csrf_field() }}
-                                        {{ method_field('DELETE') }}
-                                
-                                        <div class="form-group">
-                                            <button class="btn btn-icon btn-2 btn-danger" type="submit">
-                                                <span class="btn-inner--icon"><i class="fas fa-trash"></i></span>
-                                            </button>
-                                        </div>
-                                    </form>
-                                </td>
-                            </tr>    
-                            @endforeach
+                            </td>
+                            
+                            <td>
+                                <a href="{{ route('players.edit', $pl->id) }}" class="btn btn-icon btn-2 btn-primary">
+                                    <span class="btn-inner--icon"><i class="far fa-edit"></i></span>
+                                </a>
+                                <form method="POST" class="d-inline-block" action="{{ route('players.delete', $pl->id) }}">
+                                    {{ csrf_field() }}
+                                    {{ method_field('DELETE') }}
+                            
+                                    <div class="form-group">
+                                        <button class="btn btn-icon btn-2 btn-danger" type="submit">
+                                            <span class="btn-inner--icon"><i class="fas fa-trash"></i></span>
+                                        </button>
+                                    </div>
+                                </form>
+                            </td>
+                        </tr>    
+                        @endforeach
+                        {{-- @hasanyrole('super-admin')
+
                         @endhasanyrole
                         @hasanyrole('league_administrator')
                             @foreach (auth()->user()->league->players as $pl)
@@ -124,24 +125,12 @@
                                 <td>
                                     {{ $pl->edad }}
                                 </td>
-                                <td>
-                                    {{ $pl->peso . ' kg' }}
-                                </td>
-                                <td>
-                                    {{ $pl->estatura . ' cm'}}
-                                </td>
-                                <td>
-                                    <a href="{{ route('teams.show', $pl->team->id) }}">
-                                        {{ $pl->team->name }}
-                                    </a>
-                                    
-                                </td>
                                 
                                 <td>
                                     <a href="{{ route('players.show', $pl->id) }}" class="btn btn-icon btn-2 btn-primary">
                                         <span class="btn-inner--icon"><i class="far fa-edit"></i></span>
                                     </a>
-                                    {{-- <form method="POST" class="d-inline-block" action="{{ route('players.delete', $pl->id) }}">
+                                    <form method="POST" class="d-inline-block" action="{{ route('players.delete', $pl->id) }}">
                                         {{ csrf_field() }}
                                         {{ method_field('DELETE') }}
                                 
@@ -150,16 +139,16 @@
                                                 <span class="btn-inner--icon"><i class="fas fa-trash"></i></span>
                                             </button>
                                         </div>
-                                    </form> --}}
+                                    </form> 
                                 </td>
                             </tr>    
                             @endforeach
                         @endhasanyrole
-                    </tbody>
+                    </tbody> --}}
                 </table>
             </div>
         </div>
-
+        {{ $players->onEachSide(5)->links() }}
         
 
 

@@ -10,6 +10,7 @@ class Field extends Model
     use HasFactory;
 
     protected $fillable = [
+        'uid',
         'name',
         'display_name',
         'description',

@@ -5,6 +5,8 @@ namespace Database\Seeders;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Str;
+
 
 use App\Models\Tournament;
 use App\Models\League;
@@ -20,6 +22,7 @@ class TournamentSeeder extends Seeder
     {
         $tournament = Tournament::create([
             'category_id' => 1, 
+            'uid' => Str::random(3).'-'.Str::random(4).'-'.Str::random(3),
             'league_id' => 1,
             'name' => 'Torneo prueba',
             'number_teams' => 12,
@@ -34,6 +37,7 @@ class TournamentSeeder extends Seeder
 
         $tournament = Tournament::create([
             'category_id' => 3, 
+            'uid' => Str::random(3).'-'.Str::random(4).'-'.Str::random(3),
             'league_id' => 2,
             'name' => 'Torneo prueba',
             'number_teams' => 9,

@@ -24,9 +24,9 @@ class CreateTeamsTable extends Migration
             $table->softDeletes();
         });
 
-     
         Schema::create('leagues', function (Blueprint $table) {
             $table->id();
+            $table->string('uid')->unique();
             $table->unsignedBigInteger('user_id');
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
             $table->unsignedBigInteger('sport_id');
@@ -56,6 +56,7 @@ class CreateTeamsTable extends Migration
 
         Schema::create('referees', function (Blueprint $table) {
             $table->id();
+            $table->string('uid')->unique();
             $table->unsignedBigInteger('user_id');
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
             $table->unsignedBigInteger('league_id');
@@ -86,6 +87,7 @@ class CreateTeamsTable extends Migration
 
         Schema::create('tournaments', function (Blueprint $table) {
             $table->id();
+            $table->string('uid')->unique();
             $table->unsignedBigInteger('category_id');
             $table->foreign('category_id')->references('id')->on('categories')->onDelete('cascade');
             $table->unsignedBigInteger('league_id');
@@ -110,6 +112,7 @@ class CreateTeamsTable extends Migration
 
         Schema::create('locations', function (Blueprint $table) {
             $table->id();
+            $table->string('uid')->unique();
             $table->unsignedBigInteger('league_id');
             $table->foreign('league_id')->references('id')->on('leagues')->onDelete('cascade');            
             $table->string('name');
@@ -142,6 +145,7 @@ class CreateTeamsTable extends Migration
 
         Schema::create('fields', function (Blueprint $table) {
             $table->id();
+            $table->string('uid')->unique();
             $table->string('name');
             $table->string('display_name');
             $table->longText('description')->nullable();
@@ -160,6 +164,7 @@ class CreateTeamsTable extends Migration
 
         Schema::create('teams', function (Blueprint $table) {
             $table->id();
+            $table->string('uid')->unique();
             $table->string('name')->nullable();
             $table->unsignedBigInteger('user_id');
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
@@ -174,6 +179,7 @@ class CreateTeamsTable extends Migration
 
         Schema::create('players', function (Blueprint $table) {
             $table->id();
+            $table->string('uid')->unique();
             $table->unsignedBigInteger('user_id');
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
             $table->unsignedBigInteger('team_id');
@@ -201,9 +207,10 @@ class CreateTeamsTable extends Migration
             $table->timestamps();
             $table->softDeletes();
         });
- 
+
         Schema::create('games', function (Blueprint $table) {
             $table->id();
+            $table->string('uid')->unique();
 
             $table->unsignedBigInteger('modality_id');
             $table->foreign('modality_id')->references('id')->on('modalities')->onDelete('cascade');

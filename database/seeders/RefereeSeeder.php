@@ -42,6 +42,7 @@ class RefereeSeeder extends Seeder
 
                 $referee = Referee::create([
                     'user_id' => $user->id,
+                    'uid' => Str::random(3).'-'.Str::random(4).'-'.Str::random(3),
                     'league_id' => $l->id,
                     'refereeType_id' => $this->faker->randomElement($array = array ('1','2')),
                     'edad' => $this->faker->numberBetween($min=20,$max=71),

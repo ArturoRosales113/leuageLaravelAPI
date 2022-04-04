@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\DashboardActiveController;
 use App\Http\Controllers\DashboardIndexController;
 use App\Http\Controllers\DashboardCreateController;
 use App\Http\Controllers\DashboardStoreController;
@@ -191,6 +192,28 @@ Route::group(['middleware' => 'auth'], function () {
 	Route::delete('teams/{id}',[DashboardDeleteController::class, 'teams'])->name('teams.delete');
 	Route::delete('tournaments/{id}',[DashboardDeleteController::class, 'tournaments'])->name('tournaments.delete');
 	Route::delete('users/{id}',[DashboardDeleteController::class, 'users'])->name('users.delete');
+
+	
+	// Activar
+	Route::post('actions/active/{id}',[DashboardActiveController::class, 'actions'])->name('actions.active');
+	Route::post('events/active/{id}',[DashboardActiveController::class, 'events'])->name('events.active');
+	Route::post('fields/active/{id}',[DashboardActiveController::class, 'fields'])->name('fields.active');
+	Route::post('games/active/{id}',[DashboardActiveController::class, 'games'])->name('games.active');
+	Route::post('leagues/active/{id}',[DashboardActiveController::class, 'leagues'])->name('leagues.active');
+	Route::post('locations/active/{id}',[DashboardActiveController::class, 'locations'])->name('locations.active');
+	Route::post('materials/active/{id}',[DashboardActiveController::class, 'materials'])->name('materials.active');
+	Route::post('modalities/active/{id}',[DashboardActiveController::class, 'modalities'])->name('modalities.active');
+	Route::post('permissions/active/{id}',[DashboardActiveController::class, 'permissions'])->name('permissions.active');
+	Route::post('players/active/{id}',[DashboardActiveController::class, 'players'])->name('players.active');
+	Route::post('profiles/active/{id}',[DashboardActiveController::class, 'profiles'])->name('profiles.active');
+	Route::post('referees/active/{id}',[DashboardActiveController::class, 'referees'])->name('referees.active');
+	Route::post('refereeTypes/active/{id}',[DashboardActiveController::class, 'refereeTypes'])->name('refereeTypes.active');
+	Route::post('roles/active/{id}',[DashboardActiveController::class, 'roles'])->name('roles.active');
+	Route::post('scores/active/{id}',[DashboardActiveController::class, 'scores'])->name('scores.active');
+	Route::post('sports/active/{id}',[DashboardActiveController::class, 'sports'])->name('sports.active');
+	Route::post('teams/active/{id}',[DashboardActiveController::class, 'teams'])->name('teams.active');
+	Route::post('tournaments/active/{id}',[DashboardActiveController::class, 'tournaments'])->name('tournaments.active');
+	Route::post('users/active/{id}',[DashboardActiveController::class, 'users'])->name('users.active');
 });
 
     

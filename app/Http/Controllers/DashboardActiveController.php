@@ -25,7 +25,7 @@ use App\Models\Tournament;
 use App\Models\User;
 
 
-class DashboardIndexController extends Controller
+class DashboardActiveController extends Controller
 {
     public function actions()
     {
@@ -35,57 +35,51 @@ class DashboardIndexController extends Controller
 	public function events()
     {
         return view('dashboard.events.index',
-            ['events' => Event::all()]
+         ['events' => Event::all()]
         );
     }
 
 	public function fields()
     {
         return view('dashboard.fields.index',
-            ['fields' => Field::all()]
+         ['fields' => Field::all()]
         );
     }
 
 	public function games()
     {
         return view('dashboard.games.index',
-            ['games' => Game::all()]
+         ['games' => Game::all()]
         );
     }
 
-	public function leagues()
+	public function leagues($id)
     {
-        return view('dashboard.leagues.index',
-            ['leagues' => League::paginate(10)]
-        );
+        $league = League::findOrFail($id);
+        $league->is_active = $league->is_active ? false : true;
+        $league->save();
+        return redirect()->back();
     }
 
-	public function locations()
+	public function locations($id)
     {
-        $user = auth()->user();
-        if($user->hasAnyRole(['super-admin','back_office'])){
-            $locations = Location::paginate(10);
-        }
-        if($user->hasAnyRole(['league_administrator'])){
-            $locations = $user->league->locations()->paginate(10);
-        }
-
-        return view('dashboard.locations.index',
-            ['locations' => $locations]
-        );
+        $location = Location::findOrFail($id);
+        $location->is_active = $location->is_active ? false : true;
+        $location->save();
+        return redirect()->back();
     }
 
 	public function materials()
     {
         return view('dashboard.materials.index',
-            ['materials' => Material::all()]
+         ['materials' => Material::all()]
         );
     }
 
 	public function modalities()
     {
         return view('dashboard.modalities.index',
-            ['modalities' => Modalitie::all()]
+         ['modalities' => Modalitie::all()]
         );
     }
 
@@ -96,25 +90,12 @@ class DashboardIndexController extends Controller
         );
     }
 
-	public function players()
+	public function players($id)
     {
-        $user = auth()->user();
-        if($user->hasAnyRole(['super-admin','back_office'])){
-            $players = Player::paginate(10);
-        }
-        if($user->hasAnyRole(['league_administrator'])){
-            $players = $user->league->players->paginate(10);
-        }
-        if($user->hasAnyRole(['team_administrator'])){
-            $players = $user->team->players->paginate(10);
-        }
-        if($user->hasAnyRole(['player'])){
-            $players = $user->team->players->paginate(10);
-        }
-
-        return view('dashboard.players.index',
-            ['players' => $players]
-        );
+        $player = Player::findOrFail($id);
+        $player->is_active = $player->is_active ? false : true;
+        $player->save();
+        return redirect()->back();
     }
 
 	public function profiles()
@@ -134,59 +115,51 @@ class DashboardIndexController extends Controller
 	public function refereeTypes()
     {
         return view('dashboard.refereeTypes.index',
-            ['refereeTypes' => RefereeType::all()]
+         ['refereeTypes' => RefereeType::all()]
         );
     }
 
 	public function roles()
     {
         return view('dashboard.roles.index',
-            ['roles' => Role::all()]
+         ['roles' => Role::all()]
         );
     }
 
 	public function scores()
     {
         return view('dashboard.scores.index',
-            ['scores' => Score::all()]
+         ['scores' => Score::all()]
         );
     }
 
 	public function sports()
     {
         return view('dashboard.sports.index',
-            ['sports' => Sport::all()]
+         ['sports' => Sport::all()]
         );
     }
 
-	public function teams()
+	public function teams($id)
     {
-
-        $user = auth()->user();
-        if($user->hasAnyRole(['super-admin','back_office'])){
-            $teams = Team::paginate(10);
-        }
-
-        if($user->hasAnyRole(['league_administrator'])){
-            $teams = $user->league->teams()->paginate(10);
-        }
-
-        return view('dashboard.teams.index',
-            ['teams' => $teams]
-        );
+        $team = Team::findOrFail($id);
+        $team->is_active = $team->is_active ? false : true;
+        $team->save();
+        return redirect()->back();
     }
 
-	public function tournament()
+	public function tournaments($id)
     {
-        return view('dashboard.tournaments.index',
-            ['tournaments' => Tournament::all()]
-        );
+        $tournament = Tournament::findOrFail($id);
+        $tournament->is_active = $tournament->is_active ? false : true;
+        $tournament->save();
+        return redirect()->back();
     }
 
 	public function users()
     {
         return view('dashboard.users.index',
-            ['users' => User::all()]
+         ['users' => User::all()]
         );
     }
         

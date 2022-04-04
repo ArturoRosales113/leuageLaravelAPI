@@ -8,6 +8,7 @@ use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
 use RealRashid\SweetAlert\Facades\Alert;
 use Illuminate\Support\Facades\Mail;
+use Illuminate\Support\Facades\Auth;
 
 use App\Mail\NewUser;
 
@@ -36,22 +37,22 @@ class DashboardStoreController extends Controller
 
     public function sports(Request $request)
     {
-       $input = $request->all();
+        $input = $request->all();
        //dd($input);
-       $rules = [
-        'name' => 'required',
-        'description' => 'required|max:1000',
-        'img_path' => 'max:2000',
-        'icon_path' => 'max:3000'
-       ];
+        $rules = [
+            'name' => 'required',
+            'description' => 'required|max:1000',
+            'img_path' => 'max:2000',
+            'icon_path' => 'max:3000'
+        ];
 
-       $validator = Validator::make($input, $rules);
-       if ($validator->fails()) {
-           //dd($validator);
-           return redirect()->back()
-          ->withErrors($validator)
-          ->withInput();
-       } else {
+        $validator = Validator::make($input, $rules);
+        if ($validator->fails()) {
+                //dd($validator);
+        return redirect()->back()
+        ->withErrors($validator)
+        ->withInput();
+    } else {
             
             $sport = Sport::create([
                 'name' => Str::slug($input['name'], '-'),
@@ -69,10 +70,9 @@ class DashboardStoreController extends Controller
             }
 
             $sport->save();
-        
-        Alert::success('Éxito', 'Deporte creado');
-        return redirect()->route('sports.index');
-       }
+            Alert::success('Éxito', 'Deporte creado');
+            return redirect()->route('sports.index');
+        }
     }
 
     public function leagues(Request $request)
@@ -80,22 +80,20 @@ class DashboardStoreController extends Controller
         $input = $request->all();
         //dd($input);
         $rules = [
-         'name' => 'required',
-         'email' => 'required|email|unique:users',
-         'description' => 'max:1000',
-         'icon_path' => 'max:3000|mimes:jpg,bmp,png',
-         'img_path' => 'max:3000|mimes:jpg,bmp,png',
-         'sport_id' => 'required|not_in:0',
-         'reglamento_path' => 'mimes:pdf|max:5000',
-         'numero_equipos' => 'required|not_in:0'
-        ];
- 
+            'name' => 'required',
+            'email' => 'required|email|unique:users',
+            'description' => 'max:1000',
+            'icon_path' => 'max:3000|mimes:jpg,bmp,png',
+            'img_path' => 'max:3000|mimes:jpg,bmp,png',
+            'sport_id' => 'required|not_in:0',
+            'reglamento_path' => 'mimes:pdf|max:5000',
+        ]; 
         $validator = Validator::make($input, $rules);
         if ($validator->fails()) {
             //dd($validator);
             return redirect()->back()
-           ->withErrors($validator)
-           ->withInput();
+                ->withErrors($validator)
+                ->withInput();      
         } else {
             $pass = Str::random(10); 
             $user = User::create([
@@ -111,9 +109,10 @@ class DashboardStoreController extends Controller
             $league = League::create([
                 'user_id' => $user->id,
                 'name' => $input['name'],
+                'uid' => Str::random(3).'-'.Str::random(4).'-'.Str::random(3),
                 'sport_id' => $input['sport_id'],
-                'numero_equipos' => $input['numero_equipos'],
-                'description' => $input['description']                
+                'description' => $input['description'],
+                'is_active' => true                
             ]);
 
             if (array_key_exists('icon_path', $input) && $input['icon_path'] != null) {
@@ -140,33 +139,34 @@ class DashboardStoreController extends Controller
         
         $input = $request->all();
         $rules = [
-         'name' => 'required',
-         'description' => 'max:1000',
-         'reglamento_path' => 'mimes:pdf|max:5000',
-         'category_id' => 'required|not_in:0',
-         'extra_time_periods' => 'required|not_in:0',
-         'league_id' => 'required|not_in:0',
-         'number_teams' => 'required|numeric', 
-         'gameday' => 'required', 
-         'number_periods' => 'required|numeric',
-         'period_lenght' => 'required|numeric', 
-         'time_offs' => 'required|numeric|not_in:0', 
-         'extra_time' => 'required|numeric|not_in:0',
-         'number_teams_playoffs' => 'required|numeric', 
-         'icon_path' => 'max:3000|mimes:jpg,bmp,png',
-         'img_path' => 'max:3000|mimes:jpg,bmp,png' 
+            'name' => 'required',
+            'description' => 'max:1000',
+            'reglamento_path' => 'mimes:pdf|max:5000',
+            'category_id' => 'required|not_in:0',
+            'extra_time_periods' => 'required|not_in:0',
+            'league_id' => 'required|not_in:0',
+            'number_teams' => 'required|numeric', 
+            'gameday' => 'required', 
+            'number_periods' => 'required|numeric',
+            'period_lenght' => 'required|numeric', 
+            'time_offs' => 'required|numeric|not_in:0', 
+            'extra_time' => 'required|numeric|not_in:0',
+            'number_teams_playoffs' => 'required|numeric', 
+            'icon_path' => 'max:3000|mimes:jpg,bmp,png',
+            'img_path' => 'max:3000|mimes:jpg,bmp,png' 
         ];
  
         $validator = Validator::make($input, $rules);
         if ($validator->fails()) {
             //dd($input);
             return redirect()->back()
-           ->withErrors($validator)
-           ->withInput();
+            ->withErrors($validator)
+            ->withInput();
         } else {
             //dd($input);
             $tournament = Tournament::create([
                 'name' => $input['name'],
+                'uid' => Str::random(3).'-'.Str::random(4).'-'.Str::random(3),
                 'league_id' => $input['league_id'],
                 'category_id' => $input['category_id'],
                 'number_teams' => $input['number_teams'],
@@ -178,7 +178,6 @@ class DashboardStoreController extends Controller
                 'time_offs' => $input['time_offs'], 
                 'extra_time' => $input['extra_time'],
                 'gameday' => $input['gameday'],
-                 
             ]);
 
             if (array_key_exists('icon_path', $input) && $input['icon_path'] != null) {
@@ -214,13 +213,13 @@ class DashboardStoreController extends Controller
             'icon_path' => 'max:3000|mimes:jpg,bmp,png',
             'img_path' => 'max:3000|mimes:jpg,bmp,png'
         ];
- 
+
         $validator = Validator::make($input, $rules);
         if ($validator->fails()) {
             //dd($validator);
             return redirect()->back()
-           ->withErrors($validator)
-           ->withInput();
+            ->withErrors($validator)
+            ->withInput();
         } else {
 
             $pass = Str::random(10);
@@ -237,6 +236,7 @@ class DashboardStoreController extends Controller
 
             $team = Team::create([
                 'name'=> $input['name'],
+                'uid' => Str::random(3).'-'.Str::random(4).'-'.Str::random(3),
                 'description'=> $input['description'],
                 'league_id' => $input['league_id'],
                 'description' => $input['description'],
@@ -274,8 +274,8 @@ class DashboardStoreController extends Controller
         if ($validator->fails()) {
             //dd($validator);
             return redirect()->back()
-           ->withErrors($validator)
-           ->withInput();
+            ->withErrors($validator)
+            ->withInput();
         } else {
 
             $event = Event::create([
@@ -315,8 +315,8 @@ class DashboardStoreController extends Controller
         if ($validator->fails()) {
             //dd($validator);
             return redirect()->back()
-           ->withErrors($validator)
-           ->withInput();
+            ->withErrors($validator)
+            ->withInput();
         } else {
 
             $material = Material::create([
@@ -356,8 +356,8 @@ class DashboardStoreController extends Controller
         if ($validator->fails()) {
             //dd($validator);
             return redirect()->back()
-           ->withErrors($validator)
-           ->withInput();
+            ->withErrors($validator)
+            ->withInput();
         } else {
 
             $modalitie = Modalitie::create([
@@ -398,17 +398,18 @@ class DashboardStoreController extends Controller
             'icon_path' => 'max:3000|mimes:jpg,bmp,png',
             'img_path' => 'max:3000|mimes:jpg,bmp,png'
         ];
- 
+
         $validator = Validator::make($input, $rules);
         if ($validator->fails()) {
             //dd($validator);
             return redirect()->back()
-           ->withErrors($validator)
-           ->withInput();
+            ->withErrors($validator)
+            ->withInput();
         } else {
 
             $location = Location::create([
                 'name' => Str::slug($input['name'], '-'),
+                'uid' => Str::random(3).'-'.Str::random(4).'-'.Str::random(3),
                 'display_name' => $input['name'],
                 'description'=> $input['description'],
                 'address' => $input['address'],
@@ -453,12 +454,13 @@ class DashboardStoreController extends Controller
         if ($validator->fails()) {
             //dd($validator);
             return redirect()->back()
-           ->withErrors($validator)
-           ->withInput();
+            ->withErrors($validator)
+            ->withInput();
         } else {
 
             $field = Field::create([
                 'name' => Str::slug($input['name'], '-'),
+                'uid' => Str::random(3).'-'.Str::random(4).'-'.Str::random(3),
                 'display_name' => $input['name'],
                 'description'=> $input['description'],
                 'width' => $input['width'],
@@ -518,6 +520,7 @@ class DashboardStoreController extends Controller
             Mail::to($user->email)->send(new NewUser($user, $pass));
             $player = Player::create([
                 'user_id' => $user->id,
+                'uid' => Str::random(3).'-'.Str::random(4).'-'.Str::random(3),
                 'team_id' => $input['team_id'],
                 'edad' => $input['edad'],
                 'apodo' => $input['apodo'],
@@ -580,6 +583,7 @@ class DashboardStoreController extends Controller
 
             $referee = Referee::create([
                 'user_id' => $user->id,
+                'uid' => Str::random(3).'-'.Str::random(4).'-'.Str::random(3),
                 'name' => $input['name'],
                 'refereeType_id' => $input['referee_type_id'],
                 'league_id' => $input['league_id'],
@@ -654,6 +658,7 @@ class DashboardStoreController extends Controller
 
         $game = Game::create([
             'modality_id' => $input['modality_id'],
+            'uid' => Str::random(3).'-'.Str::random(4).'-'.Str::random(3),
             'tournament_id' => $input['tournament_id'],
             'field_id' => $input['field_id'],
             'start_time' => $input['start_time'],

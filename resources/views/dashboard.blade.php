@@ -27,6 +27,9 @@
         soy capitan
         @endrole
         
+        @role('team_administrator')
+        soy team_administrator
+        @endrole
         
         @role('referee')
         soy referee

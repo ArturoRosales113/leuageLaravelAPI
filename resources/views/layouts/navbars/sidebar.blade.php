@@ -152,53 +152,7 @@
                                 </li>
                             </ul>
                         </div>
-                    </li>
-                    
-                    {{-- Materiales --}}
-                    {{-- <li class="nav-item">
-                        <a class="nav-link" href="#materials-dropdown" data-toggle="collapse" role="button" aria-expanded="false" aria-controls="materials-dropdown">
-                            <i class="fas fa-table-tennis"></i>
-                            <span class="nav-link-text" >{{ __('Materiales') }}</span>
-                        </a>
-
-                        <div class="collapse" id="materials-dropdown">
-                            <ul class="nav nav-sm flex-column">
-                                <li class="nav-item">
-                                    <a class="nav-link" href="{{ route('materials.index') }}">
-                                        {{ __('Listar todas las materiales') }}
-                                    </a>
-                                </li>
-                                <li class="nav-item">
-                                    <a class="nav-link" href="{{ route('materials.create') }}">
-                                        {{ __('Crear materiales') }}
-                                    </a>
-                                </li>
-                            </ul>
-                        </div>
-                    </li> --}}
-
-                     {{-- Users --}}
-                    {{-- <li class="nav-item">
-                        <a class="nav-link" href="#users-dropdown" data-toggle="collapse" role="button" aria-expanded="false" aria-controls="users-dropdown">
-                            <i class="fas fa-table-tennis"></i>
-                            <span class="nav-link-text" >{{ __('Usuarios') }}</span>
-                        </a>
-
-                        <div class="collapse" id="users-dropdown">
-                            <ul class="nav nav-sm flex-column">
-                                <li class="nav-item">
-                                    <a class="nav-link" href="{{ route('users.index') }}">
-                                        {{ __('Listar usuarios') }}
-                                    </a>
-                                </li>
-                                <li class="nav-item">
-                                    <a class="nav-link" href="{{ route('users.create') }}">
-                                        {{ __('Crear usuarios') }}
-                                    </a>
-                                </li>
-                            </ul>
-                        </div>
-                    </li> --}}
+                    </li>                    
 
                     {{-- locations o estadios --}}
                     <li class="nav-item" onclick="Functionuno()">

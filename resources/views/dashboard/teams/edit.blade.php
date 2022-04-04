@@ -44,18 +44,17 @@
                                 <select class="form-control" name="league_id" placeholder="Selecciona una liga">
                                     <option selected value="0">Selecciona una opción</option>
                                     @foreach ($leagues as $l)
-                                        <option  {{ old('league_id') == $l->id || $team->id == $l->id ? 'selected' : '' }} value="{{ $l->id }}">{{ $l->name }}</option>
+                                        <option  {{ old('league_id') == $l->id || $team->league->id == $l->id ? 'selected' : '' }} value="{{ $l->id }}">{{ $l->name }}</option>
                                     @endforeach
                                 </select>
                             </div>
                         </div>
-                        @endhasanyrole
-                        
+                        @endhasanyrole                        
                         @hasanyrole('league_administrator')
-                         <input type="hidden" name="league_id" value="{{ auth()->user()->league->id }}">
+                            <input type="hidden" name="league_id" value="{{ auth()->user()->league->id }}">
                         @endhasanyrole
                         @hasanyrole('team_administrator')
-                         <input type="hidden" name="league_id" value="{{ $team->league->id }}">
+                            <input type="hidden" name="league_id" value="{{ $team->league->id }}">
                         @endhasanyrole
                         <div class="form-group row">
                             <label for="Description" class="col-sm-3 col-form-label">Descripción</label>
@@ -76,11 +75,7 @@
                                 <input type="file" class="custom-file-input" id="customFile" name="icon_path">
                                 <label class="custom-file-label" for="customFile">Subir icono</label>
                             </div>
-                        </div>
-
-                        <!-- Este es para crear el Usuario dueño del equipo -->
-
-                        
+                        </div>                        
                         <button class="btn btn-primary" type="submit">Guardar</button>                        
                     </form>
                 </div>

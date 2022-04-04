@@ -47,7 +47,7 @@
                                     </span>
                                 </th>
                                 <td>
-                                   {{ $f->name }}
+                                   {{ $f->display_name }}
                                 </td>
                                 <td>
                                     {{  $f->location->display_name }}

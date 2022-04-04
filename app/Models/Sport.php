@@ -13,10 +13,6 @@ class Sport extends Model
         'name', 'display_name','description','icon_path', 'img_path'
     ];
 
-    public function fields(){
-        return $this->hasMany(Field::class);
-    }
-
     public function leagues()
     {
         return $this->hasMany(League::class);

@@ -42,6 +42,7 @@ class TeamSeeder extends Seeder
 
                 $team = Team::create([
                     'name' => $this->faker->company().' '.$this->faker->companySuffix(),
+                    'uid' => Str::random(3).'-'.Str::random(4).'-'.Str::random(3),
                     'description' => $this->faker->text($maxNbChars = 200),
                     'icon_path' => 'seeders/team_logos/'.$i.'.png',
                     'img_path' =>  'seeders/team_portrait/'.$this->faker->numberBetween($min=1,$max=6).'.png',

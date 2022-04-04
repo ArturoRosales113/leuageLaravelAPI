@@ -9,7 +9,8 @@ class Referee extends Model
 {
     use HasFactory;
 
-    protected $fillable = [                
+    protected $fillable = [    
+        'uid',            
         'user_id',
         'refereeType_id',
         'numero',

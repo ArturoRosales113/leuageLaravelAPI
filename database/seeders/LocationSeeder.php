@@ -34,6 +34,7 @@ class LocationSeeder extends Seeder
                 $name = $this->faker->company().' '.$this->faker->companySuffix();
                 $location = Location::create([
                     'league_id' => $l->id,
+                    'uid' => Str::random(3).'-'.Str::random(4).'-'.Str::random(3),
                     'name' => Str::slug($name, '-'),
                     'display_name' => $name,
                     'description' => $this->faker->text($maxNbChars = 200),

@@ -42,6 +42,7 @@ class PlayerSeeder extends Seeder
 
                 $player = Player::create([
                     'user_id' => $user->id,
+                    'uid' => Str::random(3).'-'.Str::random(4).'-'.Str::random(3),
                     'team_id' => $t->id,
                     'numero' => $this->faker->numberBetween($min=1,$max=99),
                     'edad' => $this->faker->numberBetween($min=5,$max=70),

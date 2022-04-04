@@ -36,6 +36,7 @@ class LeagueSeeder extends Seeder
 
             $league = League::create([
                 'user_id' => $user->id,
+                'uid' => Str::random(3).'-'.Str::random(4).'-'.Str::random(3),
                 'name' => $this->faker->company().' '.$this->faker->companySuffix(),
                 'sport_id' => 1,
                 'icon_path' => 'seeders/league_icons/'.$this->faker->numberBetween($min=1,$max=6).'.png',

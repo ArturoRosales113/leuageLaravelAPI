@@ -38,6 +38,7 @@
                                 <th scope="col">Nombre</th>
                                 <th scope="col">Categorías</th>
                                 <th scope="col">No. Equipos</th>
+                                <th scope="col">Status</th>
                                 <th scope="col">Acción</th>
                             </tr>
                         </thead>
@@ -64,9 +65,22 @@
                                    {{ $lt->number_teams }}
                                 </td>
                                 <td>
+                                    {{ $lt->is_active ? 'activa' : 'suspendida' }}
+                                </td>
+                                <td>
                                     <a href="{{ route('tournaments.edit', $lt->id) }}" class="btn btn-icon btn-2 btn-primary">
                                         <span class="btn-inner--icon"><i class="far fa-edit"></i></span>
                                     </a>
+                                    <form method="POST" class="d-inline-block" action="{{ route('tournaments.active', $lt->id) }}">
+                                        {{ csrf_field() }}
+                                        {{ method_field('POST') }}
+                                        <div class="form-group">
+                                            <button class="btn btn-icon btn-2 {{ $lt->is_active ? 'btn-warning' : 'btn-success' }}" type="submit">
+                                                <span class="btn-inner--icon"><i class=" {{ $lt->is_active ? 'fas fa-ban' : 'fas fa-check' }}"></i></span>
+                                            </button>
+                                        </div>
+                                    </form>
+        
                                     <form method="POST" class="d-inline-block" action="{{ route('tournaments.delete', $lt->id) }}">
                                         {{ csrf_field() }}
                                         {{ method_field('DELETE') }}
@@ -77,6 +91,7 @@
                                             </button>
                                         </div>
                                     </form>
+                                    
                                 </td>
                             </tr>
                             @endforeach

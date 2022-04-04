@@ -21,11 +21,11 @@
                         </div>
                         <div class="col text-right">
                             @hasanyrole('league_administrator|super-admin|team_administrator')
-                            <button type="button" class="btn btn-sm btn-default" data-toggle="modal" data-target="#modalJugador">
-                           Crear Jugador
-                              </button>
-                             @endhasanyrole
-                             <a href="{{ route('teams.index') }}" class="btn btn-sm btn-default"><i class="fas fa-arrow-left"></i>&nbsp;Regresar</a>
+                                <button type="button" class="btn btn-sm btn-default" data-toggle="modal" data-target="#modalJugador">
+                                    Crear Jugador
+                                </button>
+                            @endhasanyrole
+                            <a href="{{ route('teams.index') }}" class="btn btn-sm btn-default"><i class="fas fa-arrow-left"></i>&nbsp;Regresar</a>
                         </div>
                     </div>
                 </div>    
@@ -44,6 +44,7 @@
                                 <th scope="col" data="edad">Edad</th>
                                 <th scope="col" data="peso">Peso</th>
                                 <th scope="col">Altura</th>
+                                <th scope="col">Status</th>
                                 <th scope="col">Acción</th>
                             </tr>
                         </thead>
@@ -79,28 +80,37 @@
                                 <td>
                                     {{ $pl->estatura . ' cm'}}
                                 </td>
+                                <td>
+                                    {{ $pl->is_active ? 'activa' : 'suspendida' }}
+                                </td>
                                 
-                                  <td>
+                                <td>
                                     <a href="{{ route('players.edit', $pl->id) }}" class="btn btn-icon btn-2 btn-primary">
                                         <span class="btn-inner--icon"><i class="far fa-edit"></i></span>
-                                    </a>
-        
+                                    </a>                                    
+                                    <form method="POST" class="d-inline-block" action="{{ route('players.active', $pl->id) }}">
+                                        {{ csrf_field() }}
+                                        {{ method_field('POST') }}
+                                        <div class="form-group">
+                                            <button class="btn btn-icon btn-2 {{ $pl->is_active ? 'btn-warning' : 'btn-success' }}" type="submit">
+                                                <span class="btn-inner--icon"><i class=" {{ $pl->is_active ? 'fas fa-ban' : 'fas fa-check' }}"></i></span>
+                                            </button>
+                                        </div>
+                                    </form>        
                                     <form method="POST" class="d-inline-block" action="{{ route('players.delete', $pl->id) }}">
                                         {{ csrf_field() }}
-                                        {{ method_field('DELETE') }}
-                                
+                                        {{ method_field('DELETE') }}                                
                                         <div class="form-group">
                                             <button class="btn btn-icon btn-2 btn-danger" type="submit">
                                                 <span class="btn-inner--icon"><i class="fas fa-trash"></i></span>
                                             </button>
                                         </div>
                                     </form>
-    
                                 </td>
                             </tr>    
                             @endforeach
                             @endhasanyrole
-                            @hasanyrole('')
+                            @hasanyrole('player')
                             @foreach ($team->players as $pl)
                             <tr>
                                 <th>
@@ -131,23 +141,13 @@
                                 <td>
                                     {{ $pl->estatura . ' cm'}}
                                 </td>
-                                
-                                  <td>
+                                <td>
+                                    {{ $pl->is_active ? 'activa' : 'suspendida' }}
+                                </td>                                
+                                <td>
                                     <a href="{{ route('players.edit', $pl->id) }}" class="btn btn-icon btn-2 btn-primary">
                                         <span class="btn-inner--icon"><i class="far fa-edit"></i></span>
-                                    </a>
-        
-                                    <form method="POST" class="d-inline-block" action="{{ route('players.delete', $pl->id) }}">
-                                        {{ csrf_field() }}
-                                        {{ method_field('DELETE') }}
-                                
-                                        <div class="form-group">
-                                            <button class="btn btn-icon btn-2 btn-danger" type="submit">
-                                                <span class="btn-inner--icon"><i class="fas fa-trash"></i></span>
-                                            </button>
-                                        </div>
-                                    </form>
-    
+                                    </a>         
                                 </td>
                             </tr>    
                             @endforeach
@@ -169,11 +169,11 @@
 {{-- Modal Jugador --}}
 <div class="modal fade" id="modalJugador" tabindex="-1" aria-labelledby="modalJugador" aria-hidden="true">
     <div class="modal-dialog modal-lg">
-      <div class="modal-content">
+        <div class="modal-content">
         <div class="modal-header">
-          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-          </button>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
         </div>
         <div class="modal-body">
             <div class="col-12 border-primary">
@@ -199,6 +199,6 @@
                 </div>
             </div>
         </div>
-      </div>
     </div>
-  </div>
+    </div>
+</div>

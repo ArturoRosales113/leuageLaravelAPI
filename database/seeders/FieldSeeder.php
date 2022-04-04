@@ -34,6 +34,7 @@ class FieldSeeder extends Seeder
 
                 $field = Field::create([
                     'name' => Str::slug($name, '-'),
+                    'uid' => Str::random(3).'-'.Str::random(4).'-'.Str::random(3),
                     'display_name' => $name,
                     'description' => $this->faker->text($maxNbChars = 200),
                     'location_id' => $l->id,

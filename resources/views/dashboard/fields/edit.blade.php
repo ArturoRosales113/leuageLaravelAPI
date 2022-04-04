@@ -63,13 +63,13 @@
                                 <div class="col-sm-9">
                         
                                     <select class="custom-select" name="location_id">
-                                        <option value="{{ $field->id }}">{{ $field->name }}</option>
+                                        <option value="{{ $field->location->id }}">{{ $field->location->name }}</option>
                                     </select>
                                     
                                     
                                 </div>
                             </div>
-                        
+                            
                             <div class="form-group row">
                                 <label for="Material" class="col-sm-3 col-form-label">Material</label>
                                 <div class="col-sm-9">
@@ -78,7 +78,7 @@
                                         @foreach ($materials as $m)
                                         <option {{ old('material_id') == $m->id || $field->material_id == $m->id ? 'selected' : ''}} value="{{ $m->id }}">{{ $m->display_name }}</option>`
                                         @endforeach
-                                      </select>
+                                    </select>
                                 </div>
                             </div>
                             <div class="form-group row">
