@@ -67,7 +67,7 @@
                                 {{ $lg->is_active ? 'activa' : 'suspendida' }}
                             </td>
                             <td>
-                                <a href="{{ route('leagues.active', $lg->id) }}" class="btn btn-icon btn-2 btn-primary">
+                                <a href="{{ route('leagues.edit', $lg->id) }}" class="btn btn-icon btn-2 btn-primary">
                                     <span class="btn-inner--icon"><i class="far fa-edit"></i></span>
                                 </a>
     

@@ -30,7 +30,7 @@ use App\Http\Traits\ImageManagerTrait;
 class DashboardUpdateController extends Controller
 {
       //Manipulacion de assets
-      use ImageManagerTrait;
+    use ImageManagerTrait;
 //
     public function sports(Request $request, $id)
     {
@@ -310,48 +310,42 @@ class DashboardUpdateController extends Controller
     }
     public function modalities(Request $request, $id)
     {
-          $input = $request->all();
+        $input = $request->all();
           //dd($input);
-          $rules = [
-              'name' => 'required',
-              'description' => 'max:1000',
-              'icon_path' => 'max:3000|mimes:jpg,bmp,png',
-              'img_path' => 'max:3000|mimes:jpg,bmp,png'
-          ];
-   
-          $validator = Validator::make($input, $rules);
-          if ($validator->fails()) {
-              //dd($validator);
-              return redirect()->back()
-             ->withErrors($validator)
-             ->withInput();
-          } else {
-  
-              $modalitie = Modalitie::find($id);
-              $modalitie->name =  Str::slug($input['name'], '-');
-              $modalitie->display_name = $input['name'];
-              $modalitie->description = $input['description'];
-  
-              if (array_key_exists('icon_path', $input) && $input['icon_path'] != null) {
+        $rules = [
+            'name' => 'required',
+            'description' => 'max:1000',
+            'icon_path' => 'max:3000|mimes:jpg,bmp,png',
+            'img_path' => 'max:3000|mimes:jpg,bmp,png'
+        ];
+        $validator = Validator::make($input, $rules);
+        if ($validator->fails()) {        
+            return redirect()->back()
+                ->withErrors($validator)
+                ->withInput();
+        } else {
+            $modalitie = Modalitie::find($id);
+            $modalitie->name =  Str::slug($input['name'], '-');
+            $modalitie->display_name = $input['name'];
+            $modalitie->description = $input['description'];
+            if (array_key_exists('icon_path', $input) && $input['icon_path'] != null) {
                 if($modalitie->icon_path != null){
                     $this->deleteAsset($modalitie->icon_path);
-                 }
-                  $iconFile = $request->file('icon_path');
-                  $modalitie->icon_path = $this->createIcon($iconFile);
-              }
-              if (array_key_exists('img_path', $input) && $input['img_path'] != null) {
+                }
+                $iconFile = $request->file('icon_path');
+                $modalitie->icon_path = $this->createIcon($iconFile);
+            }
+            if (array_key_exists('img_path', $input) && $input['img_path'] != null) {
                 if($modalitie->img_path != null){
                     $this->deleteAsset($modalitie->img_path);
-                 }
-                  $imageFile = $request->file('img_path');
-                  $modalitie->img_path = $this->createImage($imageFile);
-              }
-  
-              $modalitie->save();
-  
-              Alert::success('Éxito', 'Modalidad editada');
-              return redirect()->route('modalities.index');
-          }
+                }
+                $imageFile = $request->file('img_path');
+                $modalitie->img_path = $this->createImage($imageFile);
+            }
+            $modalitie->save();
+            Alert::success('Éxito', 'Modalidad editada');
+            return redirect()->route('modalities.index');
+        }
     }
   //
     public function locations(Request $request, $id)
@@ -419,23 +413,21 @@ class DashboardUpdateController extends Controller
             'icon_path' => 'max:3000|mimes:jpg,bmp,png',
             'img_path' => 'max:3000|mimes:jpg,bmp,png'
         ];
-   
-          $validator = Validator::make($input, $rules);
-          if ($validator->fails()) {
+        $validator = Validator::make($input, $rules);
+        if ($validator->fails()) {
               //dd($validator);
-              return redirect()->back()
-             ->withErrors($validator)
-             ->withInput();
-          } else {
-  
-              $field = Field::find($id);
-              $field->name = Str::slug($input['name'], '-');
-              $field->display_name = $input['name'];
-              $field->description = $input['description'];
-              $field->width = $input['width'];
-              $field->height = $input['height'];
-              $field->location_id = $input['location_id']; 
-              $field->material_id = $input['material_id']; 
+            return redirect()->back()
+                ->withErrors($validator)
+                ->withInput();
+        } else {
+            $field = Field::find($id);
+            $field->name = Str::slug($input['name'], '-');
+            $field->display_name = $input['name'];
+            $field->description = $input['description'];
+            $field->width = $input['width'];
+            $field->height = $input['height'];
+            $field->location_id = $input['location_id']; 
+            $field->material_id = $input['material_id']; 
             if (array_key_exists('icon_path', $input) && $input['icon_path'] != null) {
                 if($field->icon_path != null){
                     $this->deleteAsset($field->icon_path);

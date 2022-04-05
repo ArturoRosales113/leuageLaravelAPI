@@ -110,6 +110,53 @@
                             </tr>    
                             @endforeach
                             @endhasanyrole
+                            @hasanyrole('team_administrator')
+                            @foreach (Auth::user()->team->players as $pl)
+                            <tr>
+                                <th>
+                                    <span class="rounded-circle border-b avatar">
+                                        <img alt="Image placeholder" src="{{ $pl->icon_path == null ? asset('argon/img/theme/team-4-800x800.jpg') :asset( $pl->icon_path) }}">
+                                    </span>
+                                </th>
+                                <td>
+                                    <a href="{{ route('players.show', $pl->id) }}">
+                                        {{ $pl->user->name }}
+                                    </a>
+                                </td>
+                                <td>
+                                    {{ $pl->apodo }}
+                                </td>
+                                <td>
+                                    {{ $pl->numero }}
+                                </td>
+                                <td>
+                                    {{ $pl->posicion }}
+                                </td>
+                                <td>
+                                    {{ $pl->edad }}
+                                </td>
+                                <td>
+                                    {{ $pl->peso . ' kg' }}
+                                </td>
+                                <td>
+                                    {{ $pl->estatura . ' cm'}}
+                                </td>
+                                <td>
+                                    {{ $pl->is_active ? 'activa' : 'suspendida' }}
+                                </td>                                
+                                <td>
+                                    <a href="{{ route('players.show', $pl->id) }}" class="btn btn-primary">
+                                       <i class="fas fa-info-circle"></i>
+                                    </a>
+                                    @if(Auth::user()->team->id == $team->id )
+                                    <a href="{{ route('players.edit', $pl->id) }}" class="btn btn-icon btn-2 btn-primary">
+                                        <span class="btn-inner--icon"><i class="far fa-edit"></i></span>
+                                    </a>    
+                                    @endif
+                                </td>
+                            </tr>    
+                            @endforeach
+                            @endhasanyrole
                             @hasanyrole('player')
                             @foreach ($team->players as $pl)
                             <tr>

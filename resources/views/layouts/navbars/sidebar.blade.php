@@ -15,13 +15,10 @@
         </a>
         <!-- <p><span>{{ auth()->user()->name }}</span></p> -->
         
-        <!-- User -->
-       
+        <!-- User -->       
         <button class="ocultarMenu desactivar" onclick="Functiondos()">
             <img src="{{ asset('argon') }}/img/icons/menui.svg" class="sidem" alt="">
-        </button>
-     
-
+        </button>     
         <ul class="nav align-items-center d-md-none">
             <li class="nav-item dropdown">
                 <a class="nav-link" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -371,7 +368,7 @@
 
                 @endhasanyrole
 
-                @hasanyrole('captain')
+                @hasanyrole('team_administrator')
                     {{-- Capitán --}}
                     <li class="nav-item" onclick="Functionuno()">
                         <a class="nav-link" href="#referees-dropdown" data-toggle="collapse" role="button" aria-expanded="false" aria-controls="referees-dropdown">
@@ -382,13 +379,13 @@
                         <div class="collapse" id="referees-dropdown">
                             <ul class="nav nav-sm flex-column">
                                 <li class="nav-item">
-                                    <a class="nav-link" href="{{ route('teams.show', auth()->user()->player->team->id) }}">
+                                    <a class="nav-link" href="{{ route('teams.show', auth()->user()->team->id) }}">
                                         {{ __('Listar equipo') }}
                                     </a>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link" href="{{ route('players.show', auth()->user()->player->id) }}">
-                                        {{ __('Mi perfil') }}
+                                    <a class="nav-link" href="{{ route('teams.edit', auth()->user()->team->id) }}">
+                                        {{ __('Editar Informacion de equipo') }}
                                     </a>
                                 </li>
                             </ul>

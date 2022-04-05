@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use RealRashid\SweetAlert\Facades\Alert;
 use Illuminate\Http\Request;
+use Illuminate\Support\Str;
 
 use App\Models\Tournament;
 use App\Models\Team;
@@ -38,6 +39,7 @@ class TournamentSetUpController extends Controller
                     $team2 = Team::find($game[1]);
                     $sg = Game::create([
                         'modality_id' => 1,
+                        'uid' => Str::random(3).'-'.Str::random(4).'-'.Str::random(3),
                         'tournament_id' => $tournament->id,
                         'ronda' => $i,                        
                     ]);

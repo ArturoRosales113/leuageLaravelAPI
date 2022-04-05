@@ -6,24 +6,15 @@
     @include('users.partials.leagues')
 
 <div class="container-fluid">
-
-
     @if ($tournament->teams->count() < $tournament->number_teams)
-
-
-
         <div class="card shadow mt-8">
             <div class="card-header border-0">
                 <div class="row align-items-center">
                     <div class="col">
                         <h3 class="mb-0">Mis Equipos</h3>
                     </div>
-                    <div class="col text-right">
-                        {{-- <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modalEquipo">
-                            Crear Equipo
-                        </button>
-                         --}}
-                         {{ $tournament->number_teams-$tournament->teams->count() }}
+                    <div class="col text-right">                        
+                        {{ $tournament->number_teams-$tournament->teams->count() }}
                     </div>
                 </div>
             </div>
@@ -62,10 +53,8 @@
                                     {{ $t->user->name }}
                                     <br>
                                     {{ $t->user->email }}
-
                                 </td>
                                 <td>
-
                                     <form method="POST" class="d-inline-block" action="{{ route('tournaments.addTeam') }}">
                                         {{ csrf_field() }}
                                         <input type="hidden" name="tournament_id" value="{{ $tournament->id }}">
@@ -84,7 +73,6 @@
                 </table>
             </div>
         </div>
-
         @else
         <div class="row mt-5 py-3">
             <div class="col">
@@ -92,9 +80,16 @@
             <a class="btn btn-sm btn-default" href="{{ route('tournaments.getEstadisticas', $tournament->id) }}">Estadisticas</a>
             <a class="btn btn-sm btn-default" href="{{ route('tournaments.getOportunidades', $tournament->id) }}">Oportunidades</a>
             </div>
-            <div class="col text-right">
-                <a href="{{ route('leagues.show' , $tournament -> league_id  ) }}" class="btn btn-sm btn-default"><i class="fas fa-arrow-left"></i>&nbsp;Regresar</a>
-            </div>
+            @hasanyrole('super-admin|league_administrator')
+                <div class="col text-right">
+                    <a href="{{ route('leagues.show' , $tournament -> league_id  ) }}" class="btn btn-sm btn-default"><i class="fas fa-arrow-left"></i>&nbsp;Regresar</a>
+                </div>
+            @endhasanyrole
+            @hasanyrole('team_administrator|player|referee')
+                <div class="col text-right">
+                    <a href="{{ route('home') }}" class="btn btn-sm btn-default"><i class="fas fa-arrow-left"></i>&nbsp;Regresar</a>
+                </div>
+            @endhasanyrole
         </div>
         <div class="card shadow">
             <div class="card-header border-0">
@@ -102,7 +97,6 @@
                     <div class="col">
                         <h3 class="mb-0">Calendarios de encuentros</h3>
                     </div>
-
                     <div class="col text-right">
                         @if (!$tournament->games()->exists() )
                         <a class="btn btn-sm btn-default" href="{{ route('tournaments.setGames', $tournament->id) }}">
@@ -116,7 +110,6 @@
                 <div class="row justify-content-around">
                     @foreach ($tournament->games->groupBy('ronda') as $ronda=>$rid)
                         <div class="col-12 col-md-6 col-lg-5 mb-4">
-
                             <div class="card">
                                 <div>
                                     <div class="centro jornada">Jornada {{ $ronda }}</div>
@@ -135,18 +128,16 @@
                                                     <span>VS</span>
                                                 </div>
                                             @endif
-                                            @endforeach
-                                                
+                                            @endforeach                                                
                                         </div>
                                         <div class="row justify-content-center details-card">                                        
                                                 @if ($tgs->field_id != null)
                                                 <div class="col-12 pdItem">
                                                     <h5 class="yellow centro">Estadio</h5>
                                                     <p class="centro">{{ $tgs->field->location->name }} // {{ $tgs->field->name }}</p>
-                                                  
+                                                
                                                 </div>
-                                                @endif
-                                        
+                                                @endif                                        
                                                 @if ($tgs->referees()->exists())
                                                 <div class="col-6 pdItem">
                                                     <h5 class="yellow">Arbitros</h5>
@@ -162,30 +153,26 @@
                                                 </div>
                                                 @endif
                                         </div>
+                                        @hasanyrole('super-admin|league_administrator')
                                         <div class="botones_encentros">
                                             <a class="btn btn-sm btn-default redBtn btnFull" href="{{ route('games.edit', $tgs->id) }}">
                                                 Editar <span>{{ $tgs->id }}</span>
                                             </a>
-                                            <a class="btn btn-sm btn-default redBtn btnFull" href="{{ 'http://playmate.playmakerleagues.com.mx/#/juego/'.$tgs->id }}" target="_blank">
+                                            <a class="btn btn-sm btn-default redBtn btnFull" href="{{ 'http://playmate.playmakerleagues.com.mx/#/juego/'.$tgs->uid }}" target="_blank">
                                                 Iniciar encuentro <span>{{ $tgs->id }}</span>
                                             </a>
                                         </div>
+                                        @endhasanyrole
                                         @endforeach
                                     </div>
                                 </div>
                             </div>
                         </div>
-
                     @endforeach
                 </div>
             </div>
         </div>
-
     @endif
-
-
-
-
     @include('layouts.footers.auth')
 </div>
 

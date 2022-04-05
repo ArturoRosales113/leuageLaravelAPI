@@ -7,7 +7,13 @@
 
 
     <div class="container-fluid">
-    
+        <div class="row mt-5 py-3">
+            <div class="col">
+            <a class="btn btn-sm btn-default" href="{{ route('tournaments.getTable', $tournament->id) }}">Tabla de posiciones</a>
+            <a class="btn btn-sm btn-default" href="{{ route('tournaments.getEstadisticas', $tournament->id) }}">Estadisticas</a>
+            <a class="btn btn-sm btn-default" href="{{ route('tournaments.getOportunidades', $tournament->id) }}">Oportunidades</a>
+            </div>
+        </div>
     <div class="card mt-5">
             <div class="card-header border-0">
                 <div class="row align-items-center">
