@@ -98,7 +98,7 @@
                         </tr>
                         <tr>
                             <th scope="row">
-                            Robos
+                                Rebotes defensivos
                             </th>
                             <td class="right">
                                 {{ $player->actions()->robos()->count() }}

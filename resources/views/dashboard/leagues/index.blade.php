@@ -64,7 +64,7 @@
                                 {{ $lg->teams->count() }}
                             </td>
                             <td>
-                                {{ $lg->is_active ? 'activa' : 'suspendida' }}
+                                <span class="estatus">{{ $lg->is_active ? 'Activa' : 'Inactiva' }}</span>
                             </td>
                             <td>
                                 <a href="{{ route('leagues.edit', $lg->id) }}" class="btn btn-icon btn-2 btn-primary">

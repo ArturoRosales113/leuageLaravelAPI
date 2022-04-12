@@ -57,7 +57,7 @@
                                 {{ $t->players->count() }}
                             </td>
                             <td>
-                                {{ $t->is_active ? 'activo' : 'suspendido' }}
+                                <span class="estatus">{{ $t->is_active ? 'Activo' : 'Inactivo' }}</span>
                             </td>
                             <td>
                                 <a href="{{ route('teams.edit', $t->id) }}" class="btn btn-icon btn-2 btn-primary">
@@ -89,10 +89,11 @@
                         @endforeach
                     </tbody>
                 </table>
-                {{ $teams->onEachSide(5)->links() }}
+                
             </div>
+            
         </div>
-
+        {{ $teams->onEachSide(5)->links() }}
 
         @include('layouts.footers.auth')
     </div>
