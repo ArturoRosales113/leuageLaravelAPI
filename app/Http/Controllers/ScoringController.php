@@ -17,7 +17,7 @@ class ScoringController extends Controller
 {
     public function gameSetup($id)
     {
-        $game = Game::with('referees')->findOrFail($id);
+        $game = Game::with('referees')->where('uid','=',$id)->first();
         $teams = $game->teams;
         $tournament = $game->tournament;
         $sport = $game->tournament->league->sport;
@@ -25,8 +25,7 @@ class ScoringController extends Controller
         $game['teams'][1]['players'] = Player::with('user')->where('team_id','=', $teams[1]->id)->get();
         $game['teams'][0]['score'] = 0;
         $game['teams'][1]['score'] = 0;
-        $game['teams'][0]['faltas'] = 0;
-        $game['teams'][1]['faltas'] = 0;
+
 
         return response()->json([
             'game' => $game,
@@ -60,6 +59,25 @@ class ScoringController extends Controller
             'time' => $request->time,
             'period' => $request->period
         ]);
+        return response()->json([
+            'action' => $action,
+        ], 200);
+        
+    }
+
+    public function addExpulsion(Request $request)
+    {
+        $action = Action::create([
+            'name' => $request->name,
+            'player_id'=> $request->player_id,
+            'game_id'=> $request->game_id,
+            'value'=> $request->value,
+            'time' => $request->time,
+            'period' => $request->period
+        ]);
+        $player = Player::findOrFail($request->player_id);
+        $player->is_active = false;
+        $player->save();
         return response()->json([
             'action' => $action,
         ], 200);
@@ -102,6 +120,7 @@ class ScoringController extends Controller
 
         $tournamentUpdate = Tournament::with('teams')->find($request->tournament_id);
         
+        $game->save();
 
 
         return response()->json([

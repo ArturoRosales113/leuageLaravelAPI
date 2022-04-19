@@ -146,7 +146,7 @@
                                 </td>                                
                                 <td>
                                     <a href="{{ route('players.show', $pl->id) }}" class="btn btn-primary">
-                                       <i class="fas fa-info-circle"></i>
+                                        <i class="fas fa-info-circle"></i>
                                     </a>
                                     @if(Auth::user()->team->id == $team->id )
                                     <a href="{{ route('players.edit', $pl->id) }}" class="btn btn-icon btn-2 btn-primary">

@@ -49,6 +49,7 @@ Route::group(['middleware' => ['cors']], function () {
     Route::post('gameSetup/addScore', [ScoringController::class, 'addScore'])->name('game.addScore');
     Route::post('gameSetup/addAction', [ScoringController::class, 'addAction'])->name('game.addAction');
     Route::post('gameSetup/finishGame', [ScoringController::class, 'finishGame'])->name('game.finishGame');
+    Route::post('gameSetup/addExpulsion', [ScoringController::class, 'addExpulsion'])->name('game.addExpulsion');
 });
 Route::middleware('auth:sanctum')->get('/userStatus', function (Request $request) {
     return $request->user();
