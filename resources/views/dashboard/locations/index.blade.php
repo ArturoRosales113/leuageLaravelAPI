@@ -70,7 +70,7 @@
                                         {{ $lo->city }}
                                     </td>
                                     <td>
-                                        {{ $lo->is_active ? 'activa' : 'suspendida' }}
+                                        <span class="estatus">{{ $lo->is_active ? 'Activo' : 'Inactivo' }}</span>
                                     </td>
                                     <td>                                    
                                         {{$lo->tipo_estadio}}                                     
@@ -108,8 +108,12 @@
                     </table>
                 </div>
             </div>
+            {{ $locations->onEachSide(5)->links() }}
         </div>
+
         @hasanyrole('super-admin')
+
+
         <div class="col-10">
             <div class="card shadow mt-4">
                 <div class="card-header border-0">
